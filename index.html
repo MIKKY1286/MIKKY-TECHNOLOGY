@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MIKKY TECHNOLOGIES</title>
+  <link rel="shortcut icon" href="./images/Screenshot_2024-11-16_205754-removebg-preview.png" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <nav class="navbar">
+    <div class="logo">
+      <a href="#home">
+        <img src="./images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
+      </a>
+      <h2>MIKKY TECHNOLOGY</h2>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li class="dropdown">
+        <a href="#">About us</a>
+        <div class="dropdown-content">
+          <a href="#">Project</a>
+          <a href="#">Tools</a>
+          <a href="#">Frontend</a>
+          <a href="#">Backend</a>
+        </div>
+      </li>
+      <li><a href="#">Our Services</a></li>
+      <li><a href="#">Location</a></li>
+      <li>|</li>
+      <li><a href="#">Sign up</a></li>
+      <li><a href="#">Log in</a></li>
+    </ul>
+    <div class="menu-icon" id="menu-icon">
+      <i class='bx bx-menu'></i>
+    </div>
+  </nav>
+  
+  
+
+  <section class="top home hero">
+    <div class="hero-content">
+      <h2>Welcome to  <br>Mikky Technology<br> official website
+      </h2>
+      <p>Our cliants are our pride.
+      </p>
+      <a href="#" class="cta-btn">Try to locate us</a>
+      <a href="#" class="cta-btn-secondary">View our services</a>
+      <p style="font-size: 11px;">we are available to offer you our best service in web Development, posters and flier making and logo design at an affordable price.</p>
+    </div>
+    <div class="hero-image">
+      <img  src="./images/10.gif" alt="">
+    </div>
+  </section>
+  
+
+<!-- 
+  <section class="plans">
+    <div class="plan">
+      <h3>Individual</h3>
+      <p>$10/month</p>
+    </div>
+    <div class="plan">
+      <h3>Duo</h3>
+      <p>$15/month</p>
+    </div>
+    <div class="plan">
+      <h3>Family</h3>
+      <p>$20/month</p>
+    </div>
+  </section>
+
+  <section class="features">
+    <h2>Why Go Premium?</h2>
+    <div class="feature">
+      <i class="icon">🎵</i>
+      <p>Ad-free music listening</p>
+    </div>
+    <div class="feature">
+      <i class="icon">📴</i>
+      <p>Offline mode</p>
+    </div>
+    <div class="feature">
+      <i class="icon">🔊</i>
+      <p>High-quality audio</p>
+    </div>
+  </section> -->
+
+<!-- order section -->
+
+  <section>
+    <div class="order-section">
+      <h2>Place Your Order</h2>
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="phone">Phone Number</label>
+          <input type="tel" id="phone" name="phone" placeholder="Enter your phone number" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="order-type">Order Type</label>
+          <select id="order-type" name="order-type" required>
+            <option value="" disabled>Select an order type</option>
+            <option value="webpage">Webpage</option>
+            <option value="flyer">Flier</option>
+            <option value="poster">Poster</option>
+            <option value="brochure">Brochure</option>
+            <option value="business-card">Business Card</option>
+          </select>
+        </div>
+  
+        <div class="form-group">
+          <label for="delivery-date">Preferred Delivery Date</label>
+          <input type="date" id="delivery-date" name="delivery-date" required>
+        </div>
+  
+        <div class="form-group">
+          <label for="details">Order Details</label>
+          <textarea id="details" name="details" placeholder="Provide specific details for your order"></textarea>
+        </div>
+  
+        <button type="submit">Submit Order</button>
+      </form>
+      <div class="confirmation" id="confirmationMessage"></div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <a href="#top"><img src="./images/Screenshot_2024-11-16_205754-removebg-preview.png" alt=""></a>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Jobs</a></li>
+          <li><a href="#">For the Record</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Careers</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Communities</h4>
+        <ul>
+          <li><a href="#">For Artists</a></li>
+          <li><a href="#">Developers</a></li>
+          <li><a href="#">Advertising</a></li>
+          <li><a href="#">Investors</a></li>
+          <li><a href="#">Vendors</a></li>
+          <li><a href="#">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#">Free Mobile App</a></li>
+          <li><a href="#">Web Player</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Contact</a></li> 
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-social">
+        <a href="#"><i class='bx bxl-facebook' ></i></a>
+        <a href="#"><i class='bx bxl-twitter'></i></a>
+        <a href="#"><i class='bx bxl-instagram'></i></a>
+        <a href="#"><i class='bx bxl-linkedin' ></i></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+     <div class="footer-bottom-left">
+      <ul>
+        <li><a href="">About Us</a></li>
+        <li><a href="">Location</a></li>
+        <li><a href="">Support</a></li>
+        <li><a href="">Achivement</a></li>
+      </ul>
+     </div>
+     <div class="footer-bottom-right">
+      <ul>
+        <li>Copyright</li>
+       <li >&copy; 2025</li>
+       <li>Mikky Technology</li> 
+      </ul>
+     </div>
+    </div>
+  </footer>
+  
+  
+  <script src="./script.js"></script>
+</body>
+</html>
