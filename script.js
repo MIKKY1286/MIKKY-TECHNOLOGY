@@ -1,8 +1,9 @@
-document.getElementById('menu-icon').addEventListener('click', function () {
-    const navLinks = document.getElementById('nav-links');
-    navLinks.classList.toggle('show'); // Toggles navbar visibility
-  });
-  
+const menuIcon = document.getElementById('menu-icon');
+const navLinks = document.getElementById('nav-links');
+
+menuIcon.addEventListener('click', () => {
+  navLinks.classList.toggle('show');
+});
 
   // place order
 
