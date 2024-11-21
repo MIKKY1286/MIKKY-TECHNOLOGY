@@ -6,36 +6,41 @@ menuIcon.addEventListener('click', () => {
 });
 
   // place order
+// Initialize EmailJS with your User ID
+(function() {
+  emailjs.init('your_emailjs_user_id'); // Replace with your EmailJS User ID
+})();
 
-  (function() {
-    emailjs.init(''); 
-  })();
+// Add event listener to the form
+document.getElementById('orderForm').addEventListener('submit', function(event) {
+  event.preventDefault(); // Prevent default form submission
 
-  document.getElementById('orderForm').addEventListener('submit', function(event) {
-    event.preventDefault(); // Prevent default form submission
-  
-    // Collect form data
-    const formData = {
-      name: document.getElementById('name').value,
-      email: document.getElementById('email').value,
-      phone: document.getElementById('phone').value,
-      order_type: document.getElementById('order-type').value,
-      delivery_date: document.getElementById('delivery-date').value,
-      details: document.getElementById('details').value,
-    };
-  
-    // Send form data via EmailJS
-    emailjs.send('service_ap0twre', 'template_he9wyin', formData, 'KaDpj-tt1XwtKgihx')
-      .then((response) => {
+  // Collect form data
+  const formData = {
+    name: document.getElementById('name').value,
+    email: document.getElementById('email').value,
+    phone: document.getElementById('phone').value,
+    order_type: document.getElementById('order-type').value,
+    delivery_date: document.getElementById('delivery-date').value,
+    details: document.getElementById('details').value,
+  };
+
+  // Send form data via EmailJS
+  emailjs
+    .send('service_ap0twre', 'template_he9wyin', formData, 'your_emailjs_user_id') // Replace placeholders
+    .then(
+      (response) => {
         console.log('SUCCESS!', response.status, response.text);
         document.getElementById('confirmationMessage').textContent = 'Order submitted successfully!';
         document.getElementById('confirmationMessage').style.display = 'block';
         document.getElementById('confirmationMessage').style.color = 'green';
         document.getElementById('orderForm').reset();
-      }, (error) => {
+      },
+      (error) => {
         console.error('FAILED...', error);
         document.getElementById('confirmationMessage').textContent = 'Failed to submit order. Please try again.';
         document.getElementById('confirmationMessage').style.display = 'block';
         document.getElementById('confirmationMessage').style.color = 'red';
-      });
-  });
+      }
+    );
+});

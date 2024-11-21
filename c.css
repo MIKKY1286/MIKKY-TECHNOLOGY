@@ -1,0 +1,27 @@
+@media (max-width: 950px){
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        background-color: #ffffff;
+        position: absolute;
+        top: 60px;
+        right: 1px;
+        width: 00px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        z-index: 1000;
+      }
+    
+      .nav-links.show {
+        display: flex;
+      }
+    
+      .nav-links li {
+        margin: 10px 0;
+      }
+    
+      .dropdown-content {
+        position: relative;
+      }
+}
