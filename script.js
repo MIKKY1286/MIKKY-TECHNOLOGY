@@ -8,13 +8,13 @@ menuIcon.addEventListener('click', () => {
   // place order
 // Initialize EmailJS with your User ID
 (function() {
-  emailjs.init('your_emailjs_user_id'); // Replace with your EmailJS User ID
+  emailjs.init('kB2hGEEEYAYTlYaKb'); // Replace with your EmailJS User ID
 })();
 
 // Add event listener to the form
 document.getElementById('orderForm').addEventListener('submit', function(event) {
   event.preventDefault(); // Prevent default form submission
-
+  
   // Collect form data
   const formData = {
     name: document.getElementById('name').value,
@@ -27,7 +27,7 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
 
   // Send form data via EmailJS
   emailjs
-    .send('service_ap0twre', 'template_he9wyin', formData, 'your_emailjs_user_id') // Replace placeholders
+    .send('service_ap0twre', 'template_he9wyin', formData, 'kB2hGEEEYAYTlYaKb') // Replace placeholders
     .then(
       (response) => {
         console.log('SUCCESS!', response.status, response.text);
