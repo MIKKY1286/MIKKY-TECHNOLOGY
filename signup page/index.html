@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>MikkyTech-SignUp Page</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+          <a href="../index.html">
+            <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
+          </a>
+          <h2 class="one">MIKKY TECHNOLGY</h2>
+          <h2 class="two">TECH AT IT FINEST</h2>
+        </div>
+        <ul class="nav-links" id="nav-links">
+          <li class="dropdown">
+            <a href="../about us/index.html">About us</a>
+            <div class="dropdown-content">
+              <a href="#">Mission</a>
+              <a href="#">Values</a>
+              <a href="#">Accomplishment</a>
+            </div>
+          </li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Location</a></li>
+          <li>|</li>
+          <li><a href="#">Sign up</a></li>
+          <li><a href="../login page/index.html">Log in</a></li>
+        </ul>
+        <div class="menu-icon" id="menu-icon">
+          &#9776;
+        </div>
+      </nav>
+
+  <div class="body">
+    <div class="signup-container">
+        <h1>Sign Up</h1>
+        <form id="signupForm">
+          <input type="text" id="username" placeholder="Username" required>
+          <input type="email" id="email" placeholder="Email" required>
+          <input type="password" id="password" placeholder="Password" required>
+          <input type="password" id="confirmPassword" placeholder="Confirm Password" required>
+          <button type="submit">Sign Up</button>
+        </form>
+        <p>Already have an account? <a href="../login page/index.html">Log in</a></p>
+      </div>
+  </div>
+  <script src="./script.js"></script>
+</body>
+</html>
