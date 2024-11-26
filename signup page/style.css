@@ -145,7 +145,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f4f4f9;
+    /* background-color: #f4f4f9; */
   }
   
   .signup-container {
