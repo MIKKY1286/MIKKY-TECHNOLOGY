@@ -17,12 +17,12 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
   
   // Collect form data
   const formData = {
-    name: document.getElementById('name').value,
+    from_name: document.getElementById('name').value,
     email: document.getElementById('email').value,
-    phone: document.getElementById('phone').value,
-    order_type: document.getElementById('order-type').value,
-    delivery_date: document.getElementById('delivery-date').value,
-    details: document.getElementById('details').value,
+    // phone: document.getElementById('phone').value,
+    // order_type: document.getElementById('order-type').value,
+    // delivery_date: document.getElementById('delivery-date').value,
+    message: document.getElementById('message').value,
   };
 
   // Send form data via EmailJS
@@ -38,7 +38,7 @@ document.getElementById('orderForm').addEventListener('submit', function(event) 
       },
       (error) => {
         console.error('FAILED...', error);
-        document.getElementById('confirmationMessage').textContent = 'Failed to submit order. Please try again.';
+        document.getElementById('confirmationMessage').textContent = 'Failed to Place order. Please try again.';
         document.getElementById('confirmationMessage').style.display = 'block';
         document.getElementById('confirmationMessage').style.color = 'red';
       }
