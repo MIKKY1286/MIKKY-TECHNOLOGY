@@ -98,6 +98,7 @@
     display: none;
     font-size: 24px;
     cursor: pointer;
+    color: rgb(0, 255, 0);
   }
   
   /* Responsive Styles */
