@@ -222,7 +222,7 @@ body {
 } 
 
 .hero-image {
-  /* background: url('./images/Screenshot_2024-11-16_205754-removebg-preview.png') no-repeat center center/cover; */
+  /* background: url('./images/promo-removebg-preview.png') no-repeat center center/cover; */
   width: 50%;
   height: 100%; 
 }
@@ -314,7 +314,7 @@ body {
   }
 
   .hero-image{
-    display: none;
+    /* display: none; */
   }
 }
 
