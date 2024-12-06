@@ -346,6 +346,10 @@ body {
   .feature {
     flex-direction: column;
   }
+
+  .hero-image{
+    width: 100%;
+  }
 } 
 
 
