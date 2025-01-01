@@ -378,6 +378,10 @@ body {
   .pill-card .btn {
     padding: 8px 15px;
   }
+
+  .contact-info a {
+    font-size: 0.6rem;
+  }
 }
 
 
