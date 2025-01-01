@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Profile Page</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .profile-container {
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            max-width: 1200px;
+            width: 100%;
+        }
+
+        /* Header Section */
+        .profile-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 30px;
+            background-color: #6a11cb;
+            color: #ffffff;
+            border-radius: 15px 15px 0 0;
+        }
+
+        .profile-header .user-info {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .profile-header img {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            border: 4px solid #ffffff;
+            object-fit: cover;
+        }
+
+        .profile-header h2 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .profile-header p {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .profile-header .actions {
+            display: flex;
+            gap: 15px;
+        }
+
+        .profile-header .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+            font-weight: bold;
+        }
+
+        .btn-follow {
+            background-color: #ffffff;
+            color: #6a11cb;
+        }
+
+        .btn-follow:hover {
+            background-color: #ecf0f1;
+        }
+
+        .btn-message {
+            background-color: #6a11cb;
+            color: #ffffff;
+        }
+
+        .btn-message:hover {
+            background-color: #2575fc;
+        }
+
+        /* Profile Details */
+        .profile-details {
+            display: flex;
+            padding: 30px;
+            gap: 20px;
+        }
+
+        .profile-sidebar {
+            flex: 1;
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-sidebar h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .profile-sidebar ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .profile-sidebar ul li {
+            font-size: 14px;
+            color: #7f8c8d;
+            padding: 10px 0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .profile-content {
+            flex: 2;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .profile-stats {
+            display: flex;
+            justify-content: space-between;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+        }
+
+        .profile-stats .stat {
+            text-align: center;
+        }
+
+        .profile-stats h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+
+        .profile-stats p {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        .profile-about {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+        }
+
+        .profile-about h3 {
+            font-size: 18px;
+            color: #2c3e50;
+            margin-bottom: 10px;
+        }
+
+        .profile-about p {
+            font-size: 14px;
+            color: #7f8c8d;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <div class="profile-container">
+        <!-- Header -->
+        <div class="profile-header">
+            <div class="user-info">
+                <img src="./mikky-tech-users-dashboard/images/profile-picture-1.jpeg" alt="Profile Picture">
+                <div>
+                    <h2>Michael Oliyide</h2>
+                    <p>@mikkytech</p>
+                </div>
+            </div>
+            <div class="actions">
+                <button class="btn btn-follow"><i class='bx bx-user-plus'></i> Follow</button>
+                <button class="btn btn-message"><i class='bx bx-message'></i> Message</button>
+            </div>
+        </div>
+
+        <!-- Details -->
+        <div class="profile-details">
+            <!-- Sidebar -->
+            <div class="profile-sidebar">
+                <h3>Personal Info</h3>
+                <ul>
+                    <li>Location: Ibadan, Nigeria</li>
+                    <li>Email: michaeloliyide86@gmail.com</li>
+                    <li>Phone: +234 123 456 7890</li>
+                </ul>
+            </div>
+
+            <!-- Main Content -->
+            <div class="profile-content">
+                <div class="profile-stats">
+                    <div class="stat">
+                        <h3>120</h3>
+                        <p>Projects</p>
+                    </div>
+                    <div class="stat">
+                        <h3>300</h3>
+                        <p>Followers</p>
+                    </div>
+                    <div class="stat">
+                        <h3>200</h3>
+                        <p>Following</p>
+                    </div>
+                </div>
+
+                <div class="profile-about">
+                    <h3>About Me</h3>
+                    <p>Michael Oliyide is a technology enthusiast and entrepreneur. As the CEO of Mikky Technology, he specializes in modern web development, promotional materials, and innovative designs for businesses and individuals worldwide.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+ 

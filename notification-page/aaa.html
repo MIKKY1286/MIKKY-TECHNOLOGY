@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub-Like User Dashboard</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <!-- Sidebar -->
+    <div class="sidebar">
+        <div class="profile-pic">
+            <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Profile Picture">
+            <h3>Michael Ayodeji Oliyide</h3>
+        </div>
+        <h2>Dashboard</h2>
+        <a href="#" onclick="showSection('profile')">Profile</a>
+        <a href="#" onclick="showSection('orders')">Your Orders</a>
+        <a href="#" onclick="showSection('projects')">Projects</a>
+        <a href="#" onclick="showSection('settings')">Settings</a>
+        <a href="../index.html" onclick="showSection('logout')">Logout</a>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+        <!-- Content Section -->
+        <div id="section-content" class="content">
+            <h1>Welcome to Your Dashboard</h1>
+            <p>Select a section from the sidebar to view its content here.</p>
+        </div>
+    </div>
+
+    <!-- JavaScript -->
+   <script src="./script.js"></script>
+</body>
+</html>

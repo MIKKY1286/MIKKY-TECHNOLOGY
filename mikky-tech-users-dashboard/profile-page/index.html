@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Page - Mikky Tech</title>
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            height: 100vh;
+            background-color: #f4f4f9;
+            overflow: hidden;
+        }
+
+        .dashboard {
+            display: flex;
+            width: 100%;
+        }
+
+        .sidebar {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            width: 250px;
+            padding: 20px;
+            position: fixed;
+            height: 100%;
+            top: 0;
+            transition: transform 0.3s ease;
+            overflow-y: auto;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+        }
+
+        .sidebar ul {
+            list-style-type: none;
+        }
+
+        .sidebar ul li {
+            margin: 15px 0;
+        }
+
+        .sidebar ul li a {
+            color: #ecf0f1;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .sidebar.active {
+            transform: translateX(-250px);
+        }
+
+        .toggle-btn {
+            display: block;
+            background-color: #6a11cb;
+            color: #fff;
+            border: none;
+            font-size: 22px;
+            padding: 10px 14px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1100;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .content {
+            flex-grow: 1;
+            background-color: #ffffff;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .content-header {
+            padding: 20px;
+            background-color: #6a11cb;
+            color: white;
+            font-size: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .content-header .profile {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .content-header img {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+        }
+
+        .profile-details {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+        }
+
+        .profile-card {
+            background-color: #ecf0f1;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .profile-card h2 {
+            margin-bottom: 10px;
+            font-size: 24px;
+            text-align: center;
+        }
+
+        .profile-info {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .profile-info div {
+            text-align: center;
+        }
+
+        .profile-info h4 {
+            font-size: 18px;
+            margin-bottom: 5px;
+        }
+
+        .profile-info p {
+            font-size: 14px;
+            color: #7f8c8d;
+        }
+
+        @media (max-width: 768px) {
+            .toggle-btn {
+                display: block;
+            }
+
+            .sidebar {
+                transform: translateX(-250px);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Sidebar -->
+        <button class="toggle-btn" onclick="toggleSidebar()"><i class='bx bx-menu-alt-left'></i></button>
+        <div class="sidebar" id="sidebar">
+            <h2>MIKKY TECH Dashboard</h2>
+            <ul>
+                <li><a href="../index.html"><i class='bx bx-home'></i> Home</a></li>
+                <li><a href="#"><i class='bx bx-user'></i> Profile</a></li>
+                <li><a href="#"><i class='bx bx-globe'></i> Web Development</a></li>
+                <li><a href="#"><i class='bx bx-file'></i> Flier Making</a></li>
+                <li><a href="#"><i class='bx bxs-paper-plane'></i> RC Cars & Drones</a></li>
+                <li><a href="#"><i class='bx bx-image'></i> Poster Making</a></li>
+                <li><a href="#"><i class='bx bx-card'></i> Business Cards</a></li>
+                <li><a href="#"><i class='bx bx-bar-chart'></i> Analytics</a></li>
+                <li><a href="#"><i class='bx bx-cog'></i> Settings</a></li>
+                <li><a href="../index.html" id="logout-link"><i class='bx bx-log-out'></i> Logout</a></li>
+            </ul>
+        </div>
+
+        <!-- Main Content -->
+        <div class="content">
+            <div class="content-header">
+                <span>Profile</span>
+                <div class="profile">
+                    <img src="./images/profile-picture-1.jpeg" alt="Profile Picture">
+                    <span>Michael Oliyide</span>
+                </div>
+            </div>
+
+            <div class="profile-details">
+                <div class="profile-card">
+                    <h2>Michael Ayodeji Oliyide</h2>
+                    <div class="profile-info">
+                        <div>
+                            <h4>Email</h4>
+                            <p>michaeloliyide86@gmail.com</p>
+                        </div>
+                        <div>
+                            <h4>Role</h4>
+                            <p>CEO, Mikky Technology</p>
+                        </div>
+                        <div>
+                            <h4>Projects Completed</h4>
+                            <p>24</p>
+                        </div>
+                        <div>
+                            <h4>Followers</h4>
+                            <p>1,320</p>
+                        </div>
+                        <div>
+                            <h4>Following</h4>
+                            <p>180</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+    </script>
+</body>
+</html>

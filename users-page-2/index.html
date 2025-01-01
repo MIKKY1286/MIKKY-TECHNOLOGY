@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tech Company Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+    * {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f7fc;
+  color: #333;
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar {
+  background-color: #2c3e50;
+  color: #ecf0f1;
+  width: 250px;
+  padding: 20px;
+  position: fixed;
+  height: 100%;
+  top: 0;
+  transition: transform 0.3s ease;
+}
+
+.sidebar h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+}
+
+.sidebar ul li {
+  margin: 15px 0;
+}
+
+.sidebar ul li a {
+  color: #ecf0f1;
+  text-decoration: none;
+  font-size: 18px;
+}
+
+.main-content {
+  flex-grow: 1;
+  padding: 20px;
+  margin-left: 250px; /* To leave space for the sidebar */
+  overflow-y: auto;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.search-bar input {
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 1px solid #ddd;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.user-info .profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.user-info .profile-img:hover{
+   transform: translateY(-3px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.user-info .user-name {
+  margin-right: 15px;
+}
+
+.user-info .notification{
+    background-color: #d8d8d1;
+    padding: 3px 3px;
+    border-radius: 5px;
+}
+
+.user-info .notification:hover{
+   transform: translateY(-3px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.widgets {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.widget {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 22%;
+}
+
+.widget h3 {
+  margin-bottom: 10px;
+}
+
+.widget:hover{
+   transform: translateY(-8px);
+   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+}
+
+.amount {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.charts {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.chart {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  width: 48%;
+}
+
+.recent-activity {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.recent-activity table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.recent-activity th,
+.recent-activity td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.recent-activity th {
+  background-color: #f4f7fc;
+}
+
+.toggle-btn {
+  display: none;
+  background-color: #6a11cb;
+  color: #fff;
+  border: none;
+  font-size: 22px;
+  padding: 10px 14px;
+  cursor: pointer;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  z-index: 1100;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+
+}
+
+.sidebar.active {
+  transform: translateX(-250px); /* Hide sidebar */
+}
+
+
+.dark-theme .user-info .user-name {
+    color: #ffffff;
+}
+
+.dark-theme .main-content {
+      background-color: #121212;
+
+}
+
+.dark-theme .widget  {
+      background-color: #1e1e1e;
+      color: #e0e0e0;
+
+}
+
+
+.dark-theme .chart {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}    
+
+.dark-theme .recent-activity {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}    
+
+.dark-theme .recent-activity table thead tr th {
+    color: #ffffff !important;
+}
+
+.theme-toggle-btn {
+    background-color: #2c3e50;
+    color: #fff;
+    border: none;
+    padding: 10px 14px;
+    cursor: pointer;
+    border-radius: 8px;
+    font-size: 2opx;
+
+}
+
+.theme-toggle-btn:hover{
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    color: #000;
+    background-color: white;
+}
+
+
+@media (max-width: 1024px) {
+ .search-bar input {
+    width: 250px;
+}  
+
+.navbar {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sidebar {
+    transform: translateX(-100%);
+}
+
+.sidebar.active {
+    transform: translateX(0);
+}
+
+.toggle-btn {
+    display: block;
+}
+
+.menu-icon {
+   display: block; /* Show menu icon */
+}
+
+.widgets {
+   flex-direction: column;
+   align-items: center;
+}
+
+.widget {
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+.charts {
+   flex-direction: column;
+}
+
+.chart {
+   width: 90%;
+   margin-bottom: 20px;
+}
+
+.main-content {
+    margin-left: 0;
+}
+
+.recent-activity{
+    font-size: 10px;
+}
+}
+
+</style>
+
+</head>
+<body>
+  <div class="container">
+    <!-- Sidebar -->
+
+    <!-- Hamburger Menu Icon -->
+    <button class="toggle-btn" onclick="toggleSidebar()"><i class='bx bx-menu-alt-left'></i></button>
+
+    <div class="sidebar" id="sidebar">
+      <h2 class="theme-toggle-btn" onclick="toggleTheme()">MIKKY TECH Dashboard</h2>
+      <ul>
+        <li><a href="#"><i class='bx bx-home'></i>    Home</a></li>
+        <li><a href="#"><i class='bx bx-user'></i> Profile</a></li>
+        <li><a href="#"><i class='bx bx-globe' ></i>   Web Development</a></li>
+        <li><a href="#"><i class='bx bx-file'></i>   Flier Making</a></li>
+        <li><a href="#"><i class='bx bxs-paper-plane'></i>   RC Cars & Drones</a></li>
+        <li><a href="#"><i class='bx bx-image'></i>    Poster Making</a></li>
+        <li><a href="#"><i class='bx bx-card'></i>   Business Cards</a></li>
+        <li><a href="#"><i class='bx bx-bar-chart'></i>   Analytics</a></li>
+        <li><a href="#"><i class='bx bx-cog'></i>   Settings</a></li>
+        <li><a href="./index.html" onclick="alert('YOU HAVE LOGGED OUT SUCESSFULLY')"><i class='bx bx-log-out'></i>  Logout</a></li>
+      </ul>
+    </div>
+
+    <!-- Main Content -->
+    <div class="main-content">
+      <!-- Navbar -->
+      <div class="navbar">
+        <div class="search-bar">
+            <h3 class="greeting" id="greeting"></h3>
+            <br>
+          <input type="text" placeholder="Search services...">
+        </div>
+        <div class="user-info">
+          <span class="notification"><i class='bx bx-bell' ></i></span>
+          <span class="user-name">Michael Oliyide</span>
+          <img src="./images/promo-1.jpg" alt="Profile" class="profile-img">
+        </div>
+      </div>
+
+      <!-- Dashboard Widgets -->
+      <div class="widgets">
+        <div class="widget">
+          <h3>Web Development Projects</h3>
+          <p class="amount">245</p>
+        </div>
+        <div class="widget">
+          <h3>Flier Designs Created</h3>
+          <p class="amount">1,120</p>
+        </div>
+        <div class="widget">
+          <h3>RC Cars & Drones Built</h3>
+          <p class="amount">87</p>
+        </div>
+        <div class="widget">
+          <h3>Business Cards Designed</h3>
+          <p class="amount">350</p>
+        </div>
+      </div>
+
+      <!-- Chart Section -->
+      <div class="charts">
+        <div class="chart">
+          <h3>Projects Completed Over Time</h3>
+          <canvas id="projectsChart"></canvas>
+        </div>
+        <div class="chart">
+          <h3>Service Growth</h3>
+          <canvas id="serviceGrowthChart"></canvas>
+        </div>
+      </div>
+
+      <!-- Recent Activity Table -->
+      <div class="recent-activity">
+        <h3>Recent Activities</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>Date</th>
+              <th>Service</th>
+              <th>Client</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>2024-12-19</td>
+              <td>Web Development</td>
+              <td>ABC Corp</td>
+              <td>Completed</td>
+            </tr>
+            <tr>
+              <td>2024-12-18</td>
+              <td>RC Car Build</td>
+              <td>XYZ Inc</td>
+              <td>In Progress</td>
+            </tr>
+            <tr>
+              <td>2024-12-17</td>
+              <td>Flier Design</td>
+              <td>John Doe</td>
+              <td>Completed</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Toggle sidebar visibility on menu icon click
+    function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+    // Chart data for "Projects Completed Over Time" and "Service Growth"
+    var projectsCtx = document.getElementById('projectsChart').getContext('2d');
+    var serviceGrowthCtx = document.getElementById('serviceGrowthChart').getContext('2d');
+
+    var projectsChart = new Chart(projectsCtx, {
+      type: 'line',
+      data: {
+        labels: ['July', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+          label: 'Projects Completed',
+          data: [30, 45, 39, 60, 50, 75],
+          borderColor: 'rgba(75, 192, 192, 1)',
+          fill: false,
+        }]
+      }
+    });
+
+    var serviceGrowthChart = new Chart(serviceGrowthCtx, {
+      type: 'bar',
+      data: {
+        labels: ['Web Development', 'Flier Making', 'RC Cars & Drones', 'Poster Making', 'Business Cards'],
+        datasets: [{
+          label: 'Services Growth',
+          data: [120, 200, 150, 180, 210],
+          backgroundColor: 'rgba(54, 162, 235, 0.2)',
+          borderColor: 'rgba(54, 162, 235, 1)',
+          borderWidth: 1
+        }]
+      }
+    });
+
+
+    // Function to toggle between light and dark themes
+    function toggleTheme() {
+      const body = document.body;
+      body.classList.toggle('dark-theme');
+      body.classList.toggle('light-theme');
+    }
+
+     // Set Greeting Based on Time and Name
+     const userName = 'Michael';
+            const hour = new Date().getHours();
+            let timeOfDay = hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening';
+            greeting.textContent = `Good ${timeOfDay}, ${userName}!`;
+  </script>
+</body>
+</html>

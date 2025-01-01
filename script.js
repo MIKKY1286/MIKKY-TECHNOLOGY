@@ -97,3 +97,11 @@ document.getElementById('orderForm').addEventListener('submit', function (event)
     console.log('Form validation failed. Please correct the errors.');
   }
 });
+
+
+
+ // Set Greeting Based on Time
+ const hour = new Date().getHours();
+ const timeOfDay = hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening';
+ const userName = "MIKKY TECHNOLOGY"; // Replace with dynamic input as needed
+ document.getElementById("greeting").textContent = `Good ${timeOfDay}, ${userName}`;

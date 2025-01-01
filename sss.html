@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            display: flex;
+            min-height: 100vh;
+            background-color: #eef2f6;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            width: 250px;
+            background: linear-gradient(135deg, #11cb1a, #040c18);
+            color: #ecf0f1;
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 100%;
+            padding: 20px 10px;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 2px 0 10px rgba(0, 0, 0, 0.3);
+            z-index: 1000;
+        }
+
+        .sidebar h2 {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: 1px;
+        }
+
+        /* Logo */
+        .sidebar img {
+            width: 100%;
+            height: auto;
+            margin-bottom: 30px;
+            border-radius: 8px;
+        }
+
+        .sidebar a {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            padding: 12px 18px;
+            color: #ecf0f1;
+            text-decoration: none;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            font-size: 16px;
+            transition: background 0.3s, transform 0.2s;
+        }
+
+        .sidebar a i {
+            font-size: 18px;
+        }
+
+        .sidebar a:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateX(8px);
+        }
+
+        .toggle-btn {
+            display: none;
+            background-color: #17cb11;
+            color: #fff;
+            border: none;
+            font-size: 22px;
+            padding: 10px 14px;
+            cursor: pointer;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            z-index: 1100;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Main Content */
+        .main-content {
+            flex: 1;
+            margin-left: 250px;
+            padding: 40px 30px;
+            background: linear-gradient(135deg, #ffffff, #f5f7fa);
+            transition: margin-left 0.3s;
+        }
+
+        .main-content h1 {
+            margin-bottom: 25px;
+            font-size: 36px;
+            font-weight: 700;
+            color: #333;
+            text-transform: capitalize;
+            border-bottom: 2px solid #27cb11;
+            display: inline-block;
+        }
+
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .card {
+            background-color: #fff;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            padding: 20px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 6px;
+            height: 100%;
+            background: #3ccb11;
+        }
+
+        .card h3 {
+            font-size: 22px;
+            margin-bottom: 10px;
+            color: #36cb11;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #555;
+            line-height: 1.5;
+        }
+
+        /* Hidden content sections */
+        .content-section {
+            display: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+
+            .sidebar.active {
+                transform: translateX(0);
+            }
+
+            .toggle-btn {
+                display: block;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <button class="toggle-btn" onclick="toggleSidebar()"><i class="fas fa-bars"></i></button>
+
+    <div class="sidebar" id="sidebar">
+        <h2>MIKKY  TECHNOLOGY</h2>
+        <h2>Dashboard</h2>
+        <a href="#" onclick="showContent('home')"><i class="fas fa-home"></i> Home</a>
+        <a href="#" onclick="showContent('projects')"><i class="fas fa-folder"></i> Projects</a>
+        <a href="#" onclick="showContent('profile')"><i class="fas fa-user"></i> Profile</a>
+        <a href="#" onclick="showContent('invoices')"><i class="fas fa-file-invoice"></i> Invoices</a>
+        <a href="#" onclick="showContent('messages')"><i class="fas fa-envelope"></i> Messages</a>
+        <a href="#" onclick="showContent('settings')"><i class="fas fa-cog"></i> Settings</a>
+        <a href="#" onclick="showContent('logout')"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    </div>
+
+    <div class="main-content">
+        <h1 id="greeting"></h1>
+
+        <div id="home" class="content-section">
+            <h2>Welcome to the Home section</h2>
+            <p>Here you can view your recent activity.</p>
+
+            <br>
+                 
+            <div class="cards-container">
+                <div class="card">
+                    <h3>Project Overview</h3>
+                    <p>Your current projects are progressing smoothly. Check details below.</p>
+                </div>
+                <div class="card">
+                    <h3>Latest Invoices</h3>
+                    <p>No pending invoices. All payments are up to date.</p>
+                </div>
+                <div class="card">
+                    <h3>Messages</h3>
+                    <p>You have 2 unread messages from the support team.</p>
+                </div>
+                <div class="card">
+                    <h3>View Profile</h3>
+                    <p>View and update your profile at the click of a button.</p>
+                </div>
+                <div class="card">
+                    <h3>Edit Settings</h3>
+                    <p>Edit and update you settings on the go to sooth your style.</p>
+                </div><div class="card">
+                    <h3>LogOut</h3>
+                    <p>Good luck and see you at our home page.</p>
+                </div>
+            </div>
+        </div>
+
+        <div id="projects" class="content-section">
+            <h2>Your Projects</h2>
+            <p>Manage and track your projects here.</p>
+        </div>
+
+        <div id="profile" class="content-section">
+            <h2>Your Profile</h2>
+            <p>Update your personal information here.</p>
+        </div>
+
+        <div id="invoices" class="content-section">
+            <h2>Invoices</h2>
+            <p>View and manage your invoices here.</p>
+        </div>
+
+        <div id="messages" class="content-section">
+            <h2>Messages</h2>
+            <p>Check your unread messages here.</p>
+        </div>
+
+        <div id="settings" class="content-section">
+            <h2>Settings</h2>
+            <p>Modify your dashboard settings here.</p>
+        </div>
+
+        <div id="logout" class="content-section">
+            <h2>Logout</h2>
+            <p>You can logout from here.</p>
+        </div>
+    </div>
+
+    <script>
+        function toggleSidebar() {
+            const sidebar = document.getElementById('sidebar');
+            sidebar.classList.toggle('active');
+        }
+
+        function getGreeting() {
+            const userName = "Michael"; 
+            const currentHour = new Date().getHours();
+            let greeting;
+            if (currentHour < 12) {
+                greeting = "Good Morning";
+            } else if (currentHour < 18) {
+                greeting = "Good Afternoon";
+            } else {
+                greeting = "Good Evening";
+            }
+            document.getElementById("greeting").innerText = `${greeting}, ${userName}`;
+        }
+
+        function showContent(section) {
+            const sections = document.querySelectorAll('.content-section');
+            sections.forEach(function(section) {
+                section.style.display = 'none';
+            });
+
+            const activeSection = document.getElementById(section);
+            if (activeSection) {
+                activeSection.style.display = 'block';
+            }
+        }
+
+        window.onload = function() {
+            getGreeting();
+            showContent('home'); // Show the home section by default
+        };
+    </script>
+</body>
+</html>

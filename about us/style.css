@@ -306,7 +306,15 @@
   }
   
   .footer-social a:hover {
-    color: rgb(0, 255, 0);
+    color: rgb(0, 26, 255);
+  }
+  
+  .footer-social .instagram:hover {
+    color: rgb(252, 167, 181);
+  }
+  
+  .footer-social .twitter:hover {
+    color: #665c5c;
   }
   
   .footer-bottom {
