@@ -1,3 +1,13 @@
+ // Toggle Navigation Menu
+ const menuIcon = document.getElementById('menu-icon');
+ const navLinks = document.getElementById('nav-links');
+ if (menuIcon && navLinks) {
+   menuIcon.addEventListener('click', () => {
+     navLinks.classList.toggle('show');
+   });
+ }
+
+
 // Initialize Firebase with your project's configuration
 const firebaseConfig = {
     apiKey: "AIzaSyAnBeGBOxVzhDshIzhLB4KcdX0WOAnOJs8",
@@ -15,14 +25,6 @@ const app = firebase.initializeApp(firebaseConfig);
 // Initialize Firebase Auth and Firestore
 const auth = firebase.auth();
 const db = firebase.firestore();
-
-// Toggle menu visibility when the menu icon is clicked
-const menuIcon = document.getElementById('menu-icon');
-const navLinks = document.getElementById('nav-links');
-
-menuIcon.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
 
 // Sign-Up Form Submission
 document.getElementById('signupForm').addEventListener('submit', function(event) {
