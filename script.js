@@ -17,7 +17,7 @@ menuIcon.addEventListener('click', () => {
 
 
 // Initialize EmailJS once
-emailjs.init('kB2hGEEEYAYTlYaKb'); // Replace with your EmailJS User ID
+emailjs.init('kB2hGEEEYAYTlYaKb'); // EmailJS User ID
 
 // Toggle Terms and Conditions visibility
 document.getElementById('termsLink').addEventListener('click', function (event) {
@@ -40,7 +40,7 @@ document.getElementById('agreeToTerms').addEventListener('click', function () {
 
 // Add event listener for form submission
 document.getElementById('orderForm').addEventListener('submit', function (event) {
-  event.preventDefault(); // Prevent default form submission
+  event.preventDefault(); 
 
   const name = document.getElementById('name').value.trim();
   const email = document.getElementById('email').value.trim();
@@ -103,5 +103,5 @@ document.getElementById('orderForm').addEventListener('submit', function (event)
  // Set Greeting Based on Time
  const hour = new Date().getHours();
  const timeOfDay = hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening';
- const userName = "MIKKY TECHNOLOGY"; // Replace with dynamic input as needed
+ const userName = "MIKKY TECHNOLOGY";
  document.getElementById("greeting").textContent = `Good ${timeOfDay}, ${userName}`;
