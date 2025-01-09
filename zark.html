@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Always Listening Voice Assistant</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+    }
+    #response, #transcript {
+      margin-top: 20px;
+      font-size: 1.2em;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Always Listening Voice Assistant for Mikky Technology</h1>
+  <p id="transcript">Say something...</p>
+  <p id="response"></p>
+
+  <script>
+    let wakeWord = "hey mikky";
+    let isListening = false;
+
+    function startListening() {
+      const recognition = new webkitSpeechRecognition();
+      recognition.lang = 'en-US';
+      recognition.continuous = false; // Set to false to auto-restart manually
+      recognition.interimResults = false;
+
+      recognition.onresult = function (event) {
+        const userSpeech = event.results[0][0].transcript.toLowerCase().trim();
+        document.getElementById('transcript').innerText = "You said: " + userSpeech;
+
+        if (!isListening && userSpeech.includes(wakeWord)) {
+          isListening = true;
+          speakResponse("I'm listening. How can I assist you?");
+        } else if (isListening) {
+          handleResponse(userSpeech);
+        }
+      };
+
+      recognition.onerror = function (event) {
+        console.error("Error:", event.error);
+        restartListening();
+      };
+
+      recognition.onend = function () {
+        restartListening(); // Restart listening after each session ends
+      };
+
+      recognition.start();
+    }
+
+    function restartListening() {
+      startListening();
+    }
+
+    async function handleResponse(userSpeech) {
+      let response = "";
+
+      if (userSpeech.includes("time")) {
+        response = getTime();
+      } else if (userSpeech.includes("date")) {
+        response = getDate();
+      } else if (userSpeech.includes("change background")) {
+        changeBackgroundColor();
+        response = "Background color changed!";
+      } else if (userSpeech.includes("calculate")) {
+        response = performCalculation(userSpeech);
+      } else {
+        response = "Sorry, I can't handle that request yet.";
+      }
+
+      document.getElementById('response').innerText = response;
+      speakResponse(response);
+    }x
+
+    function getTime() {
+      const now = new Date();
+      return `The current time is ${now.getHours()}:${now.getMinutes()}`;
+    }
+
+    function getDate() {
+      const now = new Date();
+      return `Today's date is ${now.toDateString()}`;
+    }
+
+    function changeBackgroundColor() {
+      const colors = ["#f4a261", "#2a9d8f", "#e76f51", "#264653", "#6a4c93"];
+      const randomColor = colors[Math.floor(Math.random() * colors.length)];
+      document.body.style.backgroundColor = randomColor;
+    }
+
+    function performCalculation(userSpeech) {
+      try {
+        const expression = userSpeech.replace("calculate", "").trim();
+        const result = eval(expression); // Use eval carefully
+        return `The result is ${result}`;
+      } catch {
+        return "Sorry, I couldn't understand the calculation.";
+      }
+    }
+
+    function speakResponse(response) {
+      const synth = window.speechSynthesis;
+      const utterance = new SpeechSynthesisUtterance(response);
+
+      utterance.onend = function () {
+        restartListening(); // Restart listening after the response is spoken
+      };
+
+      synth.speak(utterance);
+    }
+
+    // Start listening automatically when the page loads
+    window.onload = startListening;
+  </script>
+
+</body>
+</html>
