@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Welcome-MIKKY TECHNOLOGIES</title>
+  <link rel="shortcut icon" href="./images/mikky-tech.svg" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="./Poppins/OFL.txt">
+  <link rel="stylesheet" href="./Roboto/LICENSE.txt">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+</head>
+<body>
+  <nav class="top navbar">   
+    <div class="logo">
+      <a href="#home">
+        <img src="./images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
+      </a>
+      <h2>MIKKY TECHNOLOGY</h2>
+    </div>
+    <ul class="nav-links" id="nav-links">
+      <li class="dropdown">
+        <a href="#">About us</a>
+        <div class="dropdown-content">
+          <a href="./about us/index.html#Our Mission">Mission</a>
+          <a href="./about us/index.html#values">Values</a>
+          <a href="./about us/index.html#achivement">Accomplishment</a>
+        </div>
+      </li>
+      <li><a href="./our service/index.html">Our Services</a></li>
+      <li><a href="./locate us/index.html">Location</a></li>
+      <li>|</li>
+      <li><a href="./signup page/index.html">Sign up</a></li>
+      <li><a href="./login page/index.html">Log in</a></li>
+    </ul>
+    <div class="menu-icon" id="menu-icon">
+      <i class='bx bx-dots-vertical-rounded'></i>
+    </div>
+  </nav>
+
+
+
+  <!-- <section class="top home hero">
+    <div class="hero-content">
+      <h2>Welcome to <br><span style="color: rgb(115, 255, 0);">Mikky Technology</span><br> official website
+      </h2>
+      <p>Our clients are our pride.
+      </p>
+      <a href="./locate us/index.html" class="cta-btn">Try to locate us</a>
+      <br><br>
+      <a href="./our service/index.html" class="cta-btn-secondary">View our services</a>
+      <br><br>
+      <p style="font-size: 11px;">we are available to offer you our best service in web Development, posters and flier
+        making and logo design at an affordable price.here </p>
+    </div>
+    <div class="hero-image">
+      <img   src="./images/january-homepage.png" alt="">
+    </div>
+  </section> -->
+
+
+<!-- january hero section update -->
+
+  <section class="top hero-section">
+    <div class="hero-content">
+        <h1><span class="greeting" id="greeting"></span></h1>
+        
+      <p>we are available to offer you our best service in web Development, posters and flier
+        making and logo design at an affordable price here.</p>
+      <div class="pill-card">
+        <div class="text">
+          <p class="p-1">Available to serve you</p>
+          <p class="p-2">Anywhere, Anytime</p>
+        </div>
+        <a href="./index.html#contact-us" class="btn">Get Started</a>
+      </div>
+      <div class="contact-info">
+        <a href="tel:+2347083034571"><i class='bx bx-phone-call' style='color:#0000ff'  ></i> Phone: +234 708 303 4571</a>
+        <a href="https://wa.me/2347083034571 "><i class='bx bxl-whatsapp' style='color:#09ce10'  ></i> WhatsApp: +234 708 303 4571</a>
+      </div>
+    </div>
+    <div class="hero-image">
+      <img src="./images/lady-headset-design.png" alt="Hero Image">
+    </div>
+  </section>
+
+
+
+  <!-- short about us section  -->
+
+  <section class="about-us">
+    <h2>About Mikky Technology</h2>
+    <p>
+      Mikky Technology is dedicated to delivering exceptional services in web development, poster and flier design, logo creation, and much more. 
+      Our mission is to provide innovative solutions tailored to your needs at an affordable price.
+    </p>
+    <a href="./about us/index.html" class="btn">Learn More</a>
+  </section>
+  
+
+ 
+  
+
+
+  <!-- order section -->
+
+  <section id="contact-us">
+    <br>
+  <br>
+    <div class="order-section">
+      <h2>Place Your Order</h2>
+      <form id="orderForm">
+        <div class="form-group">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required>
+        </div>
+
+        <div class="form-group">
+          <label for="details">Order Details</label>
+          <textarea id="details" name="details" placeholder="Provide specific details for your order"></textarea>
+          <div id="detailsError" class="error" style="color: red; display: none;">Order details must be at least 10 characters.</div>
+        </div>
+
+        <div class="form-group">
+          <p>Please read the <a href="#" id="termsLink">terms and conditions</a> before agreeing.</p>
+          <div style="display: none;" id="termsText">
+            <p>
+              By placing your order, you agree to abide by our policies, including timely payments, proper order descriptions, and adherence to delivery agreements. Failure to comply may result in cancellation or additional charges.
+            </p>
+          </div>
+          <br>
+         <div style="display: flex; align-items: center; gap: 0.5rem;">
+          <input type="checkbox" id="agreeToTerms" disabled>
+          <label for="agreeToTerms">I agree with the terms and conditions</label>
+         </div>
+          <div id="termsError" class="error" style="color: red; display: none;">You must read the terms and conditions before checking this box.</div>
+        </div>
+
+        <button type="submit">
+  
+          Submit Order</button>
+      </form>
+      <div class="confirmation" id="confirmationMessage" style="display: none;"></div>
+    </div>
+    <br><br>
+  </section>
+
+
+   <!-- call to action section  -->
+
+   <section class="call-to-action">
+    <h2>Ready to Transform Your Ideas?</h2>
+    <p>
+      Let us help you bring your vision to life. Get in touch with us today and take the first step towards success!
+    </p>
+    <a href="https://wa.me/message/WUKCH5JM4XRFI1 " class="btn">Contact Us</a>
+  </section>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-column">
+        <a href="#top"><img style="height: 260px;width: 290px;" src="./images/mikky-technology.png" alt=""></a>
+      </div>
+      <div class="footer-column">
+        <h4>Company</h4>
+        <ul>
+          <li><a href="#">For the Record</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="./about us/index.html">About</a></li>
+          <li><a href="#">Press</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">Jobs</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Communities</h4>
+        <ul>
+          <li><a href="#">Advertising</a></li>
+          <li><a href="#">Developers</a></li>
+          <li><a href="#">For Artists</a></li>
+          <li><a href="#">Investors</a></li>
+          <li><a href="#">Partners</a></li>
+          <li><a href="#">Vendors</a></li>
+        </ul>
+      </div>
+      <div class="footer-column">
+        <h4>Useful Links</h4>
+        <ul>
+          <li><a href="#">Free Mobile App</a></li>
+          <li><a href="#">Web Player</a></li>
+          <li><a href="#">Support</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Terms</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546"><i
+            class='bx bxl-facebook'></i></a>
+        <a class="twitter" href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09"><i class='bx bxl-twitter'></i></a>
+        <a class="instagram" href="https://www.instagram.com/oliyidemikky/"><i class='bx bxl-instagram'></i></a>
+        <a
+          href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
+            class='bx bxl-linkedin'></i></a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="footer-bottom-left">
+        <ul>
+          <li><a aria-dropeffect="move" href="./about us/index.html">About Us</a></li>
+          <li><a href="./locate us/index.html">Location</a></li>
+          <li><a href="./support us-page/index.html">Support</a></li>
+          <li><a href="./about us/#achivement">Achivement</a></li>
+        </ul>
+      </div>
+      <div class="footer-bottom-right">
+        <ul>
+          <li>Copyright</li>
+          <li>&copy; 2025</li>
+          <li>Mikky Technology</li>
+        </ul>
+      </div>
+    </div>
+  </footer> 
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

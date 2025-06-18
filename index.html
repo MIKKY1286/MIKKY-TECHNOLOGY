@@ -1,238 +1,474 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome-MIKKY TECHNOLOGIES</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
   <link rel="shortcut icon" href="./images/mikky-tech.svg" type="image/x-icon">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css'  rel='stylesheet'>
   <link rel="stylesheet" href="./style.css">
   <link rel="stylesheet" href="./Poppins/OFL.txt">
   <link rel="stylesheet" href="./Roboto/LICENSE.txt">
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
-  </script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script> 
+  <style>
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out;
+    }
+  </style>
 </head>
 <body>
-  <nav class="top navbar">   
-    <div class="logo">
+<!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition duration-300">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm transition-all duration-300">
+    <!-- Logo & Brand -->
+    <div class="flex items-center gap-3">
       <a href="#home">
-        <img src="./images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
+        <img src="./images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo" class="h-10 w-auto">
       </a>
-      <h2>MIKKY TECHNOLOGY</h2>
+      <h2 class="text-white text-lg font-semibold hover:text-green-400">MIKKY TECHNOLOGY</h2>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li class="dropdown">
-        <a href="#">About us</a>
-        <div class="dropdown-content">
-          <a href="./about us/index.html#Our Mission">Mission</a>
-          <a href="./about us/index.html#values">Values</a>
-          <a href="./about us/index.html#achivement">Accomplishment</a>
+    <!-- Desktop Navigation -->
+    <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
+      <li class="relative group">
+        <a href="#" class="hover:text-green-400">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="./about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+          <a href="./about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+          <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
         </div>
       </li>
-      <li><a href="./our service/index.html">Our Services</a></li>
-      <li><a href="./locate us/index.html">Location</a></li>
+      <li><a href="./our service/index.html" class="hover:text-green-400">Our Services</a></li>
+      <li><a href="./locate us/index.html" class="hover:text-green-400">Location</a></li>
       <li>|</li>
-      <li><a href="./signup page/index.html">Sign up</a></li>
-      <li><a href="./login page/index.html">Log in</a></li>
+      <li><a href="./signup page/index.html" class="hover:text-green-400">Sign up</a></li>
+      <li><a href="./login page/index.html" class="hover:text-green-400">Log in</a></li>
     </ul>
-    <div class="menu-icon" id="menu-icon">
+    <!-- Mobile Menu Icon -->
+    <div id="menu-icon" class="text-green-400 text-3xl md:hidden cursor-pointer">
       <i class='bx bx-dots-vertical-rounded'></i>
     </div>
-  </nav>
-
-
-
-  <!-- <section class="top home hero">
-    <div class="hero-content">
-      <h2>Welcome to <br><span style="color: rgb(115, 255, 0);">Mikky Technology</span><br> official website
-      </h2>
-      <p>Our clients are our pride.
-      </p>
-      <a href="./locate us/index.html" class="cta-btn">Try to locate us</a>
-      <br><br>
-      <a href="./our service/index.html" class="cta-btn-secondary">View our services</a>
-      <br><br>
-      <p style="font-size: 11px;">we are available to offer you our best service in web Development, posters and flier
-        making and logo design at an affordable price.here </p>
-    </div>
-    <div class="hero-image">
-      <img   src="./images/january-homepage.png" alt="">
-    </div>
-  </section> -->
-
-
+  </div>
+  <!-- Mobile Navigation -->
+  <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
+    <li><a href="#" class="hover:text-green-600">About us</a></li>
+    <li class="ml-4 space-y-1">
+      <a href="./about us/index.html#Our Mission" class="block text-sm text-black hover:text-green-600">Mission</a>
+      <a href="./about us/index.html#values" class="block text-sm text-black hover:text-green-600">Values</a>
+      <a href="./about us/index.html#achivement" class="block text-sm text-black hover:text-green-600">Accomplishment</a>
+    </li>
+    <li><a href="./our service/index.html" class="hover:text-green-600">Our Services</a></li>
+    <li><a href="./locate us/index.html" class="hover:text-green-600">Location</a></li>
+    <li><a href="./signup page/index.html" class="hover:text-green-600">Sign up</a></li>
+    <li><a href="./login page/index.html" class="hover:text-green-600">Log in</a></li>
+  </ul>
+</nav>
 <!-- january hero section update -->
-
-  <section class="top hero-section">
-    <div class="hero-content">
-        <h1><span class="greeting" id="greeting"></span></h1>
-        
-      <p>we are available to offer you our best service in web Development, posters and flier
-        making and logo design at an affordable price here.</p>
-      <div class="pill-card">
-        <div class="text">
-          <p class="p-1">Available to serve you</p>
-          <p class="p-2">Anywhere, Anytime</p>
-        </div>
-        <a href="./index.html#contact-us" class="btn">Get Started</a>
-      </div>
-      <div class="contact-info">
-        <a href="tel:+2347083034571"><i class='bx bx-phone-call' style='color:#0000ff'  ></i> Phone: +234 708 303 4571</a>
-        <a href="https://wa.me/2347083034571 "><i class='bx bxl-whatsapp' style='color:#09ce10'  ></i> WhatsApp: +234 708 303 4571</a>
-      </div>
-    </div>
-    <div class="hero-image">
-      <img src="./images/lady-headset-design.png" alt="Hero Image">
-    </div>
-  </section>
-
-
-
-  <!-- short about us section  -->
-
-  <section class="about-us">
-    <h2>About Mikky Technology</h2>
-    <p>
-      Mikky Technology is dedicated to delivering exceptional services in web development, poster and flier design, logo creation, and much more. 
-      Our mission is to provide innovative solutions tailored to your needs at an affordable price.
+<section id="hero" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
+  <!-- Background Video -->
+  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
+    <source src="./video/hero-video.mp4" type="video/mp4">
+    Your browser does not support HTML5 video.
+  </video>
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 z-10"></div>
+  <!-- Content -->
+  <div class="relative z-20 max-w-4xl mx-auto px-6 text-center">
+    <h2 id="greeting" class="text-2xl md:text-3xl font-semibold text-green-400 mb-2">Welcome</h2>
+    <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-6">
+      Empowering Your Digital Future with Mikky Technology
+    </h1>
+    <p class="text-lg md:text-xl mb-8 text-gray-100">
+      Web Development. RC Gadgets. Graphic Design. Drone Engineering — all built to bring your vision to life.
     </p>
-    <a href="./about us/index.html" class="btn">Learn More</a>
-  </section>
-  
-
- 
-  
-
-
-  <!-- order section -->
-
-  <section id="contact-us">
-    <br>
-  <br>
-    <div class="order-section">
-      <h2>Place Your Order</h2>
-      <form id="orderForm">
-        <div class="form-group">
-          <label for="name">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
-
-        <div class="form-group">
-          <label for="email">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required>
-        </div>
-
-        <div class="form-group">
-          <label for="details">Order Details</label>
-          <textarea id="details" name="details" placeholder="Provide specific details for your order"></textarea>
-          <div id="detailsError" class="error" style="color: red; display: none;">Order details must be at least 10 characters.</div>
-        </div>
-
-        <div class="form-group">
-          <p>Please read the <a href="#" id="termsLink">terms and conditions</a> before agreeing.</p>
-          <div style="display: none;" id="termsText">
-            <p>
-              By placing your order, you agree to abide by our policies, including timely payments, proper order descriptions, and adherence to delivery agreements. Failure to comply may result in cancellation or additional charges.
-            </p>
-          </div>
-          <br>
-         <div style="display: flex; align-items: center; gap: 0.5rem;">
-          <input type="checkbox" id="agreeToTerms" disabled>
-          <label for="agreeToTerms">I agree with the terms and conditions</label>
-         </div>
-          <div id="termsError" class="error" style="color: red; display: none;">You must read the terms and conditions before checking this box.</div>
-        </div>
-
-        <button type="submit">
-  
-          Submit Order</button>
-      </form>
-      <div class="confirmation" id="confirmationMessage" style="display: none;"></div>
+    <div class="flex flex-wrap justify-center gap-4">
+      <a href="#contact-us" class="bg-green-600 hover:bg-green-700 text-white px-6 py-3 rounded-lg shadow-md transition">
+        Get Started
+      </a>
+      <a href="./about us/index.html" class="border border-green-400 text-green-400 px-6 py-3 rounded-lg hover:bg-green-400 hover:text-black transition">
+        Learn More
+      </a>
     </div>
-    <br><br>
-  </section>
-
-
-   <!-- call to action section  -->
-
-   <section class="call-to-action">
-    <h2>Ready to Transform Your Ideas?</h2>
-    <p>
-      Let us help you bring your vision to life. Get in touch with us today and take the first step towards success!
+  </div>
+</section>
+<!-- short about us section  -->
+<section class="relative bg-fixed bg-cover bg-center text-white text-center py-20 px-6 md:px-[10%]" style="background-image: url('./images/Scale%20Up%20Tech%20IT%20Company%20Logo_20250101_170919_0000.png');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm z-0"></div>
+  <!-- Content -->
+  <div class="relative z-10 max-w-3xl mx-auto animate-fade-in-up">
+    <h2 class="text-3xl md:text-4xl font-bold mb-6 text-white drop-shadow-md">
+      About Mikky Technology
+    </h2>
+    <p class="text-lg md:text-xl leading-relaxed mb-8 text-white">
+      Mikky Technology is dedicated to delivering exceptional services in web development,
+      poster and flier design, logo creation, and much more. Our mission is to provide
+      innovative solutions tailored to your needs at an affordable price.
     </p>
-    <a href="https://wa.me/message/WUKCH5JM4XRFI1 " class="btn">Contact Us</a>
+    <a href="./about us/index.html" class="inline-block px-6 py-3 bg-green-800 hover:bg-green-600 text-white text-sm md:text-base rounded-md shadow-lg transition-all duration-300">
+      Learn More
+    </a>
+  </div>
+</section>
+<!-- order section -->
+<section id="contact-us" class="py-16 px-4 md:px-12 bg-gray-100">
+  <div class="max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-md">
+    <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Place Your Order</h2>
+    <form id="orderForm" class="space-y-6">
+      <!-- Input Fields: Name and Email -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <!-- Name -->
+        <div>
+          <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Enter your name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-black" />
+        </div>
+        <!-- Email -->
+        <div>
+          <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
+          <input type="email" id="email" name="email" placeholder="Enter your email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-black" />
+        </div>
+      </div>
+      <!-- Order Details (Full Width) -->
+      <div>
+        <label for="details" class="block text-sm font-semibold text-gray-700 mb-2">Order Details</label>
+        <textarea id="details"
+         placeholder="Provide specific details for your order"
+         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-black">
+        </textarea>
+
+        <p id="detailsError" class="text-sm text-red-600 mt-2 hidden">Order details must be at least 10 characters.</p>
+      </div>
+      <!-- Terms & Conditions -->
+      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+        <p class="text-sm text-gray-600 mb-2">
+          Please read the <a href="#" id="termsLink" class="text-blue-600 underline">terms and conditions</a> before agreeing.
+        </p>
+        <div id="termsText" class="text-sm text-gray-700 hidden mb-4">
+          <p>
+            By placing your order, you agree to abide by our policies, including timely payments, proper order descriptions,
+            and adherence to delivery agreements. Failure to comply may result in cancellation or additional charges.
+          </p>
+        </div>
+        <div class="flex items-start gap-2">
+          <input type="checkbox" id="agreeToTerms" disabled class="mt-1">
+          <label for="agreeToTerms" class="text-sm text-gray-800">I agree with the terms and conditions</label>
+        </div>
+        <p id="termsError" class="text-sm text-red-600 mt-2 hidden">You must read the terms and conditions before checking this box.</p>
+      </div>
+      <!-- Submit Button -->
+      <div class="text-center">
+        <button type="submit" class="px-6 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition duration-300">
+          Submit Order
+        </button>
+      </div>
+    </form>
+    <!-- Confirmation Message -->
+    <div id="confirmationMessage" class="mt-6 text-center text-green-600 font-semibold hidden">
+      Your order has been submitted successfully!
+    </div>
+  </div>
+</section>
+<!-- call to action section -->
+<section class="relative bg-gradient-to-br from-green-900 via-emerald-700 to-lime-600 text-white py-24 px-6 md:px-20 overflow-hidden text-center">
+  <!-- Content Wrapper -->
+  <div class="max-w-3xl mx-auto relative z-10 backdrop-blur-sm bg-white/5 rounded-xl p-10 shadow-lg border border-white/10">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4 leading-tight drop-shadow-xl">
+      Ready to Transform Your Ideas?
+    </h2>
+    <p class="text-lg md:text-xl mb-4 text-gray-100">
+      Let us help bring your vision to life with creative and professional solutions.
+    </p>
+    <p class="text-md md:text-lg mb-8 text-gray-200">
+      Web design, flyers, logos, and more — delivered fast and affordably.
+    </p>
+    <a href="https://wa.me/message/WUKCH5JM4XRFI1"  target="_blank" class="inline-block bg-white text-green-800 font-semibold px-8 py-3 rounded-full shadow-xl hover:bg-green-100 hover:scale-105 transform transition duration-300">
+      Contact Us Now →
+    </a>
+  </div>
+  <!-- Decorative Background Circles -->
+  <div class="absolute -top-20 -left-24 w-72 h-72 bg-green-300 opacity-20 rounded-full blur-3xl animate-pulse"></div>
+  <div class="absolute bottom-0 -right-20 w-72 h-72 bg-lime-400 opacity-10 rounded-full blur-2xl animate-pulse"></div>
+  <!-- SVG Wave Divider -->
+  <div class="absolute bottom-0 left-0 w-full overflow-hidden leading-none rotate-180">
+    <svg viewBox="0 0 1200 120" preserveAspectRatio="none" class="w-full h-16 fill-white">
+      <path d="M0,0V46.29c47.86,22,103.58,36.5,162,42,70.91,6.7,140.31-1.4,207-17.8C588.35,37.66,694.42,0,801.62,0c74.58,0,148.3,18.27,213.38,40.36V0Z"></path>
+    </svg>
+  </div>
+</section>
+<!-- why choose us section -->
+<section class="bg-gray-100 text-gray-800 py-20 px-6 md:px-12">
+  <div class="max-w-7xl mx-auto text-center mb-16">
+    <h2 class="text-4xl font-bold text-green-800 mb-4">Why Choose Mikky Technology?</h2>
+    <p class="text-lg text-gray-600">Empowering your vision with innovative tech, stunning designs, and reliable support — anytime, anywhere.</p>
+  </div>
+  <!-- Features -->
+  <div class="grid md:grid-cols-3 gap-10 mb-16">
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+      <i class='bx bx-code-alt text-5xl text-green-700 mb-4'></i>
+      <h3 class="text-xl font-semibold mb-2">Custom Web Development</h3>
+      <p class="text-gray-600">Responsive and secure websites built to meet your unique goals.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+      <i class='bx bx-color text-5xl text-green-700 mb-4'></i>
+      <h3 class="text-xl font-semibold mb-2">Branding & Graphic Design</h3>
+      <p class="text-gray-600">From logos to posters, we bring your identity to life with creativity.</p>
+    </div>
+    <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition">
+      <i class='bx bx-support text-5xl text-green-700 mb-4'></i>
+      <h3 class="text-xl font-semibold mb-2">24/7 Reliable Support</h3>
+      <p class="text-gray-600">Your satisfaction is our priority — we’re with you every step of the way.</p>
+    </div>
+  </div>
+  <!-- Stats / Counters -->
+  <section class="py-20 px-5 text-center">
+    <h2 class="text-4xl font-bold text-green-800 mb-10">Our Impact in Numbers</h2>
+    <div class="flex flex-wrap justify-center gap-10">
+      <div>
+        <h3 id="projectsCount" class="text-5xl font-extrabold text-green-700">0</h3>
+        <p class="mt-2 text-lg text-gray-700">Projects Delivered</p>
+      </div>
+      <div>
+        <h3 id="clientsCount" class="text-5xl font-extrabold text-green-700">0</h3>
+        <p class="mt-2 text-lg text-gray-700">Happy Clients</p>
+      </div>
+      <div>
+        <h3 id="industriesCount" class="text-5xl font-extrabold text-green-700">0</h3>
+        <p class="mt-2 text-lg text-gray-700">Industries Served</p>
+      </div>
+    </div>
   </section>
-
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <a href="#top"><img style="height: 260px;width: 290px;" src="./images/mikky-technology.png" alt=""></a>
+  <!-- Testimonials -->
+  <div class="bg-white rounded-2xl shadow p-10 mb-16">
+    <h3 class="text-2xl font-semibold text-green-800 mb-6">What Our Clients Say</h3>
+    <div class="grid md:grid-cols-3 gap-6 text-left">
+      <div>
+        <p class="italic text-gray-600">"Mikky Tech built our site fast and beautifully. 10/10 experience!"</p>
+        <p class="font-bold text-green-900 mt-2">– Sarah O., Fashion Brand Owner</p>
       </div>
-      <div class="footer-column">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">For the Record</a></li>
-          <li><a href="#">Careers</a></li>
-          <li><a href="./about us/index.html">About</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Jobs</a></li>
-        </ul>
+      <div>
+        <p class="italic text-gray-600">"They designed my logo and flyers. Absolutely love it!"</p>
+        <p class="font-bold text-green-900 mt-2">– John A., Entrepreneur</p>
       </div>
-      <div class="footer-column">
-        <h4>Communities</h4>
-        <ul>
-          <li><a href="#">Advertising</a></li>
-          <li><a href="#">Developers</a></li>
-          <li><a href="#">For Artists</a></li>
-          <li><a href="#">Investors</a></li>
-          <li><a href="#">Partners</a></li>
-          <li><a href="#">Vendors</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Free Mobile App</a></li>
-          <li><a href="#">Web Player</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Contact</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Terms</a></li>
-        </ul>
-      </div>
-
-      <div class="footer-social">
-        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546"><i
-            class='bx bxl-facebook'></i></a>
-        <a class="twitter" href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09"><i class='bx bxl-twitter'></i></a>
-        <a class="instagram" href="https://www.instagram.com/oliyidemikky/"><i class='bx bxl-instagram'></i></a>
-        <a
-          href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i
-            class='bx bxl-linkedin'></i></a>
+      <div>
+        <p class="italic text-gray-600">"Reliable and creative. I always recommend Mikky Technology."</p>
+        <p class="font-bold text-green-900 mt-2">– Fatima Y., Event Planner</p>
       </div>
     </div>
-    <div class="footer-bottom">
-      <div class="footer-bottom-left">
-        <ul>
-          <li><a aria-dropeffect="move" href="./about us/index.html">About Us</a></li>
-          <li><a href="./locate us/index.html">Location</a></li>
-          <li><a href="./support us-page/index.html">Support</a></li>
-          <li><a href="./about us/#achivement">Achivement</a></li>
-        </ul>
-      </div>
-      <div class="footer-bottom-right">
-        <ul>
-          <li>Copyright</li>
-          <li>&copy; 2025</li>
-          <li>Mikky Technology</li>
-        </ul>
+  </div>
+  <!-- Image/Video Section -->
+  <div class="text-center">
+    <h3 class="text-3xl font-bold text-green-800 mb-6">See Our Work in Action</h3>
+    <div class="relative overflow-hidden rounded-xl shadow-lg w-full max-w-4xl mx-auto aspect-video">
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ"  frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+</section>
+<footer class="bg-white text-black font-sans mt-16">
+  <!-- Row 1 -->
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-300">
+    <!-- Logo -->
+    <div class="flex justify-center md:justify-start">
+      <a href="#top">
+        <img src="./images/mikky-technology.png" alt="Mikky Logo" class="h-44 w-64 object-contain" />
+      </a>
+    </div>
+    <!-- Company -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">For the Record</a></li>
+        <li><a href="#" class="hover:text-green-600">Careers</a></li>
+        <li><a href="./about us/index.html" class="hover:text-green-600">About</a></li>
+        <li><a href="#" class="hover:text-green-600">Press</a></li>
+        <li><a href="#" class="hover:text-green-600">Blog</a></li>
+        <li><a href="#" class="hover:text-green-600">Jobs</a></li>
+      </ul>
+    </div>
+    <!-- Communities -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Communities</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Advertising</a></li>
+        <li><a href="#" class="hover:text-green-600">Developers</a></li>
+        <li><a href="#" class="hover:text-green-600">For Artists</a></li>
+        <li><a href="#" class="hover:text-green-600">Investors</a></li>
+        <li><a href="#" class="hover:text-green-600">Partners</a></li>
+        <li><a href="#" class="hover:text-green-600">Vendors</a></li>
+      </ul>
+    </div>
+    <!-- Useful Links -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Useful Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Free Mobile App</a></li>
+        <li><a href="#" class="hover:text-green-600">Web Player</a></li>
+        <li><a href="#" class="hover:text-green-600">Support</a></li>
+        <li><a href="#" class="hover:text-green-600">Contact</a></li>
+        <li><a href="#" class="hover:text-green-600">Privacy</a></li>
+        <li><a href="#" class="hover:text-green-600">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-center border-b border-gray-300">
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Explore</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="./about us/index.html" class="hover:text-green-600">About Us</a></li>
+        <li><a href="./locate us/index.html" class="hover:text-green-600">Location</a></li>
+        <li><a href="./support us-page/index.html" class="hover:text-green-600">Support</a></li>
+        <li><a href="./about us/#achivement" class="hover:text-green-600">Achievement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Quick Access</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:text-green-600">Dashboard</a></li>
+        <li><a href="#" class="hover:text-green-600">Sign In</a></li>
+        <li><a href="#" class="hover:text-green-600">Register</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3">
+      <h5 class="text-green-600 font-medium">Follow Us</h5>
+      <div class="flex gap-5 text-2xl">
+        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546" class="hover:text-blue-700"><i class='bx bxl-facebook'></i></a>
+        <a href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09" class="hover:text-gray-700"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.instagram.com/oliyidemikky/" class="hover:text-pink-500"><i class='bx bxl-instagram'></i></a>
+        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="hover:text-blue-600"><i class='bx bxl-linkedin'></i></a>
       </div>
     </div>
-  </footer> 
+  </div>
+  <!-- Row 3 -->
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between text-sm text-gray-500 text-center md:text-left">
+    <p>&copy; 2025 Mikky Technology. All rights reserved.</p>
+    <ul class="flex justify-center md:justify-end gap-6 mt-2 md:mt-0">
+      <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li> 
+      <li><a href="#" class="hover:text-green-600">Terms of Service</a></li>
+      <li><a href="#" class="hover:text-green-600">Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+<!-- why choose us javascript -->
+<script type="module">
+  // ✅ Import Firebase SDK modules (version 9+ modular syntax)
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-firestore.js";
+  import { getAuth } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-auth.js";
 
-  <script src="./script.js"></script>
+  // ✅ Your Firebase Configuration
+  const firebaseConfig = {
+    apiKey: "AIzaSyCXQzFpqeGz_nO9aeGHNME7NWrR6xDtg44",
+    authDomain: "bizgenius-4365c.firebaseapp.com",
+    projectId: "bizgenius-4365c",
+    storageBucket: "bizgenius-4365c.appspot.com",
+    messagingSenderId: "1022780720341",
+    appId: "1:1022780720341:web:eca37a2c5a452a8e168e5c",
+    measurementId: "G-EWRH0W9CDT"
+  };
+
+  // ✅ Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const auth = getAuth(app);
+  const db = getFirestore(app);
+
+  // ✅ Count Animation Function
+  function animateCount(element, target) {
+    let count = 0;
+    const step = Math.max(1, Math.ceil(target / 100));
+    const interval = setInterval(() => {
+      count += step;
+      if (count >= target) {
+        element.textContent = target;
+        clearInterval(interval);
+      } else {
+        element.textContent = count;
+      }
+    }, 20);
+  }
+
+  // ✅ Fetch and Display Stats
+  const summaryRef = doc(db, "siteStats", "summary");
+  getDoc(summaryRef)
+    .then((docSnap) => {
+      if (docSnap.exists()) {
+        const data = docSnap.data();
+        animateCount(document.getElementById("projectsCount"), data.projects || 0);
+        animateCount(document.getElementById("clientsCount"), data.clients || 0);
+        animateCount(document.getElementById("industriesCount"), data.industries || 0);
+      } else {
+        console.error("Document not found.");
+      }
+    })
+    .catch((error) => {
+      console.error("Error fetching stats:", error);
+    });
+</script>
+
+<!-- Greeting Script -->
+<script>
+  const greetingElement = document.getElementById("greeting");
+  const hour = new Date().getHours();
+  let greetingText = "Welcome";
+  if (hour >= 5 && hour < 12) {
+    greetingText = "Good Morning";
+  } else if (hour >= 12 && hour < 17) {
+    greetingText = "Good Afternoon";
+  } else {
+    greetingText = "Good Evening";
+  }
+  greetingElement.textContent = greetingText + " 👋";
+</script>
+<!-- Scroll Background Toggle Script -->
+<script>
+  const navbar = document.getElementById("navbar");
+  const brandText = navbar.querySelector("h2");
+  const navLinks = navbar.querySelectorAll("#nav-links a");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // Add white background and shadow
+      navbar.classList.add("bg-white", "shadow-md");
+      navbar.classList.remove("bg-transparent");
+      // Change brand text to black
+      brandText.classList.remove("text-white");
+      brandText.classList.add("text-black");
+      // Change nav link text color to black
+      navLinks.forEach(link => {
+        link.classList.remove("text-white");
+        link.classList.add("text-black");
+      });
+    } else {
+      // Reset background to transparent
+      navbar.classList.remove("bg-white", "shadow-md");
+      navbar.classList.add("bg-transparent");
+      // Reset brand text to white
+      brandText.classList.remove("text-black");
+      brandText.classList.add("text-white");
+      // Reset nav link text color to white
+      navLinks.forEach(link => {
+        link.classList.remove("text-black");
+        link.classList.add("text-white");
+      });
+    }
+  });
+</script>
+<script>
+  // Mobile menu toggle
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobile-nav");
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
+  });
+</script>
+<script src="./script.js"></script>
 </body>
-
 </html>
