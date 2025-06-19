@@ -4,209 +4,496 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Mikky Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
-  <link rel="stylesheet" href="./style.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+
+  <style>
+@keyframes fade-in-up {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in-down {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+.animate-fade-in-down {
+  animation: fade-in-down 0.8s ease-out forwards;
+}
+.animate-fade-in {
+  animation: fade-in 1s ease-in forwards;
+}
+</style>
+
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
-          </a>
-          <h2 class="one">MIKKY TECHNOLOGY</h2>
-          <h2 class="two">TECH AT IT FINEST</h2>
-        </div>
-        <ul class="nav-links" id="nav-links">
-          <li class="dropdown">
-            <a href="#">About us</a>
-            <div class="dropdown-content">
-              <a href="./index.html#our-mission">Mission</a>
-              <a href="./index.html#values">Values</a>
-              <a href="./index.html#achivement">Accomplishment</a>
-            </div>
-          </li>
-          <li><a href="../our service/index.html">Our Services</a></li>
-          <li><a href="../locate us/index.html">Location</a></li>
-          <li>|</li>
-          <li><a href="../signup page/index.html">Sign up</a></li>
-          <li><a href="../login page/index.html">Log in</a></li>
-        </ul>
-        <div class="menu-icon" id="menu-icon">
-          <i class='bx bx-dots-vertical-rounded'></i>
-        </div>
-      </nav>
-
-  <header class="about-header">
-    <div class="container">
-      <h1>About Us</h1>
-      <p>Your trusted partner in web development and digital solutions.</p>
+  <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition duration-300">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm transition-all duration-300">
+    <!-- Logo & Brand -->
+    <div class="flex items-center gap-3">
+      <a href="../index.html">
+        <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo" class="h-10 w-auto">
+      </a>
+      <h2 class="text-white text-lg font-semibold hover:text-green-400">MIKKY TECHNOLOGY</h2>
     </div>
-  </header>
-
-  <main class="about-main">
-    <section class="mission-section">
-      <div class="container">
-        <h2 id="Our-Mission">Our Mission</h2>
-        <p>
-          At Mikky Technology, our mission is to empower businesses with cutting-edge web solutions
-          that enhance their digital presence and drive growth. We strive to deliver excellence in every project,
-          combining creativity, innovation, and technical expertise.
-        </p>
-      </div>
-    </section>
-
-    <section class="values-section">
-      <div class="container">
-        <h2 id="values">Our Values</h2>
-        <ul>
-          <li><strong>Innovation:</strong> We embrace new technologies to create unique and efficient solutions.</li>
-          <li><strong>Integrity:</strong> We build trust through transparency and reliability in all our dealings.</li>
-          <li><strong>Excellence:</strong> We are committed to delivering exceptional results on every project.</li>
-          <li><strong>Customer Focus:</strong> Your satisfaction is our top priority.</li>
-        </ul>
-      </div>
-    </section>
-
-    <section class="ceo-section">
-      <div class="container">
-        <h2>Meet Our CEO</h2>
-        <p>
-          <strong>Michael Ayodeji Oliyide</strong>, the visionary founder and CEO of Mikky Technology, 
-          is a skilled web developer and digital solutions expert. 
-          He began his educational journey at <strong>Deril Academy</strong> in Oyo State, Ibadan. 
-          Michael is currently expanding his knowledge and expertise as a student at <strong>SQI - College of ICT</strong>. 
-        </p>
-        <p>
-          His passion for technology and innovation drives Mikky Technology’s success in delivering 
-          world-class web solutions.
-        </p>
-      </div>
-    </section>
-
-    <section class="projects-section">
-      <div class="container">
-        <h2 id="achivement">Our Accomplished Projects</h2>
-        <p>We have successfully delivered a variety of projects for our clients. Below are some highlights:</p>
-        <div class="project">
-          <h3>Y-COMBINATOR</h3>
-          <p>
-            A feature-rich online store for <strong>Y-COMBINATOR</strong> that includes a user-friendly interface, 
-            secure payment gateways, and inventory management.
-          </p>
-          <p><strong>Tools:</strong> HTML & CSS (Design), Git (Version Control)</p>
-          <p>
-            <strong>Front-End:</strong> HTML5, CSS3, JavaScript (ES6), React.js<br>
-            <strong>Back-End:</strong> Node.js, MongoDB
-          </p>
-          <a href="https://y-combinator-usuq.vercel.app" target="_blank">View Project</a>
+    <!-- Desktop Navigation -->
+    <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
+      <li class="relative group">
+        <button class="hover:text-green-400 focus:outline-none">About us</button>
+        <div class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 opacity-0 group-hover:opacity-100 group-hover:block invisible group-hover:visible transition duration-200">
+        <a href="./about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+        <a href="./about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+        <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
         </div>
+      </li>
+      <li><a href="../our service/index.html" class="hover:text-green-400">Our Services</a></li>
+      <li><a href="../locate us/index.html" class="hover:text-green-400">Location</a></li>
+      <li>|</li>
+      <li><a href="../signup page/index.html" class="hover:text-green-400">Sign up</a></li>
+      <li><a href="../login page/index.html" class="hover:text-green-400">Log in</a></li>
+    </ul>
+    <!-- Mobile Menu Icon -->
+    <div id="menu-icon" class="text-green-400 text-3xl md:hidden cursor-pointer">
+      <i class='bx bx-dots-vertical-rounded'></i>
+    </div>
+  </div>
+  <!-- Mobile Navigation -->
+  <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
+    <li class="relative">
+  <button id="aboutToggle" class="hover:text-green-400 focus:outline-none flex items-center gap-1 text-white">
+    About us
+    <i class='bx bx-chevron-down text-lg'></i>
+  </button>
+  <div id="aboutDropdown" class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 hidden transition duration-200">
+    <a href="./about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+    <a href="./about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+    <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+  </div>
+</li>
 
-        <div class="project">
-          <h3>ZENITH BANK CLONE</h3>
-          <p>
-            A  duplicate webpage of the official web of <strong>ZENITH BANK</strong> to explain more about the bank.
-          </p>
-          <p><strong>Tools:</strong> Adobe XD (Design), GitHub Actions (CI/CD)</p>
-          <p>
-            <strong>Front-End:</strong> HTML5, CSS3, JavaScript (Vanilla)<br>
-            <strong>Back-End:</strong> PHP, MySQL
-          </p>
-          <a href="https://zenith-project.vercel.app" target="_blank">View Project</a>
-        </div>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html">Our Services</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html">Location</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html">Sign up</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../login page/index.html">Log in</a></li>
+  </ul>
+</nav>
 
-        <div class="project">
-          <h3>SQI-COLLEGE OF ICT CLONE</h3>
-          <p>
-            A  duplicate webpage of the official web of <strong>SQI-COLLEGE OF ICT</strong> to explain more about the school and lead you into the world ICT.
-          </p>
-          <p><strong>Tools:</strong> Adobe XD (Design), GitHub Actions (CI/CD)</p>
-          <p>
-            <strong>Front-End:</strong> HTML5, CSS3, JavaScript (Vanilla)<br>
-            <strong>Back-End:</strong> PHP, MySQL
-          </p>
-          <a href="https://sqi-project.vercel.app" target="_blank">View Project</a>
+<header class="relative bg-cover bg-center h-[300px] md:h-[400px] text-green-400" style="background-image: url('../images/10.gif');">
+  <!-- Overlay -->
+  <div class="absolute inset-0 bg-black/60 backdrop-blur-sm"></div>
+
+  <!-- Content -->
+  <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">About Us</h1>
+    <p class="mt-4 text-lg md:text-xl text-green-200 max-w-2xl drop-shadow">
+      Your trusted partner in web development and digital solutions.
+    </p>
+    <a href="./index.html#Our-Mission" class="mt-6 px-6 py-3 bg-green-600 text-white rounded-full text-sm font-semibold hover:bg-green-700 transition duration-300">
+      Learn More
+    </a>
+  </div>
+</header>
+
+
+  <main class="mb-0 about-main">
+
+<!-- mission section -->
+
+   <section id="Our-Mission" class="bg-gray-50 py-20 px-4 md:px-10 lg:px-20">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-green-700 mb-4">Our Mission</h2>
+    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+      At Mikky Technology, our mission is to empower businesses with cutting-edge digital solutions that elevate their presence and accelerate growth.
+      We are committed to blending innovation, creativity, and technical expertise to deliver results that matter.
+    </p>
+
+    <!-- Highlighted Points (Optional Add-On) -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left mt-6">
+      <div class="flex items-start gap-4 group hover:bg-green-50 p-4 rounded-lg transition">
+        <i class='bx bx-code-alt text-3xl text-green-600'></i>
+        <div>
+          <h3 class="text-lg font-semibold text-green-700">Digital Empowerment</h3>
+          <p class="text-gray-600">Delivering tools and platforms to help clients succeed online.</p>
         </div>
       </div>
-    </section>
-
-    <section class="contact-section">
-      <div class="container">
-        <h2>Get in Touch</h2>
-        <p>Have a project in mind? Contact us today and let's build something amazing together.</p>
-        <a href="https://wa.me/2347083034571" class="contact-link">Contact Us</a>
+      <div class="flex items-start gap-4 group hover:bg-green-50 p-4 rounded-lg transition">
+        <i class='bx bx-rocket text-3xl text-green-600'></i>
+        <div>
+          <h3 class="text-lg font-semibold text-green-700">Growth Acceleration</h3>
+          <p class="text-gray-600">Helping businesses grow through strategic and smart web technology.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- value section -->
+
+    <section class="bg-white py-20 px-4 md:px-10 lg:px-20" id="values">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-green-700 mb-4">Our Values</h2>
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+      At Mikky Technology, our values guide every project, partnership, and product we create.
+    </p>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
+      <!-- Value Item -->
+      <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
+        <i class='bx bx-bulb text-green-600 text-4xl'></i>
+        <div>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Innovation</h3>
+          <p class="text-gray-600">We embrace new technologies to deliver smart, creative, and effective digital solutions.</p>
+        </div>
+      </div>
+
+      <!-- Value Item -->
+      <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
+        <i class='bx bx-shield-alt-2 text-green-600 text-4xl'></i>
+        <div>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Integrity</h3>
+          <p class="text-gray-600">Trust is built through transparency and honest collaboration in everything we do.</p>
+        </div>
+      </div>
+
+      <!-- Value Item -->
+      <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
+        <i class='bx bx-medal text-green-600 text-4xl'></i>
+        <div>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Excellence</h3>
+          <p class="text-gray-600">We aim for exceptional results by maintaining high standards and attention to detail.</p>
+        </div>
+      </div>
+
+      <!-- Value Item -->
+      <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
+        <i class='bx bx-user-circle text-green-600 text-4xl'></i>
+        <div>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Customer Focus</h3>
+          <p class="text-gray-600">Your needs come first — we tailor every solution to deliver satisfaction and results.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ceo section -->
+
+  <section id="ceo" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-green-700 text-center mb-12">
+      Meet Our CEO
+    </h2>
+
+    <div class="flex flex-col md:flex-row items-center md:items-start gap-10">
+      <!-- CEO Image -->
+      <div class="flex-shrink-0">
+        <img src="../images/michael-oliyide.jpg"
+             alt="Michael Ayodeji Oliyide"
+             class="w-52 h-52 md:w-64 md:h-64 rounded-xl shadow-lg object-cover border-4 border-green-600 hover:scale-105 transition-transform duration-300">
+      </div>
+
+      <!-- CEO Text Content -->
+      <div class="text-gray-700 text-lg leading-relaxed space-y-5">
+        <p>
+          <strong class="text-green-700">Michael Ayodeji Oliyide</strong> is the visionary founder and CEO of
+          <span class="font-semibold text-black">Mikky Technology</span>. He is a skilled web developer and digital
+          solutions expert with a passion for turning ideas into scalable realities.
+        </p>
+        <p>
+          Michael began his academic journey at <strong>Deril Academy</strong> in Oyo State, Ibadan. He is currently
+          expanding his skills at <strong>SQI - College of ICT</strong>, where he continues to grow his technical and leadership capabilities.
+        </p>
+        <p>
+          His innovative mindset, dedication to excellence, and strong vision drive Mikky Technology’s success in providing
+          cutting-edge digital services for individuals, startups, and organizations.
+        </p>
+
+        <!-- Optional quote -->
+        <div class="mt-4 italic text-green-900 font-medium">
+          “Technology should empower, not complicate — let’s build smarter.”
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+  <!-- project section -->
+
+  <section class="mb-0 projects-section py-16 bg-gray-50" id="achivement">
+  <div class="container mx-auto px-6">
+    <h2 class="text-3xl font-bold text-green-700 mb-4 text-center" data-aos="fade-down">Our Accomplished Projects</h2>
+    <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up">
+      We’ve successfully delivered a variety of digital solutions. Below are a few project highlights:
+    </p>
+
+    <!-- Project Cards -->
+    <div class="space-y-12">
+
+      <!-- Project 1 -->
+      <div class="md:flex gap-8 items-center" data-aos="fade-right">
+        <img src="../images/y-combinator.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
+        <div class="mt-4 md:mt-0 md:w-2/3">
+          <h3 class="text-2xl font-semibold text-green-800">Y-COMBINATOR</h3>
+          <p class="text-gray-700 mt-2">
+            A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.
+          </p>
+          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> HTML, CSS, Git</p>
+          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML5, CSS3, JS, React.js<br>
+            <strong>Back-End:</strong> Node.js, MongoDB</p>
+          <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
+        </div>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
+        <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
+        <div class="mt-4 md:mt-0 md:w-2/3">
+          <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
+          <p class="text-gray-700 mt-2">
+            A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
+          </p>
+          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
+          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
+            <strong>Back-End:</strong> PHP, MySQL</p>
+          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
+        </div>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="md:flex gap-8 items-center" data-aos="fade-right">
+        <img src="../images/sqi.png" alt="SQI College Clone" class="w-full md:w-1/3 rounded shadow-md">
+        <div class="mt-4 md:mt-0 md:w-2/3">
+          <h3 class="text-2xl font-semibold text-green-800">SQI-COLLEGE OF ICT CLONE</h3>
+          <p class="text-gray-700 mt-2">
+            A functional replica of the SQI College website to explain the institution’s ICT offerings.
+          </p>
+          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
+          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
+            <strong>Back-End:</strong> PHP, MySQL</p>
+          <a href="https://sqi-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- More Projects Button -->
+    <div class="text-center mt-12" data-aos="zoom-in">
+      <a href="./project.html" class="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">View More Projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- contact us section -->
+
+  <!-- Contact Section -->
+<section class=" mt-0 relative py-20 bg-green-50 overflow-hidden contact-section">
+  <!-- Decorative Background SVG Blob -->
+  <div class="absolute top-0 left-0 w-full h-full pointer-events-none opacity-10">
+    <img src="../images/background-blob.png" alt="background blob" class="w-full h-full object-cover">
+  </div>
+
+  <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
+    <h2 class="text-4xl font-extrabold text-green-800 mb-4 tracking-tight" data-aos="fade-down">
+      Let’s Build Something Great Together
+    </h2>
+    <p class="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-8" data-aos="fade-up">
+      We're ready to turn your ideas into reality. Whether it's a website, brand identity, or a tech solution — let's talk!
+    </p>
+
+    <!-- Call to Action -->
+    <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-8">
+      <a href="https://wa.me/2347083034571"
+         class="inline-flex items-center gap-3 bg-green-700 text-white px-6 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-green-800 transition"
+         data-aos="zoom-in">
+        <i class='bx bxl-whatsapp text-2xl'></i> WhatsApp Us
+      </a>
+
+      <a href="mailto:mikkytechnology86@gmail.com"
+         class="inline-flex items-center gap-3 bg-white border-2 border-green-700 text-green-700 px-6 py-3 rounded-full text-lg font-medium hover:bg-green-700 hover:text-white transition"
+         data-aos="zoom-in" data-aos-delay="100">
+        <i class='bx bx-envelope text-2xl'></i> Email Us
+      </a>
+    </div>
+  </div>
+</section>
+
   </main>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <a href="#top"><img style="height: 260px;width: 310px;" src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt=""></a>
-      </div>
-      <div class="footer-column">
-       
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Jobs</a></li>
-          <li><a href="#">For the Record</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Communities</h4>
-        <ul>
-          <li><a href="#">For Artists</a></li>
-          <li><a href="#">Developers</a></li>
-          <li><a href="#">Advertising</a></li>
-          <li><a href="#">Investors</a></li>
-          <li><a href="#">Vendors</a></li>
-          <li><a href="#">Partners</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Free Mobile App</a></li>
-          <li><a href="#">Web Player</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Contact</a></li> 
-          <li><a href="#">Terms</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-social">
-        <a href="https://web.facebook.com/profile.php?id=100072977906546"><i class='bx bxl-facebook' ></i></a>
-        <a class="twitter" href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09"><i class='bx bxl-twitter'></i></a>
-        <a class="instagram" href="https://www.instagram.com/oliyidemikky/"><i class='bx bxl-instagram'></i></a>
-        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin'></i></a>
+  <footer class="mt-0 bg-white text-black font-sans mt-16">
+  <!-- Row 1 -->
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-300">
+    <!-- Logo -->
+    <div class="flex justify-center md:justify-start">
+      <a href="#top">
+        <img src="../images/mikky-technology.png" alt="Mikky Logo" class="h-44 w-64 object-contain" />
+      </a>
+    </div>
+    <!-- Company -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">For the Record</a></li>
+        <li><a href="#" class="hover:text-green-600">Careers</a></li>
+        <li><a href="./about us/index.html" class="hover:text-green-600">About</a></li>
+        <li><a href="#" class="hover:text-green-600">Press</a></li>
+        <li><a href="#" class="hover:text-green-600">Blog</a></li>
+        <li><a href="#" class="hover:text-green-600">Jobs</a></li>
+      </ul>
+    </div>
+    <!-- Communities -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Communities</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Advertising</a></li>
+        <li><a href="#" class="hover:text-green-600">Developers</a></li>
+        <li><a href="#" class="hover:text-green-600">For Artists</a></li>
+        <li><a href="#" class="hover:text-green-600">Investors</a></li>
+        <li><a href="#" class="hover:text-green-600">Partners</a></li>
+        <li><a href="#" class="hover:text-green-600">Vendors</a></li>
+      </ul>
+    </div>
+    <!-- Useful Links -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Useful Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Free Mobile App</a></li>
+        <li><a href="#" class="hover:text-green-600">Web Player</a></li>
+        <li><a href="#" class="hover:text-green-600">Support</a></li>
+        <li><a href="#" class="hover:text-green-600">Contact</a></li>
+        <li><a href="#" class="hover:text-green-600">Privacy</a></li>
+        <li><a href="#" class="hover:text-green-600">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-center border-b border-gray-300">
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Explore</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="./about us/index.html" class="hover:text-green-600">About Us</a></li>
+        <li><a href="./locate us/index.html" class="hover:text-green-600">Location</a></li>
+        <li><a href="./support us-page/index.html" class="hover:text-green-600">Support</a></li>
+        <li><a href="./about us/#achivement" class="hover:text-green-600">Achievement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Quick Access</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:text-green-600">Dashboard</a></li>
+        <li><a href="#" class="hover:text-green-600">Sign In</a></li>
+        <li><a href="#" class="hover:text-green-600">Register</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3">
+      <h5 class="text-green-600 font-medium">Follow Us</h5>
+      <div class="flex gap-5 text-2xl">
+        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546" class="hover:text-blue-700"><i class='bx bxl-facebook'></i></a>
+        <a href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09" class="hover:text-gray-700"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.instagram.com/oliyidemikky/" class="hover:text-pink-500"><i class='bx bxl-instagram'></i></a>
+        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="hover:text-blue-600"><i class='bx bxl-linkedin'></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-     <div class="footer-bottom-left">
-      <ul>
-        <li><a href="../about us/index.html">About Us</a></li>
-        <li><a href="../locate us/index.html">Location</a></li>
-        <li><a href="../support us-page/index.html">Support</a></li>
-        <li><a href="./index.html#achivement">Achivement</a></li>
-      </ul>
-     </div>
-     <div class="footer-bottom-right">
-      <ul>
-        <li>Copyright</li>
-       <li >&copy; 2025</li>
-       <li>Mikky Technology</li> 
-      </ul>
-     </div>
-    </div>
-  </footer>
+  </div>
+  <!-- Row 3 -->
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between text-sm text-gray-500 text-center md:text-left">
+    <p>&copy; 2025 Mikky Technology. All rights reserved.</p>
+    <ul class="flex justify-center md:justify-end gap-6 mt-2 md:mt-0">
+      <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li> 
+      <li><a href="#" class="hover:text-green-600">Terms of Service</a></li>
+      <li><a href="#" class="hover:text-green-600">Cookies</a></li>
+    </ul>
+  </div>
+</footer>
 
-  <script src="./script.js"></script>
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const brandText = navbar.querySelector("h2");
+  const navLinks = navbar.querySelectorAll("#nav-links a");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // Add white background and shadow
+      navbar.classList.add("bg-white", "shadow-md");
+      navbar.classList.remove("bg-transparent");
+      // Change brand text to black
+      brandText.classList.remove("text-white");
+      brandText.classList.add("text-black");
+      // Change nav link text color to black
+      navLinks.forEach(link => {
+        link.classList.remove("text-white");
+        link.classList.add("text-black");
+      });
+    } else {
+      // Reset background to transparent
+      navbar.classList.remove("bg-white", "shadow-md");
+      navbar.classList.add("bg-transparent");
+      // Reset brand text to white
+      brandText.classList.remove("text-black");
+      brandText.classList.add("text-white");
+      // Reset nav link text color to white
+      navLinks.forEach(link => {
+        link.classList.remove("text-black");
+        link.classList.add("text-white");
+      });
+    }
+  });
+</script>
+<script>
+  // Mobile menu toggle
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobile-nav");
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
+  });
+</script>
+
+<script>
+  const toggleBtn = document.getElementById('aboutToggle');
+  const dropdown = document.getElementById('aboutDropdown');
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent document click from firing
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
+
+
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
 </body>
 </html>
