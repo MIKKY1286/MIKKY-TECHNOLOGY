@@ -4,144 +4,499 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Our Services - Mikky Technology</title>
-  <link rel="stylesheet" href="./style.css">
-  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.tailwindcss.com"></script> 
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
+  <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
 </head>
 <body>
 
-  <nav class="navbar">
-    <div class="logo">
+  <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition duration-300">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm transition-all duration-300">
+    <!-- Logo & Brand -->
+    <div class="flex items-center gap-3">
       <a href="../index.html">
-        <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
+        <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo" class="h-10 w-auto">
       </a>
-      <h2 class="one">MIKKY TECHNOLOGY</h2>
-      
+      <h2 class="text-white text-lg font-semibold hover:text-green-400">MIKKY TECHNOLOGY</h2>
     </div>
-    <ul class="nav-links" id="nav-links">
-      <li class="dropdown">
-        <a href="#">About us</a>
-        <div class="dropdown-content">
-          <a href="../about us/index.html#Our-Mission">Mission</a>
-          <a href="../about us/index.html#values">Values</a>
-          <a href="../about us/index.html#achivement">Accomplishment</a>
-        </div>
+    <!-- Desktop Navigation -->
+    <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
+      <li class="relative">
+        <button id="aboutToggle" class="hover:text-green focus:outline-none flex items-center   gap-1 text-white">
+         About us
+         <i class='bx bx-chevron-down text-lg'></i>
+        </button>
+            <div id="aboutDropdown" class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 hidden transition duration-200">
+            <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200  text-black">Mission</a>
+            <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+            <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+          </div>
       </li>
-      <li><a href="../our service/index.html">Our Services</a></li>
-      <li><a href="../locate us/index.html">Location</a></li>
+      <li><a href="../our service/index.html" class="hover:text-green-400">Our Services</a></li>
+      <li><a href="../locate us/index.html" class="hover:text-green-400">Location</a></li>
       <li>|</li>
-      <li><a href="../signup page/index.html">Sign up</a></li>
-      <li><a href="../login page/index.html">Log in</a></li>
+      <li><a href="../signup page/index.html" class="hover:text-green-400">Sign up</a></li>
+      <li><a href="../login page/index.html" class="hover:text-green-400">Log in</a></li>
     </ul>
-    <div class="menu-icon" id="menu-icon">
+    <!-- Mobile Menu Icon -->
+    <div id="menu-icon" class="text-green-400 text-3xl md:hidden cursor-pointer">
       <i class='bx bx-dots-vertical-rounded'></i>
     </div>
-  </nav>
-  <header class="services-header">
-    <div class="container">
-      <h1>Our Services</h1>
-      <p>Explore the range of professional services we offer to our clients.</p>
-    </div>
-  </header>
+  </div>
+  <!-- Mobile Navigation -->
+  <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
+    <li class="relative group">
+        <a href="#" class="block text-sm text-black hover:text-green-600">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+        </div>
+      </li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html">Our Services</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html">Location</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html">Sign up</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../login page/index.html">Log in</a></li>
+  </ul>
+</nav>
+
+
+<header class="relative bg-gradient-to-br from-[#1e6138] to-green-700 text-white py-24 px-6 text-center overflow-hidden shadow-md">
+  <!-- Decorative Pattern or Shape (Optional) -->
+  <div class="absolute inset-0 bg-[url('../images/grid-pattern.png')] opacity-10 pointer-events-none"></div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4">Our Services</h1>
+    <p class="text-lg md:text-xl font-light max-w-2xl mx-auto">
+      Explore the range of professional solutions we provide — from custom web development to digital innovation.
+    </p>
+  </div>
+</header>
 
   <main class="services-main">
-    <section class="services-list">
-      <div class="container">
-        <div class="service-item">
-          <h2>Web Development</h2>
-          <p>
-            We create responsive and dynamic websites tailored to your business needs using modern web technologies.
-          </p>
+
+    <!-- service section -->
+     
+<section class="py-20 bg-gray-50 services-list">
+  <div class="container mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- Web Development -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bx-code text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700">Web Development</h2>
         </div>
-        <div class="service-item">
-          <h2>Poster & Logo Design</h2>
-          <p>
-            Professional designs for posters, logos, and branding materials that represent your business effectively.
-          </p>
-        </div>
-        <div class="service-item">
-          <h2>e-Business Card Design</h2>
-          <p>
-            Digital business cards that are sleek, modern, and eco-friendly, perfect for networking.
-          </p>
-        </div>
-        <div class="service-item">
-          <h2>Instagram Post Designs</h2>
-          <p>
-            Creative and eye-catching Instagram posts that enhance your social media presence.
-          </p>
-        </div>
+        <p class="text-gray-700">
+          We create responsive and dynamic websites tailored to your business needs using modern web technologies.
+        </p>
       </div>
-    </section>
+
+      <!-- Poster & Logo Design -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bx-paint text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700">Poster & Logo Design</h2>
+        </div>
+        <p class="text-gray-700">
+          Professional designs for posters, logos, and branding materials that represent your business effectively.
+        </p>
+      </div>
+
+      <!-- e-Business Card Design -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bx-id-card text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700">e-Business Card Design</h2>
+        </div>
+        <p class="text-gray-700">
+          Digital business cards that are sleek, modern, and eco-friendly, perfect for networking.
+        </p>
+      </div>
+
+      <!-- Instagram Post Designs -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bxl-instagram text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700">Instagram Post Designs</h2>
+        </div>
+        <p class="text-gray-700">
+          Creative and eye-catching Instagram posts that enhance your social media presence.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-16" data-aos="zoom-in">
+      <h3 class="text-3xl font-bold text-green-800 mb-4">Need a Custom Service?</h3>
+      <p class="text-gray-600 max-w-xl mx-auto mb-6">
+        Let’s work together to bring your ideas to life. We tailor every solution to your specific goals.
+      </p>
+      <a href="https://wa.me/2347083034571"
+         class="inline-flex items-center gap-3 bg-green-700 text-white px-6 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-green-800 transition">
+        <i class='bx bxl-whatsapp text-2xl'></i> Chat With Us
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- why choose us section -->
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-16 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6" data-aos="fade-down">
+      Why Choose Mikky Technology?
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12" data-aos="fade-up">
+      We're not just another tech company — we’re your partner in digital growth. Here's what sets us apart:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+
+      <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up">
+        <i class='bx bx-user-check text-4xl text-green-700 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-800 mb-2">Client-Centric Approach</h3>
+        <p class="text-gray-700">We listen, understand, and tailor our solutions to your exact business goals.</p>
+      </div>
+
+      <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+        <i class='bx bx-trophy text-4xl text-green-700 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-800 mb-2">Proven Track Record</h3>
+        <p class="text-gray-700">From startups to growing brands, we’ve helped many achieve real results.</p>
+      </div>
+
+      <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+        <i class='bx bx-shield-quarter text-4xl text-green-700 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-800 mb-2">Reliable & Transparent</h3>
+        <p class="text-gray-700">We deliver on time, communicate clearly, and stand behind everything we build.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- testimonial section -->
+
+<section class="bg-green-50 py-20">
+  <div class="container mx-auto px-6 lg:px-16 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6" data-aos="fade-down">
+      What Our Clients Say
+    </h2>
+    <p class="text-gray-700 max-w-2xl mx-auto mb-12" data-aos="fade-up">
+      Hear from those who have experienced the Mikky Technology difference.
+    </p>
+
+    <!-- Firebase testimonial entries go here -->
+    <div id="testimonials-list" class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+      <!-- Testimonials will be dynamically injected here -->
+    </div>
+  </div>
+</section>
+
+<!-- Pricing Section -->
+<section id="pricing" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down">Our Pricing Plans</h2>
+    <p class="text-gray-700 text-lg mb-12" data-aos="fade-up">
+      Choose a plan that suits your project. Whether you need a personal site or a full business platform, we've got you covered.
+    </p>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+
+      <!-- Basic Plan -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2">Basic</h3>
+        <p class="text-gray-600 mb-4">Perfect for individuals or simple portfolios.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦85,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li>✔️ Up to 3 Pages</li>
+          <li>✔️ Mobile Responsive</li>
+          <li>✔️ Contact Form</li>
+          <li>✔️ Basic SEO</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Basic',
+          '₦85,000',
+          ['Up to 3 Pages', 'Mobile Responsive', 'Contact Form', 'Basic SEO']
+        )" class="inline-block bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition">
+          Choose Plan
+        </button>
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="relative bg-green-50 border-2 border-[#1e6138] rounded-xl shadow-lg p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+        <div class="absolute -top-3 right-3">
+          <span class="bg-[#1e6138] text-white text-xs font-bold px-3 py-1 rounded-full shadow">Most Popular</span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2">Standard</h3>
+        <p class="text-gray-600 mb-4">Great for small businesses and brands.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦145,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li>✔️ Up to 6 Pages</li>
+          <li>✔️ Free Domain (1 Year)</li>
+          <li>✔️ SEO Optimized</li>
+          <li>✔️ Admin Panel (Optional)</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Standard',
+          '₦145,000',
+          ['Up to 6 Pages', 'Free Domain (1 Year)', 'SEO Optimized', 'Admin Panel (Optional)']
+        )" class="inline-block bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition">
+          Choose Plan
+        </button>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2">Premium</h3>
+        <p class="text-gray-600 mb-4">For advanced platforms, portals, or startups.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦280,000+</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li>✔️ Unlimited Pages</li>
+          <li>✔️ Custom Design + Branding</li>
+          <li>✔️ Admin Panel</li>
+          <li>✔️ Full Support & Maintenance</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Premium',
+          '₦280,000+',
+          ['Unlimited Pages', 'Custom Design + Branding', 'Admin Panel', 'Full Support & Maintenance']
+        )" class="inline-block bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition">
+          Choose Plan
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+
+
   </main>
 
   
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <a href="#top"><img style="height: 260px;width: 310px;" src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt=""></a>
-      </div>
-      <div class="footer-column">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Jobs</a></li>
-          <li><a href="#">For the Record</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Communities</h4>
-        <ul>
-          <li><a href="#">For Artists</a></li>
-          <li><a href="#">Developers</a></li>
-          <li><a href="#">Advertising</a></li>
-          <li><a href="#">Investors</a></li>
-          <li><a href="#">Vendors</a></li>
-          <li><a href="#">Partners</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Free Mobile App</a></li>
-          <li><a href="#">Web Player</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Contact</a></li> 
-          <li><a href="#">Terms</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-social">
-        <a href="https://web.facebook.com/profile.php?id=100072977906546"><i class='bx bxl-facebook' ></i></a>
-        <a class="twitter" href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09"><i class='bx bxl-twitter'></i></a>
-        <a class="instagram" href="https://www.instagram.com/oliyidemikky/"><i class='bx bxl-instagram'></i></a>
-        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin'></i></a>
+    <footer class="mt-0 bg-white text-black font-sans mt-16">
+  <!-- Row 1 -->
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-300">
+    <!-- Logo -->
+    <div class="flex justify-center md:justify-start">
+      <a href="#top">
+        <img src="../images/mikky-technology.png" alt="Mikky Logo" class="h-44 w-64 object-contain" />
+      </a>
+    </div>
+    <!-- Company -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">For the Record</a></li>
+        <li><a href="#" class="hover:text-green-600">Careers</a></li>
+        <li><a href="./about us/index.html" class="hover:text-green-600">About</a></li>
+        <li><a href="#" class="hover:text-green-600">Press</a></li>
+        <li><a href="#" class="hover:text-green-600">Blog</a></li>
+        <li><a href="#" class="hover:text-green-600">Jobs</a></li>
+      </ul>
+    </div>
+    <!-- Communities -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Communities</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Advertising</a></li>
+        <li><a href="#" class="hover:text-green-600">Developers</a></li>
+        <li><a href="#" class="hover:text-green-600">For Artists</a></li>
+        <li><a href="#" class="hover:text-green-600">Investors</a></li>
+        <li><a href="#" class="hover:text-green-600">Partners</a></li>
+        <li><a href="#" class="hover:text-green-600">Vendors</a></li>
+      </ul>
+    </div>
+    <!-- Useful Links -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Useful Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Free Mobile App</a></li>
+        <li><a href="#" class="hover:text-green-600">Web Player</a></li>
+        <li><a href="#" class="hover:text-green-600">Support</a></li>
+        <li><a href="#" class="hover:text-green-600">Contact</a></li>
+        <li><a href="#" class="hover:text-green-600">Privacy</a></li>
+        <li><a href="#" class="hover:text-green-600">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-center border-b border-gray-300">
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Explore</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="./about us/index.html" class="hover:text-green-600">About Us</a></li>
+        <li><a href="./locate us/index.html" class="hover:text-green-600">Location</a></li>
+        <li><a href="./support us-page/index.html" class="hover:text-green-600">Support</a></li>
+        <li><a href="./about us/#achivement" class="hover:text-green-600">Achievement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Quick Access</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:text-green-600">Dashboard</a></li>
+        <li><a href="#" class="hover:text-green-600">Sign In</a></li>
+        <li><a href="#" class="hover:text-green-600">Register</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3">
+      <h5 class="text-green-600 font-medium">Follow Us</h5>
+      <div class="flex gap-5 text-2xl">
+        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546" class="hover:text-blue-700"><i class='bx bxl-facebook'></i></a>
+        <a href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09" class="hover:text-gray-700"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.instagram.com/oliyidemikky/" class="hover:text-pink-500"><i class='bx bxl-instagram'></i></a>
+        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="hover:text-blue-600"><i class='bx bxl-linkedin'></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-     <div class="footer-bottom-left">
-      <ul>
-        <li><a href="../about us/index.html">About Us</a></li>
-        <li><a href="../locate us/index.html">Location</a></li>
-        <li><a href="../support us-page/index.html">surport</a></li>
-        <li><a href="../support us-page/index.html">Achivement</a></li>
-      </ul>
-     </div>
-     <div class="footer-bottom-right">
-      <ul>
-        <li>Copyright</li>
-       <li >&copy; 2025</li>
-       <li>Mikky Technology</li> 
-      </ul>
-     </div>
-    </div>
-  </footer>
+  </div>
+  <!-- Row 3 -->
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between text-sm text-gray-500 text-center md:text-left">
+    <p>&copy; 2025 Mikky Technology. All rights reserved.</p>
+    <ul class="flex justify-center md:justify-end gap-6 mt-2 md:mt-0">
+      <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li> 
+      <li><a href="#" class="hover:text-green-600">Terms of Service</a></li>
+      <li><a href="#" class="hover:text-green-600">Cookies</a></li>
+    </ul>
+  </div>
+</footer>
 
+
+<!-- navebar -->
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const brandText = navbar.querySelector("h2");
+  const navLinks = navbar.querySelectorAll("#nav-links a");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // Add white background and shadow
+      navbar.classList.add("bg-white", "shadow-md");
+      navbar.classList.remove("bg-transparent");
+      // Change brand text to black
+      brandText.classList.remove("text-white");
+      brandText.classList.add("text-black");
+      // Change nav link text color to black
+      navLinks.forEach(link => {
+        link.classList.remove("text-white");
+        link.classList.add("text-black");
+      });
+    } else {
+      // Reset background to transparent
+      navbar.classList.remove("bg-white", "shadow-md");
+      navbar.classList.add("bg-transparent");
+      // Reset brand text to white
+      brandText.classList.remove("text-black");
+      brandText.classList.add("text-white");
+      // Reset nav link text color to white
+      navLinks.forEach(link => {
+        link.classList.remove("text-black");
+        link.classList.add("text-white");
+      });
+    }
+  });
+</script>
+<script>
+  // Mobile menu toggle
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobile-nav");
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
+  });
+</script>
+<script>
+  const toggleBtn = document.getElementById('aboutToggle');
+  const dropdown = document.getElementById('aboutDropdown');
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent document click from firing
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
+
+
+<!-- testimonial script -->
+
+<!-- Firebase App & Firestore -->
+<script type="module">
+  // Import Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "YOUR_API_KEY",
+    authDomain: "YOUR_AUTH_DOMAIN",
+    projectId: "YOUR_PROJECT_ID",
+    storageBucket: "YOUR_BUCKET",
+    messagingSenderId: "YOUR_SENDER_ID",
+    appId: "YOUR_APP_ID"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Fetch testimonials
+  const testimonialsContainer = document.getElementById("testimonials-list");
+
+  async function loadTestimonials() {
+    const querySnapshot = await getDocs(collection(db, "testimonials"));
+    testimonialsContainer.innerHTML = ""; // Clear default
+    querySnapshot.forEach((doc, index) => {
+      const data = doc.data();
+
+      const delay = index * 100;
+      const testimonialHTML = `
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="${delay}">
+          <p class="text-gray-700 italic mb-4">
+            “${data.message}”
+          </p>
+          <div class="flex items-center gap-4">
+            <img src="${data.image || '../images/default-client.jpg'}" alt="Client" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="text-green-800 font-semibold">${data.name}</h4>
+              <p class="text-sm text-gray-500">${data.title}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      testimonialsContainer.innerHTML += testimonialHTML;
+    });
+  }
+
+  loadTestimonials();
+</script>
+
+<!-- plan section -->
+
+<script>
+  function sendPlan(plan, price, features) {
+    const phone = '2347083034571';
+    const featureList = features.map(f => `• ${f}`).join('%0A');
+    const message = `Hello,%0AI'm interested in the *${plan} Plan*.%0A%0A*Price:* ${price}%0A*Features:*%0A${featureList}%0A%0AKindly provide more information.`;
+    const whatsappLink = `https://wa.me/${phone}?text=${message}`;
+    window.open(whatsappLink, '_blank');
+  }
+</script>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
   <script src="./script.js"></script>
 </body>
 </html>

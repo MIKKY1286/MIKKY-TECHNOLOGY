@@ -4,148 +4,411 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Locate Us - Mikky Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
   <link rel="stylesheet" href="./style.css">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    @keyframes fade-in-down {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-down {
+  animation: fade-in-down 0.8s ease-out forwards;
+}
+.animate-fade-in-up {
+  animation: fade-in-up 0.8s ease-out forwards;
+}
+
+  </style>
+  <style>
+  .faq-answer.open {
+    max-height: 300px; 
+  }
+</style>
+
 </head>
 <body>
 
-    <nav class="navbar">
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
-          </a>
-          <h2>MIKKY TECHNOLOGY</h2>
-        </div>
-        <ul class="nav-links" id="nav-links">
-          <li class="dropdown">
-            <a href="#">About us</a>
-            <div class="dropdown-content">
-              <a href="../about us/index.html#Our-Mission">Mission</a>
-              <a href="../about us/index.html#values">Values</a>
-              <a href="../about us/index.html#achivement">Accomplishment</a>
-            </div>
-          </li>
-          <li><a href="../our service/index.html">Our Services</a></li>
-          <li><a href="../locate us/index.html">Location</a></li>
-          <li>|</li>
-          <li><a href="../signup page/index.html">Sign up</a></li>
-          <li><a href="../login page/index.html">Log in</a></li>
-        </ul>
-        <div class="menu-icon" id="menu-icon">
-          <i class='bx bx-dots-vertical-rounded'></i>
-        </div>
-      </nav>
-
-  <header class="locate-header">
-    <div class="container">
-      <h1>Locate Us</h1>
-      <p>Visit us at SQI - College of ICT, Iwo Road Campus, Ibadan.</p>
+  <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition duration-300">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm transition-all duration-300">
+    <!-- Logo & Brand -->
+    <div class="flex items-center gap-3">
+      <a href="../index.html">
+        <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo" class="h-10 w-auto">
+      </a>
+      <h2 class="text-white text-lg font-semibold hover:text-green-400">MIKKY TECHNOLOGY</h2>
     </div>
-  </header>
+    <!-- Desktop Navigation -->
+    <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
+      <li class="relative">
+        <button id="aboutToggle" class="hover:text-green focus:outline-none flex items-center   gap-1 text-black">
+         About us
+         <i class='bx bx-chevron-down text-lg'></i>
+        </button>
+            <div id="aboutDropdown" class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 hidden transition duration-200">
+            <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200  text-black">Mission</a>
+            <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+            <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+          </div>
+      </li>
+      <li><a href="../our service/index.html" class="hover:text-green-400">Our Services</a></li>
+      <li><a href="../locate us/index.html" class="hover:text-green-400">Location</a></li>
+      <li>|</li>
+      <li><a href="../signup page/index.html" class="hover:text-green-400">Sign up</a></li>
+      <li><a href="../login page/index.html" class="hover:text-green-400">Log in</a></li>
+    </ul>
+    <!-- Mobile Menu Icon -->
+    <div id="menu-icon" class="text-green-400 text-3xl md:hidden cursor-pointer">
+      <i class='bx bx-dots-vertical-rounded'></i>
+    </div>
+  </div>
+  <!-- Mobile Navigation -->
+  <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
+    <li class="relative group">
+        <a href="#" class="block text-sm text-black hover:text-green-600">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+        </div>
+      </li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html">Our Services</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html">Location</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html">Sign up</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../login page/index.html">Log in</a></li>
+  </ul>
+</nav>
+
+<!-- header section -->
+
+<header class="relative bg-gradient-to-br from-green-800 to-green-600 text-white py-28 px-6 md:px-12 shadow-lg overflow-hidden">
+  <!-- Optional Decorative SVG or Pattern -->
+  <div class="absolute inset-0 bg-[url('../images/map-pattern.jpeg')] opacity-10 bg-cover bg-center pointer-events-none"></div>
+
+  <!-- Glow or Shape Layer -->
+  <div class="absolute bottom-0 left-0 w-full h-24 bg-gradient-to-t from-green-900/50 to-transparent"></div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-5xl mx-auto text-center">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 drop-shadow-lg animate-fade-in-down">
+      Locate Us
+    </h1>
+    <p class="text-lg md:text-xl text-green-100 animate-fade-in-up">
+      Find us at <strong>SQI - College of ICT</strong>, Iwo Road Campus, Ibadan.
+    </p>
+    <a href="#map" class="mt-6 inline-block bg-white text-green-700 font-semibold px-6 py-3 rounded-full hover:bg-green-100 hover:scale-105 transition duration-300 shadow-md">
+      📍 View on Map
+    </a>
+  </div>
+</header>
+
+
 
   <main class="locate-main">
-    <section class="map-section">
-      <div class="container">
-        <h2>Our Location</h2>
-        <p>
-          We are located at <strong>SQI - College of ICT, Iwo Road Campus, Ibadan</strong>. 
-          You can find us using the map below or contact us for more directions.
+
+    <!-- map section -->
+
+<section id="map" class="map-section bg-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-green-700 text-center mb-10">Our Location</h2>
+    <p class="text-gray-700 text-lg mb-10 max-w-2xl mx-auto">
+      We are located at <strong>SQI - College of ICT, Iwo Road Campus, Ibadan</strong>. 
+      You can find us using the map below or contact us for more directions.
+    </p>
+
+    <div class="rounded-lg overflow-hidden shadow-lg border border-green-200">
+      <!-- Google Maps Embed -->
+      <iframe
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.1992031407043!2d3.93156!3d7.40346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f36256473e87%3A0x9a94df1f1d9c5673!2sArisekola%20Mosque%2C%20Ibadan%2C%20Oyo%20State!5e0!3m2!1sen!2sng!4v1701169388820!5m2!1sen!2sng"
+        width="100%"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade"
+        class="w-full h-[400px] md:h-[450px]">
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- visit us section -->
+
+<section class="visit-us-section py-16 bg-[#f6fdf8] px-6 md:px-16 lg:px-28">
+  <div class="max-w-5xl mx-auto text-center">
+    <h2 class="text-3xl font-bold text-[#1e6138] mb-4">Visit or Schedule a Meeting</h2>
+    <p class="text-gray-700 mb-8">
+      Whether you'd like to stop by our office or book a virtual consultation, we're always ready to assist you. 
+      Let's make your ideas a reality!
+    </p>
+
+    <div class="flex flex-col md:flex-row justify-center gap-6 mt-6">
+      <!-- Visit Us Card -->
+      <div class="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/2 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-[#1e6138] mb-2">Walk-In Visit</h3>
+        <p class="text-gray-600 mb-4">
+          Visit our office at SQI - College of ICT, Iwo Road Campus, Ibadan.
         </p>
-        <div class="map-container">
-          <!-- Google Maps Embed -->
-          <iframe
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3955.1992031407043!2d3.93156!3d7.40346!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1039f36256473e87%3A0x9a94df1f1d9c5673!2sArisekola%20Mosque%2C%20Ibadan%2C%20Oyo%20State!5e0!3m2!1sen!2sng!4v1701169388820!5m2!1sen!2sng"
-          width="100%"
-          height="400"
-          style="border:0;"
-          allowfullscreen=""
-          loading="lazy"
-          referrerpolicy="no-referrer-when-downgrade">
-        </iframe>
-        
+        <a href="#map" class="text-green-700 font-medium hover:underline">View on Map</a>
+      </div>
+
+      <!-- Schedule Meeting Card -->
+      <div class="bg-white shadow-lg rounded-lg p-6 w-full md:w-1/2 hover:shadow-xl transition">
+        <h3 class="text-xl font-semibold text-[#1e6138] mb-2">Schedule a Meeting</h3>
+        <p class="text-gray-600 mb-4">
+          Prefer a virtual session? Reach out via WhatsApp or email to set up a time that works for you.
+        </p>
+        <a href="https://wa.me/2347083034571" target="_blank" class="text-green-700 font-medium hover:underline">WhatsApp Us</a>
+        <br>
+        <a href="mailto:mikkytechnology86@gmail.com" class="text-green-700 font-medium hover:underline">Send an Email</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- contact details section  -->
+
+<section class="contact-info-section py-16 bg-gray-50 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-green-700 text-center mb-10">Contact Information</h2>
+    
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <!-- Address -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+        <i class='bx bx-map text-3xl text-green-600 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-700 mb-2">Office Address</h3>
+        <p class="text-gray-700">SQI College of ICT,<br>Iwo Road Campus, Ibadan, Nigeria</p>
+      </div>
+
+      <!-- Phone -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+        <i class='bx bx-phone-call text-3xl text-green-600 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-700 mb-2">Phone</h3>
+        <p class="text-gray-700">+234 708 303 4571</p>
+        <p class="text-gray-600 text-sm mt-1">Mon - Sat: 9:00am - 6:00pm</p>
+      </div>
+
+      <!-- Email -->
+      <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition">
+        <i class='bx bx-envelope text-3xl text-green-600 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-700 mb-2">Email</h3>
+        <p class="text-gray-700">mikkytechnology86@gmail.com</p>
+        <p class="text-gray-600 text-sm mt-1">We typically reply within 24 hours</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- FAQ section  -->
+
+<section class="faq-section bg-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-5xl mx-auto">
+    <h2 class="text-3xl font-bold text-[#1e6138] text-center mb-8">Frequently Asked Questions</h2>
+    <div class="space-y-6">
+
+      <!-- FAQ Item -->
+      <div class="border border-gray-200 rounded-lg p-5">
+        <h3 class="text-lg font-semibold text-[#1e6138] cursor-pointer faq-toggle">
+          📍 Where is your office located?
+        </h3>
+        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-gray-600">
+          <p class="pt-3">
+            We're inside SQI - College of ICT, Iwo Road Campus, Ibadan. Just ask for Mikky Technology when you enter.
+          </p>
         </div>
       </div>
-  </section>
 
-    <section class="contact-section">
-      <div class="container">
-        <h2>Contact Us</h2>
-        <p>Have any questions? Reach out to us:</p>
-        <ul>
-          <li><strong>Phone:</strong> +234 708 303 4571</li>
-          <li><strong>Email:</strong> info@mikkytechnology.com</li>
-          <li><strong>Address:</strong> SQI - College of ICT, Iwo Road Campus, Ibadan</li>
-        </ul>
+      <!-- Repeat for more FAQs -->
+      <div class="border border-gray-200 rounded-lg p-5">
+        <h3 class="text-lg font-semibold text-[#1e6138] cursor-pointer faq-toggle">
+          💻 Do you offer remote services?
+        </h3>
+        <div class="faq-answer overflow-hidden max-h-0 transition-all duration-500 ease-in-out text-gray-600">
+          <p class="pt-3">
+            Yes, we offer complete remote support, from web dev to consulting and digital solutions.
+          </p>
+        </div>
       </div>
-    </section>
+
+    </div>
+  </div>
+</section>
+
+
+
+
   </main>
 
-  <footer>
-    <div class="footer-container">
-      <div class="footer-column">
-        <a href="#top"><img style="height: 260px;width: 310px;" src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt=""></a>
-      </div>
-      <div class="footer-column">
-        <h4>Company</h4>
-        <ul>
-          <li><a href="#">About</a></li>
-          <li><a href="#">Jobs</a></li>
-          <li><a href="#">For the Record</a></li>
-          <li><a href="#">Press</a></li>
-          <li><a href="#">Blog</a></li>
-          <li><a href="#">Careers</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Communities</h4>
-        <ul>
-          <li><a href="#">For Artists</a></li>
-          <li><a href="#">Developers</a></li>
-          <li><a href="#">Advertising</a></li>
-          <li><a href="#">Investors</a></li>
-          <li><a href="#">Vendors</a></li>
-          <li><a href="#">Partners</a></li>
-        </ul>
-      </div>
-      <div class="footer-column">
-        <h4>Useful Links</h4>
-        <ul>
-          <li><a href="#">Free Mobile App</a></li>
-          <li><a href="#">Web Player</a></li>
-          <li><a href="#">Support</a></li>
-          <li><a href="#">Privacy</a></li>
-          <li><a href="#">Contact</a></li> 
-          <li><a href="#">Terms</a></li>
-        </ul>
-      </div>
-      
-      <div class="footer-social">
-        <a href="https://web.facebook.com/profile.php?id=100072977906546"><i class='bx bxl-facebook' ></i></a>
-        <a class="twitter" href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09"><i class='bx bxl-twitter'></i></a>
-        <a class="instagram" href="https://www.instagram.com/oliyidemikky/"><i class='bx bxl-instagram'></i></a>
-        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"><i class='bx bxl-linkedin'></i></a>
+<footer class="bg-white text-black font-sans mt-16">
+  <!-- Row 1 -->
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-300">
+    <!-- Logo -->
+    <div class="flex justify-center md:justify-start">
+      <a href="#top">
+        <img src="../images/mikky-technology.png" alt="Mikky Logo" class="h-44 w-64 object-contain" />
+      </a>
+    </div>
+    <!-- Company -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">For the Record</a></li>
+        <li><a href="#" class="hover:text-green-600">Careers</a></li>
+        <li><a href="../about us/index.html" class="hover:text-green-600">About</a></li>
+        <li><a href="#" class="hover:text-green-600">Press</a></li>
+        <li><a href="#" class="hover:text-green-600">Blog</a></li>
+        <li><a href="#" class="hover:text-green-600">Jobs</a></li>
+      </ul>
+    </div>
+    <!-- Communities -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Communities</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Advertising</a></li>
+        <li><a href="#" class="hover:text-green-600">Developers</a></li>
+        <li><a href="#" class="hover:text-green-600">For Artists</a></li>
+        <li><a href="#" class="hover:text-green-600">Investors</a></li>
+        <li><a href="#" class="hover:text-green-600">Partners</a></li>
+        <li><a href="#" class="hover:text-green-600">Vendors</a></li>
+      </ul>
+    </div>
+    <!-- Useful Links -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4">Useful Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600">Free Mobile App</a></li>
+        <li><a href="#" class="hover:text-green-600">Web Player</a></li>
+        <li><a href="#" class="hover:text-green-600">Support</a></li>
+        <li><a href="#" class="hover:text-green-600">Contact</a></li>
+        <li><a href="#" class="hover:text-green-600">Privacy</a></li>
+        <li><a href="#" class="hover:text-green-600">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-center border-b border-gray-300">
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Explore</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="../about us/index.html" class="hover:text-green-600">About Us</a></li>
+        <li><a href="../locate us/index.html" class="hover:text-green-600">Location</a></li>
+        <li><a href="../support us-page/index.html" class="hover:text-green-600">Support</a></li>
+        <li><a href="../about us/#achivement" class="hover:text-green-600">Achievement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-green-600 font-medium mb-3">Quick Access</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:text-green-600">Dashboard</a></li>
+        <li><a href="#" class="hover:text-green-600">Sign In</a></li>
+        <li><a href="#" class="hover:text-green-600">Register</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3">
+      <h5 class="text-green-600 font-medium">Follow Us</h5>
+      <div class="flex gap-5 text-2xl">
+        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546" class="hover:text-blue-700"><i class='bx bxl-facebook'></i></a>
+        <a href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09" class="hover:text-gray-700"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.instagram.com/oliyidemikky/" class="hover:text-pink-500"><i class='bx bxl-instagram'></i></a>
+        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="hover:text-blue-600"><i class='bx bxl-linkedin'></i></a>
       </div>
     </div>
-    <div class="footer-bottom">
-     <div class="footer-bottom-left">
-      <ul>
-        <li><a href="../about us/index.html">About Us</a></li>
-        <li><a href="../locate us/index.html">Location</a></li>
-        <li><a href="../support us-page/index.html">Support</a></li>
-        <li><a href="../about us/index.html#achivement">Achivement</a></li>
-      </ul>
-     </div>
-     <div class="footer-bottom-right">
-      <ul>
-        <li>Copyright</li>
-       <li >&copy; 2025</li>
-       <li>Mikky Technology</li> 
-      </ul>
-     </div>
-    </div>
-  </footer>
+  </div>
+  <!-- Row 3 -->
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between text-sm text-gray-500 text-center md:text-left">
+    <p>&copy; 2025 Mikky Technology. All rights reserved.</p>
+    <ul class="flex justify-center md:justify-end gap-6 mt-2 md:mt-0">
+      <li><a href="#" class="hover:text-green-600">Privacy Policy</a></li> 
+      <li><a href="#" class="hover:text-green-600">Terms of Service</a></li>
+      <li><a href="#" class="hover:text-green-600">Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+  <script>
+  const navbar = document.getElementById("navbar");
+  const brandText = navbar.querySelector("h2");
+  const navLinks = navbar.querySelectorAll("#nav-links a");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // Add white background and shadow
+      navbar.classList.add("bg-white", "shadow-md");
+      navbar.classList.remove("bg-transparent");
+      // Change brand text to black
+      brandText.classList.remove("text-white");
+      brandText.classList.add("text-black");
+      // Change nav link text color to black
+      navLinks.forEach(link => {
+        link.classList.remove("text-white");
+        link.classList.add("text-black");
+      });
+    } else {
+      // Reset background to transparent
+      navbar.classList.remove("bg-white", "shadow-md");
+      navbar.classList.add("bg-transparent");
+      // Reset brand text to white
+      brandText.classList.remove("text-black");
+      brandText.classList.add("text-white");
+      // Reset nav link text color to white
+      navLinks.forEach(link => {
+        link.classList.remove("text-black");
+        link.classList.add("text-white");
+      });
+    }
+  });
+</script>
+  <script>
+  // Mobile menu toggle
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobile-nav");
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
+  });
+</script>
+<script>
+  const toggleBtn = document.getElementById('aboutToggle');
+  const dropdown = document.getElementById('aboutDropdown');
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent document click from firing
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+
+<!-- faq section -->
+
+<script>
+  document.querySelectorAll('.faq-toggle').forEach(toggle => {
+    toggle.addEventListener('click', () => {
+      const answer = toggle.nextElementSibling;
+      answer.classList.toggle('open');
+    });
+  });
+</script>
+
+
 
 
   <script src="./script.js"></script>
