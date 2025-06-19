@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Reset Password - Mikky Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-white flex items-center justify-center">
+
+  <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-xl overflow-hidden">
+    
+    <!-- Left Side: Form -->
+    <div class="bg-white p-10">
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-4">Forgot Password</h2>
+      <p class="text-gray-600 mb-6">Enter your email and we’ll send you a link to reset your password.</p>
+      <form id="resetForm" class="space-y-6">
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+          <input type="email" id="email" required
+            class="w-full px-4 py-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]" />
+        </div>
+
+        <button type="submit"
+          class="w-full bg-[#1e6138] hover:bg-green-800 text-white py-3 rounded-lg font-medium transition">
+          <span id="btnText">Send Reset Link</span>
+          <span id="spinner" class="hidden ml-2 animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4 inline-block align-middle"></span>
+        </button>
+      </form>
+    </div>
+
+    <!-- Right Side: Illustration -->
+    <div class="hidden md:flex items-center justify-center bg-gradient-to-br from-green-100 to-white p-10">
+      <img src="../images/reset.jpg" alt="Reset illustration" class="max-w-full h-auto" />
+    </div>
+  </div>
+
+  <!-- Firebase Integration -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+
+const firebaseConfig = {
+    apiKey: "AIzaSyAnBeGBOxVzhDshIzhLB4KcdX0WOAnOJs8",
+    authDomain: "mikky-technology.firebaseapp.com",
+    projectId: "mikky-technology",
+    storageBucket: "mikky-technology.appspot.com",
+    messagingSenderId: "266074640983",
+    appId: "1:266074640983:web:33e0332c34bb5adecc4912",
+    measurementId: "G-Y2S287D0P9"
+};
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+
+    const form = document.getElementById("resetForm");
+    const btnText = document.getElementById("btnText");
+    const spinner = document.getElementById("spinner");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = document.getElementById("email").value.trim();
+
+      btnText.textContent = "Sending...";
+      spinner.classList.remove("hidden");
+
+      try {
+        await sendPasswordResetEmail(auth, email);
+        alert("Password reset email sent. Check your inbox or spam folder.");
+        form.reset();
+      } catch (error) {
+        alert("Error: " + error.message);
+      }
+
+      btnText.textContent = "Send Reset Link";
+      spinner.classList.add("hidden");
+    });
+  </script>
+
+</body>
+</html>

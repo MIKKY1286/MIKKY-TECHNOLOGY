@@ -1,84 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>MIKKY TECH-Support Page</title>
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
-  <link rel="stylesheet" href="./style.css">
-  <link rel="shortcut icon" href="../images/Scale Up Tech IT Company Logo_20250101_170919_0000.png" type="image/x-icon">
-</head>
-<body>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Support - Mikky Technology</title>
 
-    <nav class="navbar">
-        <div class="logo">
-          <a href="../index.html">
-            <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo">
-          </a>
-          <h2 class="one">MIKKY TECHNOLOGY</h2>
-          <h2 class="two">TECH AT IT FINEST</h2>
-        </div>
-        <ul class="nav-links" id="nav-links">
-          <li class="dropdown">
-            <a href="#">About us</a>
-            <div class="dropdown-content">
-              <a href="./index.html#our-mission">Mission</a>
-              <a href="./index.html#values">Values</a>
-              <a href="./index.html#achivement">Accomplishment</a>
-            </div>
-          </li>
-          <li><a href="../our service/index.html">Our Services</a></li>
-          <li><a href="../locate us/index.html">Location</a></li>
-          <li>|</li>
-          <li><a href="../signup page/index.html">Sign up</a></li>
-          <li><a href="../login page/index.html">Log in</a></li>
-        </ul>
-        <div class="menu-icon" id="menu-icon">
-            <i class='bx bx-dots-vertical-rounded'></i>
-        </div>
-      </nav>   
-  <header>
-    <h1>Support Center</h1>
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Boxicons -->
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+
+  <!-- AOS Animation -->
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"/>
+
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-800">
+
+  <!-- Header -->
+  <header class="bg-[#1e6138] text-white py-12 text-center" data-aos="fade-down">
+    <h1 class="text-4xl font-bold">Need Help? We're Here for You</h1>
+    <p class="mt-2 text-lg">Our team is available to assist you with any issues or questions.</p>
   </header>
 
-  <div class="container">
-    <section class="hero">
-      <h1>Welcome to Our Support Center</h1>
-      <p>We're here to help you. Contact us through any of the methods below.</p>
-      <div class="cta">
-        <a href="#contact">Get Support</a>
+  <!-- Support Section -->
+  <section class="py-20 px-6 max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+    
+    <!-- Contact Info -->
+    <div data-aos="fade-right">
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-6">Contact Support</h2>
+      <p class="mb-4">You can reach us through email, WhatsApp, or by filling the support form.</p>
+      <ul class="space-y-4">
+        <li><i class='bx bx-envelope text-[#1e6138] mr-2'></i> support@mikkytech.com</li>
+        <li><i class='bx bx-phone text-[#1e6138] mr-2'></i> +234 708 303 4571</li>
+        <li><i class='bx bxl-whatsapp text-[#1e6138] mr-2'></i>
+          <a href="https://wa.me/2347083034571" target="_blank" class="text-[#1e6138] hover:underline">Chat on WhatsApp</a>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Support Form -->
+    <div data-aos="fade-left">
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-6">Submit a Ticket</h2>
+      <form id="supportForm" class="space-y-5">
+        <input type="text" id="name" placeholder="Your Name" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none"/>
+        <input type="email" id="email" placeholder="Your Email" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none"/>
+        <textarea id="message" rows="5" placeholder="Your Message" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none"></textarea>
+        <button type="submit" class="bg-[#1e6138] text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">Send Message</button>
+      </form>
+      <p id="successMsg" class="text-green-600 mt-4 hidden">Your message has been sent!</p>
+    </div>
+  </section>
+
+  <!-- FAQ Section -->
+  <section class="bg-gray-50 py-20 px-6" data-aos="fade-up">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-8">Frequently Asked Questions</h2>
+      <div class="space-y-6 text-left">
+        <div>
+          <h3 class="font-semibold">How long does it take to get a response?</h3>
+          <p>We usually respond within 24 hours via email or WhatsApp.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Can I request a custom website feature?</h3>
+          <p>Yes, our team can work with you to design custom features for your project.</p>
+        </div>
+        <div>
+          <h3 class="font-semibold">Is support free after project delivery?</h3>
+          <p>We provide 1 month of free support after delivery. You can subscribe for extended maintenance.</p>
+        </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section" id="about">
-      <h2>About Our Support</h2>
-      <p>We provide 24/7 assistance to ensure your needs are met promptly. Whether it's troubleshooting, feedback, or inquiries, our team is here for you.</p>
-    </section>
+  <!-- WhatsApp Chat Bubble -->
+  <a href="https://wa.me/2347083034571" target="_blank"
+     class="fixed bottom-5 right-5 bg-[#1e6138] text-white p-4 rounded-full shadow-lg hover:bg-green-800 transition"
+     data-aos="zoom-in">
+    <i class='bx bxl-whatsapp text-2xl'></i>
+  </a>
 
-    <section class="section" id="services">
-      <h2>Our Services</h2>
-      <p>Technical Support, Customer Service, Consultation, and more. Reach out to us to find out how we can assist you.</p>
-    </section>
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    AOS.init();
+  </script>
 
-    <section class="section" id="contact">
-      <h2>Contact Us</h2>
-      <div class="contact-info">
-        <a href="tel:+2347083034571"><i class='bx bx-phone-call'></i> Phone: +234 708 303 4571</a>
-        <a href="https://wa.me/2347083034571"><i class='bx bxl-whatsapp'></i> WhatsApp</a>
-        <a href="mailto:mikkytechnology86@gmail.com"><i class='bx bxl-gmail'></i></i> Email: mikkytechnology86@gmail.com</a>
-      </div>
-    </section>
+  <!-- Firebase using ES Module -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-    <section class="live-chat">
-      <h2>Live Chat</h2>
-      <button id="chat-now">Chat Now</button>
-    </section>
-  </div>
+    const firebaseConfig = {
+      apiKey: "AIzaSyAnBeGBOxVzhDshIzhLB4KcdX0WOAnOJs8",
+      authDomain: "mikky-technology.firebaseapp.com",
+      projectId: "mikky-technology",
+      storageBucket: "mikky-technology.appspot.com",
+      messagingSenderId: "266074640983",
+      appId: "1:266074640983:web:33e0332c34bb5adecc4912",
+      measurementId: "G-Y2S287D0P9"
+    };
 
-  <footer>
-    <p>&copy; 2025 MIKKY TECHNOLOGY. All Rights Reserved.</p>
-  </footer>
+    const app = initializeApp(firebaseConfig);
+    const db = getFirestore(app);
 
-  <script src="./script.js"></script>
+    const form = document.getElementById("supportForm");
+    const successMsg = document.getElementById("successMsg");
+
+    form.addEventListener("submit", async (e) => {
+      e.preventDefault();
+
+      const name = document.getElementById("name").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const message = document.getElementById("message").value.trim();
+
+      try {
+        await addDoc(collection(db, "supportMessages"), {
+          name,
+          email,
+          message,
+          createdAt: serverTimestamp()
+        });
+
+        form.reset();
+        successMsg.classList.remove("hidden");
+      } catch (err) {
+        alert("Something went wrong. Please try again.");
+      }
+    });
+  </script>
+
 </body>
 </html>

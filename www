@@ -1,0 +1,9 @@
+const firebaseConfig = {
+    apiKey: "AIzaSyAnBeGBOxVzhDshIzhLB4KcdX0WOAnOJs8",
+    authDomain: "mikky-technology.firebaseapp.com",
+    projectId: "mikky-technology",
+    storageBucket: "mikky-technology.appspot.com",
+    messagingSenderId: "266074640983",
+    appId: "1:266074640983:web:33e0332c34bb5adecc4912",
+    measurementId: "G-Y2S287D0P9"
+};
