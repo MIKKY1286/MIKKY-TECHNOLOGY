@@ -11,6 +11,12 @@
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
+
+html, body {
+  overflow-x: hidden;
+}
+
+
 @keyframes fade-in-up {
   0% {
     opacity: 0;
@@ -62,11 +68,11 @@
     <!-- Desktop Navigation -->
     <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
       <li class="relative group">
-        <button class="hover:text-green-400 focus:outline-none">About us</button>
-        <div class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 opacity-0 group-hover:opacity-100 group-hover:block invisible group-hover:visible transition duration-200">
-        <a href="./about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
-        <a href="./about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
-        <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+        <a href="#" class="hover:text-green-400">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
         </div>
       </li>
       <li><a href="../our service/index.html" class="hover:text-green-400">Our Services</a></li>
@@ -82,18 +88,14 @@
   </div>
   <!-- Mobile Navigation -->
   <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
-    <li class="relative">
-  <button id="aboutToggle" class="hover:text-green-400 focus:outline-none flex items-center gap-1 text-white">
-    About us
-    <i class='bx bx-chevron-down text-lg'></i>
-  </button>
-  <div id="aboutDropdown" class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 hidden transition duration-200">
-    <a href="./about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
-    <a href="./about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
-    <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
-  </div>
-</li>
-
+    <li class="relative group">
+        <a href="#" class="block text-sm text-black hover:text-green-600">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+        </div>
+      </li>
     <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html">Our Services</a></li>
     <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html">Location</a></li>
     <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html">Sign up</a></li>
@@ -473,24 +475,6 @@
     mobileNav.classList.toggle("hidden");
   });
 </script>
-
-<script>
-  const toggleBtn = document.getElementById('aboutToggle');
-  const dropdown = document.getElementById('aboutDropdown');
-
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation(); // prevent document click from firing
-    dropdown.classList.toggle('hidden');
-  });
-
-  // Close dropdown when clicking outside
-  document.addEventListener('click', (e) => {
-    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
-      dropdown.classList.add('hidden');
-    }
-  });
-</script>
-
 
 
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
