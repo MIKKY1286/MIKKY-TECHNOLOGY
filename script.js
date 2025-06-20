@@ -1,11 +1,4 @@
-// navbar menu
 
-const menuIcon = document.getElementById('menu-icon');
-const navLinks = document.getElementById('nav-links');
-
-menuIcon.addEventListener('click', () => {
-  navLinks.classList.toggle('show');
-});
 
 
 
@@ -100,8 +93,3 @@ document.getElementById('orderForm').addEventListener('submit', function (event)
 
 
 
- // Set Greeting Based on Time
- const hour = new Date().getHours();
- const timeOfDay = hour < 12 ? 'Morning' : hour < 18 ? 'Afternoon' : 'Evening';
- const userName = "MIKKY TECHNOLOGY";
- document.getElementById("greeting").textContent = `Good ${timeOfDay}, ${userName}`;

@@ -64,15 +64,14 @@
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
     import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAnBeGBOxVzhDshIzhLB4KcdX0WOAnOJs8",
-    authDomain: "mikky-technology.firebaseapp.com",
-    projectId: "mikky-technology",
-    storageBucket: "mikky-technology.appspot.com",
-    messagingSenderId: "266074640983",
-    appId: "1:266074640983:web:33e0332c34bb5adecc4912",
-    measurementId: "G-Y2S287D0P9"
-};
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+    authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+    projectId: "mikky-tech-sign-up-page",
+    storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+    messagingSenderId: "232441309522",
+    appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+  };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -118,7 +117,7 @@ const firebaseConfig = {
 
         window.location.href = role === "admin"
           ? "/admin/dashboard.html"
-          : "/user/dashboard.html";
+          : "../users-dashboard/index.html";
 
       } catch (error) {
         alert("Registration failed: " + error.message);
