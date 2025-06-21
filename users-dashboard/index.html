@@ -2,36 +2,24 @@
 <html lang="en" data-theme="light">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>User Dashboard - Mikky Technology</title>
 
   <!-- Tailwind CSS -->
-  <script src="https://cdn.tailwindcss.com"></script> 
-  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"  rel="stylesheet" />
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"  rel="stylesheet" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+  <script src="https://cdn.tailwindcss.com"></script>   
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"  rel="stylesheet"/>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css"  rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>   
 
   <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-    }
-
+    body { font-family: 'Segoe UI', sans-serif; }
     [data-theme='dark'] {
       background-color: #0f172a;
       color: #f1f5f9;
     }
-
-    [data-theme='dark'] .bg-white {
-      background-color: #1e293b;
-    }
-
-    [data-theme='dark'] .text-gray-600 {
-      color: #94a3b8;
-    }
-
-    [data-theme='dark'] .text-gray-500 {
-      color: #cbd5e1;
-    }
+    [data-theme='dark'] .bg-white { background-color: #1e293b; }
+    [data-theme='dark'] .text-gray-600 { color: #94a3b8; }
+    [data-theme='dark'] .text-gray-500 { color: #cbd5e1; }
 
     /* Smaller chat buttons */
     .chat-btn {
@@ -43,7 +31,6 @@
       border-radius: 999px;
       transition: transform 0.2s ease;
     }
-
     .chat-btn:hover {
       transform: scale(1.1);
     }
@@ -66,10 +53,19 @@
       opacity: 0;
       transition: opacity 0.5s, visibility 0.5s;
     }
-
     #toast.show {
       visibility: visible;
       opacity: 1;
+    }
+
+    /* Sidebar animation and positioning */
+    #sidebar {
+      transition: transform 0.3s ease-in-out;
+      z-index: 50;
+    }
+
+    #mainContent {
+      transition: margin-left 0.3s ease-in-out;
     }
   </style>
 </head>
@@ -78,22 +74,37 @@
   <!-- Toast Notification -->
   <div id="toast">Order sent successfully!</div>
 
-  <div class="flex min-h-screen">
+  <!-- Mobile Top Navbar with Menu Toggle -->
+  <header class="md:hidden bg-[#1e6138] text-white p-4 flex items-center justify-between fixed w-full z-40">
+    <h2 class="text-xl font-bold">Mikky Tech</h2>
+    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+      <i class='bx bx-menu text-2xl'></i>
+    </button>
+  </header>
+
+  <div class="flex min-h-screen mt-12 md:mt-0">
     <!-- Sidebar -->
-    <aside class="w-64 bg-[#1e6138] text-white p-6 hidden md:block">
-      <h2 class="text-2xl font-bold mb-8">Mikky Tech</h2>
+    <aside id="sidebar" class="w-64 bg-[#1e6138] text-white p-6 fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:relative md:flex md:w-64 z-50 transition-transform duration-300 ease-in-out">
       <nav class="space-y-4">
         <button onclick="showSection('dashboard')" class="block w-full text-left hover:text-green-100"><i class='bx bx-home mr-2'></i> Dashboard</button>
         <button onclick="showSection('projects')" class="block w-full text-left hover:text-green-100"><i class='bx bx-file mr-2'></i> My Projects</button>
         <button onclick="showSection('support')" class="block w-full text-left hover:text-green-100"><i class='bx bx-envelope mr-2'></i> Support</button>
         <button onclick="showSection('settings')" class="block w-full text-left hover:text-green-100"><i class='bx bx-cog mr-2'></i> Settings</button>
         <button onclick="toggleOrderModal()" class="block w-full text-left hover:text-green-100"><i class='bx bx-cart-add mr-2'></i> Order Service</button>
-        <a href="#" class="block hover:text-red-400 mt-8"><i class='bx bx-log-out'></i> Logout</a>
+        <button
+        id="logout"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      >
+        Logout
+      </button>
       </nav>
     </aside>
 
+    <!-- Overlay when sidebar open -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden" onclick="toggleSidebar()"></div>
+
     <!-- Main Content Area -->
-    <main class="flex-1 p-6 md:p-10 space-y-10">
+    <main id="mainContent" class="flex-1 p-6 md:p-10 space-y-10 ml-0 md:ml-64">
       <!-- Dashboard Section -->
       <section id="dashboardSection" class="section">
         <h1 id="welcomeMessage" class="text-3xl font-bold text-[#1e6138] mb-6">Loading...</h1>
@@ -143,7 +154,7 @@
           <ul id="ticketsList" class="list-disc pl-5 text-gray-600 space-y-2"></ul>
           <h3 class="mt-6 text-lg font-medium mb-2">Contact Us</h3>
           <form id="ticketForm" class="space-y-3" onsubmit="sendTicket(event)">
-            <input type="text" placeholder="Subject" required class="w-full border px-3 py-2 rounded text-black" />
+            <input type="text" placeholder="Subject" required class="w-full border px-3 py-2 rounded text-black"/>
             <textarea placeholder="Your message..." required class="w-full border px-3 py-2 rounded text-black h-24"></textarea>
             <button type="submit" class="bg-[#1e6138] text-white px-4 py-2 rounded hover:bg-green-800 transition">Send Message</button>
           </form>
@@ -157,12 +168,11 @@
           <div>
             <h3 class="text-lg font-medium mb-2">Profile Settings</h3>
             <div class="space-y-2">
-              <input type="text" id="userName" placeholder="Full Name" class="w-full border px-3 py-2 rounded text-black" />
-              <input type="email" id="userEmail" placeholder="Email Address" class="w-full border px-3 py-2 rounded" />
+              <input type="text" id="userName" placeholder="Full Name" class="w-full border px-3 py-2 rounded text-black"/>
+              <input type="email" id="userEmail" placeholder="Email Address" class="w-full border px-3 py-2 rounded"/>
               <button onclick="saveUserInfo()" class="bg-[#1e6138] text-white px-4 py-2 rounded hover:bg-green-800">Update Profile</button>
             </div>
           </div>
-
           <div>
             <h3 class="text-lg font-medium mb-2">Theme Preferences</h3>
             <label class="inline-flex items-center cursor-pointer">
@@ -171,7 +181,6 @@
               <span class="ms-3 text-sm font-medium text-gray-700 dark:text-gray-300">Dark Mode</span>
             </label>
           </div>
-
           <div>
             <h3 class="text-lg font-medium mb-2">Notifications</h3>
             <label class="flex items-center gap-2 cursor-pointer">
@@ -194,8 +203,8 @@
       <button onclick="toggleOrderModal()" class="absolute top-2 right-3 text-gray-600 hover:text-red-500 text-2xl">&times;</button>
       <h3 class="text-xl font-bold text-[#1e6138] mb-4">Order New Service</h3>
       <form id="orderForm" class="space-y-3" onsubmit="sendToWhatsAppAndFirebase(event)">
-        <input type="text" name="name" placeholder="Your Name" required class="w-full border px-3 py-2 rounded text-black" />
-        <input type="email" name="email" placeholder="Email Address" required class="w-full border px-3 py-2 rounded" />
+        <input type="text" name="name" placeholder="Your Name" required class="w-full border px-3 py-2 rounded text-black"/>
+        <input type="email" name="email" placeholder="Email Address" required class="w-full border px-3 py-2 rounded"/>
         <textarea name="message" placeholder="Describe your project..." required class="w-full border px-3 py-2 rounded text-black h-24"></textarea>
         <button type="submit" class="bg-[#1e6138] text-white px-4 py-2 rounded hover:bg-green-800 transition w-full">Submit Order</button>
       </form>
@@ -215,50 +224,43 @@
   <!-- Firebase SDK -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-app.js"; 
-    import { getFirestore, collection, addDoc, onSnapshot, doc, setDoc, getDoc, query, where } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"; 
+    import { getAuth, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth.js"; 
+    import { getFirestore, collection, addDoc, doc, setDoc, getDoc, query, where, onSnapshot } from "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore.js"; 
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
-    authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
-    projectId: "mikky-tech-sign-up-page",
-    storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
-    messagingSenderId: "232441309522",
-    appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
 
+    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
     const db = getFirestore(app);
 
-    // Simulated logged-in user ID
-    const currentUser = "user123"; // Replace with Firebase Auth UID if available
+    let currentUserUid = null;
+    let chartInstance = null;
 
-    // Load User Info
-    const loadUserInfo = async () => {
-      const docRef = doc(db, "users", currentUser);
+    // Load user info
+    async function loadUserInfo(user) {
+      const docRef = doc(db, "users", user.uid);
       const docSnap = await getDoc(docRef);
       if (docSnap.exists()) {
-        const data = docSnap.data();
-        document.getElementById("welcomeMessage").innerText = `Welcome, ${data.name}`;
-        document.getElementById("userName").value = data.name || "";
-        document.getElementById("userEmail").value = data.email || "";
-      } else {
-        document.getElementById("welcomeMessage").innerText = "Welcome, Guest";
+        document.getElementById("welcomeMessage").innerText = `Welcome, ${docSnap.data().fullName}`;
+        document.getElementById("userName").value = docSnap.data().name || "";
+        document.getElementById("userEmail").value = docSnap.data().email || "";
       }
-    };
-    loadUserInfo();
+    }
 
-    // Save User Info
     window.saveUserInfo = async () => {
       const name = document.getElementById("userName").value.trim();
       const email = document.getElementById("userEmail").value.trim();
       if (!name || !email) return;
-
       try {
-        await setDoc(doc(db, "users", currentUser), {
-          name,
-          email,
-          updatedAt: new Date()
-        });
+        await setDoc(doc(db, "users", currentUserUid), { name, email, updatedAt: new Date() });
         showToast("Profile updated!");
       } catch (e) {
         console.error("Error updating profile:", e);
@@ -266,52 +268,66 @@
     };
 
     // Real-time Orders
-    onSnapshot(collection(db, "orders"), (snapshot) => {
+    window.loadOrders = () => {
       const ordersList = document.getElementById("ordersList");
-      ordersList.innerHTML = "";
-
-      snapshot.forEach((doc) => {
-        if (doc.data().userId === currentUser) {
+      onSnapshot(collection(db, "orders"), (snapshot) => {
+        ordersList.innerHTML = "";
+        snapshot.forEach((doc) => {
           const data = doc.data();
-          const li = document.createElement("li");
-          li.className = "py-2";
-          li.textContent = `${data.name} — ${data.message.substring(0, 30)}...`;
-          ordersList.appendChild(li);
-        }
+          if (data.userId === currentUserUid) {
+            const li = document.createElement("li");
+            li.className = "py-2";
+            li.innerText = `${data.name} — ${data.message.substring(0, 30)}...`;
+            ordersList.appendChild(li);
+          }
+        });
       });
-    });
+    };
 
     // Real-time Projects
-    onSnapshot(query(collection(db, "projects"), where("userId", "==", currentUser)), (snapshot) => {
+    window.loadProjects = () => {
       const projectsList = document.getElementById("projectsList");
-      projectsList.innerHTML = "";
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        const div = document.createElement("div");
-        div.className = "bg-white shadow rounded-lg p-4 flex justify-between items-center";
-        div.innerHTML = `
-          <div>
-            <h3 class="font-semibold">${data.title}</h3>
-            <p class="text-sm text-gray-500">Due: ${data.dueDate}</p>
-          </div>
-          <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">${data.status}</span>`;
-        projectsList.appendChild(div);
+      const activeProjectsCount = document.getElementById("activeProjectsCount");
+
+      onSnapshot(query(collection(db, "projects"), where("userId", "==", currentUserUid)), (snapshot) => {
+        projectsList.innerHTML = "";
+        let count = 0;
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          count++;
+          const div = document.createElement("div");
+          div.className = "bg-white shadow rounded-lg p-4 flex justify-between items-center";
+          div.innerHTML = `
+            <div>
+              <h3 class="font-semibold">${data.title}</h3>
+              <p class="text-sm text-gray-500">Due: ${data.dueDate}</p>
+            </div>
+            <span class="bg-yellow-100 text-yellow-800 px-3 py-1 rounded-full text-sm">${data.status}</span>`;
+          projectsList.appendChild(div);
+        });
+        activeProjectsCount.textContent = count;
+        updateChart(); // Update chart when project data changes
       });
-      document.getElementById("activeProjectsCount").textContent = snapshot.size;
-    });
+    };
 
     // Real-time Tickets
-    onSnapshot(query(collection(db, "tickets"), where("userId", "==", currentUser)), (snapshot) => {
+    window.loadTickets = () => {
       const ticketsList = document.getElementById("ticketsList");
-      ticketsList.innerHTML = "";
-      snapshot.forEach((doc) => {
-        const data = doc.data();
-        const li = document.createElement("li");
-        li.textContent = data.subject;
-        ticketsList.appendChild(li);
+      const pendingSupportCount = document.getElementById("pendingSupportCount");
+
+      onSnapshot(query(collection(db, "tickets"), where("userId", "==", currentUserUid)), (snapshot) => {
+        ticketsList.innerHTML = "";
+        let count = 0;
+        snapshot.forEach((doc) => {
+          const data = doc.data();
+          count++;
+          const li = document.createElement("li");
+          li.textContent = data.subject;
+          ticketsList.appendChild(li);
+        });
+        pendingSupportCount.textContent = count;
       });
-      document.getElementById("pendingSupportCount").textContent = snapshot.size;
-    });
+    };
 
     // Send Ticket
     window.sendTicket = async (e) => {
@@ -320,12 +336,11 @@
       const subject = form.querySelector("input").value.trim();
       const message = form.querySelector("textarea").value.trim();
       if (!subject || !message) return;
-
       try {
         await addDoc(collection(db, "tickets"), {
           subject,
           message,
-          userId: currentUser,
+          userId: currentUserUid,
           timestamp: new Date()
         });
         showToast("Ticket submitted!");
@@ -334,53 +349,112 @@
         console.error("Error submitting ticket:", error);
       }
     };
-  </script>
 
-  <!-- Scripts -->
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
-  <script>
-    AOS.init();
+    // Send to WhatsApp & Firebase
+    window.sendToWhatsAppAndFirebase = async (event) => {
+      event.preventDefault();
+      const form = event.target;
+      const name = form.name.value.trim();
+      const email = form.email.value.trim();
+      const message = form.message.value.trim();
+      const whatsappNumber = "2347083034571"; // Replace with your number
+      const whatsappMessage = `*New Order Request*\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`;
+      const encodedMessage = encodeURIComponent(whatsappMessage);
+      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
 
-    // Theme Toggle
-    function toggleTheme() {
-      const theme = document.documentElement.getAttribute('data-theme');
-      if (theme === 'dark') {
-        document.documentElement.setAttribute('data-theme', 'light');
-      } else {
-        document.documentElement.setAttribute('data-theme', 'dark');
+      window.open(whatsappURL, '_blank');
+
+      try {
+        await addDoc(collection(db, "orders"), {
+          name,
+          email,
+          message,
+          userId: currentUserUid,
+          timestamp: new Date()
+        });
+        showToast("Order sent!");
+        form.reset();
+        toggleOrderModal();
+      } catch (error) {
+        console.error("Error saving order: ", error);
       }
-    }
+    };
 
-    // Pie Chart
-    new Chart(document.getElementById('projectChart'), {
-      type: 'pie',
-      data: {
-        labels: ['Completed', 'In Progress', 'Pending'],
-        datasets: [{
-          data: [5, 3, 2],
-          backgroundColor: ['#1e6138', '#10b981', '#f59e0b']
-        }]
-      },
-      options: {
-        responsive: true,
-        plugins: {
-          legend: {
-            position: 'bottom',
-            labels: {
-              color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#fff' : '#000'
+    // Project Chart
+    const updateChart = () => {
+      const ctx = document.getElementById('projectChart').getContext('2d');
+      if (chartInstance) chartInstance.destroy();
+
+      onSnapshot(query(collection(db, "projects"), where("userId", "==", currentUserUid)), (snapshot) => {
+        const counts = { Completed: 0, InProgress: 0, Pending: 0 };
+        snapshot.forEach((doc) => {
+          const status = doc.data().status;
+          counts[status] += 1;
+        });
+
+        chartInstance = new Chart(ctx, {
+          type: 'pie',
+          data: {
+            labels: ['Completed', 'In Progress', 'Pending'],
+            datasets: [{
+              label: 'Project Status',
+              data: [counts.Completed, counts.InProgress, counts.Pending],
+              backgroundColor: ['#1e6138', '#10b981', '#f59e0b'] 
+            }]
+          },
+          options: {
+            responsive: true,
+            plugins: {
+              legend: {
+                position: 'bottom',
+                labels: {
+                  color: window.matchMedia('(prefers-color-scheme: dark)').matches ? '#fff' : '#000'
+                }
+              }
             }
           }
-        }
+        });
+      });
+    };
+
+    // Auth State
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        currentUserUid = user.uid;
+        loadUserInfo(user);
+        loadOrders();
+        loadProjects();
+        loadTickets();
+      } else {
+        alert("You are not signed in.");
+        location.reload();
       }
     });
 
+    // Theme Toggle
+    window.toggleTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+    };
+
+    // Sidebar Toggle
+    window.toggleSidebar = () => {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const mainContent = document.getElementById('mainContent');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+      mainContent.classList.toggle('ml-0');
+      mainContent.classList.toggle('md:ml-64');
+    };
+
     // Modal toggle
-    function toggleOrderModal() {
+    window.toggleOrderModal = () => {
       document.getElementById('orderModal').classList.toggle('hidden');
-    }
+    };
 
     // Section toggle
-    function showSection(section) {
+    window.showSection = (section) => {
       const sections = ['dashboard', 'projects', 'support', 'settings'];
       sections.forEach(id => {
         const el = document.getElementById(id + 'Section');
@@ -388,50 +462,89 @@
       });
       const active = document.getElementById(section + 'Section');
       if (active) active.classList.remove('hidden');
-    }
-
-    // Send to WhatsApp & Firebase
-    function sendToWhatsAppAndFirebase(event) {
-      event.preventDefault();
-      const form = event.target;
-      const name = form.name.value.trim();
-      const email = form.email.value.trim();
-      const message = form.message.value.trim();
-      const whatsappNumber = "2347083034571";
-      const whatsappMessage = `*New Order Request*\n\nName: ${name}\nEmail: ${email}\nMessage:\n${message}`;
-      const encodedMessage = encodeURIComponent(whatsappMessage);
-      const whatsappURL = `https://wa.me/${whatsappNumber}?text=${encodedMessage}`;
-
-      window.open(whatsappURL, '_blank');
-
-      saveOrderToFirebase({ name, email, message });
-      showToast("Order sent!");
-      form.reset();
-      toggleOrderModal();
-    }
-
-    // Save order
-    async function saveOrderToFirebase(orderData) {
-      try {
-        await addDoc(collection(db, "orders"), {
-          ...orderData,
-          userId: currentUser,
-          timestamp: new Date()
-        });
-      } catch (error) {
-        console.error("Error saving order: ", error);
-      }
-    }
-
-    window.saveOrderToFirebase = saveOrderToFirebase;
+    };
 
     // Toast Notification
-    function showToast(message) {
+    window.showToast = (message) => {
       const toast = document.getElementById("toast");
       toast.textContent = message;
       toast.className = "show";
       setTimeout(() => { toast.className = toast.className.replace("show", ""); }, 3000);
-    }
+    };
+
+    // Logout
+    document.getElementById("logout").onclick = () => {
+      auth.signOut().then(() => {
+        window.location.href = "../index.html";
+      });
+    };
   </script>
+
+  <!-- Scripts -->
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>  
+  <script>
+    AOS.init();
+
+    // Sidebar Swipe Gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    function handleGesture() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarVisible = !sidebar.classList.contains('-translate-x-full');
+      const diff = touchEndX - touchStartX;
+
+      // Swipe right -> show sidebar
+      if (diff > 50 && !sidebarVisible) {
+        toggleSidebar();
+      }
+
+      // Swipe left -> hide sidebar
+      if (diff < -50 && sidebarVisible) {
+        toggleSidebar();
+      }
+    }
+
+    // Init default section
+    window.showSection('dashboard');
+  </script>
+
+  <!-- section navigation -->
+   
+   <script>
+      let touchStartY = 0;
+let touchEndY = 0;
+
+document.addEventListener('touchstart', e => {
+  touchStartY = e.changedTouches[0].screenY;
+});
+
+document.addEventListener('touchend', e => {
+  touchEndY = e.changedTouches[0].screenY;
+  handleSectionSwipe();
+});
+
+function handleSectionSwipe() {
+  const sections = ['dashboard', 'projects', 'support', 'settings'];
+  const currentIdx = sections.findIndex(id => !document.getElementById(id + 'Section').classList.contains('hidden'));
+  const diffY = touchEndY - touchStartY;
+
+  if (diffY > 50 && currentIdx < sections.length - 1) {
+    showSection(sections[currentIdx + 1]);
+  } else if (diffY < -50 && currentIdx > 0) {
+    showSection(sections[currentIdx - 1]);
+  }
+}
+   </script>
+
 </body>
 </html>

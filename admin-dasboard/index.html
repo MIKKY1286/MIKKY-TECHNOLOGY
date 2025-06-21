@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Admin Dashboard - Mikky Tech</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css"  rel="stylesheet"/>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script> 
+
+  <style>
+    [data-theme='dark'] {
+      background-color: #0f172a;
+      color: #f1f5f9;
+    }
+    [data-theme='dark'] .bg-white { background-color: #1e293b; }
+    [data-theme='dark'] .text-gray-600 { color: #94a3b8; }
+    [data-theme='dark'] .text-gray-500 { color: #cbd5e1; }
+
+    #sidebar {
+      transition: transform 0.3s ease-in-out;
+      z-index: 50;
+    }
+
+    #mainContent {
+      transition: margin-left 0.3s ease-in-out;
+    } 
+  </style>
+</head>
+
+<header class="md:hidden bg-[#1e6138] text-white p-4 flex items-center justify-between fixed w-full z-40">
+    <h2 class="text-xl font-bold">Mikky Tech</h2>
+    <button onclick="toggleSidebar()" class="text-white focus:outline-none">
+      <i class='bx bx-menu text-2xl'></i>
+    </button>
+  </header>
+
+<body class="flex min-h-screen transition-all duration-300">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 bg-[#1e6138] text-white p-6 fixed inset-y-0 left-0 transform -translate-x-full md:translate-x-0 md:relative md:flex md:w-64 z-50 transition-transform duration-300 ease-in-out">
+    <nav class="space-y-4">
+      <button onclick="switchSection('dashboard')" class="block w-full text-left"><i class='bx bx-home mr-2'></i> Dashboard</button>
+      <button onclick="switchSection('users')" class="block w-full text-left"><i class='bx bx-user mr-2'></i> Users</button>
+      <button onclick="switchSection('projects')" class="block w-full text-left"><i class='bx bx-folder mr-2'></i> Projects</button>
+      <button onclick="switchSection('orders')" class="block w-full text-left"><i class='bx bx-cart mr-2'></i> Orders</button>
+      <button onclick="switchSection('messages')" class="block w-full text-left"><i class='bx bx-message mr-2'></i> Messages</button>
+      <button onclick="switchSection('settings')" class="block w-full text-left"><i class='bx bx-cog mr-2'></i> Settings</button>
+    </nav>
+
+    <!-- Logout -->
+    <div class="mt-auto pt-8">
+      <button
+        id="logout"
+        class="bg-red-500 text-white px-4 py-2 rounded hover:bg-red-600"
+      >
+        Logout
+      </button>
+    </div>
+  </aside>
+
+  <!-- Overlay when sidebar open -->
+    <div id="overlay" class="hidden fixed inset-0 bg-black bg-opacity-50 z-30 md:hidden" onclick="toggleSidebar()"></div>
+
+
+  <!-- Main Content -->
+  <main class="flex-1 p-6 space-y-10 overflow-y-auto ml-0 lg:ml-64">
+    <h1 id="adminGreet" class="text-3xl font-bold text-[#1e6138]">Welcome Admin</h1>
+
+    <!-- Dashboard Section -->
+    <section id="dashboardSection">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="bg-white p-5 rounded-lg shadow">
+          <h3 class="text-sm text-gray-600">Users</h3>
+          <p id="usersCount" class="text-2xl font-bold text-[#1e6138]">0</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow">
+          <h3 class="text-sm text-gray-600">Projects</h3>
+          <p id="projectsCount" class="text-2xl font-bold text-[#1e6138]">0</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow">
+          <h3 class="text-sm text-gray-600">Orders</h3>
+          <p id="ordersCount" class="text-2xl font-bold text-[#1e6138]">0</p>
+        </div>
+        <div class="bg-white p-5 rounded-lg shadow">
+          <h3 class="text-sm text-gray-600">Messages</h3>
+          <p id="messagesCount" class="text-2xl font-bold text-[#1e6138]">0</p>
+        </div>
+      </div>
+
+      <!-- Chart -->
+      <div class="bg-white mt-8 p-6 rounded-lg shadow max-w-xl">
+        <h3 class="text-lg font-semibold mb-4">Project Overview</h3>
+        <canvas id="adminChart"></canvas>
+      </div>
+    </section>
+
+    <!-- Users Section -->
+    <section id="usersSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4">Manage Users</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-2 px-4 text-left">Name</th>
+              <th class="py-2 px-4 text-left">Email</th>
+              <th class="py-2 px-4 text-left">Role</th>
+              <th class="py-2 px-4 text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody id="usersTableBody">
+            <tr><td colspan="4" class="text-center py-4">Loading users...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projectsSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4">Manage Projects</h2>
+      <div id="projectsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="bg-white p-4 rounded shadow text-center">No projects found.</div>
+      </div>
+    </section>
+
+    <!-- Orders Section -->
+    <section id="ordersSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4">All Orders</h2>
+      <div class="overflow-x-auto">
+        <table class="min-w-full bg-white rounded-lg shadow">
+          <thead class="bg-gray-100">
+            <tr>
+              <th class="py-2 px-4 text-left">Order ID</th>
+              <th class="py-2 px-4 text-left">Customer</th>
+              <th class="py-2 px-4 text-left">Amount</th>
+              <th class="py-2 px-4 text-left">Source</th>
+              <th class="py-2 px-4 text-left">Status</th>
+            </tr>
+          </thead>
+          <tbody id="ordersTableBody">
+            <tr><td colspan="5" class="text-center py-4">No orders found.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <!-- Messages Section -->
+    <section id="messagesSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4">User Messages</h2>
+      <div id="messagesList" class="space-y-4">
+        <div class="bg-white p-4 rounded shadow text-center">No messages found.</div>
+      </div>
+    </section>
+
+    <!-- Settings Section -->
+    <section id="settingsSection" class="hidden">
+      <h2 class="text-xl font-bold mb-4">Settings</h2>
+      <form class="space-y-4 max-w-md">
+        <div>
+          <label class="block text-sm font-medium mb-1">Admin Name</label>
+          <input type="text" class="w-full border rounded px-3 py-2" placeholder="Your Name" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Email</label>
+          <input type="email" class="w-full border rounded px-3 py-2" placeholder="admin@example.com" />
+        </div>
+        <div>
+          <label class="block text-sm font-medium mb-1">Company Name</label>
+          <input type="text" class="w-full border rounded px-3 py-2" placeholder="Mikky Tech" />
+        </div>
+
+        <!-- Theme Toggle in Settings -->
+        <div>
+            <h3 class="text-lg font-medium mb-2">Theme Preferences</h3>
+            <label class="inline-flex items-center cursor-pointer">
+              <input type="checkbox" onchange="toggleTheme()" class="sr-only peer">
+              <div class="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-green-300 dark:peer-focus:ring-green-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-green-600"></div>
+              <span class="ms-3 text-sm font-medium text-gray-700 dark:text-gray-300">Dark Mode</span>
+            </label>
+          </div>
+
+        <button type="submit" class="bg-[#1e6138] hover:bg-[#174d2c] text-white px-4 py-2 rounded">Save Changes</button>
+      </form>
+    </section>
+  </main>
+
+  <!-- Firebase SDK (Compat Version) -->
+  <script type="module">
+
+    let currentAdminID = null;
+
+
+    import "https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"; 
+    import "https://www.gstatic.com/firebasejs/10.12.2/firebase-firestore-compat.js"; 
+    import "https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.appspot.com",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
+
+    // Initialize Firebase
+    const app = firebase.initializeApp(firebaseConfig);
+    const db = firebase.firestore();
+    const auth = firebase.auth();
+
+    // Auth state listener
+    auth.onAuthStateChanged(async (admin) => {
+    if (!admin) {
+      window.location.href = "../login page/index.html";
+    } else {
+      currentAdminID = admin.uid;
+      loadDashboardData();
+    } 
+    });
+
+     document.getElementById("logout").addEventListener("click",  async () => {
+      await auth.signOut();
+      window.location.href = "../index.html";
+    });
+
+
+    async function loadDashboardData() {
+      const users = await db.collection("users").get();
+      const projects = await db.collection("projects").get();
+      const orders = await db.collection("orders").get();
+      const messages = await db.collection("tickets").get();
+
+      updateCounts(users.size, projects.size, orders.size, messages.size);
+      renderChart(users.size, projects.size, orders.size, messages.size);
+      populateUsers(users);
+      populateProjects(projects);
+      populateOrders(orders);
+      populateMessages(messages);
+    }
+
+    function updateCounts(u, p, o, m) {
+      document.getElementById("usersCount").textContent = u || "-";
+      document.getElementById("projectsCount").textContent = p || "-";
+      document.getElementById("ordersCount").textContent = o || "-";
+      document.getElementById("messagesCount").textContent = m || "-";
+    }
+
+    function renderChart(u, p, o, m) {
+      new Chart(document.getElementById("adminChart"), {
+        type: 'bar',
+        data: {
+          labels: ['Users', 'Projects', 'Orders', 'Messages'],
+          datasets: [{
+            label: 'Total Count',
+            data: [u, p, o, m],
+            backgroundColor: ['#1e6138', '#16a34a', '#f59e0b', '#0ea5e9'],
+            borderRadius: 5
+          }]
+        },
+        options: {
+          plugins: { legend: { display: false } },
+          scales: {
+            y: { beginAtZero: true, ticks: { stepSize: 1 } }
+          }
+        }
+      });
+    }
+
+    function populateUsers(snapshot) {
+      const tbody = document.getElementById("usersTableBody");
+      tbody.innerHTML = "";
+      if (snapshot.empty) {
+        tbody.innerHTML = `<tr><td colspan="4" class="text-center py-4">No users found.</td></tr>`;
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        tbody.innerHTML += `
+          <tr>
+            <td class="py-2 px-4">${data.fullName || '-'}</td>
+            <td class="py-2 px-4">${data.email || '-'}</td>
+            <td class="py-2 px-4">${data.role || 'user'}</td>
+            <td class="py-2 px-4">
+              <span class="inline-block text-xs px-2 py-1 rounded ${data.active ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'}">
+                ${data.active ? 'Active' : 'Inactive'}
+              </span>
+            </td>
+          </tr>`;
+      });
+    }
+
+    function populateProjects(snapshot) {
+      const container = document.getElementById("projectsGrid");
+      container.innerHTML = "";
+      if (snapshot.empty) {
+        container.innerHTML = `<div class="bg-white p-4 rounded shadow text-center">No projects found.</div>`;
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        container.innerHTML += `
+          <div class="bg-white p-4 rounded shadow">
+            <h3 class="font-semibold">${data.title || 'Untitled'}</h3>
+            <p class="text-sm text-gray-500">Client: ${data.client || 'N/A'}</p>
+            <span class="inline-block mt-2 text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded">${data.status || 'In Progress'}</span>
+          </div>`;
+      });
+    }
+
+    function populateOrders(snapshot) {
+      const tbody = document.getElementById("ordersTableBody");
+      tbody.innerHTML = "";
+      if (snapshot.empty) {
+        tbody.innerHTML = `<tr><td colspan="5" class="text-center py-4">No orders found.</td></tr>`;
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        tbody.innerHTML += `
+          <tr>
+            <td class="py-2 px-4">#${doc.id}</td>
+            <td class="py-2 px-4">${data.customer || 'Unknown'}</td>
+            <td class="py-2 px-4">${data.amount ? `$${data.amount}` : 'N/A'}</td>
+            <td class="py-2 px-4">${data.source || 'Other'}</td>
+            <td class="py-2 px-4">
+              <span class="inline-block text-xs px-2 py-1 rounded bg-yellow-100 text-yellow-800">${data.status || 'Pending'}</span>
+            </td>
+          </tr>`;
+      });
+    }
+
+    function populateMessages(snapshot) {
+      const container = document.getElementById("messagesList");
+      container.innerHTML = "";
+      if (snapshot.empty) {
+        container.innerHTML = `<div class="bg-white p-4 rounded shadow text-center">No messages found.</div>`;
+        return;
+      }
+
+      snapshot.forEach(doc => {
+        const data = doc.data();
+        container.innerHTML += `
+          <div class="bg-white p-4 rounded shadow flex justify-between items-center">
+            <div>
+              <h3 class="font-semibold">${data.name || 'Anonymous'}</h3>
+              <p class="text-sm text-gray-500">${data.message.substring(0, 50)}...</p>
+            </div>
+            <span class="text-xs px-2 py-1 bg-blue-100 text-blue-800 rounded">New</span>
+          </div>`;
+      });
+    }
+
+    window.switchSection = function(section) {
+      const sections = ["dashboard", "users", "projects", "orders", "messages", "settings"];
+      sections.forEach(id => {
+        const el = document.getElementById(id + "Section");
+        if (el) el.classList.add("hidden");
+      });
+      document.getElementById(section + "Section").classList.remove("hidden");
+
+      const sidebar = document.getElementById("sidebar");
+      sidebar.classList.add("hide-sidebar");
+      sidebar.classList.remove("show-sidebar");
+    }
+
+    function toggleTheme() {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const newTheme = currentTheme === "dark" ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", newTheme);
+    }
+
+    // Logout handler
+    document.getElementById("logout").addEventListener("click", async () => {
+      await signOut(auth);
+      window.location.href = "../index.html";
+    });
+
+
+    
+
+    // Auto greet
+    const now = new Date();
+    const hour = now.getHours();
+    const greet = hour < 12 ? "Good morning" : hour < 18 ? "Good afternoon" : "Good evening";
+    document.getElementById("adminGreet").innerText = `${greet}, Admin`;
+
+    // Load dashboard data
+    loadDashboardData();
+
+    // Sidebar Toggle
+    window.toggleSidebar = () => {
+      const sidebar = document.getElementById('sidebar');
+      const overlay = document.getElementById('overlay');
+      const mainContent = document.getElementById('mainContent');
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+      mainContent.classList.toggle('ml-0');
+      mainContent.classList.toggle('md:ml-64');
+    };
+
+    
+
+    // Theme Toggle
+    window.toggleTheme = () => {
+      const theme = document.documentElement.getAttribute('data-theme');
+      document.documentElement.setAttribute('data-theme', theme === 'dark' ? 'light' : 'dark');
+    };
+  </script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script> 
+  <script>
+    AOS.init();
+
+    // Sidebar Swipe Gestures
+    let touchStartX = 0;
+    let touchEndX = 0;
+
+    document.addEventListener('touchstart', e => {
+      touchStartX = e.changedTouches[0].screenX;
+    });
+
+    document.addEventListener('touchend', e => {
+      touchEndX = e.changedTouches[0].screenX;
+      handleGesture();
+    });
+
+    function handleGesture() {
+      const sidebar = document.getElementById('sidebar');
+      const sidebarVisible = !sidebar.classList.contains('-translate-x-full');
+      const diff = touchEndX - touchStartX;
+
+      // Swipe right -> show sidebar
+      if (diff > 50 && !sidebarVisible) {
+        toggleSidebar();
+      }
+
+      // Swipe left -> hide sidebar
+      if (diff < -50 && sidebarVisible) {
+        toggleSidebar();
+      }
+    }
+
+   
+  </script>
+
+
+  </script>
+</body>
+</html>
