@@ -7,3 +7,12 @@ const firebaseConfig = {
     appId: "1:266074640983:web:33e0332c34bb5adecc4912",
     measurementId: "G-Y2S287D0P9"
 };
+
+// 📁 mikkytech-website/
+// ├── index.html
+// ├── services.html
+// ├── css/
+// ├── js/
+// ├── images/
+// └── downloads/
+//     └── mikky-tech-brochure.pdf ✅
