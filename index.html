@@ -33,7 +33,7 @@
   <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm transition-all duration-300">
     <!-- Logo & Brand -->
     <div class="flex items-center gap-3">
-      <a href="#home">
+      <a href="./index.html">
         <img src="./images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo" class="h-10 w-auto">
       </a>
       <h2 class="text-white text-lg font-semibold hover:text-green-400">MIKKY TECHNOLOGY</h2>
@@ -51,8 +51,6 @@
             <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
           </div>
       </li>
-
-
       <li><a href="./our service/index.html" class="hover:text-green-400">Our Services</a></li>
       <li><a href="./locate us/index.html" class="hover:text-green-400">Location</a></li>
       <li><a>|</a></li>
@@ -66,16 +64,18 @@
   </div>
   <!-- Mobile Navigation -->
   <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
-    <li><a href="#" class="text-black hover:text-green-600">About us</a></li>
-    <li class="ml-4 space-y-1">
-      <a href="./about us/index.html#Our Mission" class="block text-sm text-black hover:text-green-600">Mission</a>
-      <a href="./about us/index.html#values" class="block text-sm text-black hover:text-green-600">Values</a>
-      <a href="./about us/index.html#achivement" class="block text-sm text-black hover:text-green-600">Accomplishment</a>
-    </li>
-    <li><a href="./our service/index.html" class="text-black hover:text-green-600">Our Services</a></li>
-    <li><a href="./locate us/index.html" class="text-black hover:text-green-600">Location</a></li>
-    <li><a href="./signup page/index.html" class="text-black hover:text-green-600">Sign up</a></li>
-    <li><a href="./login page/index.html" class="text-black hover:text-green-600">Log in</a></li>
+    <li class="relative group">
+        <a href="" class="block text-sm text-black hover:text-green-600">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="./about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
+          <a href="./about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
+          <a href="./about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+        </div>
+      </li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="./our service/index.html">Our Services</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="./locate us/index.html">Location</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="./signup page/index.html">Sign up</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="./login page/index.html">Log in</a></li>
   </ul>
 </nav>
 <!-- january hero section update -->
@@ -126,63 +126,72 @@
   </div>
 </section>
 <!-- order section -->
-<section id="contact-us" class="py-16 px-4 md:px-12 bg-gray-100">
-  <div class="max-w-5xl mx-auto bg-white p-8 rounded-lg shadow-md">
-    <h2 class="text-3xl font-bold text-center mb-8 text-green-800">Place Your Order</h2>
-    <form id="orderForm" class="space-y-6">
-      <!-- Input Fields: Name and Email -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <!-- Name -->
-        <div>
-          <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Your Name</label>
-          <input type="text" id="name" name="name" placeholder="Enter your name" required class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-black" />
-        </div>
-        <!-- Email -->
-        <div>
-          <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Email Address</label>
-          <input type="email" id="email" name="email" placeholder="Enter your email" required class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-black" />
-        </div>
-      </div>
-      <!-- Order Details (Full Width) -->
-      <div>
-        <label for="details" class="block text-sm font-semibold text-gray-700 mb-2">Order Details</label>
-        <textarea id="details"
-         placeholder="Provide specific details for your order"
-         class="w-full px-4 py-3 border border-gray-300 rounded-lg shadow-sm focus:outline-none focus:ring-2 focus:ring-green-500 text-black">
-        </textarea>
+<section id="contact-us" class="py-20 px-4 md:px-12 bg-gray-100">
+  <div class="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-10 items-center bg-white rounded-lg shadow-lg overflow-hidden">
+    
+    <!-- Left Image -->
+    <div class="w-full h-full">
+      <img src="./images/place-order.jpg" alt="Order Banner" class="object-cover w-full h-full">
+    </div>
 
-        <p id="detailsError" class="text-sm text-red-600 mt-2 hidden">Order details must be at least 10 characters.</p>
-      </div>
-      <!-- Terms & Conditions -->
-      <div class="bg-gray-50 p-4 rounded-lg border border-gray-200">
-        <p class="text-sm text-gray-600 mb-2">
-          Please read the <a href="#" id="termsLink" class="text-blue-600 underline">terms and conditions</a> before agreeing.
-        </p>
-        <div id="termsText" class="text-sm text-gray-700 hidden mb-4">
-          <p>
-            By placing your order, you agree to abide by our policies, including timely payments, proper order descriptions,
-            and adherence to delivery agreements. Failure to comply may result in cancellation or additional charges.
+    <!-- Right Form -->
+    <div class="p-8">
+      <h2 class="text-3xl font-bold text-green-800 mb-6">Place Your Order</h2>
+
+      <form id="orderForm" class="space-y-6">
+        <!-- Name and Email -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div>
+            <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Your Name</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name" class="w-full border-0 border-b border-gray-300 focus:ring-0 focus:border-green-600 bg-transparent py-2 px-1 text-black" />
+          </div>
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email Address</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email" class="w-full border-0 border-b border-gray-300 focus:ring-0 focus:border-green-600 bg-transparent py-2 px-1 text-black" />
+          </div>
+        </div>
+
+        <!-- Order Details -->
+        <div>
+          <label for="details" class="block text-sm font-medium text-gray-700 mb-1">Order Details</label>
+          <textarea id="details" rows="4" placeholder="Provide specific details for your order" class="w-full border-0 border-b border-gray-300 focus:ring-0 focus:border-green-600 bg-transparent py-2 px-1 text-black"></textarea>
+          <p id="detailsError" class="text-sm text-red-600 mt-1 hidden">Order details must be at least 10 characters.</p>
+        </div>
+
+        <!-- Terms and Conditions -->
+        <div>
+          <p class="text-sm text-gray-600">
+            Please read the <a href="#" id="termsLink" class="text-blue-600 underline">terms and conditions</a> before agreeing.
           </p>
+          <div id="termsText" class="text-sm text-gray-700 hidden my-3">
+            <p>
+              By placing your order, you agree to abide by our policies, including timely payments, proper order descriptions,
+              and adherence to delivery agreements. Failure to comply may result in cancellation or additional charges.
+            </p>
+          </div>
+          <div class="flex items-start gap-2 mt-2">
+            <input type="checkbox" id="agreeToTerms" disabled class="mt-1">
+            <label for="agreeToTerms" class="text-sm text-gray-800">I agree with the terms and conditions</label>
+          </div>
+          <p id="termsError" class="text-sm text-red-600 mt-1 hidden">You must read the terms and conditions before checking this box.</p>
         </div>
-        <div class="flex items-start gap-2">
-          <input type="checkbox" id="agreeToTerms" disabled class="mt-1">
-          <label for="agreeToTerms" class="text-sm text-gray-800">I agree with the terms and conditions</label>
+
+        <!-- Submit Button -->
+        <div class="pt-4">
+          <button type="submit" class="w-full py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition">
+            Submit Order
+          </button>
         </div>
-        <p id="termsError" class="text-sm text-red-600 mt-2 hidden">You must read the terms and conditions before checking this box.</p>
+      </form>
+
+      <!-- Confirmation -->
+      <div id="confirmationMessage" class="mt-6 text-center text-green-600 font-semibold hidden">
+        Your order has been submitted successfully!
       </div>
-      <!-- Submit Button -->
-      <div class="text-center">
-        <button type="submit" class="px-6 py-3 bg-green-700 text-white font-semibold rounded-lg hover:bg-green-800 transition duration-300">
-          Submit Order
-        </button>
-      </div>
-    </form>
-    <!-- Confirmation Message -->
-    <div id="confirmationMessage" class="mt-6 text-center text-green-600 font-semibold hidden">
-      Your order has been submitted successfully!
     </div>
   </div>
 </section>
+
 <!-- call to action section -->
 <section class="relative bg-gradient-to-br from-green-900 via-emerald-700 to-lime-600 text-white py-24 px-6 md:px-20 overflow-hidden text-center">
   <!-- Content Wrapper -->
@@ -274,7 +283,7 @@
   <div class="text-center">
     <h3 class="text-3xl font-bold text-green-800 mb-6">See Our Work in Action</h3>
     <div class="relative overflow-hidden rounded-xl shadow-lg w-full max-w-4xl mx-auto aspect-video">
-      <iframe class="w-full h-full" src="https://www.youtube.com/embed/dQw4w9WgXcQ"  frameborder="0" allowfullscreen></iframe>
+      <iframe class="w-full h-full" src="https://www.youtube.com/embed/"  frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
 </section>
@@ -303,12 +312,12 @@
     <div>
       <h4 class="text-green-600 text-sm font-semibold mb-4">Communities</h4>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-green-600">Advertising</a></li>
-        <li><a href="#" class="hover:text-green-600">Developers</a></li>
-        <li><a href="#" class="hover:text-green-600">For Artists</a></li>
-        <li><a href="#" class="hover:text-green-600">Investors</a></li>
-        <li><a href="#" class="hover:text-green-600">Partners</a></li>
-        <li><a href="#" class="hover:text-green-600">Vendors</a></li>
+        <li><a href="./community/communities.html" class="hover:text-green-600">Advertising</a></li>
+        <li><a href="./community/communities.html" class="hover:text-green-600">Developers</a></li>
+        <li><a href="./community/communities.html" class="hover:text-green-600">For Artists</a></li>
+        <li><a href="./community/communities.html" class="hover:text-green-600">Investors</a></li>
+        <li><a href="./community/communities.html" class="hover:text-green-600">Partners</a></li>
+        <li><a href="./community/communities.html" class="hover:text-green-600">Vendors</a></li>
       </ul>
     </div>
     <!-- Useful Links -->
@@ -317,10 +326,10 @@
       <ul class="space-y-2 text-sm">
         <li><a href="#" class="hover:text-green-600">Free Mobile App</a></li>
         <li><a href="#" class="hover:text-green-600">Web Player</a></li>
-        <li><a href="#" class="hover:text-green-600">Support</a></li>
-        <li><a href="#" class="hover:text-green-600">Contact</a></li>
-        <li><a href="#" class="hover:text-green-600">Privacy</a></li>
-        <li><a href="#" class="hover:text-green-600">Terms</a></li>
+        <li><a href="./support us-page/index.html" class="hover:text-green-600">Support</a></li>
+        <li><a href="./support us-page/index.html" class="hover:text-green-600">Contact</a></li>
+        <li><a href="./privacy-and-terms/privacy-and-terms.html" class="hover:text-green-600">Privacy</a></li>
+        <li><a href="./privacy-and-terms/privacy-and-terms.html#terms" class="hover:text-green-600">Terms</a></li>
       </ul>
     </div>
   </div>
@@ -338,9 +347,9 @@
     <div>
       <h5 class="text-green-600 font-medium mb-3">Quick Access</h5>
       <ul class="space-y-1 text-sm">
-        <li><a href="#" class="hover:text-green-600">Dashboard</a></li>
-        <li><a href="#" class="hover:text-green-600">Sign In</a></li>
-        <li><a href="#" class="hover:text-green-600">Register</a></li>
+        <li><a href="./login page/index.html" class="hover:text-green-600">Dashboard</a></li>
+        <li><a href="./login page/index.html" class="hover:text-green-600">Sign In</a></li>
+        <li><a href="./signup page/index.html" class="hover:text-green-600">Register</a></li>
       </ul>
     </div>
     <div class="flex flex-col items-center justify-center gap-3">
