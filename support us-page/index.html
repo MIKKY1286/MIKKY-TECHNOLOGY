@@ -18,14 +18,46 @@
     body {
       font-family: 'Segoe UI', sans-serif;
     }
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 5px;
+    }
+    .language-btn {
+      background: rgba(255,255,255,0.2);
+      border: none;
+      color: white;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.8rem;
+    }
+    .language-btn:hover {
+      background: rgba(255,255,255,0.3);
+    }
+    .language-btn.active {
+      background: rgba(255,255,255,0.4);
+      font-weight: bold;
+    }
   </style>
 </head>
 <body class="bg-white text-gray-800">
 
   <!-- Header -->
-  <header class="bg-[#1e6138] text-white py-12 text-center" data-aos="fade-down">
-    <h1 class="text-4xl font-bold">Need Help? We're Here for You</h1>
-    <p class="mt-2 text-lg">Our team is available to assist you with any issues or questions.</p>
+  <header class="bg-[#1e6138] text-white py-12 text-center relative" data-aos="fade-down">
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+      <button id="enBtn" class="language-btn active">EN</button>
+      <button id="frBtn" class="language-btn">FR</button>
+      <button id="esBtn" class="language-btn">ES</button>
+      <button id="yoBtn" class="language-btn">YO</button>
+    </div>
+    
+    <h1 class="text-4xl font-bold" data-i18n="support.title">Need Help? We're Here for You</h1>
+    <p class="mt-2 text-lg" data-i18n="support.subtitle">Our team is available to assist you with any issues or questions.</p>
   </header>
 
   <!-- Support Section -->
@@ -33,46 +65,46 @@
     
     <!-- Contact Info -->
     <div data-aos="fade-right">
-      <h2 class="text-3xl font-bold text-[#1e6138] mb-6">Contact Support</h2>
-      <p class="mb-4">You can reach us through email, WhatsApp, or by filling the support form.</p>
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-6" data-i18n="contact.title">Contact Support</h2>
+      <p class="mb-4" data-i18n="contact.description">You can reach us through email, WhatsApp, or by filling the support form.</p>
       <ul class="space-y-4">
         <li><i class='bx bx-envelope text-[#1e6138] mr-2'></i> support@mikkytech.com</li>
         <li><i class='bx bx-phone text-[#1e6138] mr-2'></i> +234 708 303 4571</li>
         <li><i class='bx bxl-whatsapp text-[#1e6138] mr-2'></i>
-          <a href="https://wa.me/2347083034571" target="_blank" class="text-[#1e6138] hover:underline">Chat on WhatsApp</a>
+          <a href="https://wa.me/2347083034571" target="_blank" class="text-[#1e6138] hover:underline" data-i18n="contact.whatsapp">Chat on WhatsApp</a>
         </li>
       </ul>
     </div>
 
     <!-- Support Form -->
     <div data-aos="fade-left">
-      <h2 class="text-3xl font-bold text-[#1e6138] mb-6">Submit a Ticket</h2>
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-6" data-i18n="form.title">Submit a Ticket</h2>
       <form id="supportForm" class="space-y-5">
-        <input type="text" id="name" placeholder="Your Name" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none"/>
-        <input type="email" id="email" placeholder="Your Email" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none"/>
-        <textarea id="message" rows="5" placeholder="Your Message" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none"></textarea>
-        <button type="submit" class="bg-[#1e6138] text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">Send Message</button>
+        <input type="text" id="name" placeholder="Your Name" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none" data-i18n-placeholder="form.name"/>
+        <input type="email" id="email" placeholder="Your Email" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none" data-i18n-placeholder="form.email"/>
+        <textarea id="message" rows="5" placeholder="Your Message" required class="w-full border px-4 py-3 rounded focus:ring-[#1e6138] focus:outline-none" data-i18n-placeholder="form.message"></textarea>
+        <button type="submit" class="bg-[#1e6138] text-white px-6 py-3 rounded-lg hover:bg-green-800 transition" data-i18n="form.button">Send Message</button>
       </form>
-      <p id="successMsg" class="text-green-600 mt-4 hidden">Your message has been sent!</p>
+      <p id="successMsg" class="text-green-600 mt-4 hidden" data-i18n="form.success">Your message has been sent!</p>
     </div>
   </section>
 
   <!-- FAQ Section -->
   <section class="bg-gray-50 py-20 px-6" data-aos="fade-up">
     <div class="max-w-4xl mx-auto text-center">
-      <h2 class="text-3xl font-bold text-[#1e6138] mb-8">Frequently Asked Questions</h2>
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-8" data-i18n="faq.title">Frequently Asked Questions</h2>
       <div class="space-y-6 text-left">
         <div>
-          <h3 class="font-semibold">How long does it take to get a response?</h3>
-          <p>We usually respond within 24 hours via email or WhatsApp.</p>
+          <h3 class="font-semibold" data-i18n="faq.q1">How long does it take to get a response?</h3>
+          <p data-i18n="faq.a1">We usually respond within 24 hours via email or WhatsApp.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Can I request a custom website feature?</h3>
-          <p>Yes, our team can work with you to design custom features for your project.</p>
+          <h3 class="font-semibold" data-i18n="faq.q2">Can I request a custom website feature?</h3>
+          <p data-i18n="faq.a2">Yes, our team can work with you to design custom features for your project.</p>
         </div>
         <div>
-          <h3 class="font-semibold">Is support free after project delivery?</h3>
-          <p>We provide 1 month of free support after delivery. You can subscribe for extended maintenance.</p>
+          <h3 class="font-semibold" data-i18n="faq.q3">Is support free after project delivery?</h3>
+          <p data-i18n="faq.a3">We provide 1 month of free support after delivery. You can subscribe for extended maintenance.</p>
         </div>
       </div>
     </div>
@@ -91,19 +123,140 @@
     AOS.init();
   </script>
 
+  <!-- Language Translation -->
+  <script>
+    const translations = {
+      en: {
+        "support.title": "Need Help? We're Here for You",
+        "support.subtitle": "Our team is available to assist you with any issues or questions.",
+        "contact.title": "Contact Support",
+        "contact.description": "You can reach us through email, WhatsApp, or by filling the support form.",
+        "contact.whatsapp": "Chat on WhatsApp",
+        "form.title": "Submit a Ticket",
+        "form.name": "Your Name",
+        "form.email": "Your Email",
+        "form.message": "Your Message",
+        "form.button": "Send Message",
+        "form.success": "Your message has been sent!",
+        "faq.title": "Frequently Asked Questions",
+        "faq.q1": "How long does it take to get a response?",
+        "faq.a1": "We usually respond within 24 hours via email or WhatsApp.",
+        "faq.q2": "Can I request a custom website feature?",
+        "faq.a2": "Yes, our team can work with you to design custom features for your project.",
+        "faq.q3": "Is support free after project delivery?",
+        "faq.a3": "We provide 1 month of free support after delivery. You can subscribe for extended maintenance."
+      },
+      fr: {
+        "support.title": "Besoin d'aide ? Nous sommes là pour vous",
+        "support.subtitle": "Notre équipe est disponible pour vous aider avec tous vos problèmes ou questions.",
+        "contact.title": "Contactez le support",
+        "contact.description": "Vous pouvez nous joindre par e-mail, WhatsApp ou en remplissant le formulaire de support.",
+        "contact.whatsapp": "Discuter sur WhatsApp",
+        "form.title": "Soumettre un ticket",
+        "form.name": "Votre nom",
+        "form.email": "Votre email",
+        "form.message": "Votre message",
+        "form.button": "Envoyer le message",
+        "form.success": "Votre message a été envoyé !",
+        "faq.title": "Questions fréquemment posées",
+        "faq.q1": "Combien de temps faut-il pour obtenir une réponse ?",
+        "faq.a1": "Nous répondons généralement dans les 24 heures par e-mail ou WhatsApp.",
+        "faq.q2": "Puis-je demander une fonctionnalité personnalisée pour mon site web ?",
+        "faq.a2": "Oui, notre équipe peut travailler avec vous pour concevoir des fonctionnalités personnalisées pour votre projet.",
+        "faq.q3": "Le support est-il gratuit après la livraison du projet ?",
+        "faq.a3": "Nous fournissons 1 mois de support gratuit après la livraison. Vous pouvez souscrire à une maintenance prolongée."
+      },
+      es: {
+        "support.title": "¿Necesitas ayuda? Estamos aquí para ti",
+        "support.subtitle": "Nuestro equipo está disponible para ayudarte con cualquier problema o pregunta.",
+        "contact.title": "Contactar con soporte",
+        "contact.description": "Puedes contactarnos por correo electrónico, WhatsApp o completando el formulario de soporte.",
+        "contact.whatsapp": "Chatear por WhatsApp",
+        "form.title": "Enviar un ticket",
+        "form.name": "Tu nombre",
+        "form.email": "Tu correo electrónico",
+        "form.message": "Tu mensaje",
+        "form.button": "Enviar mensaje",
+        "form.success": "¡Tu mensaje ha sido enviado!",
+        "faq.title": "Preguntas frecuentes",
+        "faq.q1": "¿Cuánto tiempo lleva obtener una respuesta?",
+        "faq.a1": "Normalmente respondemos dentro de las 24 horas por correo electrónico o WhatsApp.",
+        "faq.q2": "¿Puedo solicitar una función personalizada para el sitio web?",
+        "faq.a2": "Sí, nuestro equipo puede trabajar contigo para diseñar funciones personalizadas para tu proyecto.",
+        "faq.q3": "¿El soporte es gratuito después de la entrega del proyecto?",
+        "faq.a3": "Ofrecemos 1 mes de soporte gratuito después de la entrega. Puedes suscribirte para mantenimiento extendido."
+      },
+      yo: {
+        "support.title": "Ṣe o nílẹ̀rànwọ́? A wa níbí fún ọ",
+        "support.subtitle": "Ẹgbẹ́ wa wà láti ràn ọ́ lọ́wọ́ nínú èrò àti ìbéèrè.",
+        "contact.title": "Kan sí ìrànlọ́wọ́",
+        "contact.description": "O lè kan sí wa nípa ìmèèlì, WhatsApp tàbí kí o fọ́rọ́wérọ́.",
+        "contact.whatsapp": "Bá wa sọ̀rọ̀ lórí WhatsApp",
+        "form.title": "Fìdí ìwé ìrànlọ́wọ́ rẹ sílẹ̀",
+        "form.name": "Orúkọ rẹ",
+        "form.email": "Ìmèèlì rẹ",
+        "form.message": "Ìfọ̀rọ̀wérọ́ rẹ",
+        "form.button": "Fìdí ìfọ̀rọ̀wérọ́ rẹ sílẹ̀",
+        "form.success": "Ìfọ̀rọ̀wérọ́ rẹ ti ránṣẹ́!",
+        "faq.title": "Àwọn ìbéèrè tí wọ́n máa ń béèrè",
+        "faq.q1": "Ìgbà wo ni ó máa ń gba láti gbèsè ìdáhùn?",
+        "faq.a1": "A máa ń dáhùn láàárín wákàtí 24 nípa ìmèèlì tàbí WhatsApp.",
+        "faq.q2": "Ṣé mo lè béèrè àwọn àǹfààní oríṣiríṣi fún ojúewé mi?",
+        "faq.a2": "Bẹ́ẹ̀ni, ẹgbẹ́ wa lè ṣiṣẹ́ pẹ̀lú ọ láti ṣe àwọn àǹfààní oríṣiríṣi fún iṣẹ́ rẹ.",
+        "faq.q3": "Ṣé ìrànlọ́wọ́ jẹ́ ọfẹ́ lẹ́yìn ìfihàn iṣẹ́?",
+        "faq.a3": "A máa ń pèsè ìrànlọ́wọ́ ọfẹ́ fún oṣù kan lẹ́yìn ìfihàn iṣẹ́. O lè ṣe ìforúkọ sí àtúnṣe tí ó pọ̀."
+      }
+    };
+
+    // Language toggle functionality
+    document.getElementById('enBtn').addEventListener('click', () => setLanguage('en'));
+    document.getElementById('frBtn').addEventListener('click', () => setLanguage('fr'));
+    document.getElementById('esBtn').addEventListener('click', () => setLanguage('es'));
+    document.getElementById('yoBtn').addEventListener('click', () => setLanguage('yo'));
+
+    function setLanguage(lang) {
+      // Update active button
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`${lang}Btn`).classList.add('active');
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = translations[lang][key];
+      });
+
+      // Update all placeholder attributes
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        el.setAttribute('placeholder', translations[lang][key]);
+      });
+
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+    }
+
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang && translations[savedLang]) {
+      setLanguage(savedLang);
+    }
+  </script>
+
   <!-- Firebase using ES Module -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getFirestore, collection, addDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
-    authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
-    projectId: "mikky-tech-sign-up-page",
-    storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
-    messagingSenderId: "232441309522",
-    appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
 
     const app = initializeApp(firebaseConfig);
     const db = getFirestore(app);
@@ -128,6 +281,7 @@
 
         form.reset();
         successMsg.classList.remove("hidden");
+        setTimeout(() => successMsg.classList.add("hidden"), 3000);
       } catch (err) {
         alert("Something went wrong. Please try again.");
       }

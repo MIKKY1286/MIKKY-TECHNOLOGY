@@ -11,9 +11,53 @@
     body {
       font-family: 'Segoe UI', sans-serif;
     }
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 0;
+      min-width: 120px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .language-dropdown a {
+      display: block;
+      padding: 5px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+    .language-dropdown a:hover {
+      background-color: #f5f5f5;
+    }
+    .show-dropdown {
+      display: block;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-white flex items-center justify-center">
+
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <button id="languageBtn" class="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">
+      <i class='bx bx-globe text-lg'></i>
+      <span id="currentLanguage">English</span>
+      <i class='bx bx-chevron-down'></i>
+    </button>
+    <div id="languageDropdown" class="language-dropdown">
+      <a href="#" data-lang="en">English</a>
+      <a href="#" data-lang="fr">Français</a>
+      <a href="#" data-lang="es">Español</a>
+      <a href="#" data-lang="yo">Yorùbá</a>
+    </div>
+  </div>
 
   <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-xl overflow-hidden">
     
@@ -68,14 +112,14 @@
     import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
     import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
-    authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
-    projectId: "mikky-tech-sign-up-page",
-    storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
-    messagingSenderId: "232441309522",
-    appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -121,6 +165,99 @@
 
       btnText.textContent = "Login";
       spinner.classList.add("hidden");
+    });
+
+    // Language Toggle Logic
+    const languageBtn = document.getElementById("languageBtn");
+    const languageDropdown = document.getElementById("languageDropdown");
+    const currentLanguage = document.getElementById("currentLanguage");
+
+    // Toggle dropdown visibility
+    languageBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.toggle("show-dropdown");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function() {
+      languageDropdown.classList.remove("show-dropdown");
+    });
+
+    // Language translations
+    const translations = {
+      en: {
+        welcome: "Welcome Back",
+        email: "Email",
+        password: "Password",
+        remember: "Remember me",
+        forgot: "Forgot Password?",
+        login: "Login",
+        noAccount: "Don't have an account?",
+        signup: "Sign up",
+        forgotPwd: "Forgot your password?",
+        loginHere: "Login here"
+      },
+      fr: {
+        welcome: "Bienvenue",
+        email: "Email",
+        password: "Mot de passe",
+        remember: "Se souvenir de moi",
+        forgot: "Mot de passe oublié?",
+        login: "Connexion",
+        noAccount: "Vous n'avez pas de compte?",
+        signup: "S'inscrire",
+        forgotPwd: "Mot de passe oublié?",
+        loginHere: "Connectez-vous ici"
+      },
+      es: {
+        welcome: "Bienvenido",
+        email: "Correo electrónico",
+        password: "Contraseña",
+        remember: "Recuérdame",
+        forgot: "¿Olvidaste tu contraseña?",
+        login: "Iniciar sesión",
+        noAccount: "¿No tienes una cuenta?",
+        signup: "Regístrate",
+        forgotPwd: "¿Olvidaste tu contraseña?",
+        loginHere: "Inicia sesión aquí"
+      },
+      yo: {
+        welcome: "Ẹ ku abọ",
+        email: "Imeeli",
+        password: "Ọrọ igbaniwọle",
+        remember: "Ranti mi",
+        forgot: "Gbẹ ọrọ igbaniwọle?",
+        login: "Wo ile",
+        noAccount: "Ko ni akọọlẹ?",
+        signup: "Forukọsilẹ",
+        forgotPwd: "Gbẹ ọrọ igbaniwọle?",
+        loginHere: "Wo ile nibi"
+      }
+    };
+
+    // Handle language selection
+    document.querySelectorAll("#languageDropdown a").forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.preventDefault();
+        const lang = this.getAttribute("data-lang");
+        currentLanguage.textContent = this.textContent;
+        languageDropdown.classList.remove("show-dropdown");
+
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // Update all text elements
+        document.querySelector("h2").textContent = translations[lang].welcome;
+        document.querySelector("label[for='email']").textContent = translations[lang].email;
+        document.querySelector("label[for='password']").textContent = translations[lang].password;
+        document.querySelector(".flex.items-center.justify-between label").innerHTML = 
+          `<input type="checkbox" class="mr-2"> ${translations[lang].remember}`;
+        document.querySelector(".flex.items-center.justify-between a").textContent = translations[lang].forgot;
+        document.getElementById("btnText").textContent = translations[lang].login;
+        document.querySelector(".mt-4.text-center").innerHTML = 
+          `${translations[lang].noAccount} <a class="text-green-600 hover:underline" href="../signup page/index.html">${translations[lang].signup}</a>`;
+        document.querySelector(".mt-2.text-center").innerHTML = 
+          `${translations[lang].forgotPwd} <a href="../Forgot password/index.html" class="text-green-600 hover:underline">${translations[lang].loginHere}</a>`;
+      });
     });
   </script>
 

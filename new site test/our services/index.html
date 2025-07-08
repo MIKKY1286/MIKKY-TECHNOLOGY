@@ -1,0 +1,1927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services - Mikky Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script> 
+  <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
+  <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+  <style>
+    .language-toggle .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: rgba(255, 255, 255, 0.9);
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 1;
+      border-radius: 0.375rem;
+      overflow: hidden;
+    }
+    
+    .language-toggle:hover .language-dropdown,
+    .language-toggle:focus-within .language-dropdown {
+      display: block;
+    }
+    
+    .language-option {
+      display: block;
+      padding: 0.5rem 1rem;
+      color: #000;
+      text-decoration: none;
+      transition: background-color 0.2s;
+    }
+    
+    .language-option:hover {
+      background-color: rgba(0, 0, 0, 0.1);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Navbar -->
+<nav id="navbar" class="fixed top-0 left-0 w-full z-50 transition duration-300">
+  <div class="max-w-7xl mx-auto flex justify-between items-center px-6 py-4 bg-transparent backdrop-blur-sm transition-all duration-300">
+    <!-- Logo & Brand -->
+    <div class="flex items-center gap-3">
+      <a href="../index.html">
+        <img src="../images/Screenshot_2024-11-16_205754-removebg-preview.png" alt="Logo" class="h-10 w-auto">
+      </a>
+      <h2 class="text-white text-lg font-semibold hover:text-green-400">MIKKY TECHNOLOGY</h2>
+    </div>
+    <!-- Desktop Navigation -->
+    <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
+      <li class="relative">
+        <a id="aboutToggle" class="hover:text-green focus:outline-none flex items-center gap-1 text-white cursor-pointer">
+         <span data-i18n="about_us">About us</span>
+         <i class='bx bx-chevron-down text-lg'></i>
+        </a>
+            <div id="aboutDropdown" class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 hidden transition duration-200">
+            <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black" data-i18n="mission">Mission</a>
+            <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black" data-i18n="values">Values</a>
+            <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black" data-i18n="accomplishment">Accomplishment</a>
+          </div>
+      </li>
+      <li><a href="../our service/index.html" class="hover:text-green-400" data-i18n="our_services">Our Services</a></li>
+      <li><a href="../locate us/index.html" class="hover:text-green-400" data-i18n="location">Location</a></li>
+      <li><a>|</a></li>
+      <li><a href="../signup page/index.html" class="hover:text-green-400" data-i18n="sign_up">Sign up</a></li>
+      <li><a href="../login page/index.html" class="hover:text-green-400" data-i18n="log_in">Log in</a></li>
+      <!-- Language Toggle -->
+      <li class="relative language-toggle">
+        <a class="hover:text-green-400 flex items-center cursor-pointer">
+          <i class='bx bx-globe mr-1'></i>
+          <span id="current-language" data-i18n="language">English</span>
+          <i class='bx bx-chevron-down ml-1'></i>
+        </a>
+        <div class="language-dropdown absolute hidden">
+          <a href="#" data-lang="en" class="language-option">English</a>
+          <a href="#" data-lang="fr" class="language-option">Français</a>
+          <a href="#" data-lang="es" class="language-option">Español</a>
+          <a href="#" data-lang="yo" class="language-option">Yorùbá</a>
+        </div>
+      </li>
+    </ul>
+    <!-- Mobile Menu Icon -->
+    <div id="menu-icon" class="text-green-400 text-3xl md:hidden cursor-pointer">
+      <i class='bx bx-dots-vertical-rounded'></i>
+    </div>
+  </div>
+  <!-- Mobile Navigation -->
+  <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
+    <li class="relative group">
+        <a href="#" class="block text-sm text-black hover:text-green-600" data-i18n="about_us">About us</a>
+        <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
+          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black" data-i18n="mission">Mission</a>
+          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black" data-i18n="values">Values</a>
+          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black" data-i18n="accomplishment">Accomplishment</a>
+        </div>
+      </li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html" data-i18n="our_services">Our Services</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html" data-i18n="location">Location</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html" data-i18n="sign_up">Sign up</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../login page/index.html" data-i18n="log_in">Log in</a></li>
+    <!-- Mobile Language Toggle -->
+    <li class="pt-2">
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-black" data-i18n="select_language">Select Language:</span>
+        <select id="mobile-language-select" class="text-sm border rounded p-1">
+          <option value="en" data-i18n="english">English</option>
+          <option value="fr" data-i18n="french">Français</option>
+          <option value="es" data-i18n="spanish">Español</option>
+          <option value="yo" data-i18n="yoruba">Yorùbá</option>
+        </select>
+      </div>
+    </li>
+  </ul>
+</nav>
+
+
+<header class="relative bg-gradient-to-br from-[#1e6138] to-green-700 text-white py-24 px-6 text-center overflow-hidden shadow-md">
+  <!-- Decorative Pattern or Shape (Optional) -->
+  <div class="absolute inset-0 bg-[url('../images/grid-pattern.png')] opacity-10 pointer-events-none"></div>
+
+  <!-- Header Content -->
+  <div class="relative z-10 max-w-4xl mx-auto">
+    <h1 class="text-4xl md:text-5xl font-bold tracking-tight mb-4" data-i18n="services_title">Our Services</h1>
+    <p class="text-lg md:text-xl font-light max-w-2xl mx-auto" data-i18n="services_subtitle">
+      Explore the range of professional solutions we provide — from custom web development to digital innovation.
+    </p>
+  </div>
+</header>
+
+  <main class="services-main">
+
+    <!-- service section -->
+     
+<section class="py-20 bg-gray-50 services-list">
+  <div class="container mx-auto px-6 lg:px-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+
+      <!-- Web Development -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bx-code text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700" data-i18n="web_dev">Web Development</h2>
+        </div>
+        <p class="text-gray-700" data-i18n="web_dev_desc">
+          We create responsive and dynamic websites tailored to your business needs using modern web technologies.
+        </p>
+      </div>
+
+      <!-- Poster & Logo Design -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="100">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bx-paint text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700" data-i18n="poster_logo">Poster & Logo Design</h2>
+        </div>
+        <p class="text-gray-700" data-i18n="poster_logo_desc">
+          Professional designs for posters, logos, and branding materials that represent your business effectively.
+        </p>
+      </div>
+
+      <!-- e-Business Card Design -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="200">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bx-id-card text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700" data-i18n="e_card">e-Business Card Design</h2>
+        </div>
+        <p class="text-gray-700" data-i18n="e_card_desc">
+          Digital business cards that are sleek, modern, and eco-friendly, perfect for networking.
+        </p>
+      </div>
+
+      <!-- Instagram Post Designs -->
+      <div class="p-6 bg-white shadow-lg rounded-lg hover:shadow-xl transition" data-aos="fade-up" data-aos-delay="300">
+        <div class="flex items-center gap-4 mb-3">
+          <i class='bx bxl-instagram text-3xl text-green-700'></i>
+          <h2 class="text-2xl font-bold text-green-700" data-i18n="ig_design">Instagram Post Designs</h2>
+        </div>
+        <p class="text-gray-700" data-i18n="ig_design_desc">
+          Creative and eye-catching Instagram posts that enhance your social media presence.
+        </p>
+      </div>
+
+    </div>
+
+    <!-- CTA Section -->
+    <div class="text-center mt-16" data-aos="zoom-in">
+      <h3 class="text-3xl font-bold text-green-800 mb-4" data-i18n="custom_service">Need a Custom Service?</h3>
+      <p class="text-gray-600 max-w-xl mx-auto mb-6" data-i18n="custom_service_desc">
+        Let's work together to bring your ideas to life. We tailor every solution to your specific goals.
+      </p>
+      <a href="https://wa.me/2347083034571"
+         class="inline-flex items-center gap-3 bg-green-700 text-white px-6 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-green-800 transition">
+        <i class='bx bxl-whatsapp text-2xl'></i> <span data-i18n="chat_with_us">Chat With Us</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- why choose us section -->
+
+<section class="py-20 bg-white">
+  <div class="container mx-auto px-6 lg:px-16 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6" data-aos="fade-down" data-i18n="why_choose">
+      Why Choose Mikky Technology?
+    </h2>
+    <p class="text-gray-600 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-i18n="why_choose_desc">
+      We're not just another tech company — we're your partner in digital growth. Here's what sets us apart:
+    </p>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+
+      <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up">
+        <i class='bx bx-user-check text-4xl text-green-700 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-800 mb-2" data-i18n="client_centric">Client-Centric Approach</h3>
+        <p class="text-gray-700" data-i18n="client_centric_desc">We listen, understand, and tailor our solutions to your exact business goals.</p>
+      </div>
+
+      <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="100">
+        <i class='bx bx-trophy text-4xl text-green-700 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-800 mb-2" data-i18n="proven_track">Proven Track Record</h3>
+        <p class="text-gray-700" data-i18n="proven_track_desc">From startups to growing brands, we've helped many achieve real results.</p>
+      </div>
+
+      <div class="p-6 bg-gray-50 rounded-lg shadow hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="200">
+        <i class='bx bx-shield-quarter text-4xl text-green-700 mb-4'></i>
+        <h3 class="text-xl font-semibold text-green-800 mb-2" data-i18n="reliable">Reliable & Transparent</h3>
+        <p class="text-gray-700" data-i18n="reliable_desc">We deliver on time, communicate clearly, and stand behind everything we build.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- testimonial section -->
+
+<section class="bg-green-50 py-20">
+  <div class="container mx-auto px-6 lg:px-16 text-center">
+    <h2 class="text-3xl md:text-4xl font-bold text-green-800 mb-6" data-aos="fade-down" data-i18n="testimonials">
+      What Our Clients Say
+    </h2>
+    <p class="text-gray-700 max-w-2xl mx-auto mb-12" data-aos="fade-up" data-i18n="testimonials_desc">
+      Hear from those who have experienced the Mikky Technology difference.
+    </p>
+
+    <!-- Firebase testimonial entries go here -->
+    <div id="testimonials-list" class="grid grid-cols-1 md:grid-cols-3 gap-10 text-left">
+      <!-- Testimonials will be dynamically injected here -->
+    </div>
+  </div>
+</section>
+
+<!-- Website Pricing Section -->
+<section id="pricing" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down" data-i18n="pricing_title">Our Pricing Plans</h2>
+    <p class="text-gray-700 text-lg mb-12" data-aos="fade-up" data-i18n="pricing_desc">
+      Choose a plan that suits your project. Whether you need a personal site or a full business platform, we've got you covered.
+    </p>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+
+      <!-- Basic Plan -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="basic">Basic</h3>
+        <p class="text-gray-600 mb-4" data-i18n="basic_desc">Perfect for individuals or simple portfolios.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦185,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="basic_feature1">✔️ Up to 3 Pages</li>
+          <li data-i18n="basic_feature2">✔️ Mobile Responsive</li>
+          <li data-i18n="basic_feature3">✔️ Contact Form</li>
+          <li data-i18n="basic_feature4">✔️ Basic SEO</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Basic',
+          '₦185,000',
+          ['Up to 3 Pages', 'Mobile Responsive', 'Contact Form', 'Basic SEO']
+        )" class="inline-block bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_plan">
+          Choose Plan
+        </button>
+      </div>
+
+      <!-- Standard Plan -->
+      <div class="relative bg-green-50 border-2 border-[#1e6138] rounded-xl shadow-lg p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+        <div class="absolute -top-3 right-3">
+          <span class="bg-[#1e6138] text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-i18n="popular">Most Popular</span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="standard">Standard</h3>
+        <p class="text-gray-600 mb-4" data-i18n="standard_desc">Great for small businesses and brands.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦240,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="standard_feature1">✔️ Up to 6 Pages</li>
+          <li data-i18n="standard_feature2">✔️ Free Domain (1 Year)</li>
+          <li data-i18n="standard_feature3">✔️ SEO Optimized</li>
+          <li data-i18n="standard_feature4">✔️ Admin Panel (Optional)</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Standard',
+          '₦240,000',
+          ['Up to 6 Pages', 'Free Domain (1 Year)', 'SEO Optimized', 'Admin Panel (Optional)']
+        )" class="inline-block bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_plan">
+          Choose Plan
+        </button>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="premium">Premium</h3>
+        <p class="text-gray-600 mb-4" data-i18n="premium_desc">For advanced platforms, portals, or startups.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦380,000+</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="premium_feature1">✔️ Unlimited Pages</li>
+          <li data-i18n="premium_feature2">✔️ Custom Design + Branding</li>
+          <li data-i18n="premium_feature3">✔️ Admin Panel</li>
+          <li data-i18n="premium_feature4">✔️ Full Support & Maintenance</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Premium',
+          '₦380,000+',
+          ['Unlimited Pages', 'Custom Design + Branding', 'Admin Panel', 'Full Support & Maintenance']
+        )" class="inline-block bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_plan">
+          Choose Plan
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- Presentation Design Pricing Section -->
+<section id="pricing" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down" data-i18n="presentation_title">Presentation Design Pricing</h2>
+    <p class="text-gray-700 text-lg mb-12" data-aos="fade-up" data-i18n="presentation_desc">
+      Choose a package that fits your presentation needs — from clean student slides to stunning business decks.
+    </p>
+
+    <!-- Pricing Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+
+      <!-- Starter Plan -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="starter">Starter</h3>
+        <p class="text-gray-600 mb-4" data-i18n="starter_desc">Ideal for students and personal use.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦5,000 – ₦10,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="starter_feature1">✔️ Up to 10 Slides</li>
+          <li data-i18n="starter_feature2">✔️ Basic Design & Layout</li>
+          <li data-i18n="starter_feature3">✔️ Clean Fonts & Icons</li>
+          <li data-i18n="starter_feature4">✔️ Delivery in PDF & PPT</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Starter',
+          '₦5,000 – ₦10,000',
+          ['Up to 10 Slides', 'Basic Design & Layout', 'Clean Fonts & Icons', 'Delivery in PDF & PPT']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="select_starter">
+          Select Starter
+        </button>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="relative bg-green-50 border-2 border-[#1e6138] rounded-xl shadow-lg p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+        <div class="absolute -top-3 right-3">
+          <span class="bg-[#1e6138] text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-i18n="popular">Most Popular</span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="pro">Pro</h3>
+        <p class="text-gray-600 mb-4" data-i18n="pro_desc">Best for business or academic presentations.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦15,000 – ₦25,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="pro_feature1">✔️ Up to 20 Slides</li>
+          <li data-i18n="pro_feature2">✔️ Custom Design & Transitions</li>
+          <li data-i18n="pro_feature3">✔️ Visual Charts & Icons</li>
+          <li data-i18n="pro_feature4">✔️ Editable Source File</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Pro',
+          '₦15,000 – ₦25,000',
+          ['Up to 20 Slides', 'Custom Design & Transitions', 'Visual Charts & Icons', 'Editable Source File']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="select_pro">
+          Select Pro
+        </button>
+      </div>
+
+      <!-- Premium Plan -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="premium">Premium</h3>
+        <p class="text-gray-600 mb-4" data-i18n="premium_pres_desc">Perfect for company decks, pitches, or branded slides.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦30,000+</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="premium_pres_feature1">✔️ 20+ Slides</li>
+          <li data-i18n="premium_pres_feature2">✔️ Brand Guidelines Integration</li>
+          <li data-i18n="premium_pres_feature3">✔️ Infographics & Animations</li>
+          <li data-i18n="premium_pres_feature4">✔️ Fast Turnaround + Support</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Premium',
+          '₦30,000+',
+          ['20+ Slides', 'Brand Guidelines Integration', 'Infographics & Animations', 'Fast Turnaround + Support']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="select_premium">
+          Select Premium
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Drones & RC Cars Pricing Section -->
+<section id="pricing" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down" data-i18n="drones_title">Drones & RC Cars Pricing</h2>
+    <p class="text-gray-700 text-lg mb-12" data-aos="fade-up" data-i18n="drones_desc">
+      Get high-quality, custom-built drones and remote-controlled cars. Select a plan that fits your needs and budget.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+
+      <!-- Starter Kit -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="starter_kit">Starter Kit</h3>
+        <p class="text-gray-600 mb-4" data-i18n="starter_kit_desc">Perfect for beginners or hobbyists.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦50,000 – ₦80,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="starter_kit_feature1">✔️ Basic Drone or RC Car</li>
+          <li data-i18n="starter_kit_feature2">✔️ Manual Controller</li>
+          <li data-i18n="starter_kit_feature3">✔️ Rechargeable Battery</li>
+          <li data-i18n="starter_kit_feature4">✔️ 30-Min Demo Support</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Starter Kit',
+          '₦50,000 – ₦80,000',
+          ['Basic Drone or RC Car', 'Manual Controller', 'Rechargeable Battery', '30-Min Demo Support']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="select_starter">
+          Select Starter
+        </button>
+      </div>
+
+      <!-- Advanced Build -->
+      <div class="relative bg-green-50 border-2 border-[#1e6138] rounded-xl shadow-lg p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+        <div class="absolute -top-3 right-3">
+          <span class="bg-[#1e6138] text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-i18n="popular">Most Popular</span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="advanced_build">Advanced Build</h3>
+        <p class="text-gray-600 mb-4" data-i18n="advanced_build_desc">For intermediate users, schools, or project showcases.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦100,000 – ₦180,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="advanced_build_feature1">✔️ High-Speed RC or Drone</li>
+          <li data-i18n="advanced_build_feature2">✔️ HD Camera (Drones)</li>
+          <li data-i18n="advanced_build_feature3">✔️ App or Remote Control</li>
+          <li data-i18n="advanced_build_feature4">✔️ Design Customization</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Advanced Build',
+          '₦100,000 – ₦180,000',
+          ['High-Speed RC or Drone', 'HD Camera (Drones)', 'App or Remote Control', 'Design Customization']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="select_advanced">
+          Select Advanced
+        </button>
+      </div>
+
+      <!-- Pro Custom Model -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="pro_custom">Pro Custom Model</h3>
+        <p class="text-gray-600 mb-4" data-i18n="pro_custom_desc">Engineered for professionals, commercial use, or serious enthusiasts.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦200,000+</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="pro_custom_feature1">✔️ Fully Customized Drone/Car</li>
+          <li data-i18n="pro_custom_feature2">✔️ GPS, Auto Hover, FPV, etc.</li>
+          <li data-i18n="pro_custom_feature3">✔️ Extended Battery + Spare Parts</li>
+          <li data-i18n="pro_custom_feature4">✔️ Training & Support</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Pro Custom Model',
+          '₦200,000+',
+          ['Fully Customized Drone/Car', 'GPS, Auto Hover, FPV, etc.', 'Extended Battery + Spare Parts', 'Training & Support']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="select_pro">
+          Select Pro
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Flyers, Banners & Posters Pricing Section -->
+<section id="pricing" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down" data-i18n="design_title">Design Pricing</h2>
+    <p class="text-gray-700 text-lg mb-12" data-aos="fade-up" data-i18n="design_desc">
+      Professional and eye-catching flyers, banners, and posters for your events, business, or brand promotions.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+
+      <!-- Basic Design -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="basic_design">Basic Design</h3>
+        <p class="text-gray-600 mb-4" data-i18n="basic_design_desc">Perfect for simple and quick jobs.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦4,000 – ₦6,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="basic_design_feature1">✔️ 1 Flyer / Poster / Banner</li>
+          <li data-i18n="basic_design_feature2">✔️ Standard Layout</li>
+          <li data-i18n="basic_design_feature3">✔️ Basic Edits</li>
+          <li data-i18n="basic_design_feature4">✔️ Delivery in JPEG/PDF</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Basic Design',
+          '₦4,000 – ₦6,000',
+          ['1 Flyer / Poster / Banner', 'Standard Layout', 'Basic Edits', 'Delivery in JPEG/PDF']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_basic">
+          Choose Basic
+        </button>
+      </div>
+
+      <!-- Standard Design -->
+      <div class="relative bg-green-50 border-2 border-[#1e6138] rounded-xl shadow-lg p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+        <div class="absolute -top-3 right-3">
+          <span class="bg-[#1e6138] text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-i18n="popular">Most Popular</span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="standard_design">Standard Design</h3>
+        <p class="text-gray-600 mb-4" data-i18n="standard_design_desc">Ideal for business and event promo materials.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦8,000 – ₦12,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="standard_design_feature1">✔️ 1–2 Designs (Flyer or Poster)</li>
+          <li data-i18n="standard_design_feature2">✔️ Creative Layout & Typography</li>
+          <li data-i18n="standard_design_feature3">✔️ 1 Free Revision</li>
+          <li data-i18n="standard_design_feature4">✔️ Delivery in Multiple Formats</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Standard Design',
+          '₦8,000 – ₦12,000',
+          ['1–2 Designs (Flyer or Poster)', 'Creative Layout & Typography', '1 Free Revision', 'Delivery in Multiple Formats']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_standard">
+          Choose Standard
+        </button>
+      </div>
+
+      <!-- Premium Design -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="premium_design">Premium Design</h3>
+        <p class="text-gray-600 mb-4" data-i18n="premium_design_desc">For top-tier branding and custom artwork.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦15,000+</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="premium_design_feature1">✔️ 2+ Custom Designs</li>
+          <li data-i18n="premium_design_feature2">✔️ Advanced Graphics & Effects</li>
+          <li data-i18n="premium_design_feature3">✔️ Source Files (PSD/AI)</li>
+          <li data-i18n="premium_design_feature4">✔️ Unlimited Revisions</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Premium Design',
+          '₦15,000+',
+          ['2+ Custom Designs', 'Advanced Graphics & Effects', 'Source Files (PSD/AI)', 'Unlimited Revisions']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_premium">
+          Choose Premium
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<!-- Branding & Business Card Pricing Section -->
+<section id="pricing" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-6xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down" data-i18n="branding_title">Branding & Business Card Pricing</h2>
+    <p class="text-gray-700 text-lg mb-12" data-aos="fade-up" data-i18n="branding_desc">
+      Create a lasting impression with professionally designed logos, branding kits, and business cards.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10 mt-10">
+
+      <!-- Starter Identity -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="starter_identity">Starter Identity</h3>
+        <p class="text-gray-600 mb-4" data-i18n="starter_identity_desc">Perfect for personal brands or small startups.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦7,000 – ₦12,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="starter_identity_feature1">✔️ Logo Design (1 Concept)</li>
+          <li data-i18n="starter_identity_feature2">✔️ Business Card Design</li>
+          <li data-i18n="starter_identity_feature3">✔️ Print-Ready Files</li>
+          <li data-i18n="starter_identity_feature4">✔️ 1 Free Revision</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Starter Identity',
+          '₦7,000 – ₦12,000',
+          ['Logo Design (1 Concept)', 'Business Card Design', 'Print-Ready Files', '1 Free Revision']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_starter">
+          Choose Starter
+        </button>
+      </div>
+
+      <!-- Professional Kit -->
+      <div class="relative bg-green-50 border-2 border-[#1e6138] rounded-xl shadow-lg p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="100">
+        <div class="absolute -top-3 right-3">
+          <span class="bg-[#1e6138] text-white text-xs font-bold px-3 py-1 rounded-full shadow" data-i18n="popular">Most Popular</span>
+        </div>
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="professional_kit">Professional Kit</h3>
+        <p class="text-gray-600 mb-4" data-i18n="professional_kit_desc">Ideal for businesses and growing brands.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦15,000 – ₦25,000</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="professional_kit_feature1">✔️ 2 Logo Concepts</li>
+          <li data-i18n="professional_kit_feature2">✔️ Business Card + Letterhead</li>
+          <li data-i18n="professional_kit_feature3">✔️ Brand Color Palette</li>
+          <li data-i18n="professional_kit_feature4">✔️ Editable Source Files</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Professional Kit',
+          '₦15,000 – ₦25,000',
+          ['2 Logo Concepts', 'Business Card + Letterhead', 'Brand Color Palette', 'Editable Source Files']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_pro">
+          Choose Pro
+        </button>
+      </div>
+
+      <!-- Premium Branding -->
+      <div class="bg-white rounded-xl shadow-md p-8 transition-transform hover:scale-105 hover:shadow-xl" data-aos="zoom-in" data-aos-delay="200">
+        <h3 class="text-2xl font-bold text-[#1e6138] mb-2" data-i18n="premium_branding">Premium Branding</h3>
+        <p class="text-gray-600 mb-4" data-i18n="premium_branding_desc">Comprehensive identity design for serious brands.</p>
+        <h4 class="text-3xl font-extrabold text-[#1e6138] mb-6">₦30,000+</h4>
+        <ul class="text-gray-700 space-y-2 text-left mb-6">
+          <li data-i18n="premium_branding_feature1">✔️ Full Branding Suite</li>
+          <li data-i18n="premium_branding_feature2">✔️ Logo Variations (3+ Concepts)</li>
+          <li data-i18n="premium_branding_feature3">✔️ Business Card, Letterhead, Envelope</li>
+          <li data-i18n="premium_branding_feature4">✔️ Social Media Kit + Brand Guide</li>
+        </ul>
+        <button onclick="sendPlan(
+          'Premium Branding',
+          '₦30,000+',
+          ['Full Branding Suite', 'Logo Variations (3+ Concepts)', 'Business Card, Letterhead, Envelope', 'Social Media Kit + Brand Guide']
+        )" class="bg-[#1e6138] text-white px-6 py-3 rounded-full font-medium hover:bg-green-800 transition" data-i18n="choose_premium">
+          Choose Premium
+        </button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- downloadable section -->
+
+<section class="py-16 px-6 md:px-16 lg:px-28 text-center">
+  <h2 class="text-3xl font-bold text-[#1e6138] mb-4" data-i18n="download_brochure">Download Our Service Brochure</h2>
+  <p class="text-gray-600 mb-6" data-i18n="download_brochure_desc">Get all our service details and pricing in one handy PDF.</p>
+
+  <a href="https://mikky-technology.vercel.app/downloads/mikky-tech-brochure.pdf" download class="bg-[#1e6138] text-white px-8 py-3 rounded-full hover:bg-green-800 transition">
+  📄 <span data-i18n="download_brochure_btn">Download Brochure</span>
+</a>
+</section>
+
+<!-- Quote section -->
+
+<section id="quote" class="bg-white py-20 px-6 md:px-16 lg:px-28">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-4xl font-extrabold text-[#1e6138] mb-4" data-aos="fade-down" data-i18n="quote_title">Get a Quick Quote</h2>
+    <p class="text-gray-600 text-lg mb-10" data-aos="fade-up" data-i18n="quote_desc">Fill in your details and get a response instantly via WhatsApp!</p>
+
+    <form id="quoteForm" class="bg-green-50 p-8 rounded-xl shadow-lg space-y-6 text-left">
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-[#1e6138]" data-i18n="name">Name</label>
+        <input type="text" id="name" required placeholder="Your name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]"/>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-[#1e6138]" data-i18n="email">Email</label>
+        <input type="email" id="email" required placeholder="your@email.com" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]"/>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-[#1e6138]" data-i18n="service">Service</label>
+        <select id="service" required class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]">
+          <option value="" data-i18n="select_service">Select a service</option>
+          <option data-i18n="presentation_design">Presentation Design</option>
+          <option data-i18n="rc_drones">RC Cars & Drones</option>
+          <option data-i18n="flyers_posters">Flyers, Posters & Banners</option>
+          <option data-i18n="branding_cards">Branding & Business Cards</option>
+          <option data-i18n="other">Other</option>
+        </select>
+      </div>
+      <div>
+        <label class="block text-sm font-semibold mb-1 text-[#1e6138]" data-i18n="additional_notes">Additional Notes</label>
+        <textarea id="notes" rows="3" placeholder="Tell us more..." class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]"></textarea>
+      </div>
+      <button type="submit" class="w-full bg-[#1e6138] text-white py-3 rounded-lg text-lg font-medium hover:bg-green-800 transition" data-i18n="get_quote">
+        Get Quote on WhatsApp
+      </button>
+    </form>
+  </div>
+</section>
+
+<section class="py-16 bg-white px-6 md:px-16 lg:px-28">
+  <div class="max-w-4xl mx-auto">
+    <h2 class="text-3xl font-bold text-[#1e6138] mb-6 text-center" data-i18n="faq_title">Frequently Asked Questions</h2>
+    <div class="space-y-4">
+      <details class="border rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-lg text-[#1e6138]" data-i18n="faq1">How long does a website take?</summary>
+        <p class="mt-2 text-gray-700" data-i18n="faq1_answer">Typically, 3–7 days depending on project size and feedback speed.</p>
+      </details>
+      <details class="border rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-lg text-[#1e6138]" data-i18n="faq2">Can I request changes after delivery?</summary>
+        <p class="mt-2 text-gray-700" data-i18n="faq2_answer">Yes, we offer revisions based on your package. Extra changes may incur a small fee.</p>
+      </details>
+      <details class="border rounded-lg p-4">
+        <summary class="cursor-pointer font-semibold text-lg text-[#1e6138]" data-i18n="faq3">Do you support urgent projects?</summary>
+        <p class="mt-2 text-gray-700" data-i18n="faq3_answer">Yes, express delivery is available for an additional fee.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  
+    <footer class="mt-0 bg-white text-black font-sans mt-16">
+  <!-- Row 1 -->
+  <div class="max-w-7xl mx-auto px-6 py-12 grid grid-cols-1 md:grid-cols-4 gap-10 border-b border-gray-300">
+    <!-- Logo -->
+    <div class="flex justify-center md:justify-start">
+      <a href="#top">
+        <img src="../images/mikky-technology.png" alt="Mikky Logo" class="h-44 w-64 object-contain" />
+      </a>
+    </div>
+    <!-- Company -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4" data-i18n="company">Company</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600" data-i18n="record">For the Record</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="careers">Careers</a></li>
+        <li><a href="../about us/index.html" class="hover:text-green-600" data-i18n="about">About</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="press">Press</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="blog">Blog</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="jobs">Jobs</a></li>
+      </ul>
+    </div>
+    <!-- Communities -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4" data-i18n="communities">Communities</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600" data-i18n="advertising">Advertising</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="developers">Developers</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="artists">For Artists</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="investors">Investors</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="partners">Partners</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="vendors">Vendors</a></li>
+      </ul>
+    </div>
+    <!-- Useful Links -->
+    <div>
+      <h4 class="text-green-600 text-sm font-semibold mb-4" data-i18n="useful_links">Useful Links</h4>
+      <ul class="space-y-2 text-sm">
+        <li><a href="#" class="hover:text-green-600" data-i18n="mobile_app">Free Mobile App</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="web_player">Web Player</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="support">Support</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="contact">Contact</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="privacy">Privacy</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="terms">Terms</a></li>
+      </ul>
+    </div>
+  </div>
+  <!-- Row 2 -->
+  <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-center border-b border-gray-300">
+    <div>
+      <h5 class="text-green-600 font-medium mb-3" data-i18n="explore">Explore</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="../about us/index.html" class="hover:text-green-600" data-i18n="about_us">About Us</a></li>
+        <li><a href="../locate us/index.html" class="hover:text-green-600" data-i18n="location">Location</a></li>
+        <li><a href="../support us-page/index.html" class="hover:text-green-600" data-i18n="support">Support</a></li>
+        <li><a href="../about us/#achivement" class="hover:text-green-600" data-i18n="achievement">Achievement</a></li>
+      </ul>
+    </div>
+    <div>
+      <h5 class="text-green-600 font-medium mb-3" data-i18n="quick_access">Quick Access</h5>
+      <ul class="space-y-1 text-sm">
+        <li><a href="#" class="hover:text-green-600" data-i18n="dashboard">Dashboard</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="sign_in">Sign In</a></li>
+        <li><a href="#" class="hover:text-green-600" data-i18n="register">Register</a></li>
+      </ul>
+    </div>
+    <div class="flex flex-col items-center justify-center gap-3">
+      <h5 class="text-green-600 font-medium" data-i18n="follow_us">Follow Us</h5>
+      <div class="flex gap-5 text-2xl">
+        <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546" class="hover:text-blue-700"><i class='bx bxl-facebook'></i></a>
+        <a href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09" class="hover:text-gray-700"><i class='bx bxl-twitter'></i></a>
+        <a href="https://www.instagram.com/oliyidemikky/" class="hover:text-pink-500"><i class='bx bxl-instagram'></i></a>
+        <a href="https://www.linkedin.com/in/michael-oliyide-29188331a?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" class="hover:text-blue-600"><i class='bx bxl-linkedin'></i></a>
+      </div>
+    </div>
+  </div>
+  <!-- Row 3 -->
+  <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between text-sm text-gray-500 text-center md:text-left">
+    <p data-i18n="copyright">&copy; 2025 Mikky Technology. All rights reserved.</p>
+    <ul class="flex justify-center md:justify-end gap-6 mt-2 md:mt-0">
+      <li><a href="../privacy-and-terms/privacy-and-terms.html" class="hover:text-green-600" data-i18n="privacy_policy">Privacy Policy</a></li> 
+      <li><a href="#" class="hover:text-green-600" data-i18n="terms_service">Terms of Service</a></li>
+      <li><a href="#" class="hover:text-green-600" data-i18n="cookies">Cookies</a></li>
+    </ul>
+  </div>
+</footer>
+
+
+<!-- navebar -->
+
+<script>
+  const navbar = document.getElementById("navbar");
+  const brandText = navbar.querySelector("h2");
+  const navLinks = navbar.querySelectorAll("#nav-links a");
+  window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+      // Add white background and shadow
+      navbar.classList.add("bg-white", "shadow-md");
+      navbar.classList.remove("bg-transparent");
+      // Change brand text to black
+      brandText.classList.remove("text-white");
+      brandText.classList.add("text-black");
+      // Change nav link text color to black
+      navLinks.forEach(link => {
+        link.classList.remove("text-white");
+        link.classList.add("text-black");
+      });
+    } else {
+      // Reset background to transparent
+      navbar.classList.remove("bg-white", "shadow-md");
+      navbar.classList.add("bg-transparent");
+      // Reset brand text to white
+      brandText.classList.remove("text-black");
+      brandText.classList.add("text-white");
+      // Reset nav link text color to white
+      navLinks.forEach(link => {
+        link.classList.remove("text-black");
+        link.classList.add("text-white");
+      });
+    }
+  });
+</script>
+<script>
+  // Mobile menu toggle
+  const menuIcon = document.getElementById("menu-icon");
+  const mobileNav = document.getElementById("mobile-nav");
+  menuIcon.addEventListener("click", () => {
+    mobileNav.classList.toggle("hidden");
+  });
+</script>
+<script>
+  const toggleBtn = document.getElementById('aboutToggle');
+  const dropdown = document.getElementById('aboutDropdown');
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation(); // prevent document click from firing
+    dropdown.classList.toggle('hidden');
+  });
+
+  // Close dropdown when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!dropdown.contains(e.target) && !toggleBtn.contains(e.target)) {
+      dropdown.classList.add('hidden');
+    }
+  });
+</script>
+
+<!-- Language Toggle Script -->
+<script>
+  // Language translations
+  const translations = {
+    en: {
+      // Navbar
+      "about_us": "About us",
+      "our_services": "Our Services",
+      "location": "Location",
+      "language": "English",
+      "sign_up": "Sign up",
+      "log_in": "Log in",
+      "mission": "Mission",
+      "values": "Values",
+      "accomplishment": "Accomplishment",
+      
+      // Header
+      "services_title": "Our Services",
+      "services_subtitle": "Explore the range of professional solutions we provide — from custom web development to digital innovation.",
+      
+      // Services
+      "web_dev": "Web Development",
+      "web_dev_desc": "We create responsive and dynamic websites tailored to your business needs using modern web technologies.",
+      "poster_logo": "Poster & Logo Design",
+      "poster_logo_desc": "Professional designs for posters, logos, and branding materials that represent your business effectively.",
+      "e_card": "e-Business Card Design",
+      "e_card_desc": "Digital business cards that are sleek, modern, and eco-friendly, perfect for networking.",
+      "ig_design": "Instagram Post Designs",
+      "ig_design_desc": "Creative and eye-catching Instagram posts that enhance your social media presence.",
+      "custom_service": "Need a Custom Service?",
+      "custom_service_desc": "Let's work together to bring your ideas to life. We tailor every solution to your specific goals.",
+      "chat_with_us": "Chat With Us",
+      
+      // Why Choose Us
+      "why_choose": "Why Choose Mikky Technology?",
+      "why_choose_desc": "We're not just another tech company — we're your partner in digital growth. Here's what sets us apart:",
+      "client_centric": "Client-Centric Approach",
+      "client_centric_desc": "We listen, understand, and tailor our solutions to your exact business goals.",
+      "proven_track": "Proven Track Record",
+      "proven_track_desc": "From startups to growing brands, we've helped many achieve real results.",
+      "reliable": "Reliable & Transparent",
+      "reliable_desc": "We deliver on time, communicate clearly, and stand behind everything we build.",
+      
+      // Testimonials
+      "testimonials": "What Our Clients Say",
+      "testimonials_desc": "Hear from those who have experienced the Mikky Technology difference.",
+      
+      // Pricing
+      "pricing_title": "Our Pricing Plans",
+      "pricing_desc": "Choose a plan that suits your project. Whether you need a personal site or a full business platform, we've got you covered.",
+      "basic": "Basic",
+      "basic_desc": "Perfect for individuals or simple portfolios.",
+      "basic_feature1": "✔️ Up to 3 Pages",
+      "basic_feature2": "✔️ Mobile Responsive",
+      "basic_feature3": "✔️ Contact Form",
+      "basic_feature4": "✔️ Basic SEO",
+      "standard": "Standard",
+      "standard_desc": "Great for small businesses and brands.",
+      "standard_feature1": "✔️ Up to 6 Pages",
+      "standard_feature2": "✔️ Free Domain (1 Year)",
+      "standard_feature3": "✔️ SEO Optimized",
+      "standard_feature4": "✔️ Admin Panel (Optional)",
+      "premium": "Premium",
+      "premium_desc": "For advanced platforms, portals, or startups.",
+      "premium_feature1": "✔️ Unlimited Pages",
+      "premium_feature2": "✔️ Custom Design + Branding",
+      "premium_feature3": "✔️ Admin Panel",
+      "premium_feature4": "✔️ Full Support & Maintenance",
+      "choose_plan": "Choose Plan",
+      "popular": "Most Popular",
+      
+      // Presentation Pricing
+      "presentation_title": "Presentation Design Pricing",
+      "presentation_desc": "Choose a package that fits your presentation needs — from clean student slides to stunning business decks.",
+      "starter": "Starter",
+      "starter_desc": "Ideal for students and personal use.",
+      "starter_feature1": "✔️ Up to 10 Slides",
+      "starter_feature2": "✔️ Basic Design & Layout",
+      "starter_feature3": "✔️ Clean Fonts & Icons",
+      "starter_feature4": "✔️ Delivery in PDF & PPT",
+      "select_starter": "Select Starter",
+      "pro": "Pro",
+      "pro_desc": "Best for business or academic presentations.",
+      "pro_feature1": "✔️ Up to 20 Slides",
+      "pro_feature2": "✔️ Custom Design & Transitions",
+      "pro_feature3": "✔️ Visual Charts & Icons",
+      "pro_feature4": "✔️ Editable Source File",
+      "select_pro": "Select Pro",
+      "premium_pres_desc": "Perfect for company decks, pitches, or branded slides.",
+      "premium_pres_feature1": "✔️ 20+ Slides",
+      "premium_pres_feature2": "✔️ Brand Guidelines Integration",
+      "premium_pres_feature3": "✔️ Infographics & Animations",
+      "premium_pres_feature4": "✔️ Fast Turnaround + Support",
+      "select_premium": "Select Premium",
+      
+      // Drones & RC Cars
+      "drones_title": "Drones & RC Cars Pricing",
+      "drones_desc": "Get high-quality, custom-built drones and remote-controlled cars. Select a plan that fits your needs and budget.",
+      "starter_kit": "Starter Kit",
+      "starter_kit_desc": "Perfect for beginners or hobbyists.",
+      "starter_kit_feature1": "✔️ Basic Drone or RC Car",
+      "starter_kit_feature2": "✔️ Manual Controller",
+      "starter_kit_feature3": "✔️ Rechargeable Battery",
+      "starter_kit_feature4": "✔️ 30-Min Demo Support",
+      "advanced_build": "Advanced Build",
+      "advanced_build_desc": "For intermediate users, schools, or project showcases.",
+      "advanced_build_feature1": "✔️ High-Speed RC or Drone",
+      "advanced_build_feature2": "✔️ HD Camera (Drones)",
+      "advanced_build_feature3": "✔️ App or Remote Control",
+      "advanced_build_feature4": "✔️ Design Customization",
+      "select_advanced": "Select Advanced",
+      "pro_custom": "Pro Custom Model",
+      "pro_custom_desc": "Engineered for professionals, commercial use, or serious enthusiasts.",
+      "pro_custom_feature1": "✔️ Fully Customized Drone/Car",
+      "pro_custom_feature2": "✔️ GPS, Auto Hover, FPV, etc.",
+      "pro_custom_feature3": "✔️ Extended Battery + Spare Parts",
+      "pro_custom_feature4": "✔️ Training & Support",
+      
+      // Design Pricing
+      "design_title": "Design Pricing",
+      "design_desc": "Professional and eye-catching flyers, banners, and posters for your events, business, or brand promotions.",
+      "basic_design": "Basic Design",
+      "basic_design_desc": "Perfect for simple and quick jobs.",
+      "basic_design_feature1": "✔️ 1 Flyer / Poster / Banner",
+      "basic_design_feature2": "✔️ Standard Layout",
+      "basic_design_feature3": "✔️ Basic Edits",
+      "basic_design_feature4": "✔️ Delivery in JPEG/PDF",
+      "choose_basic": "Choose Basic",
+      "standard_design": "Standard Design",
+      "standard_design_desc": "Ideal for business and event promo materials.",
+      "standard_design_feature1": "✔️ 1–2 Designs (Flyer or Poster)",
+      "standard_design_feature2": "✔️ Creative Layout & Typography",
+      "standard_design_feature3": "✔️ 1 Free Revision",
+      "standard_design_feature4": "✔️ Delivery in Multiple Formats",
+      "choose_standard": "Choose Standard",
+      "premium_design": "Premium Design",
+      "premium_design_desc": "For top-tier branding and custom artwork.",
+      "premium_design_feature1": "✔️ 2+ Custom Designs",
+      "premium_design_feature2": "✔️ Advanced Graphics & Effects",
+      "premium_design_feature3": "✔️ Source Files (PSD/AI)",
+      "premium_design_feature4": "✔️ Unlimited Revisions",
+      
+      // Branding Pricing
+      "branding_title": "Branding & Business Card Pricing",
+      "branding_desc": "Create a lasting impression with professionally designed logos, branding kits, and business cards.",
+      "starter_identity": "Starter Identity",
+      "starter_identity_desc": "Perfect for personal brands or small startups.",
+      "starter_identity_feature1": "✔️ Logo Design (1 Concept)",
+      "starter_identity_feature2": "✔️ Business Card Design",
+      "starter_identity_feature3": "✔️ Print-Ready Files",
+      "starter_identity_feature4": "✔️ 1 Free Revision",
+      "professional_kit": "Professional Kit",
+      "professional_kit_desc": "Ideal for businesses and growing brands.",
+      "professional_kit_feature1": "✔️ 2 Logo Concepts",
+      "professional_kit_feature2": "✔️ Business Card + Letterhead",
+      "professional_kit_feature3": "✔️ Brand Color Palette",
+      "professional_kit_feature4": "✔️ Editable Source Files",
+      "premium_branding": "Premium Branding",
+      "premium_branding_desc": "Comprehensive identity design for serious brands.",
+      "premium_branding_feature1": "✔️ Full Branding Suite",
+      "premium_branding_feature2": "✔️ Logo Variations (3+ Concepts)",
+      "premium_branding_feature3": "✔️ Business Card, Letterhead, Envelope",
+      "premium_branding_feature4": "✔️ Social Media Kit + Brand Guide",
+      
+      // Download
+      "download_brochure": "Download Our Service Brochure",
+      "download_brochure_desc": "Get all our service details and pricing in one handy PDF.",
+      "download_brochure_btn": "Download Brochure",
+      
+      // Quote
+      "quote_title": "Get a Quick Quote",
+      "quote_desc": "Fill in your details and get a response instantly via WhatsApp!",
+      "name": "Name",
+      "email": "Email",
+      "service": "Service",
+      "select_service": "Select a service",
+      "presentation_design": "Presentation Design",
+      "rc_drones": "RC Cars & Drones",
+      "flyers_posters": "Flyers, Posters & Banners",
+      "branding_cards": "Branding & Business Cards",
+      "other": "Other",
+      "additional_notes": "Additional Notes",
+      "get_quote": "Get Quote on WhatsApp",
+      
+      // FAQ
+      "faq_title": "Frequently Asked Questions",
+      "faq1": "How long does a website take?",
+      "faq1_answer": "Typically, 3–7 days depending on project size and feedback speed.",
+      "faq2": "Can I request changes after delivery?",
+      "faq2_answer": "Yes, we offer revisions based on your package. Extra changes may incur a small fee.",
+      "faq3": "Do you support urgent projects?",
+      "faq3_answer": "Yes, express delivery is available for an additional fee.",
+      
+      // Footer
+      "company": "Company",
+      "record": "For the Record",
+      "careers": "Careers",
+      "about": "About",
+      "press": "Press",
+      "blog": "Blog",
+      "jobs": "Jobs",
+      "communities": "Communities",
+      "advertising": "Advertising",
+      "developers": "Developers",
+      "artists": "For Artists",
+      "investors": "Investors",
+      "partners": "Partners",
+      "vendors": "Vendors",
+      "useful_links": "Useful Links",
+      "mobile_app": "Free Mobile App",
+      "web_player": "Web Player",
+      "support": "Support",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "explore": "Explore",
+      "quick_access": "Quick Access",
+      "dashboard": "Dashboard",
+      "sign_in": "Sign In",
+      "register": "Register",
+      "follow_us": "Follow Us",
+      "copyright": "© 2025 Mikky Technology. All rights reserved.",
+      "privacy_policy": "Privacy Policy",
+      "terms_service": "Terms of Service",
+      "cookies": "Cookies"
+    },
+    fr: {
+      // Navbar
+      "about_us": "À propos de nous",
+      "our_services": "Nos services",
+      "location": "Emplacement",
+      "language": "Français",
+      "sign_up": "S'inscrire",
+      "log_in": "Se connecter",
+      "mission": "Mission",
+      "values": "Valeurs",
+      "accomplishment": "Réalisation",
+      
+      // Header
+      "services_title": "Nos services",
+      "services_subtitle": "Découvrez notre gamme de solutions professionnelles - du développement web personnalisé à l'innovation numérique.",
+      
+      // Services
+      "web_dev": "Développement web",
+      "web_dev_desc": "Nous créons des sites web réactifs et dynamiques adaptés à vos besoins commerciaux en utilisant des technologies web modernes.",
+      "poster_logo": "Conception d'affiches et de logos",
+      "poster_logo_desc": "Des designs professionnels pour des affiches, logos et supports de branding qui représentent efficacement votre entreprise.",
+      "e_card": "Conception de cartes de visite électroniques",
+      "e_card_desc": "Des cartes de visite numériques élégantes, modernes et écologiques, parfaites pour le réseautage.",
+      "ig_design": "Conceptions de publications Instagram",
+      "ig_design_desc": "Des publications Instagram créatives et accrocheuses qui améliorent votre présence sur les réseaux sociaux.",
+      "custom_service": "Besoin d'un service personnalisé?",
+      "custom_service_desc": "Travaillons ensemble pour donner vie à vos idées. Nous adaptons chaque solution à vos objectifs spécifiques.",
+      "chat_with_us": "Discutez avec nous",
+      
+      // Why Choose Us
+      "why_choose": "Pourquoi choisir Mikky Technology?",
+      "why_choose_desc": "Nous ne sommes pas juste une autre entreprise technologique - nous sommes votre partenaire en croissance numérique. Voici ce qui nous distingue:",
+      "client_centric": "Approche centrée sur le client",
+      "client_centric_desc": "Nous écoutons, comprenons et adaptons nos solutions à vos objectifs commerciaux exacts.",
+      "proven_track": "Historique éprouvé",
+      "proven_track_desc": "Des startups aux marques en croissance, nous avons aidé beaucoup à obtenir des résultats concrets.",
+      "reliable": "Fiable et transparent",
+      "reliable_desc": "Nous livrons à temps, communiquons clairement et soutenons tout ce que nous construisons.",
+      
+      // Testimonials
+      "testimonials": "Ce que disent nos clients",
+      "testimonials_desc": "Écoutez ceux qui ont expérimenté la différence Mikky Technology.",
+      
+      // Pricing
+      "pricing_title": "Nos tarifs",
+      "pricing_desc": "Choisissez un plan qui convient à votre projet. Que vous ayez besoin d'un site personnel ou d'une plateforme commerciale complète, nous avons ce qu'il vous faut.",
+      "basic": "Basique",
+      "basic_desc": "Parfait pour les particuliers ou les portfolios simples.",
+      "basic_feature1": "✔️ Jusqu'à 3 pages",
+      "basic_feature2": "✔️ Adapté aux mobiles",
+      "basic_feature3": "✔️ Formulaire de contact",
+      "basic_feature4": "✔️ Référencement de base",
+      "standard": "Standard",
+      "standard_desc": "Idéal pour les petites entreprises et les marques.",
+      "standard_feature1": "✔️ Jusqu'à 6 pages",
+      "standard_feature2": "✔️ Nom de domaine gratuit (1 an)",
+      "standard_feature3": "✔️ Optimisé pour le référencement",
+      "standard_feature4": "✔️ Panneau d'administration (optionnel)",
+      "premium": "Premium",
+      "premium_desc": "Pour les plateformes avancées, portails ou startups.",
+      "premium_feature1": "✔️ Pages illimitées",
+      "premium_feature2": "✔️ Design personnalisé + Branding",
+      "premium_feature3": "✔️ Panneau d'administration",
+      "premium_feature4": "✔️ Support et maintenance complets",
+      "choose_plan": "Choisir ce plan",
+      "popular": "Le plus populaire",
+      
+      // Presentation Pricing
+      "presentation_title": "Tarifs des présentations",
+      "presentation_desc": "Choisissez un forfait qui correspond à vos besoins en présentations - des diapositives étudiantes aux présentations professionnelles impressionnantes.",
+      "starter": "Débutant",
+      "starter_desc": "Idéal pour les étudiants et un usage personnel.",
+      "starter_feature1": "✔️ Jusqu'à 10 diapositives",
+      "starter_feature2": "✔️ Design et mise en page de base",
+      "starter_feature3": "✔️ Polices et icônes propres",
+      "starter_feature4": "✔️ Livraison en PDF et PPT",
+      "select_starter": "Choisir Débutant",
+      "pro": "Pro",
+      "pro_desc": "Idéal pour les présentations professionnelles ou académiques.",
+      "pro_feature1": "✔️ Jusqu'à 20 diapositives",
+      "pro_feature2": "✔️ Design personnalisé et transitions",
+      "pro_feature3": "✔️ Graphiques et icônes visuels",
+      "pro_feature4": "✔️ Fichier source modifiable",
+      "select_pro": "Choisir Pro",
+      "premium_pres_desc": "Parfait pour les présentations d'entreprise, pitches ou diapositives de marque.",
+      "premium_pres_feature1": "✔️ 20+ diapositives",
+      "premium_pres_feature2": "✔️ Intégration des directives de marque",
+      "premium_pres_feature3": "✔️ Infographies et animations",
+      "premium_pres_feature4": "✔️ Délai rapide + Support",
+      "select_premium": "Choisir Premium",
+      
+      // Drones & RC Cars
+      "drones_title": "Tarifs des drones et voitures télécommandées",
+      "drones_desc": "Obtenez des drones et voitures télécommandées de haute qualité et personnalisés. Sélectionnez un forfait qui correspond à vos besoins et budget.",
+      "starter_kit": "Kit débutant",
+      "starter_kit_desc": "Parfait pour les débutants ou amateurs.",
+      "starter_kit_feature1": "✔️ Drone ou voiture RC basique",
+      "starter_kit_feature2": "✔️ Manette manuelle",
+      "starter_kit_feature3": "✔️ Batterie rechargeable",
+      "starter_kit_feature4": "✔️ Support de démo de 30 min",
+      "advanced_build": "Modèle avancé",
+      "advanced_build_desc": "Pour utilisateurs intermédiaires, écoles ou présentations de projets.",
+      "advanced_build_feature1": "✔️ Voiture RC ou drone haute vitesse",
+      "advanced_build_feature2": "✔️ Caméra HD (drones)",
+      "advanced_build_feature3": "✔️ Application ou télécommande",
+      "advanced_build_feature4": "✔️ Personnalisation du design",
+      "select_advanced": "Choisir Avancé",
+      "pro_custom": "Modèle personnalisé Pro",
+      "pro_custom_desc": "Conçu pour les professionnels, usage commercial ou passionnés sérieux.",
+      "pro_custom_feature1": "✔️ Drone/Voiture entièrement personnalisé",
+      "pro_custom_feature2": "✔️ GPS, vol stationnaire, FPV, etc.",
+      "pro_custom_feature3": "✔️ Batterie étendue + pièces de rechange",
+      "pro_custom_feature4": "✔️ Formation et support",
+      
+      // Design Pricing
+      "design_title": "Tarifs de conception",
+      "design_desc": "Affiches, bannières et posters professionnels et accrocheurs pour vos événements, entreprises ou promotions de marque.",
+      "basic_design": "Design basique",
+      "basic_design_desc": "Parfait pour les travaux simples et rapides.",
+      "basic_design_feature1": "✔️ 1 Affiche / Poster / Bannière",
+      "basic_design_feature2": "✔️ Mise en page standard",
+      "basic_design_feature3": "✔️ Modifications de base",
+      "basic_design_feature4": "✔️ Livraison en JPEG/PDF",
+      "choose_basic": "Choisir Basique",
+      "standard_design": "Design standard",
+      "standard_design_desc": "Idéal pour les supports promotionnels d'entreprise ou d'événement.",
+      "standard_design_feature1": "✔️ 1–2 designs (Affiche ou Poster)",
+      "standard_design_feature2": "✔️ Mise en page et typographie créatives",
+      "standard_design_feature3": "✔️ 1 révision gratuite",
+      "standard_design_feature4": "✔️ Livraison en multiples formats",
+      "choose_standard": "Choisir Standard",
+      "premium_design": "Design premium",
+      "premium_design_desc": "Pour un branding haut de gamme et des œuvres d'art personnalisées.",
+      "premium_design_feature1": "✔️ 2+ designs personnalisés",
+      "premium_design_feature2": "✔️ Graphiques et effets avancés",
+      "premium_design_feature3": "✔️ Fichiers sources (PSD/AI)",
+      "premium_design_feature4": "✔️ Révisions illimitées",
+      
+      // Branding Pricing
+      "branding_title": "Tarifs de branding et cartes de visite",
+      "branding_desc": "Créez une impression durable avec des logos, kits de branding et cartes de visite professionnellement conçus.",
+      "starter_identity": "Identité de base",
+      "starter_identity_desc": "Parfait pour les marques personnelles ou petites startups.",
+      "starter_identity_feature1": "✔️ Conception de logo (1 concept)",
+      "starter_identity_feature2": "✔️ Conception de carte de visite",
+      "starter_identity_feature3": "✔️ Fichiers prêts à imprimer",
+      "starter_identity_feature4": "✔️ 1 révision gratuite",
+      "professional_kit": "Kit professionnel",
+      "professional_kit_desc": "Idéal pour les entreprises et marques en croissance.",
+      "professional_kit_feature1": "✔️ 2 concepts de logo",
+      "professional_kit_feature2": "✔️ Carte de visite + en-tête de lettre",
+      "professional_kit_feature3": "✔️ Palette de couleurs de marque",
+      "professional_kit_feature4": "✔️ Fichiers sources modifiables",
+      "premium_branding": "Branding premium",
+      "premium_branding_desc": "Conception d'identité complète pour les marques sérieuses.",
+      "premium_branding_feature1": "✔️ Suite de branding complète",
+      "premium_branding_feature2": "✔️ Variations de logo (3+ concepts)",
+      "premium_branding_feature3": "✔️ Carte de visite, en-tête, enveloppe",
+      "premium_branding_feature4": "✔️ Kit réseaux sociaux + guide de marque",
+      
+      // Download
+      "download_brochure": "Téléchargez notre brochure de services",
+      "download_brochure_desc": "Obtenez tous les détails de nos services et tarifs dans un PDF pratique.",
+      "download_brochure_btn": "Télécharger la brochure",
+      
+      // Quote
+      "quote_title": "Obtenez un devis rapide",
+      "quote_desc": "Remplissez vos coordonnées et obtenez une réponse instantanée via WhatsApp!",
+      "name": "Nom",
+      "email": "Email",
+      "service": "Service",
+      "select_service": "Sélectionnez un service",
+      "presentation_design": "Conception de présentation",
+      "rc_drones": "Voitures RC & Drones",
+      "flyers_posters": "Affiches, Posters & Bannières",
+      "branding_cards": "Branding & Cartes de visite",
+      "other": "Autre",
+      "additional_notes": "Notes supplémentaires",
+      "get_quote": "Obtenir un devis sur WhatsApp",
+      
+      // FAQ
+      "faq_title": "Foire aux questions",
+      "faq1": "Combien de temps prend la création d'un site web?",
+      "faq1_answer": "Typiquement, 3–7 jours selon la taille du projet et la rapidité des retours.",
+      "faq2": "Puis-je demander des modifications après la livraison?",
+      "faq2_answer": "Oui, nous offrons des révisions selon votre forfait. Les modifications supplémentaires peuvent entraîner des frais.",
+      "faq3": "Prenez-vous en charge les projets urgents?",
+      "faq3_answer": "Oui, une livraison express est disponible moyennant des frais supplémentaires.",
+      
+      // Footer
+      "company": "Entreprise",
+      "record": "Pour l'histoire",
+      "careers": "Carrières",
+      "about": "À propos",
+      "press": "Presse",
+      "blog": "Blog",
+      "jobs": "Emplois",
+      "communities": "Communautés",
+      "advertising": "Publicité",
+      "developers": "Développeurs",
+      "artists": "Pour les artistes",
+      "investors": "Investisseurs",
+      "partners": "Partenaires",
+      "vendors": "Fournisseurs",
+      "useful_links": "Liens utiles",
+      "mobile_app": "Application mobile gratuite",
+      "web_player": "Lecteur web",
+      "support": "Support",
+      "contact": "Contact",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "explore": "Explorer",
+      "quick_access": "Accès rapide",
+      "dashboard": "Tableau de bord",
+      "sign_in": "Connexion",
+      "register": "S'inscrire",
+      "follow_us": "Suivez-nous",
+      "copyright": "© 2025 Mikky Technology. Tous droits réservés.",
+      "privacy_policy": "Politique de confidentialité",
+      "terms_service": "Conditions d'utilisation",
+      "cookies": "Cookies"
+    },
+    es: {
+      // Navbar
+      "about_us": "Sobre nosotros",
+      "our_services": "Nuestros servicios",
+      "location": "Ubicación",
+      "language": "Español",
+      "sign_up": "Registrarse",
+      "log_in": "Iniciar sesión",
+      "mission": "Misión",
+      "values": "Valores",
+      "accomplishment": "Logros",
+      
+      // Header
+      "services_title": "Nuestros servicios",
+      "services_subtitle": "Explora nuestra gama de soluciones profesionales, desde desarrollo web personalizado hasta innovación digital.",
+      
+      // Services
+      "web_dev": "Desarrollo web",
+      "web_dev_desc": "Creamos sitios web responsivos y dinámicos adaptados a las necesidades de tu negocio utilizando tecnologías web modernas.",
+      "poster_logo": "Diseño de pósters y logos",
+      "poster_logo_desc": "Diseños profesionales para pósters, logos y materiales de branding que representan efectivamente tu negocio.",
+      "e_card": "Diseño de tarjetas de visita electrónicas",
+      "e_card_desc": "Tarjetas de visita digitales elegantes, modernas y ecológicas, perfectas para networking.",
+      "ig_design": "Diseños para publicaciones de Instagram",
+      "ig_design_desc": "Publicaciones de Instagram creativas y llamativas que mejoran tu presencia en redes sociales.",
+      "custom_service": "¿Necesitas un servicio personalizado?",
+      "custom_service_desc": "Trabajemos juntos para dar vida a tus ideas. Adaptamos cada solución a tus objetivos específicos.",
+      "chat_with_us": "Chatea con nosotros",
+      
+      // Why Choose Us
+      "why_choose": "¿Por qué elegir Mikky Technology?",
+      "why_choose_desc": "No somos solo otra empresa tecnológica, somos tu socio en crecimiento digital. Esto es lo que nos diferencia:",
+      "client_centric": "Enfoque centrado en el cliente",
+      "client_centric_desc": "Escuchamos, entendemos y adaptamos nuestras soluciones a tus objetivos comerciales exactos.",
+      "proven_track": "Historial comprobado",
+      "proven_track_desc": "Desde startups hasta marcas en crecimiento, hemos ayudado a muchos a lograr resultados reales.",
+      "reliable": "Confiable y transparente",
+      "reliable_desc": "Entregamos a tiempo, comunicamos claramente y respaldamos todo lo que construimos.",
+      
+      // Testimonials
+      "testimonials": "Lo que dicen nuestros clientes",
+      "testimonials_desc": "Escucha a quienes han experimentado la diferencia de Mikky Technology.",
+      
+      // Pricing
+      "pricing_title": "Nuestros planes de precios",
+      "pricing_desc": "Elige un plan que se adapte a tu proyecto. Ya sea que necesites un sitio personal o una plataforma comercial completa, te tenemos cubierto.",
+      "basic": "Básico",
+      "basic_desc": "Perfecto para individuos o portafolios simples.",
+      "basic_feature1": "✔️ Hasta 3 páginas",
+      "basic_feature2": "✔️ Responsivo para móviles",
+      "basic_feature3": "✔️ Formulario de contacto",
+      "basic_feature4": "✔️ SEO básico",
+      "standard": "Estándar",
+      "standard_desc": "Ideal para pequeñas empresas y marcas.",
+      "standard_feature1": "✔️ Hasta 6 páginas",
+      "standard_feature2": "✔️ Dominio gratuito (1 año)",
+      "standard_feature3": "✔️ Optimizado para SEO",
+      "standard_feature4": "✔️ Panel de administración (opcional)",
+      "premium": "Premium",
+      "premium_desc": "Para plataformas avanzadas, portales o startups.",
+      "premium_feature1": "✔️ Páginas ilimitadas",
+      "premium_feature2": "✔️ Diseño personalizado + Branding",
+      "premium_feature3": "✔️ Panel de administración",
+      "premium_feature4": "✔️ Soporte y mantenimiento completo",
+      "choose_plan": "Elegir plan",
+      "popular": "Más popular",
+      
+      // Presentation Pricing
+      "presentation_title": "Precios de diseño de presentaciones",
+      "presentation_desc": "Elige un paquete que se adapte a tus necesidades de presentación, desde diapositivas estudiantiles hasta impresionantes presentaciones empresariales.",
+      "starter": "Básico",
+      "starter_desc": "Ideal para estudiantes y uso personal.",
+      "starter_feature1": "✔️ Hasta 10 diapositivas",
+      "starter_feature2": "✔️ Diseño y disposición básicos",
+      "starter_feature3": "✔️ Fuentes e iconos limpios",
+      "starter_feature4": "✔️ Entrega en PDF y PPT",
+      "select_starter": "Elegir Básico",
+      "pro": "Profesional",
+      "pro_desc": "Ideal para presentaciones empresariales o académicas.",
+      "pro_feature1": "✔️ Hasta 20 diapositivas",
+      "pro_feature2": "✔️ Diseño personalizado y transiciones",
+      "pro_feature3": "✔️ Gráficos e iconos visuales",
+      "pro_feature4": "✔️ Archivo fuente editable",
+      "select_pro": "Elegir Profesional",
+      "premium_pres_desc": "Perfecto para presentaciones empresariales, pitches o diapositivas de marca.",
+      "premium_pres_feature1": "✔️ 20+ diapositivas",
+      "premium_pres_feature2": "✔️ Integración de guías de marca",
+      "premium_pres_feature3": "✔️ Infografías y animaciones",
+      "premium_pres_feature4": "✔️ Entrega rápida + Soporte",
+      "select_premium": "Elegir Premium",
+      
+      // Drones & RC Cars
+      "drones_title": "Precios de drones y coches RC",
+      "drones_desc": "Obtén drones y coches teledirigidos personalizados de alta calidad. Selecciona un plan que se adapte a tus necesidades y presupuesto.",
+      "starter_kit": "Kit básico",
+      "starter_kit_desc": "Perfecto para principiantes o aficionados.",
+      "starter_kit_feature1": "✔️ Dron o coche RC básico",
+      "starter_kit_feature2": "✔️ Controlador manual",
+      "starter_kit_feature3": "✔️ Batería recargable",
+      "starter_kit_feature4": "✔️ Soporte de demostración de 30 min",
+      "advanced_build": "Modelo avanzado",
+      "advanced_build_desc": "Para usuarios intermedios, escuelas o exhibiciones de proyectos.",
+      "advanced_build_feature1": "✔️ Coches RC o drones de alta velocidad",
+      "advanced_build_feature2": "✔️ Cámara HD (drones)",
+      "advanced_build_feature3": "✔️ App o control remoto",
+      "advanced_build_feature4": "✔️ Personalización del diseño",
+      "select_advanced": "Elegir Avanzado",
+      "pro_custom": "Modelo personalizado Pro",
+      "pro_custom_desc": "Diseñado para profesionales, uso comercial o entusiastas serios.",
+      "pro_custom_feature1": "✔️ Dron/Coche totalmente personalizado",
+      "pro_custom_feature2": "✔️ GPS, vuelo estacionario, FPV, etc.",
+      "pro_custom_feature3": "✔️ Batería extendida + repuestos",
+      "pro_custom_feature4": "✔️ Capacitación y soporte",
+      
+      // Design Pricing
+      "design_title": "Precios de diseño",
+      "design_desc": "Folletos, banners y pósters profesionales y llamativos para tus eventos, negocios o promociones de marca.",
+      "basic_design": "Diseño básico",
+      "basic_design_desc": "Perfecto para trabajos simples y rápidos.",
+      "basic_design_feature1": "✔️ 1 Folleto / Póster / Banner",
+      "basic_design_feature2": "✔️ Diseño estándar",
+      "basic_design_feature3": "✔️ Ediciones básicas",
+      "basic_design_feature4": "✔️ Entrega en JPEG/PDF",
+      "choose_basic": "Elegir Básico",
+      "standard_design": "Diseño estándar",
+      "standard_design_desc": "Ideal para materiales promocionales de negocios o eventos.",
+      "standard_design_feature1": "✔️ 1–2 diseños (Folleto o Póster)",
+      "standard_design_feature2": "✔️ Diseño y tipografía creativos",
+      "standard_design_feature3": "✔️ 1 revisión gratuita",
+      "standard_design_feature4": "✔️ Entrega en múltiples formatos",
+      "choose_standard": "Elegir Estándar",
+      "premium_design": "Diseño premium",
+      "premium_design_desc": "Para branding de alta gama y obras de arte personalizadas.",
+      "premium_design_feature1": "✔️ 2+ diseños personalizados",
+      "premium_design_feature2": "✔️ Gráficos y efectos avanzados",
+      "premium_design_feature3": "✔️ Archivos fuente (PSD/AI)",
+      "premium_design_feature4": "✔️ Revisiones ilimitadas",
+      
+      // Branding Pricing
+      "branding_title": "Precios de branding y tarjetas de visita",
+      "branding_desc": "Crea una impresión duradera con logos, kits de branding y tarjetas de visita diseñadas profesionalmente.",
+      "starter_identity": "Identidad básica",
+      "starter_identity_desc": "Perfecto para marcas personales o pequeñas startups.",
+      "starter_identity_feature1": "✔️ Diseño de logo (1 concepto)",
+      "starter_identity_feature2": "✔️ Diseño de tarjeta de visita",
+      "starter_identity_feature3": "✔️ Archivos listos para imprimir",
+      "starter_identity_feature4": "✔️ 1 revisión gratuita",
+      "professional_kit": "Kit profesional",
+      "professional_kit_desc": "Ideal para negocios y marcas en crecimiento.",
+      "professional_kit_feature1": "✔️ 2 conceptos de logo",
+      "professional_kit_feature2": "✔️ Tarjeta de visita + membrete",
+      "professional_kit_feature3": "✔️ Paleta de colores de marca",
+      "professional_kit_feature4": "✔️ Archivos fuente editables",
+      "premium_branding": "Branding premium",
+      "premium_branding_desc": "Diseño de identidad completo para marcas serias.",
+      "premium_branding_feature1": "✔️ Suite de branding completa",
+      "premium_branding_feature2": "✔️ Variaciones de logo (3+ conceptos)",
+      "premium_branding_feature3": "✔️ Tarjeta de visita, membrete, sobre",
+      "premium_branding_feature4": "✔️ Kit redes sociales + guía de marca",
+      
+      // Download
+      "download_brochure": "Descarga nuestro folleto de servicios",
+      "download_brochure_desc": "Obtén todos los detalles de nuestros servicios y precios en un práctico PDF.",
+      "download_brochure_btn": "Descargar folleto",
+      
+      // Quote
+      "quote_title": "Obtén un presupuesto rápido",
+      "quote_desc": "Completa tus datos y recibe una respuesta instantánea por WhatsApp!",
+      "name": "Nombre",
+      "email": "Correo electrónico",
+      "service": "Servicio",
+      "select_service": "Selecciona un servicio",
+      "presentation_design": "Diseño de presentación",
+      "rc_drones": "Coches RC y Drones",
+      "flyers_posters": "Folletos, Pósters y Banners",
+      "branding_cards": "Branding y Tarjetas de visita",
+      "other": "Otro",
+      "additional_notes": "Notas adicionales",
+      "get_quote": "Obtener presupuesto por WhatsApp",
+      
+      // FAQ
+      "faq_title": "Preguntas frecuentes",
+      "faq1": "¿Cuánto tiempo toma hacer un sitio web?",
+      "faq1_answer": "Normalmente, 3–7 días dependiendo del tamaño del proyecto y la velocidad de retroalimentación.",
+      "faq2": "¿Puedo solicitar cambios después de la entrega?",
+      "faq2_answer": "Sí, ofrecemos revisiones según tu paquete. Los cambios adicionales pueden incurrir en un pequeño cargo.",
+      "faq3": "¿Soportan proyectos urgentes?",
+      "faq3_answer": "Sí, la entrega exprés está disponible por un cargo adicional.",
+      
+      // Footer
+      "company": "Empresa",
+      "record": "Para el registro",
+      "careers": "Carreras",
+      "about": "Sobre nosotros",
+      "press": "Prensa",
+      "blog": "Blog",
+      "jobs": "Trabajos",
+      "communities": "Comunidades",
+      "advertising": "Publicidad",
+      "developers": "Desarrolladores",
+      "artists": "Para artistas",
+      "investors": "Inversionistas",
+      "partners": "Socios",
+      "vendors": "Proveedores",
+      "useful_links": "Enlaces útiles",
+      "mobile_app": "Aplicación móvil gratis",
+      "web_player": "Reproductor web",
+      "support": "Soporte",
+      "contact": "Contacto",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "explore": "Explorar",
+      "quick_access": "Acceso rápido",
+      "dashboard": "Panel de control",
+      "sign_in": "Iniciar sesión",
+      "register": "Registrarse",
+      "follow_us": "Síguenos",
+      "copyright": "© 2025 Mikky Technology. Todos los derechos reservados.",
+      "privacy_policy": "Política de privacidad",
+      "terms_service": "Términos de servicio",
+      "cookies": "Cookies"
+    },
+    yo: {
+      // Navbar
+      "about_us": "Nipa wa",
+      "our_services": "Awọn iṣẹ wa",
+      "location": "Ibi",
+      "language": "Yorùbá",
+      "sign_up": "Forukọsilẹ",
+      "log_in": "Wo ile",
+      "mission": "Iṣẹlọpọ",
+      "values": "Awọn iye",
+      "accomplishment": "Aṣeyọri",
+      
+      // Header
+      "services_title": "Awọn iṣẹ wa",
+      "services_subtitle": "Ṣe iwadi ni oriṣiriṣi awọn ojutu iṣẹ ọjẹ wa - lati agbekalẹ oju opo wẹẹbu ti ara ẹni si imudara dijita.",
+      
+      // Services
+      "web_dev": "Agbekalẹ oju opo wẹẹbu",
+      "web_dev_desc": "A ṣẹda awọn oju opo wẹẹbu ti o ni iṣọtẹlẹ ati ti o ni agbara ti o ṣe amọran si awọn iwulo iṣowo rẹ nipa lilo awọn imọ-ẹrọ oju opo wẹẹbu ti oṣiṣẹ.",
+      "poster_logo": "Apẹrẹ afiṣẹ ati awọn aami",
+      "poster_logo_desc": "Awọn apẹrẹ iṣẹ ọjẹ fun awọn afiṣẹ, awọn aami, ati awọn ohun elo branding ti o ṣe akiyesi iṣowo rẹ ni ipa.",
+      "e_card": "Apẹrẹ kaadi iṣowo e-",
+      "e_card_desc": "Awọn kaadi iṣowo dijita ti o lẹwa, ti oṣiṣẹ, ati ti o ni ayika, ti o pe fun ṣiṣe alajọṣepọ.",
+      "ig_design": "Awọn apẹrẹ ifiweranṣẹ Instagram",
+      "ig_design_desc": "Awọn ifiweranṣẹ Instagram ti o ni ẹlẹwa ati ti o fa akiyesi ti o mu ipa rẹ lori awọn nẹtiwọọki awujọ pọ si.",
+      "custom_service": "Nilo iṣẹ ti ara ẹni?",
+      "custom_service_desc": "Jẹ ki a ṣiṣẹ papọ lati mu awọn ero rẹ wa laye. A ṣe atunṣe gbogbo ojutu si awọn ebun pato rẹ.",
+      "chat_with_us": "Bá wa sọ̀rọ̀",
+      
+      // Why Choose Us
+      "why_choose": "Kilode ti o yẹ ki o yan Mikky Technology?",
+      "why_choose_desc": "A kii ṣe ile-iṣẹ imọ-ẹrọ miiran - a jẹ alabaṣepọ rẹ ni ilọsiwaju dijita. Eyi ni ohun ti o ya wa sọtọ:",
+      "client_centric": "Ọna ti o da lori alabara",
+      "client_centric_desc": "A gbọ, a ye, a si ṣe atunṣe awọn ojutu wa si awọn ebun iṣowo rẹ gangan.",
+      "proven_track": "Itan ti a fi idi mulẹ",
+      "proven_track_desc": "Lati awọn iṣẹ-ṣiṣe titun si awọn ami ti n dagba, a ti ṣe iranlọwọ fun ọpọlọpọ lati ni awọn abajade gidi.",
+      "reliable": "Ni igbẹkẹle ati ṣe afihan",
+      "reliable_desc": "A gbejade ni akoko, a sọ asọtẹlẹ ni kedere, a si duro lẹhin ohun gbogbo ti a kọ.",
+      
+      // Testimonials
+      "testimonials": "Ohun ti awọn alabara wa sọ",
+      "testimonials_desc": "Gbọ lati awọn ti o ti ni iriri iyatọ Mikky Technology.",
+      
+      // Pricing
+      "pricing_title": "Awọn eto iye owo wa",
+      "pricing_desc": "Yan eto kan ti o baamu iṣẹ-ṣiṣe rẹ. Boya o nilo oju opo wẹẹbu ti ara ẹni tabi ibugbe iṣowo kikun, a ni ohun ti o bo ọ.",
+      "basic": "Ipilẹ",
+      "basic_desc": "Ti o pe fun ẹni-kọọkan tabi awọn iwe-ipamọ ti o rọrun.",
+      "basic_feature1": "✔️ Titi de oju 3",
+      "basic_feature2": "✔️ Ti o ni iṣọtẹlẹ foonu alagbeka",
+      "basic_feature3": "✔️ Fọọmu ibatan",
+      "basic_feature4": "✔️ SEO ipilẹ",
+      "standard": "Aṣa",
+      "standard_desc": "Dara fun awọn iṣowo kekere ati awọn ami.",
+      "standard_feature1": "✔️ Titi de oju 6",
+      "standard_feature2": "✔️ Orukọ ibugbe ọfẹ (1 ọdun)",
+      "standard_feature3": "✔️ SEO ti o dara",
+      "standard_feature4": "✔️ Pẹlu Aṣoju (ayẃn)",
+      "premium": "Pipẹ",
+      "premium_desc": "Fun awọn ibugbe ilọsiwaju, awọn ibudo, tabi awọn iṣẹ-ṣiṣe titun.",
+      "premium_feature1": "✔️ Awọn oju ailopin",
+      "premium_feature2": "✔️ Apẹrẹ ti ara ẹni + Branding",
+      "premium_feature3": "✔️ Pẹlu Aṣoju",
+      "premium_feature4": "✔️ Atilẹyin & Iṣẹ ṣiṣe kikun",
+      "choose_plan": "Yan Eto",
+      "popular": "Ti o gbajumo julọ",
+      
+      // Presentation Pricing
+      "presentation_title": "Iye owo apẹrẹ ifihan",
+      "presentation_desc": "Yan apoti kan ti o baamu awọn iwulo ifihan rẹ - lati awọn isalẹ akẹkọọ ti o mọ si awọn isalẹ iṣowo ti o lẹwa.",
+      "starter": "Alabẹrẹ",
+      "starter_desc": "Ti o pe fun awọn akẹkọọ ati lilo ti ara ẹni.",
+      "starter_feature1": "✔️ Titi de isalẹ 10",
+      "starter_feature2": "✔️ Apẹrẹ ipilẹ & itọsọna",
+      "starter_feature3": "✔️ Awọn fọnti ati awọn aami ti o mọ",
+      "starter_feature4": "✔️ Ifijiṣẹ ni PDF & PPT",
+      "select_starter": "Yan Alabẹrẹ",
+      "pro": "Pro",
+      "pro_desc": "Dara julọ fun awọn ifihan iṣowo tabi ẹkọ.",
+      "pro_feature1": "✔️ Titi de isalẹ 20",
+      "pro_feature2": "✔️ Apẹrẹ ti ara ẹni & awọn ayipada",
+      "pro_feature3": "✔️ Awọn chati ojulowo & awọn aami",
+      "pro_feature4": "✔️ Faili orisun ti o ṣatunṣe",
+      "select_pro": "Yan Pro",
+      "premium_pres_desc": "Ti o pe fun awọn isalẹ ile-iṣẹ, awọn ifihan, tabi awọn isalẹ ami.",
+      "premium_pres_feature1": "✔️ 20+ isalẹ",
+      "premium_pres_feature2": "✔️ Ifaramo Itọsọna Ami",
+      "premium_pres_feature3": "✔️ Awọn infographic & awọn animiṣẹn",
+      "premium_pres_feature4": "✔️ Ayipada iyara + Atilẹyin",
+      "select_premium": "Yan Pipẹ",
+      
+      // Drones & RC Cars
+      "drones_title": "Iye owo awọn drones ati awọn ọkọ RC",
+      "drones_desc": "Gba awọn drones ti o dara ati awọn ọkọ alagbeka ti a ṣe apẹrẹ ti ara ẹni. Yan eto kan ti o baamu awọn iwulo ati iye owo rẹ.",
+      "starter_kit": "Kit Alabẹrẹ",
+      "starter_kit_desc": "Ti o pe fun awọn akọkọ tabi awọn oniṣẹ-ṣiṣe.",
+      "starter_kit_feature1": "✔️ Drone tabi ọkọ RC ipilẹ",
+      "starter_kit_feature2": "✔️ Ẹrọ iṣakoso ọwọ",
+      "starter_kit_feature3": "✔️ Batiri ti o ṣee ṣe agbega",
+      "starter_kit_feature4": "✔️ Atilẹyin ifihan 30-iṣẹju",
+      "advanced_build": "Ilé ilọsiwaju",
+      "advanced_build_desc": "Fun awọn olumulo arin, awọn ile-iwe, tabi ifihan iṣẹ-ṣiṣe.",
+      "advanced_build_feature1": "✔️ Ọkọ RC tabi drone iyara giga",
+      "advanced_build_feature2": "✔️ Kamẹra HD (awọn drones)",
+      "advanced_build_feature3": "✔️ App tabi iṣakoso jijin",
+      "advanced_build_feature4": "✔️ Ṣiṣe apẹrẹ ti ara ẹni",
+      "select_advanced": "Yan Ilọsiwaju",
+      "pro_custom": "Apẹẹrẹ Pro ti ara ẹni",
+      "pro_custom_desc": "Ti a ṣe apẹrẹ fun awọn iṣẹ ọjẹ, lilo iṣowo, tabi awọn oniṣẹ-ṣiṣe ti o niyelori.",
+      "pro_custom_feature1": "✔️ Drone/Ọkọ ti a ṣe apẹrẹ patapata",
+      "pro_custom_feature2": "✔️ GPS, Auto Hover, FPV, ati bẹbẹ lọ",
+      "pro_custom_feature3": "✔️ Batiri ti o gun + awọn apakan atẹle",
+      "pro_custom_feature4": "✔️ Ẹkọ & Atilẹyin",
+      
+      // Design Pricing
+      "design_title": "Iye owo apẹrẹ",
+      "design_desc": "Awọn fala, awọn banna ati awọn afiṣẹ ti o ni iṣẹ ọjẹ ati ti o fa akiyesi fun awọn iṣẹlẹ rẹ, iṣowo, tabi awọn iṣagbejade ami.",
+      "basic_design": "Apẹrẹ ipilẹ",
+      "basic_design_desc": "Ti o pe fun awọn iṣẹ ti o rọrun ati ki o yara.",
+      "basic_design_feature1": "✔️ 1 Fala / Afiṣẹ / Banna",
+      "basic_design_feature2": "✔️ Itọsọna aṣa",
+      "basic_design_feature3": "✔️ Awọn atunṣe ipilẹ",
+      "basic_design_feature4": "✔️ Ifijiṣẹ ni JPEG/PDF",
+      "choose_basic": "Yan Ipilẹ",
+      "standard_design": "Apẹrẹ aṣa",
+      "standard_design_desc": "Ti o pe fun awọn ohun elo iṣagbejade iṣowo tabi iṣẹlẹ.",
+      "standard_design_feature1": "✔️ 1–2 awọn apẹrẹ (Fala tabi Afiṣẹ)",
+      "standard_design_feature2": "✔️ Itọsọna ati iṣe fọnti ti o ṣe iṣeduro",
+      "standard_design_feature3": "✔️ 1 atunṣe ọfẹ",
+      "standard_design_feature4": "✔️ Ifijiṣẹ ni awọn fọọmu pupọ",
+      "choose_standard": "Yan Aṣa",
+      "premium_design": "Apẹrẹ pipẹ",
+      "premium_design_desc": "Fun branding ti o ga julọ ati awọn iṣẹ-ọnà ti ara ẹni.",
+      "premium_design_feature1": "✔️ 2+ awọn apẹrẹ ti ara ẹni",
+      "premium_design_feature2": "✔️ Awọn iṣawọle ati awọn ipa ilọsiwaju",
+      "premium_design_feature3": "✔️ Awọn faili orisun (PSD/AI)",
+      "premium_design_feature4": "✔️ Awọn atunṣe ailopin",
+      
+      // Branding Pricing
+      "branding_title": "Iye owo branding ati awọn kaadi iṣowo",
+      "branding_desc": "Ṣẹda ipa ti o gun fun ọjọ ori pẹlu awọn logo, awọn kits branding, ati awọn kaadi iṣowo ti a ṣe apẹrẹ ni iṣẹ ọjẹ.",
+      "starter_identity": "Idanimọ Alabẹrẹ",
+      "starter_identity_desc": "Ti o pe fun awọn ami ti ara ẹni tabi awọn iṣẹ-ṣiṣe titun kekere.",
+      "starter_identity_feature1": "✔️ Apẹrẹ Logo (1 ero)",
+      "starter_identity_feature2": "✔️ Apẹrẹ Kaadi Iṣowo",
+      "starter_identity_feature3": "✔️ Awọn faili ti o ṣetan lati tẹ",
+      "starter_identity_feature4": "✔️ 1 atunṣe ọfẹ",
+      "professional_kit": "Kit Iṣẹ ọjẹ",
+      "professional_kit_desc": "Ti o pe fun awọn iṣowo ati awọn ami ti n dagba.",
+      "professional_kit_feature1": "✔️ 2 awọn ero logo",
+      "professional_kit_feature2": "✔️ Kaadi Iṣowo + Lẹta ori",
+      "professional_kit_feature3": "✔� Awọn awoye ami",
+      "professional_kit_feature4": "✔️ Awọn faili orisun ti o ṣatunṣe",
+      "premium_branding": "Branding Pipẹ",
+      "premium_branding_desc": "Apẹrẹ idanimọ kikun fun awọn ami ti o niyelori.",
+      "premium_branding_feature1": "✔️ Kikun Branding Suite",
+      "premium_branding_feature2": "✔️ Awọn iyatọ Logo (3+ awọn ero)",
+      "premium_branding_feature3": "✔️ Kaadi Iṣowo, Lẹta Ori, Envelopu",
+      "premium_branding_feature4": "✔️ Kit Awujọ + Itọsọna Ami",
+      
+      // Download
+      "download_brochure": "Ṣe igbasilẹ Brochure Iṣẹ wa",
+      "download_brochure_desc": "Gba gbogbo awọn alaye iṣẹ wa ati awọn iye owo ni PDF kan ti o rọrun.",
+      "download_brochure_btn": "Ṣe igbasilẹ Brochure",
+      
+      // Quote
+      "quote_title": "Gba Iye owo Lẹsẹkẹsẹ",
+      "quote_desc": "Fi awọn alaye rẹ kun ki o gba esi lẹsẹkẹsẹ nipasẹ WhatsApp!",
+      "name": "Oruko",
+      "email": "Imeeli",
+      "service": "Iṣẹ",
+      "select_service": "Yan iṣẹ kan",
+      "presentation_design": "Apẹrẹ Ifihan",
+      "rc_drones": "Awọn ọkọ RC & Drones",
+      "flyers_posters": "Awọn fala, Awọn afiṣẹ & Awọn banna",
+      "branding_cards": "Branding & Awọn kaadi iṣowo",
+      "other": "Miiran",
+      "additional_notes": "Awọn akọsilẹ Afikun",
+      "get_quote": "Gba Iye owo lori WhatsApp",
+      
+      // FAQ
+      "faq_title": "Awọn ibeere ti o wọpọ",
+      "faq1": "Elo igba ni oju opo wẹẹbu n gba?",
+      "faq1_answer": "Deede, 3–7 ọjọ ti o da lori iwọn iṣẹ-ṣiṣe ati iyara esi.",
+      "faq2": "Ṣe mo le beere awọn ayipada lẹhin ifijiṣẹ?",
+      "faq2_answer": "Bẹẹni, a nfunni ni awọn atunṣe da lori apoti rẹ. Awọn ayipada afikun le fa owo kekere.",
+      "faq3": "Ṣe ẹ nṣe atilẹyin fun awọn iṣẹ-ṣiṣe ti o yara?",
+      "faq3_answer": "Bẹẹni, ifijiṣẹ iyara wa fun owo afikun.",
+      
+      // Footer
+      "company": "Ile-iṣẹ",
+      "record": "Fun Iwe-ipamọ",
+      "careers": "Awọn iṣẹ-ṣiṣe",
+      "about": "Nipa",
+      "press": "Iroyin",
+      "blog": "Bulọọgi",
+      "jobs": "Awọn iṣẹ",
+      "communities": "Awọn agbegbe",
+      "advertising": "Ifihanṣọ",
+      "developers": "Awọn oludagbasoke",
+      "artists": "Fun Awọn onise-ọnà",
+      "investors": "Awọn oludokoowo",
+      "partners": "Awọn alabaṣepọ",
+      "vendors": "Awọn olutaja",
+      "useful_links": "Awọn ọna asopọ wulo",
+      "mobile_app": "Ohun elo Foonu Alagbeka ọfẹ",
+      "web_player": "Ẹrọ ifiṣura oju opo wẹẹbu",
+      "support": "Atilẹyin",
+      "contact": "Kan si",
+      "privacy": "Ikọkọ",
+      "terms": "Awọn ofin",
+      "explore": "Ṣe iwadi",
+      "quick_access": "Wiwọle ni kiakia",
+      "dashboard": "Dasibodu",
+      "sign_in": "Wọle",
+      "register": "Forukọsilẹ",
+      "follow_us": "Tẹle wa",
+      "copyright": "© 2025 Mikky Technology. Gbogbo awọn ẹtọ wa ni ipamọ.",
+      "privacy_policy": "Ilana Ikọkọ",
+      "terms_service": "Awọn ofin Iṣẹ",
+      "cookies": "Awọn kuki"
+    }
+  };
+
+  // Change language function
+  function changeLanguage(lang) {
+    // Set language in localStorage
+    localStorage.setItem('language', lang);
+    
+    // Update all elements with data-i18n attribute
+    document.querySelectorAll('[data-i18n]').forEach(element => {
+      const key = element.getAttribute('data-i18n');
+      if (translations[lang] && translations[lang][key]) {
+        // Handle different element types
+        if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+          element.setAttribute('placeholder', translations[lang][key]);
+        } else if (element.tagName === 'OPTION') {
+          element.textContent = translations[lang][key];
+        } else {
+          element.textContent = translations[lang][key];
+        }
+      }
+    });
+    
+    // Update current language display
+    const currentLanguageElement = document.getElementById('current-language');
+    if (currentLanguageElement) {
+      currentLanguageElement.textContent = translations[lang]['language'];
+    }
+    
+    // Update mobile language select
+    const mobileLanguageSelect = document.getElementById('mobile-language-select');
+    if (mobileLanguageSelect) {
+      mobileLanguageSelect.value = lang;
+    }
+  }
+
+  // Initialize language from localStorage or default to English
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedLanguage = localStorage.getItem('language') || 'en';
+    changeLanguage(savedLanguage);
+    
+    // Set up language toggle dropdown
+    document.querySelectorAll('.language-toggle a').forEach(toggle => {
+      toggle.addEventListener('click', (e) => {
+        e.preventDefault();
+        const dropdown = toggle.closest('.language-toggle').querySelector('.language-dropdown');
+        dropdown.classList.toggle('hidden');
+      });
+    });
+    
+    // Handle language selection from dropdown
+    document.querySelectorAll('.language-option').forEach(option => {
+      option.addEventListener('click', (e) => {
+        e.preventDefault();
+        const lang = option.getAttribute('data-lang');
+        changeLanguage(lang);
+        // Close dropdown
+        document.querySelectorAll('.language-dropdown').forEach(d => d.classList.add('hidden'));
+      });
+    });
+    
+    // Handle mobile language selection
+    const mobileLanguageSelect = document.getElementById('mobile-language-select');
+    if (mobileLanguageSelect) {
+      mobileLanguageSelect.addEventListener('change', (e) => {
+        changeLanguage(e.target.value);
+      });
+    }
+    
+    // Close dropdown when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.language-toggle')) {
+        document.querySelectorAll('.language-dropdown').forEach(d => d.classList.add('hidden'));
+      }
+    });
+  });
+</script>
+
+
+<!-- testimonial script -->
+
+<!-- Firebase App & Firestore -->   
+<script type="module">
+  // Import Firebase
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+  import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore.js";
+
+  // Your Firebase config
+  const firebaseConfig = {
+    apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+    authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+    projectId: "mikky-tech-sign-up-page",
+    storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+    messagingSenderId: "232441309522",
+    appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const db = getFirestore(app);
+
+  // Fetch testimonials
+  const testimonialsContainer = document.getElementById("testimonials-list");
+
+  async function loadTestimonials() {
+    const querySnapshot = await getDocs(collection(db, "testimonials"));
+    testimonialsContainer.innerHTML = ""; // Clear default
+    querySnapshot.forEach((doc, index) => {
+      const data = doc.data();
+
+      const delay = index * 100;
+      const testimonialHTML = `
+        <div class="bg-white p-6 rounded-lg shadow-md hover:shadow-lg transition" data-aos="fade-up" data-aos-delay="${delay}">
+          <p class="text-gray-700 italic mb-4">
+            "${data.message}"
+          </p>
+          <div class="flex items-center gap-4">
+            <img src="${data.image || '../images/default-client.jpg'}" alt="Client" class="w-12 h-12 rounded-full object-cover">
+            <div>
+              <h4 class="text-green-800 font-semibold">${data.name}</h4>
+              <p class="text-sm text-gray-500">${data.title}</p>
+            </div>
+          </div>
+        </div>
+      `;
+      testimonialsContainer.innerHTML += testimonialHTML;
+    });
+  }
+
+  loadTestimonials();
+</script>
+
+<!-- plan section -->
+
+<script>
+  function sendPlan(plan, price, features) {
+    const phone = '2347083034571';
+    const featureList = features.map(f => `• ${f}`).join('%0A');
+    const message = `Hello,%0AI'm interested in the *${plan} Plan*.%0A%0A*Price:* ${price}%0A*Features:*%0A${featureList}%0A%0AKindly provide more information.`;
+    const whatsappLink = `https://wa.me/${phone}?text=${message}`;
+    window.open(whatsappLink, '_blank');
+  }
+</script>
+
+<script>
+  document.getElementById('quoteForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    const name = encodeURIComponent(document.getElementById('name').value);
+    const email = encodeURIComponent(document.getElementById('email').value);
+    const service = encodeURIComponent(document.getElementById('service').value);
+    const notes = encodeURIComponent(document.getElementById('notes').value);
+
+    const message = `*Mikky Technology Quote Request*%0A
+Name: ${name}%0A
+Email: ${email}%0A
+Service: ${service}%0A
+Notes: ${notes}`;
+
+    // Replace with your WhatsApp number
+    const whatsappNumber = "+2347083034571"; 
+    const whatsappURL = `https://wa.me/${whatsappNumber}?text=${message}`;
+
+    window.open(whatsappURL, "_blank");
+  });
+</script>
+
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>AOS.init();</script>
+</body>
+</html>

@@ -11,9 +11,53 @@
     body {
       font-family: 'Segoe UI', sans-serif;
     }
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 0;
+      min-width: 120px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .language-dropdown a {
+      display: block;
+      padding: 5px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+    .language-dropdown a:hover {
+      background-color: #f5f5f5;
+    }
+    .show-dropdown {
+      display: block;
+    }
   </style>
 </head>
 <body class="min-h-screen bg-white flex items-center justify-center">
+
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <button id="languageBtn" class="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">
+      <i class='bx bx-globe text-lg'></i>
+      <span id="currentLanguage">English</span>
+      <i class='bx bx-chevron-down'></i>
+    </button>
+    <div id="languageDropdown" class="language-dropdown">
+      <a href="#" data-lang="en">English</a>
+      <a href="#" data-lang="fr">Français</a>
+      <a href="#" data-lang="es">Español</a>
+      <a href="#" data-lang="yo">Yorùbá</a>
+    </div>
+  </div>
 
   <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-xl overflow-hidden">
     
@@ -64,14 +108,14 @@
     import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
     import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
 
-  const firebaseConfig = {
-    apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
-    authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
-    projectId: "mikky-tech-sign-up-page",
-    storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
-    messagingSenderId: "232441309522",
-    appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
-  };
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -125,6 +169,83 @@
 
       btnText.textContent = "Register";
       spinner.classList.add("hidden");
+    });
+
+    // Language Toggle Logic
+    const languageBtn = document.getElementById("languageBtn");
+    const languageDropdown = document.getElementById("languageDropdown");
+    const currentLanguage = document.getElementById("currentLanguage");
+
+    // Toggle dropdown visibility
+    languageBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.toggle("show-dropdown");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function() {
+      languageDropdown.classList.remove("show-dropdown");
+    });
+
+    // Language translations
+    const translations = {
+      en: {
+        title: "Create an Account",
+        fullName: "Full Name",
+        email: "Email",
+        password: "Password",
+        register: "Register",
+        haveAccount: "Already have an account?",
+        login: "Login"
+      },
+      fr: {
+        title: "Créer un compte",
+        fullName: "Nom complet",
+        email: "Email",
+        password: "Mot de passe",
+        register: "S'inscrire",
+        haveAccount: "Vous avez déjà un compte?",
+        login: "Connexion"
+      },
+      es: {
+        title: "Crear una cuenta",
+        fullName: "Nombre completo",
+        email: "Correo electrónico",
+        password: "Contraseña",
+        register: "Registrarse",
+        haveAccount: "¿Ya tienes una cuenta?",
+        login: "Iniciar sesión"
+      },
+      yo: {
+        title: "Ṣẹda iroyin",
+        fullName: "Orukọ gbogbo",
+        email: "Imeeli",
+        password: "Ọrọ igbaniwọle",
+        register: "Forukọsilẹ",
+        haveAccount: "Ṣe o ni akọọlẹ tẹlẹ?",
+        login: "Wo ile"
+      }
+    };
+
+    // Handle language selection
+    document.querySelectorAll("#languageDropdown a").forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.preventDefault();
+        const lang = this.getAttribute("data-lang");
+        currentLanguage.textContent = this.textContent;
+        languageDropdown.classList.remove("show-dropdown");
+
+        localStorage.setItem('selectedLanguage', lang);
+        
+        // Update all text elements
+        document.querySelector("h2").textContent = translations[lang].title;
+        document.querySelector("label[for='fullName']").textContent = translations[lang].fullName;
+        document.querySelector("label[for='email']").textContent = translations[lang].email;
+        document.querySelector("label[for='password']").textContent = translations[lang].password;
+        document.getElementById("btnText").textContent = translations[lang].register;
+        document.querySelector(".mt-4.text-center").innerHTML = 
+          `${translations[lang].haveAccount} <a class="text-green-600 hover:underline" href="../login page/index.html">${translations[lang].login}</a>`;
+      });
     });
   </script>
 

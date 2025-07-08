@@ -13,6 +13,7 @@
       padding: 40px 20px;
       max-width: 900px;
       margin: auto;
+      position: relative;
     }
     h1, h2, h3 {
       color: #1e6138;
@@ -47,93 +48,417 @@
     .contact p {
       margin: 4px 0;
     }
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 5px;
+    }
+    .language-btn {
+      background: rgba(30, 97, 56, 0.2);
+      border: none;
+      color: #1e6138;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.8rem;
+    }
+    .language-btn:hover {
+      background: rgba(30, 97, 56, 0.3);
+    }
+    .language-btn.active {
+      background: rgba(30, 97, 56, 0.4);
+      font-weight: bold;
+    }
+    [data-i18n] {
+      transition: opacity 0.3s ease;
+    }
   </style>
 </head>
 <body>
 
-  <h1>Mikky Technology</h1>
-  <h2>Privacy Policy & Terms of Service</h2>
-  <p><strong>Last Updated:</strong> June 27, 2025</p>
+  <!-- Language Toggle -->
+  <div class="language-toggle">
+    <button id="enBtn" class="language-btn active">EN</button>
+    <button id="frBtn" class="language-btn">FR</button>
+    <button id="esBtn" class="language-btn">ES</button>
+    <button id="yoBtn" class="language-btn">YO</button>
+  </div>
+
+  <h1 data-i18n="companyName">Mikky Technology</h1>
+  <h2 data-i18n="pageTitle">Privacy Policy & Terms of Service</h2>
+  <p><strong data-i18n="lastUpdated">Last Updated:</strong> <span data-i18n="updateDate">June 27, 2025</span></p>
 
   <div class="section">
-    <h2>🔒 Privacy Policy</h2>
+    <h2 data-i18n="privacyTitle">🔒 Privacy Policy</h2>
 
-    <h3>1. Introduction</h3>
-    <p>At Mikky Technology, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
+    <h3 data-i18n="privacy1">1. Introduction</h3>
+    <p data-i18n="privacy1Text">At Mikky Technology, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.</p>
 
-    <h3>2. Information We Collect</h3>
+    <h3 data-i18n="privacy2">2. Information We Collect</h3>
     <ul>
-      <li><strong>Personal Information:</strong> Name, email, phone number, and other details you submit through forms or orders.</li>
-      <li><strong>Technical Information:</strong> Device data, browser type, IP address, and pages visited.</li>
-      <li><strong>Usage Data:</strong> Logs and analytics for improving our services.</li>
+      <li><strong data-i18n="privacy2a">Personal Information:</strong> <span data-i18n="privacy2aText">Name, email, phone number, and other details you submit through forms or orders.</span></li>
+      <li><strong data-i18n="privacy2b">Technical Information:</strong> <span data-i18n="privacy2bText">Device data, browser type, IP address, and pages visited.</span></li>
+      <li><strong data-i18n="privacy2c">Usage Data:</strong> <span data-i18n="privacy2cText">Logs and analytics for improving our services.</span></li>
     </ul>
 
-    <h3>3. How We Use Your Information</h3>
+    <h3 data-i18n="privacy3">3. How We Use Your Information</h3>
     <ul>
-      <li>To process service requests or orders</li>
-      <li>To provide support and updates</li>
-      <li>To personalize your experience and improve our website</li>
-      <li>To send promotional content (only with your consent)</li>
+      <li data-i18n="privacy3a">To process service requests or orders</li>
+      <li data-i18n="privacy3b">To provide support and updates</li>
+      <li data-i18n="privacy3c">To personalize your experience and improve our website</li>
+      <li data-i18n="privacy3d">To send promotional content (only with your consent)</li>
     </ul>
 
-    <h3>4. Cookies</h3>
-    <p>We use cookies to enhance functionality and user experience. You may choose to disable cookies in your browser settings.</p>
+    <h3 data-i18n="privacy4">4. Cookies</h3>
+    <p data-i18n="privacy4Text">We use cookies to enhance functionality and user experience. You may choose to disable cookies in your browser settings.</p>
 
-    <h3>5. Information Sharing</h3>
-    <p>We do not sell or rent your data. We only share it with trusted service providers when necessary or if legally required.</p>
+    <h3 data-i18n="privacy5">5. Information Sharing</h3>
+    <p data-i18n="privacy5Text">We do not sell or rent your data. We only share it with trusted service providers when necessary or if legally required.</p>
 
-    <h3>6. Data Security</h3>
-    <p>We use SSL encryption and secure databases to protect your personal information.</p>
+    <h3 data-i18n="privacy6">6. Data Security</h3>
+    <p data-i18n="privacy6Text">We use SSL encryption and secure databases to protect your personal information.</p>
 
-    <h3>7. Your Rights</h3>
+    <h3 data-i18n="privacy7">7. Your Rights</h3>
     <ul>
-      <li>Access or delete your data</li>
-      <li>Update or correct your personal information</li>
-      <li>Opt out of promotional emails</li>
+      <li data-i18n="privacy7a">Access or delete your data</li>
+      <li data-i18n="privacy7b">Update or correct your personal information</li>
+      <li data-i18n="privacy7c">Opt out of promotional emails</li>
     </ul>
-    <p>Contact us at <a href="mailto:support@mikky-technology.vercel.app">support@mikky-technology.vercel.app</a> for requests.</p>
+    <p data-i18n="privacy7Text">Contact us at <a href="mailto:support@mikky-technology.vercel.app" data-i18n="supportEmail">support@mikky-technology.vercel.app</a> for requests.</p>
   </div>
 
   <div id="terms" class="section">
-    <h2>📜 Terms of Service</h2>
+    <h2 data-i18n="termsTitle">📜 Terms of Service</h2>
 
-    <h3>1. Acceptance of Terms</h3>
-    <p>By using our website or services, you agree to comply with these Terms of Service. If you do not agree, please do not use our platform.</p>
+    <h3 data-i18n="terms1">1. Acceptance of Terms</h3>
+    <p data-i18n="terms1Text">By using our website or services, you agree to comply with these Terms of Service. If you do not agree, please do not use our platform.</p>
 
-    <h3>2. Services Offered</h3>
-    <p>Mikky Technology offers web development, graphic design, branding, RC car and drone production, and related tech services.</p>
+    <h3 data-i18n="terms2">2. Services Offered</h3>
+    <p data-i18n="terms2Text">Mikky Technology offers web development, graphic design, branding, RC car and drone production, and related tech services.</p>
 
-    <h3>3. User Responsibilities</h3>
+    <h3 data-i18n="terms3">3. User Responsibilities</h3>
     <ul>
-      <li>Provide accurate and truthful information</li>
-      <li>Do not attempt to breach, reverse-engineer, or misuse our services</li>
+      <li data-i18n="terms3a">Provide accurate and truthful information</li>
+      <li data-i18n="terms3b">Do not attempt to breach, reverse-engineer, or misuse our services</li>
     </ul>
 
-    <h3>4. Payments</h3>
-    <p>Payments must be completed upfront or as agreed. We accept bank transfer and other verified payment channels.</p>
+    <h3 data-i18n="terms4">4. Payments</h3>
+    <p data-i18n="terms4Text">Payments must be completed upfront or as agreed. We accept bank transfer and other verified payment channels.</p>
 
-    <h3>5. Intellectual Property</h3>
-    <p>All digital assets, designs, and products remain the property of Mikky Technology unless stated otherwise in writing.</p>
+    <h3 data-i18n="terms5">5. Intellectual Property</h3>
+    <p data-i18n="terms5Text">All digital assets, designs, and products remain the property of Mikky Technology unless stated otherwise in writing.</p>
 
-    <h3>6. Refund Policy</h3>
-    <p>Due to the nature of our services, refunds are not guaranteed once work has begun. Disputes will be handled case-by-case.</p>
+    <h3 data-i18n="terms6">6. Refund Policy</h3>
+    <p data-i18n="terms6Text">Due to the nature of our services, refunds are not guaranteed once work has begun. Disputes will be handled case-by-case.</p>
 
-    <h3>7. Suspension or Termination</h3>
-    <p>We reserve the right to suspend or terminate accounts that violate our terms or engage in abusive behavior.</p>
+    <h3 data-i18n="terms7">7. Suspension or Termination</h3>
+    <p data-i18n="terms7Text">We reserve the right to suspend or terminate accounts that violate our terms or engage in abusive behavior.</p>
 
-    <h3>8. Limitation of Liability</h3>
-    <p>We are not liable for indirect damages caused by service delays, interruptions, or third-party actions beyond our control.</p>
+    <h3 data-i18n="terms8">8. Limitation of Liability</h3>
+    <p data-i18n="terms8Text">We are not liable for indirect damages caused by service delays, interruptions, or third-party actions beyond our control.</p>
 
-    <h3>9. Updates to This Agreement</h3>
-    <p>We may revise this policy at any time. The latest version will always be available on our website.</p>
+    <h3 data-i18n="terms9">9. Updates to This Agreement</h3>
+    <p data-i18n="terms9Text">We may revise this policy at any time. The latest version will always be available on our website.</p>
   </div>
 
   <div class="section contact">
-    <h2>📬 Contact Us</h2>
-    <p>Email: <a href="mailto:support@mikkytechnology86@gmail.com">support@mikky-technology.vercel.app</a></p>
-    <p>Phone: <a href="tel:+2347083034571">+234 708 303 4571</a></p>
-    <p>Website: <a href="https://mikky-technology.vercel.app/" target="_blank">www.mikky-technology.vercel.app</a></p>
+    <h2 data-i18n="contactTitle">📬 Contact Us</h2>
+    <p data-i18n="contactEmail">Email: <a href="mailto:support@mikkytechnology86@gmail.com" data-i18n="contactEmailLink">support@mikky-technology.vercel.app</a></p>
+    <p data-i18n="contactPhone">Phone: <a href="tel:+2347083034571" data-i18n="contactPhoneLink">+234 708 303 4571</a></p>
+    <p data-i18n="contactWebsite">Website: <a href="https://mikky-technology.vercel.app/" target="_blank" data-i18n="contactWebsiteLink">www.mikky-technology.vercel.app</a></p>
   </div>
+
+  <!-- Language Translation Script -->
+  <script>
+    const translations = {
+      en: {
+        "companyName": "Mikky Technology",
+        "pageTitle": "Privacy Policy & Terms of Service",
+        "lastUpdated": "Last Updated:",
+        "updateDate": "June 27, 2025",
+        "privacyTitle": "🔒 Privacy Policy",
+        "privacy1": "1. Introduction",
+        "privacy1Text": "At Mikky Technology, we are committed to protecting your privacy. This Privacy Policy explains how we collect, use, and safeguard your information when you visit our website or use our services.",
+        "privacy2": "2. Information We Collect",
+        "privacy2a": "Personal Information:",
+        "privacy2aText": "Name, email, phone number, and other details you submit through forms or orders.",
+        "privacy2b": "Technical Information:",
+        "privacy2bText": "Device data, browser type, IP address, and pages visited.",
+        "privacy2c": "Usage Data:",
+        "privacy2cText": "Logs and analytics for improving our services.",
+        "privacy3": "3. How We Use Your Information",
+        "privacy3a": "To process service requests or orders",
+        "privacy3b": "To provide support and updates",
+        "privacy3c": "To personalize your experience and improve our website",
+        "privacy3d": "To send promotional content (only with your consent)",
+        "privacy4": "4. Cookies",
+        "privacy4Text": "We use cookies to enhance functionality and user experience. You may choose to disable cookies in your browser settings.",
+        "privacy5": "5. Information Sharing",
+        "privacy5Text": "We do not sell or rent your data. We only share it with trusted service providers when necessary or if legally required.",
+        "privacy6": "6. Data Security",
+        "privacy6Text": "We use SSL encryption and secure databases to protect your personal information.",
+        "privacy7": "7. Your Rights",
+        "privacy7a": "Access or delete your data",
+        "privacy7b": "Update or correct your personal information",
+        "privacy7c": "Opt out of promotional emails",
+        "privacy7Text": "Contact us at",
+        "termsTitle": "📜 Terms of Service",
+        "terms1": "1. Acceptance of Terms",
+        "terms1Text": "By using our website or services, you agree to comply with these Terms of Service. If you do not agree, please do not use our platform.",
+        "terms2": "2. Services Offered",
+        "terms2Text": "Mikky Technology offers web development, graphic design, branding, RC car and drone production, and related tech services.",
+        "terms3": "3. User Responsibilities",
+        "terms3a": "Provide accurate and truthful information",
+        "terms3b": "Do not attempt to breach, reverse-engineer, or misuse our services",
+        "terms4": "4. Payments",
+        "terms4Text": "Payments must be completed upfront or as agreed. We accept bank transfer and other verified payment channels.",
+        "terms5": "5. Intellectual Property",
+        "terms5Text": "All digital assets, designs, and products remain the property of Mikky Technology unless stated otherwise in writing.",
+        "terms6": "6. Refund Policy",
+        "terms6Text": "Due to the nature of our services, refunds are not guaranteed once work has begun. Disputes will be handled case-by-case.",
+        "terms7": "7. Suspension or Termination",
+        "terms7Text": "We reserve the right to suspend or terminate accounts that violate our terms or engage in abusive behavior.",
+        "terms8": "8. Limitation of Liability",
+        "terms8Text": "We are not liable for indirect damages caused by service delays, interruptions, or third-party actions beyond our control.",
+        "terms9": "9. Updates to This Agreement",
+        "terms9Text": "We may revise this policy at any time. The latest version will always be available on our website.",
+        "contactTitle": "📬 Contact Us",
+        "contactEmail": "Email:",
+        "contactEmailLink": "support@mikky-technology.vercel.app",
+        "contactPhone": "Phone:",
+        "contactPhoneLink": "+234 708 303 4571",
+        "contactWebsite": "Website:",
+        "contactWebsiteLink": "www.mikky-technology.vercel.app"
+      },
+      fr: {
+        "companyName": "Mikky Technology",
+        "pageTitle": "Politique de Confidentialité & Conditions d'Utilisation",
+        "lastUpdated": "Dernière mise à jour:",
+        "updateDate": "27 juin 2025",
+        "privacyTitle": "🔒 Politique de Confidentialité",
+        "privacy1": "1. Introduction",
+        "privacy1Text": "Chez Mikky Technology, nous nous engageons à protéger votre vie privée. Cette Politique de Confidentialité explique comment nous collectons, utilisons et protégeons vos informations lorsque vous visitez notre site Web ou utilisez nos services.",
+        "privacy2": "2. Informations que nous collectons",
+        "privacy2a": "Informations personnelles:",
+        "privacy2aText": "Nom, email, numéro de téléphone et autres détails que vous soumettez via des formulaires ou commandes.",
+        "privacy2b": "Informations techniques:",
+        "privacy2bText": "Données de l'appareil, type de navigateur, adresse IP et pages visitées.",
+        "privacy2c": "Données d'utilisation:",
+        "privacy2cText": "Journaux et analyses pour améliorer nos services.",
+        "privacy3": "3. Comment nous utilisons vos informations",
+        "privacy3a": "Traiter les demandes de service ou les commandes",
+        "privacy3b": "Fournir un support et des mises à jour",
+        "privacy3c": "Personnaliser votre expérience et améliorer notre site Web",
+        "privacy3d": "Envoyer du contenu promotionnel (uniquement avec votre consentement)",
+        "privacy4": "4. Cookies",
+        "privacy4Text": "Nous utilisons des cookies pour améliorer la fonctionnalité et l'expérience utilisateur. Vous pouvez choisir de désactiver les cookies dans les paramètres de votre navigateur.",
+        "privacy5": "5. Partage des informations",
+        "privacy5Text": "Nous ne vendons ni ne louons vos données. Nous ne les partageons qu'avec des fournisseurs de services de confiance lorsque cela est nécessaire ou si la loi l'exige.",
+        "privacy6": "6. Sécurité des données",
+        "privacy6Text": "Nous utilisons le chiffrement SSL et des bases de données sécurisées pour protéger vos informations personnelles.",
+        "privacy7": "7. Vos droits",
+        "privacy7a": "Accéder ou supprimer vos données",
+        "privacy7b": "Mettre à jour ou corriger vos informations personnelles",
+        "privacy7c": "Vous désinscrire des emails promotionnels",
+        "privacy7Text": "Contactez-nous à",
+        "termsTitle": "📜 Conditions d'Utilisation",
+        "terms1": "1. Acceptation des conditions",
+        "terms1Text": "En utilisant notre site Web ou nos services, vous acceptez de respecter ces Conditions d'Utilisation. Si vous n'êtes pas d'accord, veuillez ne pas utiliser notre plateforme.",
+        "terms2": "2. Services proposés",
+        "terms2Text": "Mikky Technology propose des services de développement web, design graphique, branding, production de voitures et drones RC, et services technologiques connexes.",
+        "terms3": "3. Responsabilités de l'utilisateur",
+        "terms3a": "Fournir des informations exactes et véridiques",
+        "terms3b": "Ne pas tenter de violer, rétro-ingénier ou utiliser abusivement nos services",
+        "terms4": "4. Paiements",
+        "terms4Text": "Les paiements doivent être effectués d'avance ou selon accord. Nous acceptons les virements bancaires et autres canaux de paiement vérifiés.",
+        "terms5": "5. Propriété intellectuelle",
+        "terms5Text": "Tous les actifs numériques, designs et produits restent la propriété de Mikky Technology sauf mention contraire par écrit.",
+        "terms6": "6. Politique de remboursement",
+        "terms6Text": "En raison de la nature de nos services, les remboursements ne sont pas garantis une fois le travail commencé. Les litiges seront traités au cas par cas.",
+        "terms7": "7. Suspension ou résiliation",
+        "terms7Text": "Nous nous réservons le droit de suspendre ou de résilier les comptes qui violent nos conditions ou adoptent un comportement abusif.",
+        "terms8": "8. Limitation de responsabilité",
+        "terms8Text": "Nous ne sommes pas responsables des dommages indirects causés par des retards, interruptions de service ou actions de tiers hors de notre contrôle.",
+        "terms9": "9. Mises à jour de cet accord",
+        "terms9Text": "Nous pouvons réviser cette politique à tout moment. La dernière version sera toujours disponible sur notre site Web.",
+        "contactTitle": "📬 Contactez-nous",
+        "contactEmail": "Email:",
+        "contactEmailLink": "support@mikky-technology.vercel.app",
+        "contactPhone": "Téléphone:",
+        "contactPhoneLink": "+234 708 303 4571",
+        "contactWebsite": "Site Web:",
+        "contactWebsiteLink": "www.mikky-technology.vercel.app"
+      },
+      es: {
+        "companyName": "Mikky Technology",
+        "pageTitle": "Política de Privacidad & Términos de Servicio",
+        "lastUpdated": "Última actualización:",
+        "updateDate": "27 de junio de 2025",
+        "privacyTitle": "🔒 Política de Privacidad",
+        "privacy1": "1. Introducción",
+        "privacy1Text": "En Mikky Technology, estamos comprometidos con proteger tu privacidad. Esta Política de Privacidad explica cómo recopilamos, usamos y protegemos tu información cuando visitas nuestro sitio web o usas nuestros servicios.",
+        "privacy2": "2. Información que recopilamos",
+        "privacy2a": "Información personal:",
+        "privacy2aText": "Nombre, correo electrónico, número de teléfono y otros detalles que envíes a través de formularios o pedidos.",
+        "privacy2b": "Información técnica:",
+        "privacy2bText": "Datos del dispositivo, tipo de navegador, dirección IP y páginas visitadas.",
+        "privacy2c": "Datos de uso:",
+        "privacy2cText": "Registros y análisis para mejorar nuestros servicios.",
+        "privacy3": "3. Cómo usamos tu información",
+        "privacy3a": "Procesar solicitudes de servicio o pedidos",
+        "privacy3b": "Proporcionar soporte y actualizaciones",
+        "privacy3c": "Personalizar tu experiencia y mejorar nuestro sitio web",
+        "privacy3d": "Enviar contenido promocional (solo con tu consentimiento)",
+        "privacy4": "4. Cookies",
+        "privacy4Text": "Usamos cookies para mejorar la funcionalidad y experiencia del usuario. Puedes elegir desactivar cookies en la configuración de tu navegador.",
+        "privacy5": "5. Compartir información",
+        "privacy5Text": "No vendemos ni alquilamos tus datos. Solo los compartimos con proveedores de servicios confiables cuando es necesario o si la ley lo requiere.",
+        "privacy6": "6. Seguridad de datos",
+        "privacy6Text": "Usamos encriptación SSL y bases de datos seguras para proteger tu información personal.",
+        "privacy7": "7. Tus derechos",
+        "privacy7a": "Acceder o eliminar tus datos",
+        "privacy7b": "Actualizar o corregir tu información personal",
+        "privacy7c": "Optar por no recibir correos promocionales",
+        "privacy7Text": "Contáctanos en",
+        "termsTitle": "📜 Términos de Servicio",
+        "terms1": "1. Aceptación de los términos",
+        "terms1Text": "Al usar nuestro sitio web o servicios, aceptas cumplir con estos Términos de Servicio. Si no estás de acuerdo, por favor no uses nuestra plataforma.",
+        "terms2": "2. Servicios ofrecidos",
+        "terms2Text": "Mikky Technology ofrece desarrollo web, diseño gráfico, branding, producción de autos y drones RC, y servicios tecnológicos relacionados.",
+        "terms3": "3. Responsabilidades del usuario",
+        "terms3a": "Proporcionar información precisa y veraz",
+        "terms3b": "No intentar vulnerar, hacer ingeniería inversa o usar mal nuestros servicios",
+        "terms4": "4. Pagos",
+        "terms4Text": "Los pagos deben completarse por adelantado o según lo acordado. Aceptamos transferencias bancarias y otros canales de pago verificados.",
+        "terms5": "5. Propiedad intelectual",
+        "terms5Text": "Todos los activos digitales, diseños y productos siguen siendo propiedad de Mikky Technology a menos que se indique lo contrario por escrito.",
+        "terms6": "6. Política de reembolso",
+        "terms6Text": "Debido a la naturaleza de nuestros servicios, los reembolsos no están garantizados una vez que el trabajo ha comenzado. Las disputas se manejarán caso por caso.",
+        "terms7": "7. Suspensión o terminación",
+        "terms7Text": "Nos reservamos el derecho de suspender o terminar cuentas que violen nuestros términos o participen en comportamientos abusivos.",
+        "terms8": "8. Limitación de responsabilidad",
+        "terms8Text": "No somos responsables por daños indirectos causados por retrasos, interrupciones del servicio o acciones de terceros fuera de nuestro control.",
+        "terms9": "9. Actualizaciones de este acuerdo",
+        "terms9Text": "Podemos revisar esta política en cualquier momento. La última versión siempre estará disponible en nuestro sitio web.",
+        "contactTitle": "📬 Contáctanos",
+        "contactEmail": "Correo:",
+        "contactEmailLink": "support@mikky-technology.vercel.app",
+        "contactPhone": "Teléfono:",
+        "contactPhoneLink": "+234 708 303 4571",
+        "contactWebsite": "Sitio web:",
+        "contactWebsiteLink": "www.mikky-technology.vercel.app"
+      },
+      yo: {
+        "companyName": "Mikky Technology",
+        "pageTitle": "Ilana Iṣọra & Awọn Ofin Iṣẹ",
+        "lastUpdated": "Atunṣe ti o kẹhin:",
+        "updateDate": "Oṣù Kẹfà 27, 2025",
+        "privacyTitle": "🔒 Ilana Iṣọra",
+        "privacy1": "1. Ifihan",
+        "privacy1Text": "Ni Mikky Technology, a ni ifọkansi lati ṣe abojuto iṣọra rẹ. Ilana Iṣọra yii ṣalaye bi a ṣe n ṣe akopọ, lo, ati ṣe abojuto alaye rẹ nigbati o ba ṣabẹwo si oju opo wẹẹbu wa tabi lo awọn iṣẹ wa.",
+        "privacy2": "2. Alaye ti a n ṣe akopọ",
+        "privacy2a": "Alaye ti ara ẹni:",
+        "privacy2aText": "Oruko, imeeli, nọmba foonu, ati awọn alaye miiran ti o fi silẹ nipasẹ fọọmu tabi awọn aṣẹ.",
+        "privacy2b": "Alaye ẹrọ:",
+        "privacy2bText": "Alaye ẹrọ, iru awoṣe, adirẹsi IP, ati awọn oju-ọna ti a ṣabẹwo.",
+        "privacy2c": "Alaye lilo:",
+        "privacy2cText": "Awọn iwe-akọọlẹ ati iṣiro fun ṣiṣe awọn iṣẹ wa ni dara.",
+        "privacy3": "3. Bí a ṣe n lo alaye rẹ",
+        "privacy3a": "Lati ṣe iṣẹ awọn ibeere tabi awọn aṣẹ",
+        "privacy3b": "Lati pese atilẹyin ati imudojuiwọn",
+        "privacy3c": "Lati ṣe iriri rẹ ni ara ẹni ati mu oju opo wẹẹbu wa dara si",
+        "privacy3d": "Lati firanṣẹ akoonu itanilẹni (nikan pẹlu igba rẹ)",
+        "privacy4": "4. Awọn kuki",
+        "privacy4Text": "A n lo awọn kuki lati mu iṣẹ ati iriri olumulo dara si. O le yan lati pa awọn kuki ni eto awoṣe rẹ.",
+        "privacy5": "5. Pinpin alaye",
+        "privacy5Text": "A kò ta tabi ya alaye rẹ lẹ̀ẹ̀kọ́ọ́. A n pin pẹlu awọn olupese iṣẹ ti a le gbẹkẹle nikan nigbati o ba wulo tabi ti ofin ba nilo.",
+        "privacy6": "6. Aabo alaye",
+        "privacy6Text": "A n lo iṣọdi SSL ati awọn ibi ipamọ alaye alailewu lati ṣe abojuto alaye ti ara ẹni rẹ.",
+        "privacy7": "7. Awọn ẹtọ rẹ",
+        "privacy7a": "Wọle tabi pa alaye rẹ run",
+        "privacy7b": "Ṣe imudojuiwọn tabi ṣatunṣe alaye ti ara ẹni rẹ",
+        "privacy7c": "Yan lati kuro ninu awọn imeeli itanilẹni",
+        "privacy7Text": "Kan si wa ni",
+        "termsTitle": "📜 Awọn Ofin Iṣẹ",
+        "terms1": "1. Gbigba awọn ofin",
+        "terms1Text": "Nipa lilo oju opo wẹẹbu tabi awọn iṣẹ wa, o fọwọsi lati bá awọn Ofin Iṣẹ yi ṣe. Ti o ko ba gba, jọwọ ma ṣe lo ipo wa.",
+        "terms2": "2. Awọn iṣẹ ti a n pese",
+        "terms2Text": "Mikky Technology n pese agbekalẹ oju opo wẹẹbu, apẹrẹ oniṣẹ, branding, ṣiṣejade ọkọ ayọkẹlẹ ati ọkọ afẹfẹ lile, ati awọn iṣẹ ẹrọ ibatan.",
+        "terms3": "3. Awọn ojuse olumulo",
+        "terms3a": "Pese alaye ti o tọ ati otitọ",
+        "terms3b": "Ma ṣe gbiyanju lati fọwọsi, ṣe atunṣe ẹrọ, tabi lo awọn iṣẹ wa ni itara",
+        "terms4": "4. Awọn sisanwo",
+        "terms4Text": "Awọn sisanwo gbọdọ pari ni iṣaaju tabi bi a ti ṣe mọ. A gba yiyi banki ati awọn ọna sisanwo miiran ti a ti ṣayẹwo.",
+        "terms5": "5. Ọjà ti oye",
+        "terms5Text": "Gbogbo awọn ohun-ini didara, awọn apẹrẹ, ati awọn ọja wa ni ẹjẹ ti Mikky Technology ayafi ti a ba sọ ni kikọ.",
+        "terms6": "6. Ilana isanpada",
+        "terms6Text": "Nitori irisi awọn iṣẹ wa, a kii ṣe idaniloju isanpada ni kete ti iṣẹ bẹrẹ. Awọn iyapa yoo ṣe itọju lori ipilẹ ọkọọkan.",
+        "terms7": "7. Idaduro tabi pipari",
+        "terms7Text": "A ni ẹtọ lati da duro tabi pa awọn iroyun ti o ṣẹgun awọn ofin wa tabi ṣe iwa ibinu.",
+        "terms8": "8. Aini ojuse",
+        "terms8Text": "A kii ṣe ojuse fun awọn ibajẹ ti ko taara ti o wa lati idaduro iṣẹ, awọn idaduro, tabi awọn iṣe ti ẹgbẹ kẹta ti ko ni agbara wa.",
+        "terms9": "9. Awọn imudojuiwọn si adehun yi",
+        "terms9Text": "A le ṣe atunṣe ilana yi ni eyikeyi akoko. Ẹya tuntun yoo maa wa ni oju opo wẹẹbu wa nigbagbogbo.",
+        "contactTitle": "📬 Kan si Wa",
+        "contactEmail": "Imeeli:",
+        "contactEmailLink": "support@mikky-technology.vercel.app",
+        "contactPhone": "Foonu:",
+        "contactPhoneLink": "+234 708 303 4571",
+        "contactWebsite": "Oju opo wẹẹbu:",
+        "contactWebsiteLink": "www.mikky-technology.vercel.app"
+      }
+    };
+
+    // Language toggle functionality
+    document.getElementById('enBtn').addEventListener('click', () => setLanguage('en'));
+    document.getElementById('frBtn').addEventListener('click', () => setLanguage('fr'));
+    document.getElementById('esBtn').addEventListener('click', () => setLanguage('es'));
+    document.getElementById('yoBtn').addEventListener('click', () => setLanguage('yo'));
+
+    function setLanguage(lang) {
+      // Update active button
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`${lang}Btn`).classList.add('active');
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Update all placeholder attributes
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        if (translations[lang][key]) {
+          el.setAttribute('placeholder', translations[lang][key]);
+        }
+      });
+
+      // Update link texts while preserving href
+      document.querySelectorAll('a[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang][key]) {
+          el.textContent = translations[lang][key];
+        }
+      });
+
+      // Store language preference
+      localStorage.setItem('selectedLanguage', lang);
+    }
+
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang && translations[savedLang]) {
+      setLanguage(savedLang);
+    }
+  </script>
 
 </body>
 </html>

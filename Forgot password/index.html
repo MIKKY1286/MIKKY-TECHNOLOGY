@@ -10,26 +10,59 @@
     body {
       font-family: 'Segoe UI', sans-serif;
     }
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      display: flex;
+      gap: 5px;
+    }
+    .language-btn {
+      background: rgba(30, 97, 56, 0.2);
+      border: none;
+      color: #1e6138;
+      padding: 5px 10px;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-size: 0.8rem;
+    }
+    .language-btn:hover {
+      background: rgba(30, 97, 56, 0.3);
+    }
+    .language-btn.active {
+      background: rgba(30, 97, 56, 0.4);
+      font-weight: bold;
+    }
   </style>
 </head>
-<body class="min-h-screen bg-white flex items-center justify-center">
+<body class="min-h-screen bg-white flex items-center justify-center relative">
+
+  <!-- Language Toggle -->
+  <div class="language-toggle">
+    <button id="enBtn" class="language-btn active">EN</button>
+    <button id="frBtn" class="language-btn">FR</button>
+    <button id="esBtn" class="language-btn">ES</button>
+    <button id="yoBtn" class="language-btn">YO</button>
+  </div>
 
   <div class="w-full max-w-3xl grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-xl overflow-hidden">
     
     <!-- Left Side: Form -->
     <div class="bg-white p-10">
-      <h2 class="text-3xl font-bold text-[#1e6138] mb-4">Forgot Password</h2>
-      <p class="text-gray-600 mb-6">Enter your email and we’ll send you a link to reset your password.</p>
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-4" data-i18n="title">Forgot Password</h2>
+      <p class="text-gray-600 mb-6" data-i18n="subtitle">Enter your email and we'll send you a link to reset your password.</p>
       <form id="resetForm" class="space-y-6">
         <div>
-          <label for="email" class="block text-sm font-medium text-gray-700">Email Address</label>
+          <label for="email" class="block text-sm font-medium text-gray-700" data-i18n="emailLabel">Email Address</label>
           <input type="email" id="email" required
-            class="w-full px-4 py-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]" />
+            class="w-full px-4 py-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]"
+            data-i18n-placeholder="emailPlaceholder" />
         </div>
 
         <button type="submit"
           class="w-full bg-[#1e6138] hover:bg-green-800 text-white py-3 rounded-lg font-medium transition">
-          <span id="btnText">Send Reset Link</span>
+          <span id="btnText" data-i18n="buttonText">Send Reset Link</span>
           <span id="spinner" class="hidden ml-2 animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4 inline-block align-middle"></span>
         </button>
       </form>
@@ -41,20 +74,96 @@
     </div>
   </div>
 
+  <!-- Language Translation -->
+  <script>
+    const translations = {
+      en: {
+        "title": "Forgot Password",
+        "subtitle": "Enter your email and we'll send you a link to reset your password.",
+        "emailLabel": "Email Address",
+        "emailPlaceholder": "Enter your email",
+        "buttonText": "Send Reset Link",
+        "successMsg": "Password reset email sent. Check your inbox or spam folder.",
+        "errorMsg": "Error: Something went wrong. Please try again."
+      },
+      fr: {
+        "title": "Mot de passe oublié",
+        "subtitle": "Entrez votre email et nous vous enverrons un lien pour réinitialiser votre mot de passe.",
+        "emailLabel": "Adresse email",
+        "emailPlaceholder": "Entrez votre email",
+        "buttonText": "Envoyer le lien",
+        "successMsg": "Email de réinitialisation envoyé. Vérifiez votre boîte de réception ou vos spams.",
+        "errorMsg": "Erreur : Quelque chose s'est mal passé. Veuillez réessayer."
+      },
+      es: {
+        "title": "Olvidé mi contraseña",
+        "subtitle": "Ingresa tu correo electrónico y te enviaremos un enlace para restablecer tu contraseña.",
+        "emailLabel": "Correo electrónico",
+        "emailPlaceholder": "Ingresa tu correo",
+        "buttonText": "Enviar enlace",
+        "successMsg": "Correo de restablecimiento enviado. Revisa tu bandeja de entrada o spam.",
+        "errorMsg": "Error: Algo salió mal. Por favor inténtalo de nuevo."
+      },
+      yo: {
+        "title": "Gbagbé ọrọ igbaniwọle",
+        "subtitle": "Tẹ imeeli rẹ sii, a o si firanṣẹ ọna asopọ lati tunto ọrọ igbaniwọle rẹ.",
+        "emailLabel": "Adirẹsi imeeli",
+        "emailPlaceholder": "Tẹ imeeli rẹ sii",
+        "buttonText": "Firanṣẹ ọna asopọ",
+        "successMsg": "A ti firanṣẹ imeeli tunto ọrọ igbaniwọle. Ṣayẹwo apoti imeeli rẹ tabi spam.",
+        "errorMsg": "Àṣìṣe: Nkan kan ṣẹlẹ. Jọ̀wọ gbiyanju lẹẹkansi."
+      }
+    };
+
+    // Language toggle functionality
+    document.getElementById('enBtn').addEventListener('click', () => setLanguage('en'));
+    document.getElementById('frBtn').addEventListener('click', () => setLanguage('fr'));
+    document.getElementById('esBtn').addEventListener('click', () => setLanguage('es'));
+    document.getElementById('yoBtn').addEventListener('click', () => setLanguage('yo'));
+
+    function setLanguage(lang) {
+      // Update active button
+      document.querySelectorAll('.language-btn').forEach(btn => {
+        btn.classList.remove('active');
+      });
+      document.getElementById(`${lang}Btn`).classList.add('active');
+
+      // Update all elements with data-i18n attribute
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        el.textContent = translations[lang][key];
+      });
+
+      // Update all placeholder attributes
+      document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+        const key = el.getAttribute('data-i18n-placeholder');
+        el.setAttribute('placeholder', translations[lang][key]);
+      });
+
+      // Store language preference
+      localStorage.setItem('preferredLanguage', lang);
+    }
+
+    // Check for saved language preference
+    const savedLang = localStorage.getItem('preferredLanguage');
+    if (savedLang && translations[savedLang]) {
+      setLanguage(savedLang);
+    }
+  </script>
+
   <!-- Firebase Integration -->
   <script type="module">
     import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
     import { getAuth, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
 
-const firebaseConfig = {
-    apiKey: "AIzaSyAnBeGBOxVzhDshIzhLB4KcdX0WOAnOJs8",
-    authDomain: "mikky-technology.firebaseapp.com",
-    projectId: "mikky-technology",
-    storageBucket: "mikky-technology.appspot.com",
-    messagingSenderId: "266074640983",
-    appId: "1:266074640983:web:33e0332c34bb5adecc4912",
-    measurementId: "G-Y2S287D0P9"
-};
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
 
     const app = initializeApp(firebaseConfig);
     const auth = getAuth(app);
@@ -67,18 +176,26 @@ const firebaseConfig = {
       e.preventDefault();
       const email = document.getElementById("email").value.trim();
 
-      btnText.textContent = "Sending...";
+      // Get current language for messages
+      const currentLang = localStorage.getItem('preferredLanguage') || 'en';
+      const messages = translations[currentLang];
+
+      btnText.textContent = currentLang === 'en' ? "Sending..." : 
+                          currentLang === 'fr' ? "Envoi en cours..." :
+                          currentLang === 'es' ? "Enviando..." : "Ṣiṣe firanṣẹ...";
       spinner.classList.remove("hidden");
 
       try {
         await sendPasswordResetEmail(auth, email);
-        alert("Password reset email sent. Check your inbox or spam folder.");
+        alert(messages.successMsg);
         form.reset();
       } catch (error) {
-        alert("Error: " + error.message);
+        alert(messages.errorMsg);
       }
 
-      btnText.textContent = "Send Reset Link";
+      localStorage.setItem('selectedLanguage', lang);
+
+      btnText.textContent = messages.buttonText;
       spinner.classList.add("hidden");
     });
   </script>

@@ -6,52 +6,71 @@
   <title>About Us - Mikky Technology</title>
   <script src="https://cdn.tailwindcss.com"></script> 
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
-  <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
 
   <style>
+    html, body {
+      overflow-x: hidden;
+    }
 
-html, body {
-  overflow-x: hidden;
-}
-
-
-@keyframes fade-in-up {
-  0% {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fade-in-down {
-  0% {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-.animate-fade-in-up {
-  animation: fade-in-up 0.8s ease-out forwards;
-}
-.animate-fade-in-down {
-  animation: fade-in-down 0.8s ease-out forwards;
-}
-.animate-fade-in {
-  animation: fade-in 1s ease-in forwards;
-}
-</style>
-
+    @keyframes fade-in-up {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fade-in-down {
+      0% {
+        opacity: 0;
+        transform: translateY(-20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fade-in {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .animate-fade-in-up {
+      animation: fade-in-up 0.8s ease-out forwards;
+    }
+    .animate-fade-in-down {
+      animation: fade-in-down 0.8s ease-out forwards;
+    }
+    .animate-fade-in {
+      animation: fade-in 1s ease-in forwards;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background-color: white;
+      min-width: 120px;
+      box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+      z-index: 100;
+      border-radius: 4px;
+    }
+    .language-dropdown a {
+      color: black;
+      padding: 8px 16px;
+      text-decoration: none;
+      display: block;
+    }
+    .language-dropdown a:hover {
+      background-color: #f1f1f1;
+    }
+    .language-toggle:hover .language-dropdown {
+      display: block;
+    }
+  </style>
 </head>
 <body>
 
@@ -68,21 +87,35 @@ html, body {
     <!-- Desktop Navigation -->
     <ul id="nav-links" class="hidden md:flex items-center space-x-6 text-white font-medium">
       <li class="relative">
-        <a id="aboutToggle" class="hover:text-green focus:outline-none flex items-center   gap-1 text-white cursor-pointer">
-         About us
+        <a id="aboutToggle" class="hover:text-green focus:outline-none flex items-center gap-1 text-white cursor-pointer">
+         <span data-translate="about">About us</span>
          <i class='bx bx-chevron-down text-lg'></i>
         </a>
             <div id="aboutDropdown" class="absolute left-0 top-full mt-2 w-48 bg-white/90 rounded shadow-md z-50 hidden transition duration-200">
-            <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200  text-black">Mission</a>
-            <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
-            <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+            <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black" data-translate="mission">Mission</a>
+            <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black" data-translate="values">Values</a>
+            <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black" data-translate="accomplishment">Accomplishment</a>
           </div>
       </li>
-      <li><a href="../our service/index.html" class="hover:text-green-400">Our Services</a></li>
-      <li><a href="../locate us/index.html" class="hover:text-green-400">Location</a></li>
+      <li><a href="../our service/index.html" class="hover:text-green-400" data-translate="services">Our Services</a></li>
+      <li><a href="../locate us/index.html" class="hover:text-green-400" data-translate="location">Location</a></li>
       <li><a>|</a></li>
-      <li><a href="../signup page/index.html" class="hover:text-green-400">Sign up</a></li>
-      <li><a href="../login page/index.html" class="hover:text-green-400">Log in</a></li>
+      <li><a href="../signup page/index.html" class="hover:text-green-400" data-translate="signup">Sign up</a></li>
+      <li><a href="../login page/index.html" class="hover:text-green-400" data-translate="login">Log in</a></li>
+      <!-- Language Toggle -->
+      <li class="relative language-toggle">
+        <a class="hover:text-green-400 flex items-center cursor-pointer">
+          <i class='bx bx-globe mr-1'></i>
+          <span id="current-language" data-translate="language">English</span>
+          <i class='bx bx-chevron-down ml-1'></i>
+        </a>
+        <div class="language-dropdown">
+          <a href="#" data-lang="en" class="language-option">English</a>
+          <a href="#" data-lang="fr" class="language-option">Français</a>
+          <a href="#" data-lang="es" class="language-option">Español</a>
+          <a href="#" data-lang="yo" class="language-option">Yorùbá</a>
+        </div>
+      </li>
     </ul>
     <!-- Mobile Menu Icon -->
     <div id="menu-icon" class="text-green-400 text-3xl md:hidden cursor-pointer">
@@ -92,17 +125,29 @@ html, body {
   <!-- Mobile Navigation -->
   <ul id="mobile-nav" class="hidden flex-col bg-white/90 px-6 py-4 space-y-3 md:hidden">
     <li class="relative group">
-        <a href="#" class="block text-sm text-black hover:text-green-600">About us</a>
+        <a href="#" class="block text-sm text-black hover:text-green-600" data-translate="about">About us</a>
         <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
-          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black">Mission</a>
-          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black">Values</a>
-          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black">Accomplishment</a>
+          <a href="../about us/index.html#Our Mission" class="block px-4 py-2 hover:bg-gray-200 text-black" data-translate="mission">Mission</a>
+          <a href="../about us/index.html#values" class="block px-4 py-2 hover:bg-gray-200 text-black" data-translate="values">Values</a>
+          <a href="../about us/index.html#achivement" class="block px-4 py-2 hover:bg-gray-200 text-black" data-translate="accomplishment">Accomplishment</a>
         </div>
       </li>
-    <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html">Our Services</a></li>
-    <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html">Location</a></li>
-    <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html">Sign up</a></li>
-    <li><a class="block text-sm text-black hover:text-green-600" href="../login page/index.html">Log in</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../our service/index.html" data-translate="services">Our Services</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../locate us/index.html" data-translate="location">Location</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html" data-translate="signup">Sign up</a></li>
+    <li><a class="block text-sm text-black hover:text-green-600" href="../login page/index.html" data-translate="login">Log in</a></li>
+    <!-- Mobile Language Toggle -->
+    <li class="pt-2">
+      <div class="flex items-center space-x-2">
+        <span class="text-sm text-black" data-translate="select_language">Select Language:</span>
+        <select id="mobile-language-select" class="text-sm border rounded p-1">
+          <option value="en" data-translate="english">English</option>
+          <option value="fr" data-translate="french">Français</option>
+          <option value="es" data-translate="spanish">Español</option>
+          <option value="yo" data-translate="yoruba">Yorùbá</option>
+        </select>
+      </div>
+    </li>
   </ul>
 </nav>
 
@@ -112,11 +157,11 @@ html, body {
 
   <!-- Content -->
   <div class="relative z-10 flex flex-col justify-center items-center h-full text-center px-4">
-    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg">About Us</h1>
-    <p class="mt-4 text-lg md:text-xl text-green-200 max-w-2xl drop-shadow">
+    <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight drop-shadow-lg" data-translate="about_title">About Us</h1>
+    <p class="mt-4 text-lg md:text-xl text-green-200 max-w-2xl drop-shadow" data-translate="about_subtitle">
       Your trusted partner in web development and digital solutions.
     </p>
-    <a href="./index.html#Our-Mission" class="mt-6 px-6 py-3 bg-green-600 text-white rounded-full text-sm font-semibold hover:bg-green-700 transition duration-300">
+    <a href="./index.html#Our-Mission" class="mt-6 px-6 py-3 bg-green-600 text-white rounded-full text-sm font-semibold hover:bg-green-700 transition duration-300" data-translate="learn_more">
       Learn More
     </a>
   </div>
@@ -129,8 +174,8 @@ html, body {
 
    <section id="Our-Mission" class="bg-gray-50 py-20 px-4 md:px-10 lg:px-20">
   <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-4xl font-extrabold text-green-700 mb-4">Our Mission</h2>
-    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10">
+    <h2 class="text-4xl font-extrabold text-green-700 mb-4" data-translate="mission_title">Our Mission</h2>
+    <p class="text-lg text-gray-600 max-w-3xl mx-auto mb-10" data-translate="mission_text">
       At Mikky Technology, our mission is to empower businesses with cutting-edge digital solutions that elevate their presence and accelerate growth.
       We are committed to blending innovation, creativity, and technical expertise to deliver results that matter.
     </p>
@@ -140,29 +185,27 @@ html, body {
       <div class="flex items-start gap-4 group hover:bg-green-50 p-4 rounded-lg transition">
         <i class='bx bx-code-alt text-3xl text-green-600'></i>
         <div>
-          <h3 class="text-lg font-semibold text-green-700">Digital Empowerment</h3>
-          <p class="text-gray-600">Delivering tools and platforms to help clients succeed online.</p>
+          <h3 class="text-lg font-semibold text-green-700" data-translate="mission_point1">Digital Empowerment</h3>
+          <p class="text-gray-600" data-translate="mission_desc1">Delivering tools and platforms to help clients succeed online.</p>
         </div>
       </div>
       <div class="flex items-start gap-4 group hover:bg-green-50 p-4 rounded-lg transition">
         <i class='bx bx-rocket text-3xl text-green-600'></i>
         <div>
-          <h3 class="text-lg font-semibold text-green-700">Growth Acceleration</h3>
-          <p class="text-gray-600">Helping businesses grow through strategic and smart web technology.</p>
+          <h3 class="text-lg font-semibold text-green-700" data-translate="mission_point2">Growth Acceleration</h3>
+          <p class="text-gray-600" data-translate="mission_desc2">Helping businesses grow through strategic and smart web technology.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
 <!-- value section -->
 
     <section class="bg-white py-20 px-4 md:px-10 lg:px-20" id="values">
   <div class="max-w-5xl mx-auto text-center">
-    <h2 class="text-4xl font-extrabold text-green-700 mb-4">Our Values</h2>
-    <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto">
+    <h2 class="text-4xl font-extrabold text-green-700 mb-4" data-translate="values_title">Our Values</h2>
+    <p class="text-lg text-gray-600 mb-12 max-w-2xl mx-auto" data-translate="values_text">
       At Mikky Technology, our values guide every project, partnership, and product we create.
     </p>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-8 text-left">
@@ -170,8 +213,8 @@ html, body {
       <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
         <i class='bx bx-bulb text-green-600 text-4xl'></i>
         <div>
-          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Innovation</h3>
-          <p class="text-gray-600">We embrace new technologies to deliver smart, creative, and effective digital solutions.</p>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline" data-translate="value1_title">Innovation</h3>
+          <p class="text-gray-600" data-translate="value1_desc">We embrace new technologies to deliver smart, creative, and effective digital solutions.</p>
         </div>
       </div>
 
@@ -179,8 +222,8 @@ html, body {
       <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
         <i class='bx bx-shield-alt-2 text-green-600 text-4xl'></i>
         <div>
-          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Integrity</h3>
-          <p class="text-gray-600">Trust is built through transparency and honest collaboration in everything we do.</p>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline" data-translate="value2_title">Integrity</h3>
+          <p class="text-gray-600" data-translate="value2_desc">Trust is built through transparency and honest collaboration in everything we do.</p>
         </div>
       </div>
 
@@ -188,8 +231,8 @@ html, body {
       <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
         <i class='bx bx-medal text-green-600 text-4xl'></i>
         <div>
-          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Excellence</h3>
-          <p class="text-gray-600">We aim for exceptional results by maintaining high standards and attention to detail.</p>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline" data-translate="value3_title">Excellence</h3>
+          <p class="text-gray-600" data-translate="value3_desc">We aim for exceptional results by maintaining high standards and attention to detail.</p>
         </div>
       </div>
 
@@ -197,20 +240,19 @@ html, body {
       <div class="flex items-start gap-4 group hover:bg-green-50 transition rounded-lg p-4">
         <i class='bx bx-user-circle text-green-600 text-4xl'></i>
         <div>
-          <h3 class="text-xl font-semibold text-green-700 group-hover:underline">Customer Focus</h3>
-          <p class="text-gray-600">Your needs come first — we tailor every solution to deliver satisfaction and results.</p>
+          <h3 class="text-xl font-semibold text-green-700 group-hover:underline" data-translate="value4_title">Customer Focus</h3>
+          <p class="text-gray-600" data-translate="value4_desc">Your needs come first — we tailor every solution to deliver satisfaction and results.</p>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
 <!-- ceo section -->
 
   <section id="ceo" class="bg-gradient-to-br from-green-50 to-white py-20 px-6 md:px-16 lg:px-28">
   <div class="max-w-6xl mx-auto">
-    <h2 class="text-4xl font-extrabold text-green-700 text-center mb-12">
+    <h2 class="text-4xl font-extrabold text-green-700 text-center mb-12" data-translate="ceo_title">
       Meet Our CEO
     </h2>
 
@@ -224,38 +266,36 @@ html, body {
 
       <!-- CEO Text Content -->
       <div class="text-gray-700 text-lg leading-relaxed space-y-5">
-        <p>
+        <p data-translate="ceo_text1">
           <strong class="text-green-700">Michael Ayodeji Oliyide</strong> is the visionary founder and CEO of
           <span class="font-semibold text-black">Mikky Technology</span>. He is a skilled web developer and digital
           solutions expert with a passion for turning ideas into scalable realities.
         </p>
-        <p>
+        <p data-translate="ceo_text2">
           Michael began his academic journey at <strong>Deril Academy</strong> in Ibadan, Oyo State. He 
-          expanded his skills at <strong>SQI - College of ICT</strong> and is currently expanding his journeyat <strong>Lead City University</strong>, Ibadan where he continues to grow his technical and leadership capabilities.
+          expanded his skills at <strong>SQI - College of ICT</strong> and is currently expanding his journey at <strong>Lead City University</strong>, Ibadan where he continues to grow his technical and leadership capabilities.
         </p>
-        <p>
-          His innovative mindset, dedication to excellence, and strong vision drive Mikky Technology’s success in providing
+        <p data-translate="ceo_text3">
+          His innovative mindset, dedication to excellence, and strong vision drive Mikky Technology's success in providing
           cutting-edge digital services for individuals, startups, and organizations.
         </p>
 
         <!-- Optional quote -->
-        <div class="mt-4 italic text-green-900 font-medium">
-          “Technology should empower, not complicate — let’s build smarter.”
+        <div class="mt-4 italic text-green-900 font-medium" data-translate="ceo_quote">
+          "Technology should empower, not complicate — let's build smarter."
         </div>
       </div>
     </div>
   </div>
 </section>
 
-
-
-  <!-- project section -->
+<!-- project section -->
 
   <section class="mb-0 projects-section py-16 bg-gray-50" id="achivement">
   <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-green-700 mb-4 text-center" data-aos="fade-down">Our Accomplished Projects</h2>
-    <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up">
-      We’ve successfully delivered a variety of digital solutions. Below are a few project highlights:
+    <h2 class="text-3xl font-bold text-green-700 mb-4 text-center" data-aos="fade-down" data-translate="projects_title">Our Accomplished Projects</h2>
+    <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-translate="projects_text">
+      We've successfully delivered a variety of digital solutions. Below are a few project highlights:
     </p>
 
     <!-- Project Cards -->
@@ -266,13 +306,13 @@ html, body {
         <img src="../images/y-combinator.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
         <div class="mt-4 md:mt-0 md:w-2/3">
           <h3 class="text-2xl font-semibold text-green-800">Y-COMBINATOR</h3>
-          <p class="text-gray-700 mt-2">
+          <p class="text-gray-700 mt-2" data-translate="project1_desc">
             A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.
           </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> HTML, CSS, Git</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML5, CSS3, JS, React.js<br>
-            <strong>Back-End:</strong> Node.js, MongoDB</p>
-          <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
+          <p class="text-sm text-gray-600 mt-2"><strong data-translate="tools">Tools:</strong> HTML, CSS, Git</p>
+          <p class="text-sm text-gray-600"><strong data-translate="frontend">Front-End:</strong> HTML5, CSS3, JS, React.js<br>
+            <strong data-translate="backend">Back-End:</strong> Node.js, MongoDB</p>
+          <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="view_project">View Project</a>
         </div>
       </div>
 
@@ -281,13 +321,13 @@ html, body {
         <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
         <div class="mt-4 md:mt-0 md:w-2/3">
           <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
-          <p class="text-gray-700 mt-2">
+          <p class="text-gray-700 mt-2" data-translate="project2_desc">
             A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
           </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
+          <p class="text-sm text-gray-600 mt-2"><strong data-translate="tools">Tools:</strong> Adobe XD, GitHub Actions</p>
+          <p class="text-sm text-gray-600"><strong data-translate="frontend">Front-End:</strong> HTML, CSS, JS<br>
+            <strong data-translate="backend">Back-End:</strong> PHP, MySQL</p>
+          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="view_project">View Project</a>
         </div>
       </div>
 
@@ -296,13 +336,13 @@ html, body {
         <img src="../images/sqi.png" alt="SQI College Clone" class="w-full md:w-1/3 rounded shadow-md">
         <div class="mt-4 md:mt-0 md:w-2/3">
           <h3 class="text-2xl font-semibold text-green-800">SQI-COLLEGE OF ICT CLONE</h3>
-          <p class="text-gray-700 mt-2">
-            A functional replica of the SQI College website to explain the institution’s ICT offerings.
+          <p class="text-gray-700 mt-2" data-translate="project3_desc">
+            A functional replica of the SQI College website to explain the institution's ICT offerings.
           </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://sqi-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
+          <p class="text-sm text-gray-600 mt-2"><strong data-translate="tools">Tools:</strong> Adobe XD, GitHub Actions</p>
+          <p class="text-sm text-gray-600"><strong data-translate="frontend">Front-End:</strong> HTML, CSS, JS<br>
+            <strong data-translate="backend">Back-End:</strong> PHP, MySQL</p>
+          <a href="https://sqi-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="view_project">View Project</a>
         </div>
       </div>
 
@@ -310,7 +350,7 @@ html, body {
 
     <!-- More Projects Button -->
     <div class="text-center mt-12" data-aos="zoom-in">
-      <a href="./project.html" class="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition">View More Projects</a>
+      <a href="./project.html" class="bg-green-700 text-white px-6 py-3 rounded-lg hover:bg-green-800 transition" data-translate="view_more">View More Projects</a>
     </div>
   </div>
 </section>
@@ -325,10 +365,10 @@ html, body {
   </div>
 
   <div class="relative z-10 max-w-5xl mx-auto px-6 text-center">
-    <h2 class="text-4xl font-extrabold text-green-800 mb-4 tracking-tight" data-aos="fade-down">
-      Let’s Build Something Great Together
+    <h2 class="text-4xl font-extrabold text-green-800 mb-4 tracking-tight" data-aos="fade-down" data-translate="contact_title">
+      Let's Build Something Great Together
     </h2>
-    <p class="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-8" data-aos="fade-up">
+    <p class="text-gray-700 text-lg md:text-xl max-w-3xl mx-auto mb-8" data-aos="fade-up" data-translate="contact_text">
       We're ready to turn your ideas into reality. Whether it's a website, brand identity, or a tech solution — let's talk!
     </p>
 
@@ -336,13 +376,13 @@ html, body {
     <div class="flex flex-col sm:flex-row justify-center items-center gap-6 mt-8">
       <a href="https://wa.me/2347083034571"
          class="inline-flex items-center gap-3 bg-green-700 text-white px-6 py-3 rounded-full text-lg font-medium shadow-lg hover:bg-green-800 transition"
-         data-aos="zoom-in">
+         data-aos="zoom-in" data-translate="whatsapp">
         <i class='bx bxl-whatsapp text-2xl'></i> WhatsApp Us
       </a>
 
       <a href="mailto:mikkytechnology86@gmail.com"
          class="inline-flex items-center gap-3 bg-white border-2 border-green-700 text-green-700 px-6 py-3 rounded-full text-lg font-medium hover:bg-green-700 hover:text-white transition"
-         data-aos="zoom-in" data-aos-delay="100">
+         data-aos="zoom-in" data-aos-delay="100" data-translate="email">
         <i class='bx bx-envelope text-2xl'></i> Email Us
       </a>
     </div>
@@ -362,62 +402,62 @@ html, body {
     </div>
     <!-- Company -->
     <div>
-      <h4 class="text-green-600 text-sm font-semibold mb-4">Company</h4>
+      <h4 class="text-green-600 text-sm font-semibold mb-4" data-translate="company">Company</h4>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-green-600">For the Record</a></li>
-        <li><a href="#" class="hover:text-green-600">Careers</a></li>
-        <li><a href="./about us/index.html" class="hover:text-green-600">About</a></li>
-        <li><a href="#" class="hover:text-green-600">Press</a></li>
-        <li><a href="#" class="hover:text-green-600">Blog</a></li>
-        <li><a href="#" class="hover:text-green-600">Jobs</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="for_record">For the Record</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="careers">Careers</a></li>
+        <li><a href="./about us/index.html" class="hover:text-green-600" data-translate="about">About</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="press">Press</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="blog">Blog</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="jobs">Jobs</a></li>
       </ul>
     </div>
     <!-- Communities -->
     <div>
-      <h4 class="text-green-600 text-sm font-semibold mb-4">Communities</h4>
+      <h4 class="text-green-600 text-sm font-semibold mb-4" data-translate="communities">Communities</h4>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-green-600">Advertising</a></li>
-        <li><a href="#" class="hover:text-green-600">Developers</a></li>
-        <li><a href="#" class="hover:text-green-600">For Artists</a></li>
-        <li><a href="#" class="hover:text-green-600">Investors</a></li>
-        <li><a href="#" class="hover:text-green-600">Partners</a></li>
-        <li><a href="#" class="hover:text-green-600">Vendors</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="advertising">Advertising</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="developers">Developers</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="artists">For Artists</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="investors">Investors</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="partners">Partners</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="vendors">Vendors</a></li>
       </ul>
     </div>
     <!-- Useful Links -->
     <div>
-      <h4 class="text-green-600 text-sm font-semibold mb-4">Useful Links</h4>
+      <h4 class="text-green-600 text-sm font-semibold mb-4" data-translate="useful_links">Useful Links</h4>
       <ul class="space-y-2 text-sm">
-        <li><a href="#" class="hover:text-green-600">Free Mobile App</a></li>
-        <li><a href="#" class="hover:text-green-600">Web Player</a></li>
-        <li><a href="#" class="hover:text-green-600">Support</a></li>
-        <li><a href="#" class="hover:text-green-600">Contact</a></li>
-        <li><a href="#" class="hover:text-green-600">Privacy</a></li>
-        <li><a href="#" class="hover:text-green-600">Terms</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="mobile_app">Free Mobile App</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="web_player">Web Player</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="support">Support</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="contact">Contact</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="privacy">Privacy</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="terms">Terms</a></li>
       </ul>
     </div>
   </div>
   <!-- Row 2 -->
   <div class="max-w-7xl mx-auto px-6 py-8 grid grid-cols-2 md:grid-cols-3 gap-8 text-center border-b border-gray-300">
     <div>
-      <h5 class="text-green-600 font-medium mb-3">Explore</h5>
+      <h5 class="text-green-600 font-medium mb-3" data-translate="explore">Explore</h5>
       <ul class="space-y-1 text-sm">
-        <li><a href="./about us/index.html" class="hover:text-green-600">About Us</a></li>
-        <li><a href="./locate us/index.html" class="hover:text-green-600">Location</a></li>
-        <li><a href="../support us-page/index.html" class="hover:text-green-600">Support</a></li>
-        <li><a href="./about us/#achivement" class="hover:text-green-600">Achievement</a></li>
+        <li><a href="./about us/index.html" class="hover:text-green-600" data-translate="about_us">About Us</a></li>
+        <li><a href="./locate us/index.html" class="hover:text-green-600" data-translate="location">Location</a></li>
+        <li><a href="../support us-page/index.html" class="hover:text-green-600" data-translate="support">Support</a></li>
+        <li><a href="./about us/#achivement" class="hover:text-green-600" data-translate="achievement">Achievement</a></li>
       </ul>
     </div>
     <div>
-      <h5 class="text-green-600 font-medium mb-3">Quick Access</h5>
+      <h5 class="text-green-600 font-medium mb-3" data-translate="quick_access">Quick Access</h5>
       <ul class="space-y-1 text-sm">
-        <li><a href="#" class="hover:text-green-600">Dashboard</a></li>
-        <li><a href="#" class="hover:text-green-600">Sign In</a></li>
-        <li><a href="#" class="hover:text-green-600">Register</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="dashboard">Dashboard</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="sign_in">Sign In</a></li>
+        <li><a href="#" class="hover:text-green-600" data-translate="register">Register</a></li>
       </ul>
     </div>
     <div class="flex flex-col items-center justify-center gap-3">
-      <h5 class="text-green-600 font-medium">Follow Us</h5>
+      <h5 class="text-green-600 font-medium" data-translate="follow_us">Follow Us</h5>
       <div class="flex gap-5 text-2xl">
         <a href="https://web.facebook.com/profile.php?viewas=100000686899395&id=100072977906546" class="hover:text-blue-700"><i class='bx bxl-facebook'></i></a>
         <a href="https://x.com/Mikky200786?t=BG3qbaXWrC7ACfmRbCziTw&s=09" class="hover:text-gray-700"><i class='bx bxl-twitter'></i></a>
@@ -428,15 +468,476 @@ html, body {
   </div>
   <!-- Row 3 -->
   <div class="max-w-7xl mx-auto px-6 py-6 flex flex-col md:flex-row justify-between text-sm text-gray-500 text-center md:text-left">
-    <p>&copy; 2025 Mikky Technology. All rights reserved.</p>
+    <p data-translate="copyright">&copy; 2025 Mikky Technology. All rights reserved.</p>
     <ul class="flex justify-center md:justify-end gap-6 mt-2 md:mt-0">
-      <li><a href="../privacy-and-terms/privacy-and-terms.html" class="hover:text-green-600">Privacy Policy</a></li> 
-      <li><a href="#" class="hover:text-green-600">Terms of Service</a></li>
-      <li><a href="#" class="hover:text-green-600">Cookies</a></li>
+      <li><a href="../privacy-and-terms/privacy-and-terms.html" class="hover:text-green-600" data-translate="privacy_policy">Privacy Policy</a></li> 
+      <li><a href="#" class="hover:text-green-600" data-translate="terms_service">Terms of Service</a></li>
+      <li><a href="#" class="hover:text-green-600" data-translate="cookies">Cookies</a></li>
     </ul>
   </div>
 </footer>
 
+<script>
+  // Translation dictionary
+  const translations = {
+    en: {
+      // Navbar
+      "about": "About us",
+      "mission": "Mission",
+      "values": "Values",
+      "accomplishment": "Accomplishment",
+      "services": "Our Services",
+      "location": "Location",
+      "signup": "Sign up",
+      "login": "Log in",
+      "language": "English",
+      "select_language": "Select Language:",
+      "english": "English",
+      "french": "French",
+      "spanish": "Spanish",
+      "yoruba": "Yoruba",
+      
+      // Header
+      "about_title": "About Us",
+      "about_subtitle": "Your trusted partner in web development and digital solutions.",
+      "learn_more": "Learn More",
+      
+      // Mission section
+      "mission_title": "Our Mission",
+      "mission_text": "At Mikky Technology, our mission is to empower businesses with cutting-edge digital solutions that elevate their presence and accelerate growth. We are committed to blending innovation, creativity, and technical expertise to deliver results that matter.",
+      "mission_point1": "Digital Empowerment",
+      "mission_desc1": "Delivering tools and platforms to help clients succeed online.",
+      "mission_point2": "Growth Acceleration",
+      "mission_desc2": "Helping businesses grow through strategic and smart web technology.",
+      
+      // Values section
+      "values_title": "Our Values",
+      "values_text": "At Mikky Technology, our values guide every project, partnership, and product we create.",
+      "value1_title": "Innovation",
+      "value1_desc": "We embrace new technologies to deliver smart, creative, and effective digital solutions.",
+      "value2_title": "Integrity",
+      "value2_desc": "Trust is built through transparency and honest collaboration in everything we do.",
+      "value3_title": "Excellence",
+      "value3_desc": "We aim for exceptional results by maintaining high standards and attention to detail.",
+      "value4_title": "Customer Focus",
+      "value4_desc": "Your needs come first — we tailor every solution to deliver satisfaction and results.",
+      
+      // CEO section
+      "ceo_title": "Meet Our CEO",
+      "ceo_text1": "<strong>Michael Ayodeji Oliyide</strong> is the visionary founder and CEO of <strong>Mikky Technology</strong>. He is a skilled web developer and digital solutions expert with a passion for turning ideas into scalable realities.",
+      "ceo_text2": "Michael began his academic journey at <strong>Deril Academy</strong> in Ibadan, Oyo State. He expanded his skills at <strong>SQI - College of ICT</strong> and is currently expanding his journey at <strong>Lead City University</strong>, Ibadan where he continues to grow his technical and leadership capabilities.",
+      "ceo_text3": "His innovative mindset, dedication to excellence, and strong vision drive Mikky Technology's success in providing cutting-edge digital services for individuals, startups, and organizations.",
+      "ceo_quote": "\"Technology should empower, not complicate — let's build smarter.\"",
+      
+      // Projects section
+      "projects_title": "Our Accomplished Projects",
+      "projects_text": "We've successfully delivered a variety of digital solutions. Below are a few project highlights:",
+      "project1_desc": "A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.",
+      "project2_desc": "A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.",
+      "project3_desc": "A functional replica of the SQI College website to explain the institution's ICT offerings.",
+      "tools": "Tools:",
+      "frontend": "Front-End:",
+      "backend": "Back-End:",
+      "view_project": "View Project",
+      "view_more": "View More Projects",
+      
+      // Contact section
+      "contact_title": "Let's Build Something Great Together",
+      "contact_text": "We're ready to turn your ideas into reality. Whether it's a website, brand identity, or a tech solution — let's talk!",
+      "whatsapp": "WhatsApp Us",
+      "email": "Email Us",
+      
+      // Footer
+      "company": "Company",
+      "for_record": "For the Record",
+      "careers": "Careers",
+      "about": "About",
+      "press": "Press",
+      "blog": "Blog",
+      "jobs": "Jobs",
+      "communities": "Communities",
+      "advertising": "Advertising",
+      "developers": "Developers",
+      "artists": "For Artists",
+      "investors": "Investors",
+      "partners": "Partners",
+      "vendors": "Vendors",
+      "useful_links": "Useful Links",
+      "mobile_app": "Free Mobile App",
+      "web_player": "Web Player",
+      "support": "Support",
+      "contact": "Contact",
+      "privacy": "Privacy",
+      "terms": "Terms",
+      "explore": "Explore",
+      "about_us": "About Us",
+      "quick_access": "Quick Access",
+      "dashboard": "Dashboard",
+      "sign_in": "Sign In",
+      "register": "Register",
+      "achievement": "Achievement",
+      "follow_us": "Follow Us",
+      "copyright": "© 2025 Mikky Technology. All rights reserved.",
+      "privacy_policy": "Privacy Policy",
+      "terms_service": "Terms of Service",
+      "cookies": "Cookies"
+    },
+    fr: {
+      // Navbar
+      "about": "À propos",
+      "mission": "Mission",
+      "values": "Valeurs",
+      "accomplishment": "Réalisations",
+      "services": "Nos Services",
+      "location": "Emplacement",
+      "signup": "S'inscrire",
+      "login": "Connexion",
+      "language": "Français",
+      "select_language": "Choisir la langue:",
+      "english": "Anglais",
+      "french": "Français",
+      "spanish": "Espagnol",
+      "yoruba": "Yoruba",
+      
+      // Header
+      "about_title": "À propos de nous",
+      "about_subtitle": "Votre partenaire de confiance en développement web et solutions numériques.",
+      "learn_more": "En savoir plus",
+      
+      // Mission section
+      "mission_title": "Notre Mission",
+      "mission_text": "Chez Mikky Technology, notre mission est d'autonomiser les entreprises avec des solutions numériques de pointe qui améliorent leur présence et accélèrent leur croissance. Nous nous engageons à combiner innovation, créativité et expertise technique pour fournir des résultats qui comptent.",
+      "mission_point1": "Autonomisation numérique",
+      "mission_desc1": "Fournir des outils et des plateformes pour aider les clients à réussir en ligne.",
+      "mission_point2": "Accélération de la croissance",
+      "mission_desc2": "Aider les entreprises à se développer grâce à une technologie web stratégique et intelligente.",
+      
+      // Values section
+      "values_title": "Nos Valeurs",
+      "values_text": "Chez Mikky Technology, nos valeurs guident chaque projet, partenariat et produit que nous créons.",
+      "value1_title": "Innovation",
+      "value1_desc": "Nous adoptons les nouvelles technologies pour fournir des solutions numériques intelligentes, créatives et efficaces.",
+      "value2_title": "Intégrité",
+      "value2_desc": "La confiance se construit par la transparence et une collaboration honnête dans tout ce que nous faisons.",
+      "value3_title": "Excellence",
+      "value3_desc": "Nous visons des résultats exceptionnels en maintenant des normes élevées et une attention aux détails.",
+      "value4_title": "Orientation client",
+      "value4_desc": "Vos besoins passent en premier — nous adaptons chaque solution pour fournir satisfaction et résultats.",
+      
+      // CEO section
+      "ceo_title": "Rencontrez notre PDG",
+      "ceo_text1": "<strong>Michael Ayodeji Oliyide</strong> est le fondateur visionnaire et PDG de <strong>Mikky Technology</strong>. C'est un développeur web qualifié et un expert en solutions numériques passionné par la transformation des idées en réalités évolutives.",
+      "ceo_text2": "Michael a commencé son parcours académique à <strong>Deril Academy</strong> à Ibadan, État d'Oyo. Il a développé ses compétences au <strong>SQI - College of ICT</strong> et poursuit actuellement son parcours à <strong>Lead City University</strong>, Ibadan où il continue de développer ses capacités techniques et de leadership.",
+      "ceo_text3": "Son esprit innovant, son dévouement à l'excellence et sa vision forte conduisent le succès de Mikky Technology dans la fourniture de services numériques de pointe pour les particuliers, les startups et les organisations.",
+      "ceo_quote": "\"La technologie devrait autonomiser, pas compliquer — construisons plus intelligemment.\"",
+      
+      // Projects section
+      "projects_title": "Nos projets accomplis",
+      "projects_text": "Nous avons livré avec succès une variété de solutions numériques. Voici quelques points forts de nos projets :",
+      "project1_desc": "Une boutique en ligne riche en fonctionnalités avec une interface conviviale, des passerelles de paiement sécurisées et une gestion des stocks.",
+      "project2_desc": "Une réplique visuellement exacte de la page web officielle de Zenith Bank, conçue à des fins éducatives.",
+      "project3_desc": "Une réplique fonctionnelle du site web du SQI College pour expliquer les offres ICT de l'institution.",
+      "tools": "Outils :",
+      "frontend": "Front-End :",
+      "backend": "Back-End :",
+      "view_project": "Voir le projet",
+      "view_more": "Voir plus de projets",
+      
+      // Contact section
+      "contact_title": "Construisons quelque chose de grand ensemble",
+      "contact_text": "Nous sommes prêts à transformer vos idées en réalité. Que ce soit un site web, une identité de marque ou une solution technologique — parlons-en !",
+      "whatsapp": "WhatsApp nous",
+      "email": "Envoyez-nous un email",
+      
+      // Footer
+      "company": "Entreprise",
+      "for_record": "Pour l'enregistrement",
+      "careers": "Carrières",
+      "about": "À propos",
+      "press": "Presse",
+      "blog": "Blog",
+      "jobs": "Emplois",
+      "communities": "Communautés",
+      "advertising": "Publicité",
+      "developers": "Développeurs",
+      "artists": "Pour les artistes",
+      "investors": "Investisseurs",
+      "partners": "Partenaires",
+      "vendors": "Fournisseurs",
+      "useful_links": "Liens utiles",
+      "mobile_app": "Application mobile gratuite",
+      "web_player": "Lecteur web",
+      "support": "Support",
+      "contact": "Contact",
+      "privacy": "Confidentialité",
+      "terms": "Conditions",
+      "explore": "Explorer",
+      "about_us": "À propos de nous",
+      "quick_access": "Accès rapide",
+      "dashboard": "Tableau de bord",
+      "sign_in": "Se connecter",
+      "register": "S'inscrire",
+      "achievement": "Réalisation",
+      "follow_us": "Suivez-nous",
+      "copyright": "© 2025 Mikky Technology. Tous droits réservés.",
+      "privacy_policy": "Politique de confidentialité",
+      "terms_service": "Conditions d'utilisation",
+      "cookies": "Cookies"
+    },
+    es: {
+      // Navbar
+      "about": "Sobre nosotros",
+      "mission": "Misión",
+      "values": "Valores",
+      "accomplishment": "Logros",
+      "services": "Nuestros Servicios",
+      "location": "Ubicación",
+      "signup": "Registrarse",
+      "login": "Iniciar sesión",
+      "language": "Español",
+      "select_language": "Seleccionar idioma:",
+      "english": "Inglés",
+      "french": "Francés",
+      "spanish": "Español",
+      "yoruba": "Yoruba",
+      
+      // Header
+      "about_title": "Sobre Nosotros",
+      "about_subtitle": "Su socio de confianza en desarrollo web y soluciones digitales.",
+      "learn_more": "Aprender más",
+      
+      // Mission section
+      "mission_title": "Nuestra Misión",
+      "mission_text": "En Mikky Technology, nuestra misión es empoderar a las empresas con soluciones digitales de vanguardia que eleven su presencia y aceleren su crecimiento. Estamos comprometidos a combinar innovación, creatividad y experiencia técnica para ofrecer resultados que importan.",
+      "mission_point1": "Empoderamiento digital",
+      "mission_desc1": "Proporcionando herramientas y plataformas para ayudar a los clientes a tener éxito en línea.",
+      "mission_point2": "Aceleración del crecimiento",
+      "mission_desc2": "Ayudando a las empresas a crecer a través de tecnología web estratégica e inteligente.",
+      
+      // Values section
+      "values_title": "Nuestros Valores",
+      "values_text": "En Mikky Technology, nuestros valores guían cada proyecto, asociación y producto que creamos.",
+      "value1_title": "Innovación",
+      "value1_desc": "Adoptamos nuevas tecnologías para ofrecer soluciones digitales inteligentes, creativas y efectivas.",
+      "value2_title": "Integridad",
+      "value2_desc": "La confianza se construye a través de la transparencia y la colaboración honesta en todo lo que hacemos.",
+      "value3_title": "Excelencia",
+      "value3_desc": "Buscamos resultados excepcionales manteniendo altos estándares y atención al detalle.",
+      "value4_title": "Enfoque al cliente",
+      "value4_desc": "Sus necesidades van primero — adaptamos cada solución para ofrecer satisfacción y resultados.",
+      
+      // CEO section
+      "ceo_title": "Conoce a nuestro CEO",
+      "ceo_text1": "<strong>Michael Ayodeji Oliyide</strong> es el fundador visionario y CEO de <strong>Mikky Technology</strong>. Es un desarrollador web experto y especialista en soluciones digitales con pasión por convertir ideas en realidades escalables.",
+      "ceo_text2": "Michael comenzó su trayectoria académica en <strong>Deril Academy</strong> en Ibadan, Estado de Oyo. Amplió sus habilidades en <strong>SQI - College of ICT</strong> y actualmente continúa su viaje en <strong>Lead City University</strong>, Ibadan donde sigue desarrollando sus capacidades técnicas y de liderazgo.",
+      "ceo_text3": "Su mentalidad innovadora, dedicación a la excelencia y fuerte visión impulsan el éxito de Mikky Technology en la provisión de servicios digitales de vanguardia para individuos, startups y organizaciones.",
+      "ceo_quote": "\"La tecnología debería empoderar, no complicar — construyamos de manera más inteligente.\"",
+      
+      // Projects section
+      "projects_title": "Nuestros Proyectos Realizados",
+      "projects_text": "Hemos entregado con éxito una variedad de soluciones digitales. A continuación se muestran algunos aspectos destacados de los proyectos:",
+      "project1_desc": "Una tienda en línea con muchas funciones, con interfaz fácil de usar, pasarelas de pago seguras y gestión de inventario.",
+      "project2_desc": "Una réplica visualmente precisa de la página web oficial de Zenith Bank, diseñada con fines educativos.",
+      "project3_desc": "Una réplica funcional del sitio web del SQI College para explicar las ofertas de ICT de la institución.",
+      "tools": "Herramientas:",
+      "frontend": "Front-End:",
+      "backend": "Back-End:",
+      "view_project": "Ver Proyecto",
+      "view_more": "Ver Más Proyectos",
+      
+      // Contact section
+      "contact_title": "Construyamos algo grandioso juntos",
+      "contact_text": "Estamos listos para convertir tus ideas en realidad. Ya sea un sitio web, identidad de marca o una solución tecnológica — ¡hablemos!",
+      "whatsapp": "WhatsApp",
+      "email": "Envíanos un correo",
+      
+      // Footer
+      "company": "Empresa",
+      "for_record": "Para el registro",
+      "careers": "Carreras",
+      "about": "Sobre",
+      "press": "Prensa",
+      "blog": "Blog",
+      "jobs": "Trabajos",
+      "communities": "Comunidades",
+      "advertising": "Publicidad",
+      "developers": "Desarrolladores",
+      "artists": "Para artistas",
+      "investors": "Inversores",
+      "partners": "Socios",
+      "vendors": "Proveedores",
+      "useful_links": "Enlaces útiles",
+      "mobile_app": "Aplicación móvil gratuita",
+      "web_player": "Reproductor web",
+      "support": "Soporte",
+      "contact": "Contacto",
+      "privacy": "Privacidad",
+      "terms": "Términos",
+      "explore": "Explorar",
+      "about_us": "Sobre Nosotros",
+      "quick_access": "Acceso rápido",
+      "dashboard": "Tablero",
+      "sign_in": "Iniciar sesión",
+      "register": "Registrarse",
+      "achievement": "Logro",
+      "follow_us": "Síguenos",
+      "copyright": "© 2025 Mikky Technology. Todos los derechos reservados.",
+      "privacy_policy": "Política de privacidad",
+      "terms_service": "Términos de servicio",
+      "cookies": "Cookies"
+    },
+    yo: {
+      // Navbar
+      "about": "Nipa wa",
+      "mission": "Iṣẹlẹ",
+      "values": "Awọn iye",
+      "accomplishment": "Awọn iṣẹ-ṣiṣe",
+      "services": "Awọn iṣẹ wa",
+      "location": "Ibi",
+      "signup": "Forukọsilẹ",
+      "login": "Wo ile",
+      "language": "Yorùbá",
+      "select_language": "Yan ede:",
+      "english": "Gẹẹsi",
+      "french": "Faranse",
+      "spanish": "Sipanisi",
+      "yoruba": "Yorùbá",
+      
+      // Header
+      "about_title": "Nipa Wa",
+      "about_subtitle": "Ẹgbẹ ti o ni igbẹkẹle rẹ ni iṣelọpọ oju opo wẹẹbu ati awọn ọna asopọ oni-nọmba.",
+      "learn_more": "Kọ sii",
+      
+      // Mission section
+      "mission_title": "Iṣẹlẹ Wa",
+      "mission_text": "Ni Mikky Technology, iṣẹlẹ wa ni lati ṣe agbara awọn iṣowo pẹlu awọn ọna asopọ oni-nọmba ti o ga ti o ṣe idagbasoke iwọle wọn. A ni ifọkansi lati ṣe afikun iṣẹ-ṣiṣe, iṣẹ-ọna, ati iṣẹ-ogbon lati mu awọn abajade ti o ṣe pataki.",
+      "mission_point1": "Agbara Oni-nọmba",
+      "mission_desc1": "Fifun awọn irinṣẹ ati awọn ibugbe lati ran awọn alabara lọwọ lati ṣe aṣeyọri lori ayelujara.",
+      "mission_point2": "Idagbasoke Iṣowo",
+      "mission_desc2": "Ṣiṣe iranlọwọ fun awọn iṣowo lati dagba nipasẹ ẹkọ iṣẹ-ogbon ati oye ti o ni imọran.",
+      
+      // Values section
+      "values_title": "Awọn Iye Wa",
+      "values_text": "Ni Mikky Technology, awọn iye wa ṣe itọsọna gbogbo iṣẹ-ṣiṣe, alafaramo, ati ọja ti a ṣẹda.",
+      "value1_title": "Iṣẹ-ṣiṣe",
+      "value1_desc": "A gba awọn ẹkọ tuntun mu lati fi awọn ọna asopọ oni-nọmba ti o ni oye, ti o ni iṣẹ-ọna, ati ti o ṣiṣẹ lọwọ.",
+      "value2_title": "Iṣọtọ",
+      "value2_desc": "Igbagbọkọle ti a ṣe nipasẹ ifihan ati iṣẹ-ṣiṣe ti o daju ninu gbogbo ohun ti a ṣe.",
+      "value3_title": "Dara julọ",
+      "value3_desc": "A npa lọ si awọn abajade ti o yatọ si nipasẹ fifi awọn iwọn giga ati ifojusi si awọn alaye.",
+      "value4_title": "Ifojusi Alabara",
+      "value4_desc": "Awọn ibeere rẹ ni akọkọ — a ṣe atunṣe gbogbo ọna asopọ lati fi idunnu ati awọn abajade mu.",
+      
+      // CEO section
+      "ceo_title": "Pade Wa CEO",
+      "ceo_text1": "<strong>Michael Ayodeji Oliyide</strong> ni oludasile oludamoran ati CEO ti <strong>Mikky Technology</strong>. O jẹ oniṣẹ oju opo wẹẹbu ti o ni oye ati amọye ti o ni ifẹ si iṣọpọ awọn ero si awọn otitọ ti o le ṣe atunṣe.",
+      "ceo_text2": "Michael bẹrẹ irin ajo ẹkọ rẹ ni <strong>Deril Academy</strong> ni Ibadan, Ipinle Oyo. O fa awọn oye rẹ si iwọn ni <strong>SQI - College of ICT</strong> ati lọwọlọwọ n fa irin ajo rẹ si iwọn ni <strong>Lead City University</strong>, Ibadan nibiti o n tẹsiwaju lati dagba awọn agbara imọ-ẹrọ ati iṣakoso rẹ.",
+      "ceo_text3": "Okan rẹ ti o ni imudara, ifọkansi si iduroṣinṣin, ati iran ti o lagbara ṣe idari aṣeyọri Mikky Technology ninu fifun awọn iṣẹ oni-nọmba ti o ga fun awọn eniyan, awọn iṣowo tuntun, ati awọn ajọ.",
+      "ceo_quote": "\"Ẹkọ-ẹrọ yẹ ki o ṣe agbara, kii ṣe lati ṣe lile — jẹ ki a kọ ni oye.\"",
+      
+      // Projects section
+      "projects_title": "Awọn Iṣẹ-ṣiṣe Wa Ti A Ṣe Aṣeyọri",
+      "projects_text": "A ti fi awọn ọna asopọ oni-nọmba oriṣiriṣi silẹ ni aṣeyọri. Nisalẹ ni awọn aami diẹ ti awọn iṣẹ-ṣiṣe:",
+      "project1_desc": "Ile itaja ayelujara ti o kun fun awọn ẹya pẹlu aaye ti o rọrun fun lilo, awọn ẹnu-ọna isanwo ti o ni aabo, ati iṣakoso oja.",
+      "project2_desc": "Ẹda ti o ṣe deede ti oju-iwe Zenith Bank ti o wa lori ayelujara, ti a ṣe apẹrẹ fun awọn idi ẹkọ.",
+      "project3_desc": "Ẹda ti o ṣiṣẹ ti oju-iwe SQI College lati ṣalaye awọn ẹbun ICT ti ile-ẹkọ naa.",
+      "tools": "Awọn irinṣẹ:",
+      "frontend": "Iwaju-ọna:",
+      "backend": "Ẹhin-ọna:",
+      "view_project": "Wo Iṣẹ-ṣiṣe",
+      "view_more": "Wo Diẹ sii Iṣẹ-ṣiṣe",
+      
+      // Contact section
+      "contact_title": "Jẹ Ki A Kọ Nkan Nla Pọ",
+      "contact_text": "A ṣetan lati yi awọn ero rẹ pada si otitọ. Boya oju opo wẹẹbu, aami iṣowo, tabi ọna asopọ ẹkọ — jẹ ki a sọrọ!",
+      "whatsapp": "Wa lori WhatsApp",
+      "email": "Fi imeeli ranṣẹ si wa",
+      
+      // Footer
+      "company": "Ile-iṣẹ",
+      "for_record": "Fun iwe-akọọlẹ",
+      "careers": "Awọn iṣẹ-ṣiṣe",
+      "about": "Nipa",
+      "press": "Iroyin",
+      "blog": "Bulọọgi",
+      "jobs": "Awọn iṣẹ",
+      "communities": "Awọn agbegbe",
+      "advertising": "Itanilẹnu",
+      "developers": "Awọn oludagbasoke",
+      "artists": "Fun awọn onise-ona",
+      "investors": "Awọn oludokoowo",
+      "partners": "Awọn alabaṣepọ",
+      "vendors": "Awọn olutaja",
+      "useful_links": "Awọn ọna asopọ wulo",
+      "mobile_app": "Ohun elo Alagbeka Ọfẹ",
+      "web_player": "Ẹrọ Afẹyinti Ojula",
+      "support": "Atilẹyin",
+      "contact": "Kan si",
+      "privacy": "Ikọkọ",
+      "terms": "Awọn ofin",
+      "explore": "Ṣawari",
+      "about_us": "Nipa wa",
+      "quick_access": "Wiwọle Ni Kiakia",
+      "dashboard": "Dasibodu",
+      "sign_in": "Wọle",
+      "register": "Forukọsilẹ",
+      "achievement": "Iṣẹ-ṣiṣe",
+      "follow_us": "Tẹle wa",
+      "copyright": "© 2025 Mikky Technology. Gbogbo ẹtọ wa ni ipamọ.",
+      "privacy_policy": "Ilana Ikọkọ",
+      "terms_service": "Awọn ofin iṣẹ",
+      "cookies": "Awọn kuki"
+    }
+  };
+
+  // Function to change language
+  function changeLanguage(lang) {
+    // Set the selected language in localStorage
+    localStorage.setItem('selectedLanguage', lang);
+    
+    // Update the current language display
+    document.getElementById('current-language').textContent = translations[lang]['language'];
+    
+    // Update all elements with data-translate attribute
+    document.querySelectorAll('[data-translate]').forEach(element => {
+      const key = element.getAttribute('data-translate');
+      if (translations[lang][key]) {
+        if (element.tagName === 'INPUT' && element.type === 'text') {
+          element.placeholder = translations[lang][key];
+        } else if (element.tagName === 'INPUT' && element.type === 'email') {
+          element.placeholder = translations[lang][key];
+        } else if (element.tagName === 'TEXTAREA') {
+          element.placeholder = translations[lang][key];
+        } else {
+          element.textContent = translations[lang][key];
+        }
+      }
+    });
+    
+    // Update mobile language selector
+    document.getElementById('mobile-language-select').value = lang;
+  }
+
+  // Initialize language from localStorage or default to English
+  document.addEventListener('DOMContentLoaded', function() {
+    const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    changeLanguage(savedLanguage);
+    
+    // Set up language toggle for desktop
+    document.querySelectorAll('.language-option').forEach(option => {
+      option.addEventListener('click', function(e) {
+        e.preventDefault();
+        const lang = this.getAttribute('data-lang');
+        changeLanguage(lang);
+      });
+    });
+    
+    // Set up language selector for mobile
+    document.getElementById('mobile-language-select').addEventListener('change', function() {
+      changeLanguage(this.value);
+    });
+  });
+</script>
 
 <script>
   const navbar = document.getElementById("navbar");
@@ -494,7 +995,7 @@ html, body {
     }
   });
 </script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>AOS.init();</script>
 </body>
-</html>
+</html> 

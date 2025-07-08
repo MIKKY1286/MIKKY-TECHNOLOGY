@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Register - Mikky Technology</title>
+  <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet"/>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+    }
+    .language-selector {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      z-index: 100;
+    }
+    .language-dropdown {
+      display: none;
+      position: absolute;
+      right: 0;
+      background-color: white;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px 0;
+      min-width: 120px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    }
+    .language-dropdown a {
+      display: block;
+      padding: 5px 15px;
+      color: #333;
+      text-decoration: none;
+    }
+    .language-dropdown a:hover {
+      background-color: #f5f5f5;
+    }
+    .show-dropdown {
+      display: block;
+    }
+  </style>
+</head>
+<body class="min-h-screen bg-white flex items-center justify-center">
+
+  <!-- Language Selector -->
+  <div class="language-selector">
+    <button id="languageBtn" class="flex items-center gap-2 px-3 py-2 bg-gray-100 rounded-lg hover:bg-gray-200">
+      <i class='bx bx-globe text-lg'></i>
+      <span id="currentLanguage">English</span>
+      <i class='bx bx-chevron-down'></i>
+    </button>
+    <div id="languageDropdown" class="language-dropdown">
+      <a href="#" data-lang="en">English</a>
+      <a href="#" data-lang="fr">Français</a>
+      <a href="#" data-lang="es">Español</a>
+      <a href="#" data-lang="yo">Yorùbá</a>
+    </div>
+  </div>
+
+  <div class="w-full max-w-6xl grid grid-cols-1 md:grid-cols-2 shadow-2xl rounded-xl overflow-hidden">
+    
+    <!-- Form Side -->
+    <div class="bg-white p-10">
+      <h2 class="text-3xl font-bold text-[#1e6138] mb-6">Create an Account</h2>
+      <form id="registerForm" class="space-y-6">
+        <div>
+          <label for="fullName" class="block text-sm font-medium text-gray-700">Full Name</label>
+          <input type="text" id="fullName" required
+            class="w-full px-4 py-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]" />
+        </div>
+
+        <div>
+          <label for="email" class="block text-sm font-medium text-gray-700">Email</label>
+          <input type="email" id="email" required
+            class="w-full px-4 py-3 mt-2 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]" />
+        </div>
+
+        <div>
+          <label for="password" class="block text-sm font-medium text-gray-700">Password</label>
+          <div class="relative mt-2">
+            <input type="password" id="password" required
+              class="w-full px-4 py-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-[#1e6138]" />
+            <i id="togglePassword" class='bx bx-show absolute top-3 right-4 text-xl text-gray-500 cursor-pointer'></i>
+          </div>
+        </div>
+
+        <button type="submit"
+          class="w-full bg-[#1e6138] hover:bg-green-800 text-white py-3 rounded-lg font-medium transition">
+          <span id="btnText">Register</span>
+          <span id="spinner" class="hidden ml-2 animate-spin border-2 border-white border-t-transparent rounded-full w-4 h-4 inline-block align-middle"></span>
+        </button>
+
+        <p class="mt-4 text-center">Already have an account ? <a class="text-green-600 hover:underline" href="../login page/index.html">Login</a></p>
+      </form>
+    </div>
+
+    <!-- Image/Illustration Side -->
+    <div class="hidden md:flex items-center justify-center bg-gradient-to-br from-green-100 to-white p-10">
+      <img src="../images/siginup.jpg" alt="Register illustration" class="max-w-full h-auto" />
+    </div>
+  </div>
+
+  <!-- Firebase Setup -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+    import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+    import { getFirestore, doc, setDoc, serverTimestamp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyAbBBWAa7Zh9NZAYIAiYBjGbB18hf-8pk0",
+      authDomain: "mikky-tech-sign-up-page.firebaseapp.com",
+      projectId: "mikky-tech-sign-up-page",
+      storageBucket: "mikky-tech-sign-up-page.firebasestorage.app",
+      messagingSenderId: "232441309522",
+      appId: "1:232441309522:web:0b0b4aa6b4e5a3a684728b"
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const auth = getAuth(app);
+    const db = getFirestore(app);
+
+    // Toggle Password
+    document.getElementById("togglePassword").addEventListener("click", function () {
+      const pwd = document.getElementById("password");
+      const type = pwd.type === "password" ? "text" : "password";
+      pwd.type = type;
+      this.classList.toggle("bx-show");
+      this.classList.toggle("bx-hide");
+    });
+
+    // Register Form Submit
+    document.getElementById("registerForm").addEventListener("submit", async function (e) {
+      e.preventDefault();
+
+      const btnText = document.getElementById("btnText");
+      const spinner = document.getElementById("spinner");
+
+      const fullName = document.getElementById("fullName").value.trim();
+      const email = document.getElementById("email").value.trim();
+      const password = document.getElementById("password").value;
+
+      btnText.textContent = "Registering...";
+      spinner.classList.remove("hidden");
+
+      try {
+        const cred = await createUserWithEmailAndPassword(auth, email, password);
+        const user = cred.user;
+
+        const role = email === "michaeloliyide86@gmail.com" ? "admin" : "client";
+
+        await setDoc(doc(db, "users", user.uid), {
+          fullName,
+          email,
+          role,
+          createdAt: serverTimestamp()
+        });
+
+        alert("Registration successful!");
+
+        window.location.href = role === "admin"
+          ? "../admin-dasboard/index.html"
+          : "../users-dashboard/index.html";
+
+      } catch (error) {
+        alert("Registration failed: " + error.message);
+      }
+
+      btnText.textContent = "Register";
+      spinner.classList.add("hidden");
+    });
+
+    // Language Toggle Logic
+    const languageBtn = document.getElementById("languageBtn");
+    const languageDropdown = document.getElementById("languageDropdown");
+    const currentLanguage = document.getElementById("currentLanguage");
+
+    // Toggle dropdown visibility
+    languageBtn.addEventListener("click", function(e) {
+      e.stopPropagation();
+      languageDropdown.classList.toggle("show-dropdown");
+    });
+
+    // Close dropdown when clicking outside
+    document.addEventListener("click", function() {
+      languageDropdown.classList.remove("show-dropdown");
+    });
+
+    // Language translations
+    const translations = {
+      en: {
+        title: "Create an Account",
+        fullName: "Full Name",
+        email: "Email",
+        password: "Password",
+        register: "Register",
+        haveAccount: "Already have an account?",
+        login: "Login"
+      },
+      fr: {
+        title: "Créer un compte",
+        fullName: "Nom complet",
+        email: "Email",
+        password: "Mot de passe",
+        register: "S'inscrire",
+        haveAccount: "Vous avez déjà un compte?",
+        login: "Connexion"
+      },
+      es: {
+        title: "Crear una cuenta",
+        fullName: "Nombre completo",
+        email: "Correo electrónico",
+        password: "Contraseña",
+        register: "Registrarse",
+        haveAccount: "¿Ya tienes una cuenta?",
+        login: "Iniciar sesión"
+      },
+      yo: {
+        title: "Ṣẹda iroyin",
+        fullName: "Orukọ gbogbo",
+        email: "Imeeli",
+        password: "Ọrọ igbaniwọle",
+        register: "Forukọsilẹ",
+        haveAccount: "Ṣe o ni akọọlẹ tẹlẹ?",
+        login: "Wo ile"
+      }
+    };
+
+    // Handle language selection
+    document.querySelectorAll("#languageDropdown a").forEach(item => {
+      item.addEventListener("click", function(e) {
+        e.preventDefault();
+        const lang = this.getAttribute("data-lang");
+        currentLanguage.textContent = this.textContent;
+        languageDropdown.classList.remove("show-dropdown");
+        
+        // Update all text elements
+        document.querySelector("h2").textContent = translations[lang].title;
+        document.querySelector("label[for='fullName']").textContent = translations[lang].fullName;
+        document.querySelector("label[for='email']").textContent = translations[lang].email;
+        document.querySelector("label[for='password']").textContent = translations[lang].password;
+        document.getElementById("btnText").textContent = translations[lang].register;
+        document.querySelector(".mt-4.text-center").innerHTML = 
+          `${translations[lang].haveAccount} <a class="text-green-600 hover:underline" href="../login page/index.html">${translations[lang].login}</a>`;
+      });
+    });
+  </script>
+
+</body>
+</html>

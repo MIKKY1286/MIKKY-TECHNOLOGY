@@ -1,174 +1,86 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en" class="dark">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Communities - Mikky Technology</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mikky Technology</title>
   <script src="https://cdn.tailwindcss.com"></script>
-  <script src="https://unpkg.com/lucide@latest"></script>
-  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00FFA3',
+            secondary: '#DC1FFF'
+          },
+          animation: {
+            pingGlow: 'pingGlow 2s ease-in-out infinite',
+            fadeIn: 'fadeIn 0.5s ease-out forwards'
+          },
+          keyframes: {
+            pingGlow: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0,255,163, 0.7)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 30px 5px rgba(0,255,163, 0.9)' }
+            },
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            }
+          }
+        }
+      }
+    };
+  </script>
   <style>
-    .icon { width: 24px; height: 24px; }
-    .community-card:hover .icon { transform: scale(1.2); transition: transform 0.3s; }
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
   </style>
 </head>
-<body class="bg-green-50 text-gray-800">
+<body class="dark text-white overflow-hidden">
 
-  <!-- Header -->
-  <header class="bg-white shadow py-6 text-center">
-    <h1 class="text-4xl font-extrabold text-[#1e6138]">Mikky Technology Communities</h1>
-    <p class="text-gray-600 mt-2">Connect. Collaborate. Grow Together.</p>
-  </header>
+  <!-- Maintenance Overlay -->
+  <div id="maintenance-popup" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center animate-fadeIn">
+    <div class="bg-white/10 border border-white/20 backdrop-blur-lg p-8 rounded-3xl text-center shadow-2xl max-w-md w-full relative">
 
-  <!-- Search Section -->
-  <section class="py-10 px-6 md:px-16">
-    <div class="max-w-3xl mx-auto text-center">
-      <input type="text" id="searchInput" placeholder="Search Communities..." class="w-full px-5 py-3 rounded-full border border-gray-300 focus:outline-[#1e6138] shadow-md" onkeyup="filterCards()" />
+      <!-- Glowing Icon -->
+      <div class="w-24 h-24 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-4 animate-pingGlow">
+        <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v2m0 4h.01M3.055 11H5.5a2 2 0 012 2v6h9v-6a2 2 0 012-2h2.445M15 3h-6a2 2 0 00-2 2v4h10V5a2 2 0 00-2-2z"/>
+        </svg>
+      </div>
+
+      <h2 class="text-3xl font-bold text-primary mb-2">Scheduled Maintenance</h2>
+      <p class="text-gray-300 mb-4">We're making some smart upgrades. Mikky Technology will be back online shortly.</p>
+
+      <a href="mailto:support@mikkytech.com" class="text-sm text-primary underline hover:text-secondary transition-all">Contact Support</a>
+
+      <!-- Close Button -->
+      <button onclick="closePopup()" class="absolute top-2 right-3 text-white hover:text-secondary text-xl font-bold">&times;</button>
+
+      <p class="text-xs text-gray-400 mt-6">— Mikky Technology Team</p>
     </div>
-  </section>
+  </div>
 
-  <!-- Communities Grid -->
-  <section class="px-6 md:px-16 pb-16">
-    <div id="communityGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-      
-      <!-- Template for community card -->
-      <a href="/communities/advertising.html" class="group community-card" data-title="advertising">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="megaphone" class="icon"></i>
-            <h2 class="text-xl font-bold">Advertising</h2>
-          </div>
-          <p>Join a network of advertisers, marketers, and brand promoters.</p>
-        </div>
-      </a>
+  <!-- Dummy Page Content Behind (Optional) -->
+  <div class="p-10 text-center">
+    <h1 class="text-4xl font-bold text-primary">Mikky Technology</h1>
+    <p class="text-gray-400 mt-2">Innovating the Smart World...</p>
+  </div>
 
-      <a href="/communities/developers.html" class="group community-card" data-title="developers">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="code" class="icon"></i>
-            <h2 class="text-xl font-bold">Developers</h2>
-          </div>
-          <p>Collaborate with software engineers, web devs, and app builders.</p>
-        </div>
-      </a>
-
-      <a href="/communities/artists.html" class="group community-card" data-title="artists">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="palette" class="icon"></i>
-            <h2 class="text-xl font-bold">For Artists</h2>
-          </div>
-          <p>Share art, designs, and illustrations with other creatives.</p>
-        </div>
-      </a>
-
-      <a href="/communities/investors.html" class="group community-card" data-title="investors">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="dollar-sign" class="icon"></i>
-            <h2 class="text-xl font-bold">Investors</h2>
-          </div>
-          <p>Network with financial backers and tech-focused investors.</p>
-        </div>
-      </a>
-
-      <a href="/communities/partners.html" class="group community-card" data-title="partners">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="handshake" class="icon"></i>
-            <h2 class="text-xl font-bold">Partners</h2>
-          </div>
-          <p>Explore B2B opportunities, alliances, and collaborations.</p>
-        </div>
-      </a>
-
-      <a href="/communities/vendors.html" class="group community-card" data-title="vendors">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="shopping-bag" class="icon"></i>
-            <h2 class="text-xl font-bold">Vendors</h2>
-          </div>
-          <p>Connect with digital and physical product sellers.</p>
-        </div>
-      </a>
-
-      <a href="/communities/gamers.html" class="group community-card" data-title="gamers">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="gamepad-2" class="icon"></i>
-            <h2 class="text-xl font-bold">Gamers</h2>
-          </div>
-          <p>Team up with developers, testers, and game streamers.</p>
-        </div>
-      </a>
-
-      <a href="/communities/content-creators.html" class="group community-card" data-title="content creators">
-        <div class="bg-white p-8 rounded-xl shadow hover:shadow-2xl transition" data-aos="fade-up">
-          <div class="flex gap-3 items-center text-[#1e6138] mb-3">
-            <i data-lucide="mic" class="icon"></i>
-            <h2 class="text-xl font-bold">Content Creators</h2>
-          </div>
-          <p>Grow and engage as vloggers, podcasters, or influencers.</p>
-        </div>
-      </a>
-
-    </div>
-  </section>
-
-  <!-- Join a Community Form -->
-  <section class="bg-white py-16 px-6">
-    <div class="max-w-xl mx-auto text-center" data-aos="fade-up">
-      <h2 class="text-3xl font-bold text-[#1e6138] mb-4">Join a Community</h2>
-      <p class="text-gray-600 mb-6">Fill the form and we’ll contact you with more details.</p>
-      <form id="communityForm" onsubmit="sendToWhatsApp(); return false;" class="space-y-4 text-left">
-        <input type="text" id="name" required placeholder="Full Name" class="w-full border border-gray-300 rounded px-4 py-2"/>
-        <input type="email" id="email" required placeholder="Email Address" class="w-full border border-gray-300 rounded px-4 py-2"/>
-        <select id="community" required class="w-full border border-gray-300 rounded px-4 py-2">
-          <option value="">Select Community</option>
-          <option>Advertising</option>
-          <option>Developers</option>
-          <option>For Artists</option>
-          <option>Gamers</option>
-          <option>Tech Writers</option>
-          <option>Investors</option>
-          <option>Partners</option>
-          <option>Vendors</option>
-        </select>
-        <textarea id="message" rows="4" placeholder="Why do you want to join?" class="w-full border border-gray-300 rounded px-4 py-2"></textarea>
-        <button type="submit" class="w-full bg-[#1e6138] text-white py-3 rounded font-medium hover:bg-green-800 transition">Submit via WhatsApp</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-[#1e6138] text-white py-8 text-center">
-    <p>&copy; 2025 Mikky Technology. All rights reserved.</p>
-  </footer>
-
-  <script src="https://unpkg.com/lucide@latest"></script>
   <script>
-    lucide.createIcons();
-    function filterCards() {
-      const input = document.getElementById("searchInput").value.toLowerCase();
-      const cards = document.querySelectorAll(".community-card");
-      cards.forEach(card => {
-        const title = card.getAttribute("data-title").toLowerCase();
-        card.style.display = title.includes(input) ? "block" : "none";
-      });
+    function closePopup() {
+      document.getElementById('maintenance-popup').style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
     }
 
-    function sendToWhatsApp() {
-      const name = document.getElementById("name").value;
-      const email = document.getElementById("email").value;
-      const community = document.getElementById("community").value;
-      const message = document.getElementById("message").value;
-
-      const text = `Hello Mikky Tech,%0AI'm interested in joining the *${community}* community.%0A%0A*Name:* ${name}%0A*Email:* ${email}%0A*Message:* ${message}`;
-      window.open(`https://wa.me/2347012345678?text=${encodeURIComponent(text)}`, "_blank");
-    }
+    // Optional: Trigger it after delay instead of immediately
+     setTimeout(() => {
+       document.getElementById('maintenance-popup').style.display = 'flex';
+     }, 1000);
   </script>
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-  <script>AOS.init();</script>
 
 </body>
 </html>
