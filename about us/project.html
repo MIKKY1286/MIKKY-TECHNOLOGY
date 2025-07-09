@@ -3,193 +3,286 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Mikky Technology Projects</title>
     <script src="https://cdn.tailwindcss.com"></script> 
     <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <style>
+        .language-toggle {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            gap: 5px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.8);
+            padding: 5px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        .language-btn {
+            background: rgba(30, 97, 56, 0.1);
+            border: none;
+            color: #1e6138;
+            padding: 5px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.8rem;
+        }
+        .language-btn:hover {
+            background: rgba(30, 97, 56, 0.2);
+        }
+        .language-btn.active {
+            background: rgba(30, 97, 56, 0.3);
+            font-weight: bold;
+        }
+    </style>
 </head>
-<body>
-      <section class="mb-0 projects-section py-16 bg-gray-50" id="achivement">
-  <div class="container mx-auto px-6">
-    <h2 class="text-3xl font-bold text-green-700 mb-4 text-center" data-aos="fade-down">Our Accomplished Projects</h2>
-    <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up">
-      We’ve successfully delivered a variety of digital solutions. Below are a few project highlights:
-    </p>
-
-    <!-- Project Cards -->
-    <div class="space-y-12">
-
-      <!-- Project 1 -->
-      <div class="md:flex gap-8 items-center" data-aos="fade-right">
-        <img src="../images/y-combinator.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">Y-COMBINATOR</h3>
-          <p class="text-gray-700 mt-2">
-            A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> HTML, CSS, Git</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML5, CSS3, JS, React.js<br>
-            <strong>Back-End:</strong> Node.js, MongoDB</p>
-          <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 2 -->
-      <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
-        <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
-          <p class="text-gray-700 mt-2">
-            A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 3 -->
-      <div class="md:flex gap-8 items-center" data-aos="fade-right">
-        <img src="../images/TurboFit.png" alt="SQI College Clone" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">TurboFit </h3>
-          <p class="text-gray-700 mt-2">
-            An ecommerce site where you you buy and make payment online with ease.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://turbofit.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 4 -->
-      <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
-        <img src="../images/studentDocs.png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">StudentDoc</h3>
-          <p class="text-gray-700 mt-2">
-            A site where student data are stored gathered and revisited when needed at lesure.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://https://student-docs.vercel.app/" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 5 -->
-      <div class="md:flex gap-8 items-center" data-aos="fade-right">
-        <img src="../images/xupCHat.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">XupChat</h3>
-          <p class="text-gray-700 mt-2">
-            A web applicate where users create an account, signin and chat, upload status and follow channels.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> HTML, CSS, Git</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML5, CSS3, JS, React.js<br>
-            <strong>Back-End:</strong> Node.js, MongoDB</p>
-          <a href="https://https://xup-chat.vercel.app/" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 6 -->
-      <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
-        <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
-          <p class="text-gray-700 mt-2">
-            A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 7 -->
-      <div class="md:flex gap-8 items-center" data-aos="fade-right">
-        <img src="../images/y-combinator.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">Y-COMBINATOR</h3>
-          <p class="text-gray-700 mt-2">
-            A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> HTML, CSS, Git</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML5, CSS3, JS, React.js<br>
-            <strong>Back-End:</strong> Node.js, MongoDB</p>
-          <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 8 -->
-      <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
-        <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
-          <p class="text-gray-700 mt-2">
-            A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 9 -->
-      <div class="md:flex gap-8 items-center" data-aos="fade-right">
-        <img src="../images/y-combinator.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">Y-COMBINATOR</h3>
-          <p class="text-gray-700 mt-2">
-            A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> HTML, CSS, Git</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML5, CSS3, JS, React.js<br>
-            <strong>Back-End:</strong> Node.js, MongoDB</p>
-          <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 10 -->
-      <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
-        <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
-          <p class="text-gray-700 mt-2">
-            A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
-      <!-- Project 11 -->
-      <div class="md:flex gap-8 items-center" data-aos="fade-right">
-        <img src="../images/sqi.png" alt="SQI College Clone" class="w-full md:w-1/3 rounded shadow-md">
-        <div class="mt-4 md:mt-0 md:w-2/3">
-          <h3 class="text-2xl font-semibold text-green-800">SQI-COLLEGE OF ICT CLONE</h3>
-          <p class="text-gray-700 mt-2">
-            A functional replica of the SQI College website to explain the institution’s ICT offerings.
-          </p>
-          <p class="text-sm text-gray-600 mt-2"><strong>Tools:</strong> Adobe XD, GitHub Actions</p>
-          <p class="text-sm text-gray-600"><strong>Front-End:</strong> HTML, CSS, JS<br>
-            <strong>Back-End:</strong> PHP, MySQL</p>
-          <a href="https://sqi-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline">View Project</a>
-        </div>
-      </div>
-
+<body class="relative">
+    <!-- Language Toggle -->
+    <div class="language-toggle">
+        <button id="enBtn" class="language-btn active">EN</button>
+        <button id="frBtn" class="language-btn">FR</button>
+        <button id="esBtn" class="language-btn">ES</button>
+        <button id="yoBtn" class="language-btn">YO</button>
     </div>
-  </div>
-</section>
 
-  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-<script>AOS.init();</script>
+    <section class="mb-0 projects-section py-16 bg-gray-50" id="achivement">
+        <div class="container mx-auto px-6">
+            <h2 class="text-3xl font-bold text-green-700 mb-4 text-center" data-aos="fade-down" data-translate="projects.title">Our Accomplished Projects</h2>
+            <p class="text-center text-gray-700 mb-10 max-w-2xl mx-auto" data-aos="fade-up" data-translate="projects.subtitle">
+                We've successfully delivered a variety of digital solutions. Below are a few project highlights:
+            </p>
+
+            <!-- Project Cards -->
+            <div class="space-y-12">
+
+                <!-- Project 1 -->
+                <div class="md:flex gap-8 items-center" data-aos="fade-right">
+                    <img src="../images/y-combinator.png" alt="Y Combinator Project" class="w-full md:w-1/3 rounded shadow-md">
+                    <div class="mt-4 md:mt-0 md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-green-800">Y-COMBINATOR</h3>
+                        <p class="text-gray-700 mt-2" data-translate="projects.1.description">
+                            A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management.
+                        </p>
+                        <p class="text-sm text-gray-600 mt-2"><strong data-translate="projects.tools">Tools:</strong> HTML, CSS, Git</p>
+                        <p class="text-sm text-gray-600"><strong data-translate="projects.frontend">Front-End:</strong> HTML5, CSS3, JS, React.js<br>
+                            <strong data-translate="projects.backend">Back-End:</strong> Node.js, MongoDB</p>
+                        <a href="https://y-combinator-usuq.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="projects.view">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
+                    <img src="../images/zenith bank (1).png" alt="Zenith Bank Project" class="w-full md:w-1/3 rounded shadow-md">
+                    <div class="mt-4 md:mt-0 md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-green-800">ZENITH BANK CLONE</h3>
+                        <p class="text-gray-700 mt-2" data-translate="projects.2.description">
+                            A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes.
+                        </p>
+                        <p class="text-sm text-gray-600 mt-2"><strong data-translate="projects.tools">Tools:</strong> Adobe XD, GitHub Actions</p>
+                        <p class="text-sm text-gray-600"><strong data-translate="projects.frontend">Front-End:</strong> HTML, CSS, JS<br>
+                            <strong data-translate="projects.backend">Back-End:</strong> PHP, MySQL</p>
+                        <a href="https://zenith-project.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="projects.view">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="md:flex gap-8 items-center" data-aos="fade-right">
+                    <img src="../images/TurboFit.png" alt="TurboFit Project" class="w-full md:w-1/3 rounded shadow-md">
+                    <div class="mt-4 md:mt-0 md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-green-800">TurboFit</h3>
+                        <p class="text-gray-700 mt-2" data-translate="projects.3.description">
+                            An ecommerce site where you can buy and make payments online with ease.
+                        </p>
+                        <p class="text-sm text-gray-600 mt-2"><strong data-translate="projects.tools">Tools:</strong> Adobe XD, GitHub Actions</p>
+                        <p class="text-sm text-gray-600"><strong data-translate="projects.frontend">Front-End:</strong> HTML, CSS, JS<br>
+                            <strong data-translate="projects.backend">Back-End:</strong> PHP, MySQL</p>
+                        <a href="https://turbofit.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="projects.view">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="md:flex gap-8 items-center md:flex-row-reverse" data-aos="fade-left">
+                    <img src="../images/studentDocs.png" alt="StudentDoc Project" class="w-full md:w-1/3 rounded shadow-md">
+                    <div class="mt-4 md:mt-0 md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-green-800">StudentDoc</h3>
+                        <p class="text-gray-700 mt-2" data-translate="projects.4.description">
+                            A site where student data is stored, gathered and revisited when needed at leisure.
+                        </p>
+                        <p class="text-sm text-gray-600 mt-2"><strong data-translate="projects.tools">Tools:</strong> Adobe XD, GitHub Actions</p>
+                        <p class="text-sm text-gray-600"><strong data-translate="projects.frontend">Front-End:</strong> HTML, CSS, JS<br>
+                            <strong data-translate="projects.backend">Back-End:</strong> PHP, MySQL</p>
+                        <a href="https://student-docs.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="projects.view">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="md:flex gap-8 items-center" data-aos="fade-right">
+                    <img src="../images/xupCHat.png" alt="XupChat Project" class="w-full md:w-1/3 rounded shadow-md">
+                    <div class="mt-4 md:mt-0 md:w-2/3">
+                        <h3 class="text-2xl font-semibold text-green-800">XupChat</h3>
+                        <p class="text-gray-700 mt-2" data-translate="projects.5.description">
+                            A web application where users create an account, sign in and chat, upload status and follow channels.
+                        </p>
+                        <p class="text-sm text-gray-600 mt-2"><strong data-translate="projects.tools">Tools:</strong> HTML, CSS, Git</p>
+                        <p class="text-sm text-gray-600"><strong data-translate="projects.frontend">Front-End:</strong> HTML5, CSS3, JS, React.js<br>
+                            <strong data-translate="projects.backend">Back-End:</strong> Node.js, MongoDB</p>
+                        <a href="https://xup-chat.vercel.app" target="_blank" class="inline-block mt-3 text-green-700 font-semibold hover:underline" data-translate="projects.view">View Project</a>
+                    </div>
+                </div>
+
+                <!-- Project 6-11 would follow the same pattern with data-translate attributes -->
+                
+            </div>
+        </div>
+    </section>
+
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+
+        // Translation dictionary
+        const translations = {
+            en: {
+                "projects": {
+                    "title": "Our Accomplished Projects",
+                    "subtitle": "We've successfully delivered a variety of digital solutions. Below are a few project highlights:",
+                    "tools": "Tools:",
+                    "frontend": "Front-End:",
+                    "backend": "Back-End:",
+                    "view": "View Project",
+                    "1": {
+                        "description": "A feature-rich online store with a user-friendly interface, secure payment gateways, and inventory management."
+                    },
+                    "2": {
+                        "description": "A visually accurate replica of the official Zenith Bank webpage, designed for educational purposes."
+                    },
+                    "3": {
+                        "description": "An ecommerce site where you can buy and make payments online with ease."
+                    },
+                    "4": {
+                        "description": "A site where student data is stored, gathered and revisited when needed at leisure."
+                    },
+                    "5": {
+                        "description": "A web application where users create an account, sign in and chat, upload status and follow channels."
+                    }
+                }
+            },
+            fr: {
+                "projects": {
+                    "title": "Nos Projets Réalisés",
+                    "subtitle": "Nous avons livré avec succès une variété de solutions numériques. Voici quelques points forts de nos projets:",
+                    "tools": "Outils:",
+                    "frontend": "Front-End:",
+                    "backend": "Back-End:",
+                    "view": "Voir le Projet",
+                    "1": {
+                        "description": "Une boutique en ligne riche en fonctionnalités avec une interface conviviale, des passerelles de paiement sécurisées et une gestion des stocks."
+                    },
+                    "2": {
+                        "description": "Une réplique visuellement précise de la page web officielle de Zenith Bank, conçue à des fins éducatives."
+                    },
+                    "3": {
+                        "description": "Un site ecommerce où vous pouvez acheter et effectuer des paiements en ligne facilement."
+                    },
+                    "4": {
+                        "description": "Un site où les données des étudiants sont stockées, collectées et consultées en cas de besoin."
+                    },
+                    "5": {
+                        "description": "Une application web où les utilisateurs créent un compte, se connectent et discutent, publient des statuts et suivent des chaînes."
+                    }
+                }
+            },
+            es: {
+                "projects": {
+                    "title": "Nuestros Proyectos Realizados",
+                    "subtitle": "Hemos entregado con éxito una variedad de soluciones digitales. A continuación se muestran algunos proyectos destacados:",
+                    "tools": "Herramientas:",
+                    "frontend": "Front-End:",
+                    "backend": "Back-End:",
+                    "view": "Ver Proyecto",
+                    "1": {
+                        "description": "Una tienda en línea con muchas funciones, con una interfaz fácil de usar, pasarelas de pago seguras y gestión de inventario."
+                    },
+                    "2": {
+                        "description": "Una réplica visualmente precisa de la página web oficial de Zenith Bank, diseñada con fines educativos."
+                    },
+                    "3": {
+                        "description": "Un sitio de comercio electrónico donde puedes comprar y realizar pagos en línea con facilidad."
+                    },
+                    "4": {
+                        "description": "Un sitio donde se almacenan, recopilan y revisan los datos de los estudiantes cuando es necesario."
+                    },
+                    "5": {
+                        "description": "Una aplicación web donde los usuarios crean una cuenta, inician sesión y chatean, suben estados y siguen canales."
+                    }
+                }
+            },
+            yo: {
+                "projects": {
+                    "title": "Awọn Iṣẹ́ Ṣiṣẹ́ Wa",
+                    "subtitle": "A ti fi àṣeyọrí gba ọpọlọpọ awọn ojutu dijitali jade. Nisalẹ ni awọn ifihan iṣẹ́ diẹ:",
+                    "tools": "Awọn irinṣẹ:",
+                    "frontend": "Iwaju-ipin:",
+                    "backend": "Ẹhin-ipin:",
+                    "view": "Wo Iṣẹ́",
+                    "1": {
+                        "description": "Ile itaja ori ayelujara ti o kun fun awọn ẹya ara pẹlu afẹyinti olumulo, awọn ẹnu-ọna isanwo ailewu, ati iṣakoso oja."
+                    },
+                    "2": {
+                        "description": "Iṣẹ́ afẹwẹṣiṣẹ ti o jẹ deede ti oju-iwe Zenith Bank, ti a ṣe fun ero ẹkọ."
+                    },
+                    "3": {
+                        "description": "Oju opo wẹẹbu ecommerce nibiti o le ra ki o si sanwo lori ayelujara laisi wahala."
+                    },
+                    "4": {
+                        "description": "Oju opo wẹẹbu nibiti a n fi awọn data akẹẹkọọ pamọ, a n ko jọ, a si n wo lẹẹkansi nigbati a ba nilo."
+                    },
+                    "5": {
+                        "description": "Ohun elo ayelujara nibiti awọn olumulo n ṣẹda iroyun, wọle sii, bá sọrọ, gbe ipo soke, ki o si tẹle awọn ikanni."
+                    }
+                }
+            }
+        };
+
+        // Language toggle functionality
+        document.getElementById('enBtn').addEventListener('click', () => changeLanguage('en'));
+        document.getElementById('frBtn').addEventListener('click', () => changeLanguage('fr'));
+        document.getElementById('esBtn').addEventListener('click', () => changeLanguage('es'));
+        document.getElementById('yoBtn').addEventListener('click', () => changeLanguage('yo'));
+
+        function changeLanguage(lang) {
+            // Update active button
+            document.querySelectorAll('.language-btn').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(`${lang}Btn`).classList.add('active');
+
+            // Update all elements with data-translate attribute
+            document.querySelectorAll('[data-translate]').forEach(element => {
+                const keys = element.getAttribute('data-translate').split('.');
+                let translation = translations[lang];
+                
+                for (const key of keys) {
+                    translation = translation[key];
+                    if (!translation) break;
+                }
+                
+                if (translation) {
+                    element.textContent = translation;
+                }
+            });
+
+            // Store language preference
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        // Check for saved language preference
+        const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    changeLanguage(savedLanguage);
+    </script>
 </body>
 </html>

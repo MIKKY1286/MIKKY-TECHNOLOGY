@@ -6,7 +6,6 @@
   <title>Locate Us - Mikky Technology</title>
   <script src="https://cdn.tailwindcss.com"></script> 
   <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
-  <link rel="shortcut icon" href="../images/mikky-tech.svg" type="image/x-icon">
   <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
   <style>
@@ -99,10 +98,10 @@
           <i class='bx bx-chevron-down'></i>
         </a>
         <div id="languageDropdown" class="absolute right-0 top-full w-32 bg-white/90 rounded shadow-md z-50 hidden group-hover:block">
-          <a href="#" data-lang="en" class="block px-4 py-2 hover:bg-gray-200 text-black">English</a>
-          <a href="#" data-lang="fr" class="block px-4 py-2 hover:bg-gray-200 text-black">Français</a>
-          <a href="#" data-lang="es" class="block px-4 py-2 hover:bg-gray-200 text-black">Español</a>
-          <a href="#" data-lang="yo" class="block px-4 py-2 hover:bg-gray-200 text-black">Yorùbá</a>
+          <a href="#" data-lang="en" class="block px-4 py-2 hover:bg-gray-200 text-black language-option">English</a>
+          <a href="#" data-lang="fr" class="block px-4 py-2 hover:bg-gray-200 text-black language-option">Français</a>
+          <a href="#" data-lang="es" class="block px-4 py-2 hover:bg-gray-200 text-black language-option">Español</a>
+          <a href="#" data-lang="yo" class="block px-4 py-2 hover:bg-gray-200 text-black language-option">Yorùbá</a>
         </div>
       </li>
     </ul>
@@ -128,13 +127,12 @@
     
     <!-- Mobile Language Selector -->
     <li class="relative group">
-      <a class="block text-sm text-black hover:text-green-600" id="mobileLanguage">Language</a>
-      <div class="absolute hidden group-hover:block mt-2 bg-white/90 rounded shadow-md min-w-[160px] z-50">
-        <a href="#" data-lang="en" class="block px-4 py-2 hover:bg-gray-200 text-black">English</a>
-        <a href="#" data-lang="fr" class="block px-4 py-2 hover:bg-gray-200 text-black">Français</a>
-        <a href="#" data-lang="es" class="block px-4 py-2 hover:bg-gray-200 text-black">Español</a>
-        <a href="#" data-lang="yo" class="block px-4 py-2 hover:bg-gray-200 text-black">Yorùbá</a>
-      </div>
+      <select id="mobile-language-select" class="block text-sm text-black hover:text-green-600 bg-transparent border-none">
+        <option value="en">English</option>
+        <option value="fr">Français</option>
+        <option value="es">Español</option>
+        <option value="yo">Yorùbá</option>
+      </select>
     </li>
     
     <li><a class="block text-sm text-black hover:text-green-600" href="../signup page/index.html" id="mobileSignup">Sign up</a></li>
@@ -463,7 +461,6 @@
         mobileAccomplishment: "Accomplishment",
         mobileServices: "Our Services",
         mobileLocation: "Location",
-        mobileLanguage: "Language",
         mobileSignup: "Sign up",
         mobileLogin: "Log in",
         
@@ -550,7 +547,6 @@
         mobileAccomplishment: "Réalisations",
         mobileServices: "Nos Services",
         mobileLocation: "Localisation",
-        mobileLanguage: "Langue",
         mobileSignup: "S'inscrire",
         mobileLogin: "Se connecter",
         
@@ -637,7 +633,6 @@
         mobileAccomplishment: "Logros",
         mobileServices: "Nuestros Servicios",
         mobileLocation: "Ubicación",
-        mobileLanguage: "Idioma",
         mobileSignup: "Registrarse",
         mobileLogin: "Iniciar sesión",
         
@@ -724,7 +719,6 @@
         mobileAccomplishment: "Aṣeyọri",
         mobileServices: "Awọn iṣẹ wa",
         mobileLocation: "Ibi",
-        mobileLanguage: "Ede",
         mobileSignup: "Forukọsilẹ",
         mobileLogin: "Wo ile",
         
@@ -797,43 +791,50 @@
       }
     };
 
-    // Language toggle functionality
-    const languageBtn = document.getElementById('languageBtn');
-    const languageDropdown = document.getElementById('languageDropdown');
-    const currentLanguage = document.getElementById('currentLanguage');
-
-    // Toggle dropdown visibility
-    languageBtn.addEventListener('click', (e) => {
-      e.stopPropagation();
-      languageDropdown.classList.toggle('show-dropdown');
-    });
-
-    // Close dropdown when clicking outside
-    document.addEventListener('click', () => {
-      languageDropdown.classList.remove('show-dropdown');
-    });
-
-    // Handle language selection
-    document.querySelectorAll('#languageDropdown a').forEach(item => {
-      item.addEventListener('click', function(e) {
-        e.preventDefault();
-        const lang = this.getAttribute('data-lang');
-        currentLanguage.textContent = this.textContent;
-        languageDropdown.classList.remove('show-dropdown');
-
-        localStorage.setItem('selectedLanguage', lang);
-        
-        // Update all text elements with translations
-        for (const [key, value] of Object.entries(translations[lang])) {
-          const element = document.getElementById(key);
-          if (element) {
-            if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
-              element.value = value;
-            } else {
-              element.innerHTML = value;
-            }
+    // Function to change language
+    function changeLanguage(lang) {
+      // Save selected language to localStorage
+      localStorage.setItem('selectedLanguage', lang);
+      
+      // Update current language display
+      document.getElementById('currentLanguage').textContent = 
+        lang === 'en' ? 'English' : 
+        lang === 'fr' ? 'Français' : 
+        lang === 'es' ? 'Español' : 'Yorùbá';
+      
+      // Update mobile language selector
+      document.getElementById('mobile-language-select').value = lang;
+      
+      // Update all text elements with translations
+      for (const [key, value] of Object.entries(translations[lang])) {
+        const element = document.getElementById(key);
+        if (element) {
+          if (element.tagName === 'INPUT' || element.tagName === 'TEXTAREA') {
+            element.value = value;
+          } else {
+            element.innerHTML = value;
           }
         }
+      }
+    }
+
+    // Initialize language from localStorage or default to English
+    document.addEventListener('DOMContentLoaded', function() {
+      const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+      changeLanguage(savedLanguage);
+      
+      // Set up language toggle for desktop
+      document.querySelectorAll('.language-option').forEach(option => {
+        option.addEventListener('click', function(e) {
+          e.preventDefault();
+          const lang = this.getAttribute('data-lang');
+          changeLanguage(lang);
+        });
+      });
+      
+      // Set up language selector for mobile
+      document.getElementById('mobile-language-select').addEventListener('change', function() {
+        changeLanguage(this.value);
       });
     });
   </script>

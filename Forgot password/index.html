@@ -116,12 +116,12 @@
     };
 
     // Language toggle functionality
-    document.getElementById('enBtn').addEventListener('click', () => setLanguage('en'));
-    document.getElementById('frBtn').addEventListener('click', () => setLanguage('fr'));
-    document.getElementById('esBtn').addEventListener('click', () => setLanguage('es'));
-    document.getElementById('yoBtn').addEventListener('click', () => setLanguage('yo'));
+    document.getElementById('enBtn').addEventListener('click', () => changeLanguage('en'));
+    document.getElementById('frBtn').addEventListener('click', () => changeLanguage('fr'));
+    document.getElementById('esBtn').addEventListener('click', () => changeLanguage('es'));
+    document.getElementById('yoBtn').addEventListener('click', () => changeLanguage('yo'));
 
-    function setLanguage(lang) {
+    function changeLanguage(lang) {
       // Update active button
       document.querySelectorAll('.language-btn').forEach(btn => {
         btn.classList.remove('active');
@@ -141,13 +141,13 @@
       });
 
       // Store language preference
-      localStorage.setItem('preferredLanguage', lang);
+      localStorage.setItem('selectedLanguage', lang);
     }
 
     // Check for saved language preference
-    const savedLang = localStorage.getItem('preferredLanguage');
-    if (savedLang && translations[savedLang]) {
-      setLanguage(savedLang);
+    const savedLanguage = localStorage.getItem('selectedLanguage');
+    if (savedLanguage && translations[savedLanguage]) {
+      changeLanguage(savedLanguage);
     }
   </script>
 
@@ -177,8 +177,8 @@
       const email = document.getElementById("email").value.trim();
 
       // Get current language for messages
-      const currentLang = localStorage.getItem('preferredLanguage') || 'en';
-      const messages = translations[currentLang];
+      const savedLanguage = localStorage.getItem('selectedLanguage') || 'en';
+    changeLanguage(savedLanguage);
 
       btnText.textContent = currentLang === 'en' ? "Sending..." : 
                           currentLang === 'fr' ? "Envoi en cours..." :
