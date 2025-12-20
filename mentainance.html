@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" class="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mikky Technology</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          colors: {
+            primary: '#00FFA3',
+            secondary: '#DC1FFF'
+          },
+          animation: {
+            pingGlow: 'pingGlow 2s ease-in-out infinite',
+            fadeIn: 'fadeIn 0.5s ease-out forwards'
+          },
+          keyframes: {
+            pingGlow: {
+              '0%, 100%': { transform: 'scale(1)', boxShadow: '0 0 0 0 rgba(0,255,163, 0.7)' },
+              '50%': { transform: 'scale(1.05)', boxShadow: '0 0 30px 5px rgba(0,255,163, 0.9)' }
+            },
+            fadeIn: {
+              '0%': { opacity: 0 },
+              '100%': { opacity: 1 }
+            }
+          }
+        }
+      }
+    };
+  </script>
+  <style>
+    body {
+      background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
+    }
+  </style>
+</head>
+<body class="dark text-white overflow-hidden">
+
+  <!-- Maintenance Overlay -->
+  <div id="maintenance-popup" class="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-center justify-center animate-fadeIn">
+    <div class="bg-white/10 border border-white/20 backdrop-blur-lg p-8 rounded-3xl text-center shadow-2xl max-w-md w-full relative">
+
+      <!-- Glowing Icon -->
+      <div class="w-24 h-24 mx-auto bg-primary/20 rounded-full flex items-center justify-center mb-4 animate-pingGlow">
+        <svg class="w-12 h-12 text-primary" fill="none" stroke="currentColor" stroke-width="1.5" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round"
+                d="M12 9v2m0 4h.01M3.055 11H5.5a2 2 0 012 2v6h9v-6a2 2 0 012-2h2.445M15 3h-6a2 2 0 00-2 2v4h10V5a2 2 0 00-2-2z"/>
+        </svg>
+      </div>
+
+      <h2 class="text-3xl font-bold text-primary mb-2">Scheduled Maintenance</h2>
+      <p class="text-gray-300 mb-4">We're making some smart upgrades. Mikky Technology will be back online shortly.</p>
+
+      <a href="mailto:support@mikkytech.com" class="text-sm text-primary underline hover:text-secondary transition-all">Contact Support</a>
+
+      <!-- Close Button -->
+      <button onclick="closePopup()" class="absolute top-2 right-3 text-white hover:text-secondary text-xl font-bold">&times;</button>
+
+      <p class="text-xs text-gray-400 mt-6">— Mikky Technology Team</p>
+    </div>
+  </div>
+
+  <!-- Dummy Page Content Behind (Optional) -->
+  <div class="p-10 text-center">
+    <h1 class="text-4xl font-bold text-primary">Mikky Technology</h1>
+    <p class="text-gray-400 mt-2">Innovating the Smart World...</p>
+  </div>
+
+  <script>
+    function closePopup() {
+      document.getElementById('maintenance-popup').style.display = 'none';
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    // Optional: Trigger it after delay instead of immediately
+     setTimeout(() => {
+       document.getElementById('maintenance-popup').style.display = 'flex';
+     }, 1000);
+  </script>
+
+</body>
+</html>
