@@ -129,10 +129,16 @@
 <!-- january hero section update -->
 <section id="hero" class="relative h-screen flex items-center justify-center text-white overflow-hidden">
   <!-- Background Video -->
-  <video autoplay muted loop playsinline class="absolute inset-0 w-full h-full object-cover z-0">
-    <source src="./video/hero-video.mp4" type="video/mp4">
-    Your browser does not support HTML5 video.
-  </video>
+<video id="heroVideo" autoplay muted loop playsinline
+  class="absolute inset-0 w-full h-full object-cover z-0">
+  <source src="./video/MIKKY-TECHNOLOGY-HERO.mp4" type="video/mp4">
+</video>
+
+<!-- <button id="soundToggle"
+  class="absolute bottom-6 right-6 z-10 bg-green-600 text-white px-4 py-2 rounded">
+  Unmute
+</button> -->
+
   <!-- Overlay -->
   <div class="absolute inset-0 bg-black/60 z-10"></div>
   <!-- Content -->
@@ -1051,6 +1057,21 @@
   });
 </script>
 
+<!-- hero-section video  -->
+
+<script>
+  const video = document.getElementById("heroVideo")
+  const btn = document.getElementById("soundToggle")
+
+  btn.addEventListener("click", () => {
+    video.muted = false
+    video.volume = 1
+    video.play()
+    btn.textContent = "Mute"
+  })
+</script>
+
+
 <script src="./script.js"></script>
 
 
@@ -1087,6 +1108,9 @@
       background: linear-gradient(135deg, #0f0c29, #302b63, #24243e);
     }
   </style>
+
+  <!-- hero-section video  -->
+   
 </head>
 
 
